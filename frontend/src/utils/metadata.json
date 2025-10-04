@@ -1,0 +1,5 @@
+
+{
+  "name": "UniTimetableAI",
+  "description": "A modern web application to solve the Curriculum-Based Timetabling Problem (CB-CTT) using AI. It provides separate interfaces for teachers to submit their availability and for academic coordinators to manage curriculum, infrastructure, and generate optimized schedules."
+}

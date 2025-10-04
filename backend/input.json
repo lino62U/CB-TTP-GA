@@ -1,0 +1,163 @@
+{
+  "metadata": {
+    "universidad": "Universidad Nacional de San Agustín de Arequipa",
+    "escuela": "Ingeniería de Sistemas",
+    "semestre": "2025-I",
+    "curriculo": "Segundo Semestre",
+    "duracion_bloque_min": 50,
+    "inicio_jornada": "07:00",
+    "fin_jornada": "21:10"
+  },
+
+  "periodos": [
+    "LUN_07:00_07:50", "LUN_07:50_08:40", "LUN_08:50_09:40", "LUN_09:40_10:30", "LUN_10:40_11:30", "LUN_11:30_12:20",
+    "MAR_07:00_07:50", "MAR_07:50_08:40", "MAR_08:50_09:40", "MAR_09:40_10:30", "MAR_10:40_11:30", "MAR_11:30_12:20",
+    "MIE_07:00_07:50", "MIE_07:50_08:40", "MIE_08:50_09:40", "MIE_09:40_10:30", "MIE_10:40_11:30", "MIE_11:30_12:20",
+    "JUE_07:00_07:50", "JUE_07:50_08:40", "JUE_08:50_09:40", "JUE_09:40_10:30", "JUE_10:40_11:30", "JUE_11:30_12:20",
+    "VIE_07:00_07:50", "VIE_07:50_08:40", "VIE_08:50_09:40", "VIE_09:40_10:30", "VIE_10:40_11:30", "VIE_11:30_12:20",
+    "LUN_14:00_14:50", "LUN_14:50_15:40", "LUN_15:50_16:40", "LUN_16:40_17:30", "LUN_17:40_18:30", "LUN_18:30_19:20", "LUN_19:20_20:10", 
+    "MAR_14:00_14:50", "MAR_14:50_15:40", "MAR_15:50_16:40", "MAR_16:40_17:30", "MAR_17:40_18:30", "MAR_18:30_19:20", "MAR_19:20_20:10",
+    "MIE_14:00_14:50", "MIE_14:50_15:40", "MIE_15:50_16:40", "MIE_16:40_17:30", "MIE_17:40_18:30", "MIE_18:30_19:20", "MIE_19:20_20:10",
+    "JUE_14:00_14:50", "JUE_14:50_15:40", "JUE_15:50_16:40", "JUE_16:40_17:30", "JUE_17:40_18:30", "JUE_18:30_19:20", "JUE_19:20_20:10", 
+    "VIE_14:00_14:50", "VIE_14:50_15:40", "VIE_15:50_16:40", "VIE_16:40_17:30", "VIE_17:40_18:30", "VIE_18:30_19:20", "VIE_19:20_20:10"
+  ],
+
+  "aulas": {
+    "teoricas": [
+      {"id": "T1", "capacidad": 40},
+      {"id": "T2", "capacidad": 40},
+      {"id": "T3", "capacidad": 35},
+      {"id": "T4", "capacidad": 50},
+      {"id": "T5", "capacidad": 45}
+    ],
+    "laboratorios": [
+      {"id": "LAB1", "nombre": "Laboratorio de Programación Científica 1", "capacidad": 25},
+      {"id": "LAB2", "nombre": "Laboratorio de Programación Científica 2", "capacidad": 25},
+      {"id": "LAB3", "nombre": "Laboratorio Expandible de Programación Científica", "capacidad": 30}
+    ]
+  },
+
+  "profesores": {
+    "Alvaro": {
+      "cursos": ["CLOUD COMPUTING"],
+      "disponibilidad": ["LUN_08:50_09:40", "LUN_09:40_10:30", "MAR_08:50_09:40", "MAR_09:40_10:30", "MIE_14:00_14:50", "MIE_14:50_15:40"]
+    },
+    "Yessenia": {
+      "cursos": ["TRABAJO INTERDISCIPLINAR III"],
+      "disponibilidad": ["MAR_07:00_07:50", "MAR_07:50_08:40", "JUE_08:50_09:40", "JUE_09:40_10:30", "VIE_14:00_14:50"]
+    },
+    "Wilber": {
+      "cursos": ["PRACTICAS PRE PROFESIONALES"],
+      "disponibilidad": ["MIE_07:00_07:50", "MIE_07:50_08:40", "MIE_08:50_09:40", "JUE_14:00_14:50", "JUE_14:50_15:40"]
+    },
+    "Percy": {
+      "cursos": ["ROBOTICA (E)", "INTERNET DE LAS COSAS"],
+      "disponibilidad": ["LUN_10:40_11:30", "LUN_11:30_12:20", "MAR_10:40_11:30", "MAR_11:30_12:20", "JUE_14:50_15:40"]
+    },
+    "Rolando": {
+      "cursos": ["TOPICOS EN CIBERSEGURIDAD (E)"],
+      "disponibilidad": ["MAR_15:50_16:40", "MAR_16:40_17:30", "MIE_15:50_16:40", "MIE_16:40_17:30"]
+    },
+    "Juan Carlos": {
+      "cursos": ["TRABAJO DE INVESTIGACIÓN"],
+      "disponibilidad": ["JUE_08:50_09:40", "JUE_09:40_10:30", "VIE_08:50_09:40", "VIE_09:40_10:30"]
+    }
+  },
+
+  "cursos": [
+    {
+      "codigo": "1705265",
+      "nombre": "CLOUD COMPUTING",
+      "creditos": 4,
+      "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 2},
+      "prerrequisitos": ["1705157"],
+      "profesor": "Alvaro",
+      "aula_tipo": "LAB",
+      "estudiantes": 30
+    },
+    {
+      "codigo": "1705267",
+      "nombre": "TRABAJO INTERDISCIPLINAR III",
+      "creditos": 2,
+      "horas": {"teoricas": 1, "practicas": 2, "laboratorio": 0},
+      "prerrequisitos": ["1703240", "1704254"],
+      "profesor": "Yessenia",
+      "aula_tipo": "T",
+      "estudiantes": 40
+    },
+    {
+      "codigo": "1705268",
+      "nombre": "INTERNET DE LAS COSAS",
+      "creditos": 3,
+      "horas": {"teoricas": 1, "practicas": 2, "laboratorio": 2},
+      "prerrequisitos": ["1704250"],
+      "profesor": "Percy",
+      "aula_tipo": "LAB",
+      "estudiantes": 25
+    },
+    {
+      "codigo": "1705269",
+      "nombre": "ROBOTICA (E)",
+      "creditos": 4,
+      "horas": {"teoricas": 2, "practicas": 0, "laboratorio": 4},
+      "prerrequisitos": ["1705162"],
+      "profesor": "Percy",
+      "aula_tipo": "LAB",
+      "estudiantes": 20
+    },
+    {
+      "codigo": "1705270",
+      "nombre": "TOPICOS EN CIBERSEGURIDAD (E)",
+      "creditos": 4,
+      "horas": {"teoricas": 2, "practicas": 0, "laboratorio": 4},
+      "prerrequisitos": ["1704251"],
+      "profesor": "Rolando",
+      "aula_tipo": "LAB",
+      "estudiantes": 25
+    },
+    {
+      "codigo": "1705271",
+      "nombre": "PRACTICAS PRE PROFESIONALES",
+      "creditos": 2,
+      "horas": {"teoricas": 0, "practicas": 4, "laboratorio": 0},
+      "profesor": "Wilber",
+      "aula_tipo": "T",
+      "estudiantes": 50
+    },
+    {
+      "codigo": "1705272",
+      "nombre": "TRABAJO DE INVESTIGACIÓN",
+      "creditos": 6,
+      "horas": {"teoricas": 3, "practicas": 6, "laboratorio": 0},
+      "prerrequisitos": ["1705156"],
+      "profesor": "Juan Carlos",
+      "aula_tipo": "T",
+      "estudiantes": 40
+    }
+  ],
+
+  "curriculos": {
+    "Segundo Semestre": ["1705265", "1705267", "1705268", "1705269", "1705270", "1705271", "1705272"]
+  },
+
+  "preferencias": {
+    "turno_preferido": "mañana",
+    "dias_preferidos": ["LUN", "MAR", "MIE"],
+    "bloques_preferidos": ["07:00_07:50", "07:50_08:40", "08:50_09:40", "09:40_10:30", "10:40_11:30", "11:30_12:20"]
+  },
+
+  "pesos": {
+    "restricciones_duras": {
+      "no_solapamiento_profesor": 1000,
+      "no_solapamiento_aula": 900,
+      "disponibilidad_profesor": 800,
+      "capacidad_aula": 700
+    },
+    "restricciones_blandas": {
+      "turno_preferido_estudiante": 200,
+      "minimizacion_huecos": 150,
+      "distribucion_balanceada": 100,
+      "uso_optimo_aulas": 100
+    }
+  }
+}
