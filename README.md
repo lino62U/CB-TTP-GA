@@ -1,23 +1,7 @@
 # CB-TTP-GA - Sistema de Programación de Horarios Universitarios con Algoritmos Genéticos
 
-## INFORME TÉCNICO COMPLETO Y DETALLADO
 
----
 
-## RESUMEN EJECUTIVO
-
-**CB-TTP-GA** (Curriculum Builder - Timetable Problem - Genetic Algorithm) es un sistema full-stack avanzado diseñado para resolver automáticamente el **Problema de Programación de Horarios Universitarios** (University Timetabling Problem - UTP) utilizando **Algoritmos Genéticos**. 
-
-El sistema combina una interfaz web moderna con un potente motor de optimización para generar horarios académicos óptimos que satisfacen múltiples restricciones complejas.
-
-### Objetivos del Sistema
-- **Automatizar** la creación de horarios universitarios
-- **Optimizar** la asignación de recursos (aulas, profesores, períodos)
-- **Resolver conflictos** de programación en tiempo real
-- **Proporcionar flexibilidad** para diferentes configuraciones académicas
-- **Minimizar** el trabajo manual de coordinadores académicos
-
----
 
 ## ARQUITECTURA DEL SISTEMA
 
