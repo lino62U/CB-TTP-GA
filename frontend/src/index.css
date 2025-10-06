@@ -1,3 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+
+
+/* Si quieres agregar algún estilo global adicional, lo haces aquí */
+body {
+  font-family: sans-serif;
+}

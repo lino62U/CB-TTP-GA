@@ -13,8 +13,14 @@ const AvailabilitySection: React.FC<AvailabilitySectionProps> = ({
   availability,
   onAvailabilityChange,
 }) => (
-  <Card title="Disponibilidad Horaria" description="Seleccione los bloques en los que está disponible para dictar clases.">
-    <AvailabilityGrid availability={availability} setAvailability={onAvailabilityChange} />
+  <Card  title="Disponibilidad Horaria" description="Seleccione los bloques en los que está disponible para dictar clases.">
+    <AvailabilityGrid availability={availability} setAvailability={(value) => {
+      if (typeof value === 'function') {
+        onAvailabilityChange(value(availability));
+      } else {
+        onAvailabilityChange(value);
+      }
+    }} />
   </Card>
 );
 

@@ -81,8 +81,6 @@ const CoordinatorPage: React.FC = () => {
     try {
       const transformedSchedules = await runScheduleAlgorithm(currentParams);
       setSchedules(transformedSchedules);
-    } catch (error) {
-      throw error; // Propaga para que AlgorithmRunner lo maneje
     } finally {
       setIsLoading(false);
     }
