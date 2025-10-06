@@ -1,0 +1,36 @@
+services:
+  db:
+    image: postgres:16
+    container_name: unsa_schedules_db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: unsa_schedules
+    ports:
+      - "5432:5432"
+    volumes:
+      - unsa_data:/var/lib/postgresql/data
+    networks:
+      - unsa_net
+
+  backend:
+    build: ./app
+    container_name: unsa_backend
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgresql+psycopg2://admin:admin@db:5432/unsa_schedules
+    ports:
+      - "8000:8000"
+    networks:
+      - unsa_net
+    volumes:
+      - ./app:/app
+
+networks:
+  unsa_net:
+
+volumes:
+  unsa_data:

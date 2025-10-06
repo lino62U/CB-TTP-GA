@@ -1,180 +1,198 @@
-// prisma/seed.ts
 import { PrismaClient } from "@prisma/client";
-import fs from "fs/promises";
+import fs from "fs";
 import path from "path";
-
-type ProfesorInfo = {
-  cursos: string[];
-  disponibilidad: string[];
-  preferencia: string;
-};
-
-type CurriculoData = Record<string, string[]>; // nombre del año => lista de códigos de cursos
 
 const prisma = new PrismaClient();
 
-async function main() {
-  const dataPath = path.join(__dirname, "data.json");
-  const rawData = await fs.readFile(dataPath, "utf-8");
-  const data = JSON.parse(rawData);
+type ProfessorJSON = {
+  cursos: string[];
+  disponibilidad?: string[];
+  preferencia?: string;
+};
 
-  // 1️⃣ University Metadata
-  const uni = await prisma.universityMetadata.create({
+
+async function main() {
+  // Leer el JSON
+  const filePath = path.join(__dirname, "data.json");
+  const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+
+  // -------------------------
+  // 1️⃣ Metadata
+  // -------------------------
+  await prisma.universityMetadata.create({
     data: {
       university_name: data.metadata.universidad,
       school_name: data.metadata.escuela,
       semester_code: data.metadata.semestre,
       curriculum_name: data.metadata.curriculo,
       block_duration_min: data.metadata.duracion_bloque_min,
-      day_start_time: new Date(`1970-01-01T${data.metadata.inicio_jornada}:00.000Z`),
-      day_end_time: new Date(`1970-01-01T${data.metadata.fin_jornada}:00.000Z`),
+      day_start_time: new Date(`1970-01-01T${data.metadata.inicio_jornada}:00Z`),
+      day_end_time: new Date(`1970-01-01T${data.metadata.fin_jornada}:00Z`),
     },
   });
 
-  // 2️⃣ TimeSlots
-  const timeSlotMap: Record<string, number> = {}; // "LUN_07:00_07:50" => id
-  for (const p of data.periodos) {
-    if (!p) continue;
-    const [day, start, end] = p.split("_");
-    const ts = await prisma.timeSlot.create({
+  // -------------------------
+  // 2️⃣ TimeSlots (periodos)
+  // -------------------------
+  for (const periodo of data.periodos) {
+    const [day, start, end] = periodo.split("_");
+    await prisma.timeSlot.create({
       data: {
         day_of_week: day,
-        start_time: new Date(`1970-01-01T${start}:00.000Z`),
-        end_time: new Date(`1970-01-01T${end}:00.000Z`),
+        start_time: new Date(`1970-01-01T${start}:00Z`),
+        end_time: new Date(`1970-01-01T${end}:00Z`),
       },
     });
-    timeSlotMap[p] = ts.id;
   }
 
+  // -------------------------
   // 3️⃣ Classrooms
-  const classroomMap: Record<string, number> = {};
-  for (const t of data.aulas.teoricas) {
-    const c = await prisma.classroom.create({
-      data: {
-        room_code: t.id,
-        room_type: "THEORY",
-        capacity: t.capacidad,
-      },
-    });
-    classroomMap[t.id] = c.id;
-  }
-  for (const l of data.aulas.laboratorios) {
-    const c = await prisma.classroom.create({
-      data: {
-        room_code: l.id,
-        room_name: l.nombre,
-        room_type: "LAB",
-        capacity: l.capacidad,
-      },
-    });
-    classroomMap[l.id] = c.id;
-  }
-
-  // 4️⃣ Professors
-  const professorMap: Record<string, number> = {};
-  for (const [name, infoRaw] of Object.entries(data.profesores)) {
-    const info = infoRaw as ProfesorInfo; // 🔹 cast a tipo conocido
-
-    const prof = await prisma.professor.create({
-      data: {
-        name,
-        preferred_shift: info.preferencia,
-      },
-    });
-    professorMap[name] = prof.id;
-
-    // Disponibilidad
-    for (const p of info.disponibilidad) {
-      const tsId = timeSlotMap[p];
-      if (!tsId) continue;
-      await prisma.professorAvailability.create({
+  // -------------------------
+  const addRooms = async (rooms: any[], type: string) => {
+    for (const room of rooms) {
+      await prisma.classroom.create({
         data: {
-          professor_id: prof.id,
-          time_slot_id: tsId,
+          room_code: room.id,
+          room_name: room.nombre || room.id,
+          room_type: type,
+          capacity: room.capacidad,
         },
       });
     }
-  }
+  };
 
+  await addRooms(data.aulas.teoricas, "THEORY");
+  await addRooms(data.aulas.practicas, "PRACTICE");
+  await addRooms(data.aulas.laboratorios, "LAB");
+
+
+  // -------------------------
   // 5️⃣ Courses
-  const courseMap: Record<string, number> = {};
-  for (const c of data.cursos) {
-    const profId = professorMap[c.profesor] || undefined;
-    const course = await prisma.course.create({
-      data: {
-        course_code: c.codigo,
-        course_name: c.nombre,
-        credits: c.creditos,
-        theory_hours: c.horas.teoricas,
-        practice_hours: c.horas.practicas,
-        lab_hours: c.horas.laboratorio,
-        student_count: c.estudiantes,
-        classroom_type: c.aula_tipo,
-        professor_id: profId,
-      },
-    });
-    courseMap[c.codigo] = course.id;
+  // -------------------------
 
-    // Prerrequisitos
-    if (c.prerrequisitos) {
-      for (const pre of c.prerrequisitos) {
-        await prisma.coursePrerequisite.create({
-          data: {
-            course_id: course.id,
-            prerequisite_code: pre,
-          },
-        });
+  const yearMap: Record<string, number> = {
+    "primer_ano": 1,
+    "segundo_ano": 2,
+    "tercer_ano": 3,
+    "cuarto_ano": 4,
+    "quinto_ano": 5
+  };
+
+  // Primero guardamos todos los cursos y guardamos un map de código -> id
+  const courseCodeMap: Record<string, number> = {};
+
+  for (const yearObj of data.cursos) {
+    for (const [yearKey, yearData] of Object.entries(yearObj)) {
+      for (const [semesterKey, semesterCourses] of Object.entries(yearData as any)) {
+        for (const course of semesterCourses as any[]) {
+          const createdCourse = await prisma.course.create({
+            data: {
+              code: course.codigo,
+              name: course.nombre,
+              department: course.dpto_adscrito,
+              department2: course.dpto_adscrito2 || null,
+              department3: course.dpto_adscrito3 || null,
+              credits: course.creditos,
+              theory_hours: course.horas_teoria,
+              practice_hours: course.horas_practica,
+              total_hours: course.horas_total,
+              semi_hours: course.horas_semi,
+              lab_hours: course.horas_lab,
+              year: yearMap[yearKey],
+              semester: semesterKey == "primer_semestre" ? "A" : "B",
+            },
+          });
+          // Guardamos id para usarlo en prerequisitos
+          courseCodeMap[course.codigo] = createdCourse.id;
+        }
       }
     }
   }
-  // 6️⃣ Curricula con mapping de años
-  const yearMap: Record<string, number> = {
-    "Primer Año": 1,
-    "Segundo Año": 2,
-    "Tercer Año": 3,
-    "Cuarto Año": 4,
-    "Quinto Año": 5,
-  };
 
-  const curriculos = data.curriculos as CurriculoData;
+  // Luego recorremos de nuevo para agregar los prerequisitos
+  for (const yearObj of data.cursos) {
+    for (const [yearKey, yearData] of Object.entries(yearObj)) {
+      for (const [semesterKey, semesterCourses] of Object.entries(yearData as any)) {
+        for (const course of semesterCourses as any[]) {
+          if (course.prerequisitos?.length) {
+            for (const prereqCode of course.prerequisitos) {
+              const courseId = courseCodeMap[course.codigo];
+              const prereqCourseId = courseCodeMap[prereqCode];
+              if (courseId && prereqCourseId) {
+                await prisma.coursePrerequisite.create({
+                  data: {
+                    course_code: courseId,
+                    prerequisite_code: prereqCode, // aquí guardamos el código del prerequisito
+                  },
+                });
+              } else {
+                console.warn(`⚠️ Prerequisite not found for course ${course.codigo}: ${prereqCode}`);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // -------------------------
+  // 4️⃣ Professors
+  // -------------------------
+  for (const [profName, profDataRaw] of Object.entries(data.profesores)) {
+    const profData = profDataRaw as ProfessorJSON;
 
-  for (const [currName, coursesRaw] of Object.entries(curriculos)) {
-    const courses = coursesRaw as string[]; // 🔹 cast a array de string
-    let year = 1;
+    const professor = await prisma.professor.create({
+      data: {
+        name: profName,
+        preferred_shift: profData.preferencia || null,
+      },
+    });
 
-    // Mapea el nombre del año a un número
-    switch (currName.toLowerCase()) {
-      case "primer año": year = 1; break;
-      case "segundo año": year = 2; break;
-      case "tercer año": year = 3; break;
-      case "cuarto año": year = 4; break;
-      case "quinto año": year = 5; break;
+    // Disponibilidad del profesor
+    if (profData.disponibilidad?.length) {
+      for (const slot of profData.disponibilidad) {
+        const [day, start, end] = slot.split("_");
+        const timeSlot = await prisma.timeSlot.findFirst({
+          where: {
+            day_of_week: day,
+            start_time: new Date(`1970-01-01T${start}:00Z`),
+            end_time: new Date(`1970-01-01T${end}:00Z`),
+          },
+        });
+        if (timeSlot) {
+          await prisma.professorAvailability.create({
+            data: {
+              professor_id: professor.id,
+              time_slot_id: timeSlot.id,
+            },
+          });
+        }
+      }
     }
 
-    for (const code of courses) {
-      const courseId = courseMap[code];
-      if (!courseId) continue;
+    // 🔗 Relación con cursos (many-to-many)
+    if (profData.cursos?.length) {
+      for (const courseCode of profData.cursos) {
+        const course = await prisma.course.findUnique({
+          where: { code: courseCode },
+        });
 
-      await prisma.curriculum.create({
-        data: {
-          course_id: courseId,
-          year: year,
-          semester: "I", // o lo que corresponda
-        },
-      });
+        if (course) {
+          await prisma.professorCourse.create({
+            data: {
+              professorId: professor.id,
+              courseId: course.id,
+            },
+          });
+        } else {
+          console.warn(`⚠️ Course not found for code ${courseCode}`);
+        }
+      }
     }
   }
 
-
-
-  console.log("✅ Seed completed!");
+  console.log("✅ Database seeded successfully!");
 }
 
 main()
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+  .catch((e) => console.error(e))
+  .finally(async () => await prisma.$disconnect());

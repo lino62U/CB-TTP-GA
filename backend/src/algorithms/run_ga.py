@@ -1,17 +1,11 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Adaptador para leer el nuevo formato JSON desde stdin y retornar horarios en JSON.
-"""
-
 import json
 import sys
-import copy
 import random
+import copy
 import argparse
-from typing import Dict, List, Tuple, Any
 from collections import defaultdict
-from datetime import datetime, time
+from typing import Dict, List, Tuple, Any
 
 # Parámetros del GA
 POP_SIZE = 100
@@ -25,24 +19,14 @@ Period = str
 AulaID = str
 CourseCode = str
 
-# ---------------------------
-# Conversión del nuevo formato JSON al formato interno
-# ---------------------------
 def convert_input_format(new_data: Dict[str, Any]) -> Dict[str, Any]:
-    """
-    Convierte el nuevo formato JSON al formato interno que usa el GA.
-    """
+    """Convierte el JSON de entrada al formato interno del GA."""
     data = {}
     
-    # 1. Generar lista de periodos en formato interno "DIA_HH:MM_HH:MM"
-    day_map = {
-        "MON": "LUN", "TUE": "MAR", "WED": "MIE", 
-        "THU": "JUE", "FRI": "VIE", "SAT": "SAB", "SUN": "DOM"
-    }
-    
+    # 1. Generar lista de periodos
     periods_list = []
     for period in new_data['periods']:
-        day = day_map.get(period['day_of_week'], period['day_of_week'])
+        day = period['day_of_week']
         start = period['start_time']
         end = period['end_time']
         period_str = f"{day}_{start}_{end}"
@@ -56,7 +40,7 @@ def convert_input_format(new_data: Dict[str, Any]) -> Dict[str, Any]:
     for room in new_data['classrooms']:
         aulas_list.append({
             'id': room['room_code'],
-            'nombre': room['room_name'] or room['room_code'],
+            'nombre': room.get('room_name', room['room_code']),
             'tipo': classroom_type_map.get(room['room_type'], room['room_type']),
             'capacidad': room['capacity']
         })
@@ -65,197 +49,156 @@ def convert_input_format(new_data: Dict[str, Any]) -> Dict[str, Any]:
     # 3. Convertir profesores
     profs_map = {}
     for prof in new_data['professors']:
-        # Convertir disponibilidades al formato de periodo interno
         disponibilidad = []
         for avail in prof['availabilities']:
-            day = day_map.get(avail['day_of_week'], avail['day_of_week'])
+            day = avail['day_of_week']
             # Buscar periodos que coincidan con esta disponibilidad
             for p in periods_list:
                 if p.startswith(day + "_"):
                     parts = p.split("_")
                     p_start = parts[1]
                     p_end = parts[2]
-                    # Verificar si el periodo está dentro de la disponibilidad
                     if avail['start_time'] <= p_start and p_end <= avail['end_time']:
                         disponibilidad.append(p)
         
         profs_map[prof['name']] = {
             'id': prof['professor_id'],
             'nombre': prof['name'],
-            'disponibilidad': disponibilidad,
-            'preferencia': None  # Se puede agregar si está en los datos
+            'disponibilidad': disponibilidad
         }
     data['_profs_map'] = profs_map
     
-    # 4. Convertir cursos
+    # 4. Convertir cursos (dividiendo teoría y lab)
     courses_map = {}
+    course_counter = 0
+    
     for course in new_data['courses']:
-        # Calcular bloques necesarios
-        total_hours = course['hours']['theory'] + course['hours']['practice'] + course['hours']['lab']
-        blocks_needed = total_hours  # Asumiendo 1 bloque = 1 hora
+        theory_hours = course.get('theory_hours', 0)
+        lab_hours = course.get('lab_hours', 0)
         
-        # Encontrar nombre del profesor
-        prof_name = None
-        for prof in new_data['professors']:
-            if prof['professor_id'] == course['professor_id']:
-                prof_name = prof['name']
-                break
+        # Obtener lista de profesores
+        prof_ids = course.get('professors', [])
+        prof_names = []
+        for pid in prof_ids:
+            for prof in new_data['professors']:
+                if prof['professor_id'] == pid:
+                    prof_names.append(prof['name'])
+                    break
         
-        # Determinar tipo de aula requerido
-        aula_tipo = None
-        if course['hours']['lab'] > 0:
-            aula_tipo = 'LAB'
-        elif course['hours']['theory'] > 0 or course['hours']['practice'] > 0:
-            aula_tipo = 'T'
+        # Crear entrada para teoría si tiene horas de teoría
+        if theory_hours > 0:
+            course_code_theory = f"{course['course_code']}_T"
+            courses_map[course_code_theory] = {
+                'codigo': course_code_theory,
+                'nombre': f"{course['course_name']} (Teoría)",
+                'creditos': course['credits'],
+                'estudiantes': 30,  # Valor por defecto
+                'profesores': prof_names,
+                'aula_tipo': 'T',
+                '_blocks_needed': theory_hours,
+                'prerequisitos': course.get('prerequisites', []),
+                'original_code': course['course_code'],
+                'year': course['year']
+            }
         
-        courses_map[course['course_code']] = {
-            'codigo': course['course_code'],
-            'nombre': course['course_name'],
-            'creditos': course['credits'],
-            'horas_teoria': course['hours']['theory'],
-            'horas_practica': course['hours']['practice'],
-            'horas_laboratorio': course['hours']['lab'],
-            'estudiantes': course['student_count'],
-            'profesor': prof_name,
-            'aula_tipo': aula_tipo,
-            '_blocks_needed': blocks_needed,
-            'prerequisitos': course['prerequisites']
-        }
+        # Crear entrada para laboratorio si tiene horas de lab
+        if lab_hours > 0:
+            course_code_lab = f"{course['course_code']}_LAB"
+            courses_map[course_code_lab] = {
+                'codigo': course_code_lab,
+                'nombre': f"{course['course_name']} (Laboratorio)",
+                'creditos': course['credits'],
+                'estudiantes': 30,  # Valor por defecto
+                'profesores': prof_names,
+                'aula_tipo': 'LAB',
+                '_blocks_needed': lab_hours,
+                'prerequisitos': course.get('prerequisites', []),
+                'original_code': course['course_code'],
+                'year': course['year']
+            }
+    
     data['_courses_map'] = courses_map
     
-    # 5. Convertir currículos
-    curriculos = {}
-    course_to_currs = defaultdict(list)
-    
-    for curr_name, course_ids in new_data['curricula'].items():
-        # Convertir IDs a códigos de curso
-        course_codes = []
-        for course_id in course_ids:
-            # Buscar el código del curso por su ID
-            for course in new_data['courses']:
-                if course.get('id') == course_id or str(course.get('professor_id')) == str(course_id):
-                    # Intentar encontrar por código
-                    for code, cinfo in courses_map.items():
-                        if cinfo.get('nombre') == course['course_name']:
-                            course_codes.append(code)
-                            course_to_currs[code].append(curr_name)
-                            break
-        
-        # Si course_ids son directamente códigos de curso
-        if not course_codes:
-            for cid in course_ids:
-                cid_str = str(cid)
-                if cid_str in courses_map:
-                    course_codes.append(cid_str)
-                    course_to_currs[cid_str].append(curr_name)
-        
-        curriculos[curr_name] = course_codes
-    
-    data['curriculos'] = curriculos
-    data['_course_to_currs'] = dict(course_to_currs)
-    
-    # 6. Convertir preferencias
+    # 5. Preferencias
     data['preferencias'] = {
         'turno_preferido': new_data['preferences']['preferred_shift'].lower(),
-        'dias_preferidos': [day_map.get(d, d) for d in new_data['preferences'].get('preferred_days', [])],
+        'dias_preferidos': new_data['preferences'].get('preferred_days', []),
         'franjas_preferidas': new_data['preferences'].get('preferred_slots', [])
     }
     
-    # 7. Convertir pesos
-    pesos = {'M': 1000000}
-    hard_constraints = {}
-    soft_constraints = {}
+    # 6. Pesos (valores por defecto si no se proporcionan)
+    data['pesos'] = {
+        'M': 1000000,
+        'restricciones_duras': {
+            'no_solapamiento_profesor': 1000000,
+            'disponibilidad_profesor': 1000000,
+            'no_solapamiento_aula': 1000000,
+            'capacidad_aula': 1000000,
+            'tipo_aula': 1000000,
+            'carga_horaria': 1000000
+        },
+        'restricciones_blandas': {
+            'minimizacion_huecos': 5,
+            'turno_preferido_estudiante': 3,
+            'preferencia_profesor': 2,
+            'franjas_extremas': 1
+        }
+    }
     
-    for constraint in new_data['weights']['hard_constraints']:
-        hard_constraints[constraint['constraint_name']] = constraint['weight_value']
-    
-    for constraint in new_data['weights']['soft_constraints']:
-        soft_constraints[constraint['constraint_name']] = constraint['weight_value']
-    
-    pesos['restricciones_duras'] = hard_constraints
-    pesos['restricciones_blandas'] = soft_constraints
-    data['pesos'] = pesos
-    
-    # 8. Agregar metadatos
+    # 7. Metadatos
     data['metadata'] = new_data['metadata']
     
     return data
 
-
-def load_input(data: Dict[str, Any]) -> Dict[str, Any]:
-    """Preparación adicional de datos si es necesario"""
-    return data
-
-
-# ---------------------------
-# Generación aleatoria inicial
-# ---------------------------
-def random_assignment_for_course(course: Dict[str, Any], data: Dict[str, Any]) -> List[Tuple[Period, AulaID]]:
-    """
-    Genera una asignación aleatoria válida *en tipo de aula* (no garantiza duras).
-    Intenta asignar lab-blocks a LAB y teor/prac a T (si no hay disponibles, usa lo que exista).
-    """
+def random_assignment_for_course(course: Dict[str, Any], data: Dict[str, Any]) -> List[Tuple[Period, AulaID, str]]:
+    """Genera una asignación aleatoria para un curso (periodo, aula, profesor)."""
     blocks = course['_blocks_needed']
-    aula_type = course.get('aula_tipo', None)  # 'LAB' or 'T' or None
+    aula_type = course.get('aula_tipo', 'T')
     periods = data['periodos']
     aulas = data['_aulas_list']
-    # split aulas by tipo
-    labs = [a for a in aulas if a['tipo'] == 'LAB']
-    ts = [a for a in aulas if a['tipo'] == 'T']
+    profesores = course.get('profesores', [])
+    
+    # Filtrar aulas por tipo
+    aulas_filtradas = [a for a in aulas if a['tipo'] == aula_type]
+    if not aulas_filtradas:
+        aulas_filtradas = aulas
+    
     assignments = []
-    # strategy: attempt as many lab blocks in LAB as possible if aula_type == 'LAB'
     for b in range(blocks):
-        if aula_type == 'LAB':
-            if labs:
-                chosen_aula = random.choice(labs)['id']
-            else:
-                chosen_aula = random.choice(aulas)['id']
-        else:
-            # prefer T
-            if ts:
-                chosen_aula = random.choice(ts)['id']
-            else:
-                chosen_aula = random.choice(aulas)['id']
+        chosen_aula = random.choice(aulas_filtradas)['id']
         chosen_period = random.choice(periods)
-        assignments.append((chosen_period, chosen_aula))
+        chosen_prof = random.choice(profesores) if profesores else ""
+        assignments.append((chosen_period, chosen_aula, chosen_prof))
+    
     return assignments
 
-def random_individual(data: Dict[str, Any]) -> Dict[CourseCode, List[Tuple[Period, AulaID]]]:
+def random_individual(data: Dict[str, Any]) -> Dict[CourseCode, List[Tuple[Period, AulaID, str]]]:
+    """Genera un individuo aleatorio (solución inicial)."""
     ind = {}
     for code, course in data['_courses_map'].items():
         ind[code] = random_assignment_for_course(course, data)
     return ind
 
-# ---------------------------
-# Helpers para restricciones
-# ---------------------------
 def is_morning_period(period: Period) -> bool:
-    # period format: "LUN_07:00_07:50"
+    """Verifica si un periodo es por la mañana."""
     try:
         timepart = period.split('_')[1]
-    except Exception:
+        hour = int(timepart.split(':')[0])
+        return hour < 12
+    except:
         return True
-    hour = int(timepart.split(':')[0])
-    return hour < 12
 
 def get_day_of_period(period: Period) -> str:
+    """Extrae el día de un periodo."""
     return period.split('_')[0]
 
-# ---------------------------
-# Función de fitness (costo)
-# ---------------------------
-def evaluate(ind: Dict[str, List[Tuple[Period, AulaID]]], data: Dict[str, Any]) -> Tuple[float, Dict]:
-    """
-    Calcula la función objetivo: hard violations * M + sum(soft penalties)
-    Retorna (fitness_score, diagnostics_dict)
-    """
+def evaluate(ind: Dict[str, List[Tuple[Period, AulaID, str]]], data: Dict[str, Any]) -> Tuple[float, Dict]:
+    """Calcula el fitness de una solución."""
     M = data['pesos'].get('M', 1000000)
     hard_weights = data.get('pesos', {}).get('restricciones_duras', {})
     soft_weights = data.get('pesos', {}).get('restricciones_blandas', {})
 
-    # default fallbacks
     w_H = {
-        'H1': hard_weights.get('no_solapamiento_curriculo', M),
         'H2': hard_weights.get('no_solapamiento_profesor', M),
         'H3': hard_weights.get('disponibilidad_profesor', M),
         'H4': hard_weights.get('no_solapamiento_aula', M),
@@ -266,97 +209,75 @@ def evaluate(ind: Dict[str, List[Tuple[Period, AulaID]]], data: Dict[str, Any]) 
     w_S = {
         'S1': soft_weights.get('minimizacion_huecos', 5),
         'S2': soft_weights.get('turno_preferido_estudiante', 3),
-        'S3': soft_weights.get('preferencia_profesor', 2),
-        'S4': soft_weights.get('concentracion_diaria', 4),
-        'S5': soft_weights.get('balance_aulas', 1),
-        'S6': soft_weights.get('franjas_extremas', 1),
-        'S7': soft_weights.get('continuidad_curso', 2),
-        'S8': soft_weights.get('fuera_bloque_preferido', 4),
-        'S9': soft_weights.get('dias_extra', 2)
+        'S6': soft_weights.get('franjas_extremas', 1)
     }
 
     cost_hard = 0
     cost_soft = 0
     diagnostics = defaultdict(int)
 
-    # Precompute some maps for fast checks
     course_map = data['_courses_map']
     prof_map = data['_profs_map']
     aulas_map = {a['id']: a for a in data['_aulas_list']}
-    course_to_currs = data.get('_course_to_currs', {})
     
-    # 1) H1: Conflicto de currículo
-    period_courses = defaultdict(list)
-    for ccode, assigns in ind.items():
-        for (p, a) in assigns:
-            period_courses[p].append(ccode)
-    
-    for p, course_list in period_courses.items():
-        for i in range(len(course_list)):
-            for j in range(i+1, len(course_list)):
-                c1 = course_list[i]; c2 = course_list[j]
-                currs1 = set(course_to_currs.get(c1, []))
-                currs2 = set(course_to_currs.get(c2, []))
-                if currs1 & currs2:
-                    cost_hard += w_H['H1']
-                    diagnostics['H1_conflict'] += 1
-
-    # 2) H2: Conflicto de profesor
+    # H2: Conflicto de profesor
     prof_period_cnt = defaultdict(lambda: defaultdict(int))
     for ccode, assigns in ind.items():
-        prof_name = course_map[ccode].get('profesor')
-        for (p, a) in assigns:
-            prof_period_cnt[prof_name][p] += 1
+        for (p, a, prof) in assigns:
+            if prof:
+                prof_period_cnt[prof][p] += 1
+    
     for prof, permap in prof_period_cnt.items():
         for p, cnt in permap.items():
             if cnt > 1:
                 cost_hard += (cnt - 1) * w_H['H2']
                 diagnostics['H2_prof_conflict'] += (cnt - 1)
 
-    # 3) H3: Disponibilidad profesor
+    # H3: Disponibilidad profesor
     for ccode, assigns in ind.items():
-        prof_name = course_map[ccode].get('profesor')
-        prof_info = prof_map.get(prof_name, {})
-        available = set(prof_info.get('disponibilidad', []))
-        for (p, a) in assigns:
-            if available and p not in available:
-                cost_hard += w_H['H3']
-                diagnostics['H3_prof_unavailable'] += 1
+        for (p, a, prof) in assigns:
+            if prof and prof in prof_map:
+                available = set(prof_map[prof].get('disponibilidad', []))
+                if available and p not in available:
+                    cost_hard += w_H['H3']
+                    diagnostics['H3_prof_unavailable'] += 1
 
-    # 4) H4: Conflicto de aula
+    # H4: Conflicto de aula
     aula_period_cnt = defaultdict(lambda: defaultdict(int))
     for ccode, assigns in ind.items():
-        for (p, a) in assigns:
+        for (p, a, prof) in assigns:
             aula_period_cnt[a][p] += 1
+    
     for aula, permap in aula_period_cnt.items():
         for p, cnt in permap.items():
             if cnt > 1:
                 cost_hard += (cnt - 1) * w_H['H4']
                 diagnostics['H4_aula_conflict'] += (cnt - 1)
 
-    # 5) H5: Capacidad de aula
+    # H5: Capacidad de aula
     for ccode, assigns in ind.items():
         est = course_map[ccode].get('estudiantes', 30)
-        for (p, a) in assigns:
+        for (p, a, prof) in assigns:
             cap = aulas_map.get(a, {}).get('capacidad', 999)
             if est > cap:
                 cost_hard += w_H['H5']
                 diagnostics['H5_capacidad'] += 1
 
-    # 6) H6: Tipo de aula requerido
+    # H6: Tipo de aula requerido
     for ccode, assigns in ind.items():
         required = course_map[ccode].get('aula_tipo', None)
         if required:
-            for (p, a) in assigns:
+            for (p, a, prof) in assigns:
                 if a not in aulas_map:
-                    cost_hard += w_H['H6']; diagnostics['H6_missing_aula'] += 1; continue
+                    cost_hard += w_H['H6']
+                    diagnostics['H6_missing_aula'] += 1
+                    continue
                 atype = aulas_map[a]['tipo']
-                if required == 'LAB' and atype != 'LAB':
-                    cost_hard += w_H['H6']; diagnostics['H6_tipo_mismatch'] += 1
-                if required == 'T' and atype != 'T':
-                    cost_hard += w_H['H6']; diagnostics['H6_tipo_mismatch'] += 1
+                if required != atype:
+                    cost_hard += w_H['H6']
+                    diagnostics['H6_tipo_mismatch'] += 1
 
-    # 7) H7: Carga horaria del curso
+    # H7: Carga horaria del curso
     for ccode, assigns in ind.items():
         needed = course_map[ccode]['_blocks_needed']
         assigned = len(assigns)
@@ -364,21 +285,15 @@ def evaluate(ind: Dict[str, List[Tuple[Period, AulaID]]], data: Dict[str, Any]) 
             cost_hard += abs(assigned - needed) * w_H['H7']
             diagnostics['H7_blocks_mismatch'] += abs(assigned - needed)
 
-    # Restricciones blandas (simplificadas por espacio)
-    curr_sched = defaultdict(lambda: defaultdict(list))
-    aula_usage = defaultdict(int)
-    course_periods = {}
-    
+    # Restricciones blandas
+    # S1: Minimización de huecos por profesor
+    prof_schedule = defaultdict(lambda: defaultdict(list))
     for ccode, assigns in ind.items():
-        course_periods[ccode] = [p for (p,a) in assigns]
-        for (p,a) in assigns:
-            currs = course_to_currs.get(ccode, [])
-            for curr in currs:
+        for (p, a, prof) in assigns:
+            if prof:
                 day = get_day_of_period(p)
-                curr_sched[curr][day].append(p)
-            aula_usage[a] += 1
-
-    # S1: Minimización de huecos
+                prof_schedule[prof][day].append(p)
+    
     day_order = {}
     for p in data['periodos']:
         day = get_day_of_period(p)
@@ -388,19 +303,27 @@ def evaluate(ind: Dict[str, List[Tuple[Period, AulaID]]], data: Dict[str, Any]) 
     
     for d in day_order:
         order = [x for x in data['periodos'] if get_day_of_period(x) == d]
-        day_order[d] = {v:i for i,v in enumerate(order)}
+        day_order[d] = {v: i for i, v in enumerate(order)}
     
-    for curr, days in curr_sched.items():
+    for prof, days in prof_schedule.items():
         for day, plist in days.items():
-            if not plist: continue
-            idxs = sorted(day_order[day].get(p,0) for p in plist)
-            if not idxs: continue
+            if not plist or day not in day_order:
+                continue
+            idxs = sorted(day_order[day].get(p, 0) for p in plist)
+            if not idxs:
+                continue
             span = idxs[-1] - idxs[0] + 1
             gaps = span - len(idxs)
             cost_soft += gaps * w_S['S1']
             diagnostics['S1_gaps'] += gaps
 
-    # Otras restricciones blandas (S2-S9) se implementan de forma similar...
+    # S2: Turno preferido
+    pref_shift = data['preferencias'].get('turno_preferido', 'morning')
+    for ccode, assigns in ind.items():
+        for (p, a, prof) in assigns:
+            if pref_shift == 'morning' and not is_morning_period(p):
+                cost_soft += w_S['S2']
+                diagnostics['S2_wrong_shift'] += 1
 
     fitness = cost_hard + cost_soft
     diagnostics['hard'] = cost_hard
@@ -408,61 +331,53 @@ def evaluate(ind: Dict[str, List[Tuple[Period, AulaID]]], data: Dict[str, Any]) 
     diagnostics['fitness'] = fitness
     return fitness, diagnostics
 
-# ---------------------------
-# Operador de reparación
-# ---------------------------
-def repair(ind: Dict[str, List[Tuple[Period, AulaID]]], data: Dict[str, Any]) -> Dict[str, List[Tuple[Period, AulaID]]]:
-    """Aplica reglas greedy para reducir violaciones duras"""
+def repair(ind: Dict[str, List[Tuple[Period, AulaID, str]]], data: Dict[str, Any]) -> Dict[str, List[Tuple[Period, AulaID, str]]]:
+    """Repara violaciones de restricciones duras."""
     new = copy.deepcopy(ind)
     aulas = data['_aulas_list']
-    aulas_by_type = defaultdict(list)
-    for a in aulas:
-        aulas_by_type[a['tipo']].append(a)
     courses = data['_courses_map']
-    profs = data['_profs_map']
 
     # Reparar conflictos de aula
     aula_period = defaultdict(lambda: defaultdict(list))
     for ccode, assigns in new.items():
-        for idx, (p,a) in enumerate(assigns):
+        for idx, (p, a, prof) in enumerate(assigns):
             aula_period[a][p].append((ccode, idx))
     
     for aula, permap in aula_period.items():
         for p, lst in permap.items():
-            if len(lst) <= 1: continue
+            if len(lst) <= 1:
+                continue
+            
             a_type = None
             for a in aulas:
                 if a['id'] == aula:
-                    a_type = a['tipo']; break
-            candidates = [aa for aa in aulas_by_type[a_type] if aa['id'] != aula]
-            free_candidates = []
-            for c in candidates:
-                used = any((p == assign_p and c['id'] == assign_a) 
-                          for cc, assigns in new.items() 
-                          for (assign_p,assign_a) in assigns)
-                if not used:
-                    free_candidates.append(c['id'])
+                    a_type = a['tipo']
+                    break
+            
+            candidates = [aa['id'] for aa in aulas if aa['tipo'] == a_type and aa['id'] != aula]
             
             for (ccode, idx) in lst[1:]:
-                if free_candidates:
-                    new_a = free_candidates.pop(0)
-                    new[ccode][idx] = (p, new_a)
+                if candidates:
+                    new_a = random.choice(candidates)
+                    old_p, old_a, old_prof = new[ccode][idx]
+                    new[ccode][idx] = (old_p, new_a, old_prof)
 
     return new
 
-# ---------------------------
-# Operadores genéticos
-# ---------------------------
 def tournament_selection(pop: List[Dict], fitnesses: List[float], k=TOURNAMENT_K) -> Dict:
+    """Selección por torneo."""
     i = random.randrange(len(pop))
-    best = i; best_fit = fitnesses[i]
-    for _ in range(k-1):
+    best = i
+    best_fit = fitnesses[i]
+    for _ in range(k - 1):
         j = random.randrange(len(pop))
         if fitnesses[j] < best_fit:
-            best = j; best_fit = fitnesses[j]
+            best = j
+            best_fit = fitnesses[j]
     return copy.deepcopy(pop[best])
 
 def crossover(parent1: Dict, parent2: Dict, data: Dict[str, Any]) -> Tuple[Dict, Dict]:
+    """Operador de cruce."""
     child1 = {}
     child2 = {}
     for ccode in data['_courses_map'].keys():
@@ -475,35 +390,42 @@ def crossover(parent1: Dict, parent2: Dict, data: Dict[str, Any]) -> Tuple[Dict,
     return child1, child2
 
 def mutate(ind: Dict, data: Dict[str, Any], mut_prob=MUTATION_PROB) -> Dict:
+    """Operador de mutación."""
     new = copy.deepcopy(ind)
     periods = data['periodos']
     aulas = data['_aulas_list']
+    
     for ccode in new.keys():
         if random.random() < mut_prob:
             assigns = new[ccode]
-            if not assigns: continue
+            if not assigns:
+                continue
+            
             idx = random.randrange(len(assigns))
-            typ = random.choice([1,2,3])
-            if typ == 1:
+            typ = random.choice([1, 2, 3])
+            old_p, old_a, old_prof = assigns[idx]
+            
+            if typ == 1:  # Cambiar periodo
                 new_period = random.choice(periods)
-                new[ccode][idx] = (new_period, assigns[idx][1])
-            elif typ == 2:
-                a_current = assigns[idx][1]
-                a_tipo = next((x['tipo'] for x in aulas if x['id']==a_current), 'T')
-                candidates = [x['id'] for x in aulas if x['tipo'] == a_tipo and x['id'] != a_current]
+                new[ccode][idx] = (new_period, old_a, old_prof)
+            elif typ == 2:  # Cambiar aula
+                course_info = data['_courses_map'][ccode]
+                a_tipo = course_info.get('aula_tipo', 'T')
+                candidates = [x['id'] for x in aulas if x['tipo'] == a_tipo]
                 if candidates:
                     new_a = random.choice(candidates)
-                    new[ccode][idx] = (assigns[idx][0], new_a)
-            else:
-                new_period = random.choice(periods)
-                new_aula = random.choice(aulas)['id']
-                new[ccode][idx] = (new_period, new_aula)
+                    new[ccode][idx] = (old_p, new_a, old_prof)
+            else:  # Cambiar profesor
+                course_info = data['_courses_map'][ccode]
+                profs = course_info.get('profesores', [])
+                if profs:
+                    new_prof = random.choice(profs)
+                    new[ccode][idx] = (old_p, old_a, new_prof)
+    
     return new
 
-# ---------------------------
-# Loop principal del GA
-# ---------------------------
 def run_ga(data: Dict[str, Any]):
+    """Ejecuta el algoritmo genético."""
     population = [random_individual(data) for _ in range(POP_SIZE)]
     population = [repair(ind, data) for ind in population]
     
@@ -520,9 +442,8 @@ def run_ga(data: Dict[str, Any]):
     
     print(f"Init best fitness: {best_fit}, diag: {diagnostics_list[best_idx]}", file=sys.stderr)
 
-    for gen in range(1, GENERATIONS+1):
+    for gen in range(1, GENERATIONS + 1):
         newpop = [copy.deepcopy(best)]
-        newfits = [best_fit]
         
         while len(newpop) < POP_SIZE:
             p1 = tournament_selection(population, fitnesses)
@@ -531,7 +452,7 @@ def run_ga(data: Dict[str, Any]):
             if random.random() < CROSSOVER_PROB:
                 c1, c2 = crossover(p1, p2, data)
             else:
-                c1, c2 = p1, p2
+                c1, c2 = copy.deepcopy(p1), copy.deepcopy(p2)
             
             c1 = mutate(c1, data)
             c2 = mutate(c2, data)
@@ -546,7 +467,7 @@ def run_ga(data: Dict[str, Any]):
         fitnesses = []
         diagnostics_list = []
         for ind in population:
-            f,d = evaluate(ind, data)
+            f, d = evaluate(ind, data)
             fitnesses.append(f)
             diagnostics_list.append(d)
         
@@ -557,7 +478,7 @@ def run_ga(data: Dict[str, Any]):
             print(f"[Gen {gen}] New best fitness: {best_fit}", file=sys.stderr)
         
         if gen % 50 == 0:
-            avg = sum(fitnesses)/len(fitnesses)
+            avg = sum(fitnesses) / len(fitnesses)
             print(f"Gen {gen}: best {best_fit}, avg {avg:.2f}", file=sys.stderr)
     
     f_best, d_best = evaluate(best, data)
@@ -565,62 +486,54 @@ def run_ga(data: Dict[str, Any]):
     print("Diagnostics:", dict(d_best), file=sys.stderr)
     return best, d_best
 
-# ---------------------------
-# Conversión de salida a JSON
-# ---------------------------
-def convert_solution_to_json(sol: Dict[str, List[Tuple[Period, AulaID]]], data: Dict[str, Any]) -> Dict[str, Any]:
-    """
-    Convierte la solución al formato JSON de salida.
-    """
+def convert_solution_to_json(sol: Dict[str, List[Tuple[Period, AulaID, str]]], data: Dict[str, Any]) -> Dict[str, Any]:
+    """Convierte la solución al formato JSON de salida."""
     course_map = data['_courses_map']
-    
-    # Mapeo inverso de días
-    day_map_inv = {
-        "LUN": "MON", "MAR": "TUE", "MIE": "WED",
-        "JUE": "THU", "VIE": "FRI", "SAB": "SAT", "DOM": "SUN"
-    }
+    aulas_map = {a['id']: a for a in data['_aulas_list']}
     
     schedule_entries = []
     
     for ccode, assigns in sol.items():
         course_info = course_map[ccode]
         
-        for (period, aula) in assigns:
+        for (period, aula, profesor) in assigns:
             # Parsear el periodo "DIA_HH:MM_HH:MM"
             parts = period.split("_")
-            day_esp = parts[0]
+            day = parts[0]
             start_time = parts[1]
             end_time = parts[2]
-            day_eng = day_map_inv.get(day_esp, day_esp)
+            
+            # Determinar tipo de salón
+            aula_info = aulas_map.get(aula, {})
+            room_type = "THEORY" if aula_info.get('tipo') == 'T' else "LAB"
             
             entry = {
-                "course_code": ccode,
+                "course_code": course_info.get('original_code', ccode),
                 "course_name": course_info['nombre'],
-                "day_of_week": day_eng,
+                "year": course_info['year'],
+                "day_of_week": day,
                 "start_time": start_time,
                 "end_time": end_time,
                 "classroom_code": aula,
-                "professor_name": course_info.get('profesor', ''),
+                "classroom_type": room_type,
+                "professor_name": profesor,
                 "student_count": course_info.get('estudiantes', 0)
             }
             schedule_entries.append(entry)
     
-    # Ordenar por día y hora para mejor legibilidad
-    day_order = {"MON": 1, "TUE": 2, "WED": 3, "THU": 4, "FRI": 5, "SAT": 6, "SUN": 7}
+    # Ordenar por día y hora
+    day_order = {"LUN": 1, "MAR": 2, "MIE": 3, "JUE": 4, "VIE": 5, "SAB": 6, "DOM": 7}
     schedule_entries.sort(key=lambda x: (day_order.get(x['day_of_week'], 8), x['start_time'], x['course_code']))
     
     return {
         "metadata": data.get('metadata', {}),
         "schedule": schedule_entries,
         "statistics": {
-            "total_courses": len(sol),
+            "total_courses": len(set(course_map[c].get('original_code', c) for c in sol.keys())),
             "total_sessions": sum(len(assigns) for assigns in sol.values())
         }
     }
 
-# ---------------------------
-# CLI
-# ---------------------------
 def main():
     global POP_SIZE, GENERATIONS
     parser = argparse.ArgumentParser()
@@ -636,13 +549,7 @@ def main():
     
     # Convertir al formato interno
     data = convert_input_format(input_data)
-    data = load_input(data)
     
-    if 'pesos' not in data:
-        data['pesos'] = {}
-    if 'M' not in data['pesos']:
-        data['pesos']['M'] = 1000000
-
     # Ejecutar GA
     best, diag = run_ga(data)
     

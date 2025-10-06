@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 import prisma from "../db/prismaClient";
 
 // 🔹 Función que devuelve los datos en formato JSON (reutilizable)
-export const getInfoData = async () => {
+export const getInfoData = async (semester: string) => {
   // 🔹 Metadata
   const metadata = await prisma.universityMetadata.findFirst({
     select: {
@@ -41,7 +41,7 @@ export const getInfoData = async () => {
   // 🔹 Professors
   const professors = await prisma.professor.findMany({
     include: {
-      courses: { select: { course_name: true } },
+      courses: { select: { course: true } },
       availabilities: { include: { time_slot: true } },
     },
   });
@@ -49,7 +49,7 @@ export const getInfoData = async () => {
   const professorsFormatted = professors.map(p => ({
     professor_id: p.id,
     name: p.name,
-    courses: p.courses.map(c => c.course_name),
+    courses: p.courses.map(c => c.course.code),
     availabilities: p.availabilities.map(a => ({
       day_of_week: a.time_slot.day_of_week,
       start_time: a.time_slot.start_time.toISOString().substring(11, 16),
@@ -60,44 +60,33 @@ export const getInfoData = async () => {
   // 🔹 Courses
   const courses = await prisma.course.findMany({
     select: {
-      course_code: true,
-      course_name: true,
+      code: true,
+      name: true,
       credits: true,
       theory_hours: true,
       practice_hours: true,
       lab_hours: true,
-      student_count: true,
-      classroom_type: true,
-      professor_id: true,
+      professors: true,
+      year: true,
       prerequisites: { select: { prerequisite_code: true } },
     },
+    where: {
+      semester: semester
+    }
   });
 
   const coursesFormatted = courses.map(c => ({
-    course_code: c.course_code,
-    course_name: c.course_name,
+    course_code: c.code,
+    course_name: c.name,
     credits: c.credits,
-    hours: {
-      theory: c.theory_hours,
-      practice: c.practice_hours,
-      lab: c.lab_hours,
-    },
+    year: c.year,
     prerequisites: c.prerequisites.map(p => p.prerequisite_code),
-    professor_id: c.professor_id,
-    classroom_type: c.classroom_type,
-    student_count: c.student_count,
+    professors: c.professors.map(p => p.professorId),
+    theory_hours: c.theory_hours + c.practice_hours,
+    // practice_hours: c.practice_hours,
+    lab_hours: c.lab_hours,
   }));
 
-  // 🔹 Curricula
-  const curricula = await prisma.curriculum.findMany({
-    select: { semester: true, course_id: true },
-  });
-
-  const curriculaFormatted = curricula.reduce((acc, cur) => {
-    if (!acc[cur.semester]) acc[cur.semester] = [];
-    acc[cur.semester].push(cur.course_id); // number type, según SQL
-    return acc;
-  }, {} as Record<string, number[]>);
 
   // 🔹 Optimization weights
   const weights = await prisma.optimizationWeight.findMany();
@@ -129,7 +118,6 @@ export const getInfoData = async () => {
     classrooms: classroomsFormatted,
     professors: professorsFormatted,
     courses: coursesFormatted,
-    curricula: curriculaFormatted,
     preferences,
     weights: weightsFormatted,
   };
@@ -138,7 +126,7 @@ export const getInfoData = async () => {
 // 🔹 Endpoint HTTP que usa la función anterior
 export const getInfo = async (req: Request, res: Response) => {
   try {
-    const data = await getInfoData();
+    const data = await getInfoData("B");
     res.json(data);
   } catch (err) {
     console.error("Error fetching info:", err);

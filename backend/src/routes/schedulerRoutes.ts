@@ -8,7 +8,7 @@ const router = Router();
 
 router.get("/run", async (req: Request, res: Response) => {
   try {
-    const scheduleData = await getInfoData();
+    const scheduleData = await getInfoData("B");
 
     // 🔹 Ejecutar Python
     const scriptPath = path.resolve(__dirname, "../algorithms/run_ga.py");
@@ -39,7 +39,7 @@ router.get("/run", async (req: Request, res: Response) => {
         // 🔹 Guardar en DB
         for (const session of result.schedule) {
           // 1️⃣ Buscar IDs
-          const course = await prisma.course.findUnique({ where: { course_code: session.course_code } });
+          const course = await prisma.course.findUnique({ where: { code: session.course_code } });
           const professor = await prisma.professor.findUnique({ where: { name: session.professor_name } });
           const classroom = await prisma.classroom.findUnique({ where: { room_code: session.classroom_code } });
 
@@ -72,10 +72,9 @@ router.get("/run", async (req: Request, res: Response) => {
               professor_id: professor.id,
               classroom_id: classroom.id,
               time_slot_id: timeSlot.id,
-              day_of_week: session.day_of_week,
-              start_time: startTime,
-              end_time: endTime,
               student_count: session.student_count,
+              semester: course.semester,
+              year: course.year,
             },
           });
         }

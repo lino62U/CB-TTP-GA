@@ -61,7 +61,7 @@ model Professor {
   preferred_shift String? @db.VarChar(20)
 
   availabilities ProfessorAvailability[]
-  courses        Course[]
+  courses        ProfessorCourse[]
   Schedule       Schedule[]
 }
 
@@ -81,21 +81,34 @@ model ProfessorAvailability {
 // 6. COURSES
 // ---------------------------------------------------------
 model Course {
-  id             Int    @id @default(autoincrement())
-  course_code    String @unique @db.VarChar(20)
-  course_name    String @db.VarChar(100)
+  id             Int     @id @default(autoincrement())
+  code           String  @unique
+  name           String
+  department     String
+  department2    String?
+  department3    String?
   credits        Int
-  theory_hours   Int
-  practice_hours Int
-  lab_hours      Int
-  student_count  Int
-  classroom_type String @db.VarChar(10) // THEORY or LAB
-  professor_id   Int?
+  theory_hours   Float
+  practice_hours Float
+  total_hours    Float
+  semi_hours     Float
+  lab_hours      Float
+  year           Int
+  semester       String
 
-  professor     Professor?           @relation(fields: [professor_id], references: [id])
+  professors    ProfessorCourse[]
   prerequisites CoursePrerequisite[]
-  curricula     Curriculum[]
   schedules     Schedule[] // <--- agregar esto
+}
+
+model ProfessorCourse {
+  professor   Professor @relation(fields: [professorId], references: [id])
+  professorId Int
+
+  course   Course @relation(fields: [courseId], references: [id])
+  courseId Int
+
+  @@id([professorId, courseId])
 }
 
 // ---------------------------------------------------------
@@ -103,22 +116,10 @@ model Course {
 // ---------------------------------------------------------
 model CoursePrerequisite {
   id                Int    @id @default(autoincrement())
-  course_id         Int
+  course_code       Int
   prerequisite_code String @db.VarChar(20)
 
-  course Course @relation(fields: [course_id], references: [id])
-}
-
-// ---------------------------------------------------------
-// 8. CURRICULA
-// ---------------------------------------------------------
-model Curriculum {
-  id              Int    @id @default(autoincrement())
-  year            Int
-  semester        String @db.VarChar(2)
-  course_id       Int
-
-  course Course @relation(fields: [course_id], references: [id])
+  course Course @relation(fields: [course_code], references: [id])
 }
 
 // ---------------------------------------------------------
@@ -141,14 +142,16 @@ model Schedule {
   classroom_id Int
   time_slot_id Int
 
-  // Redundant data for convenience (optional)
-  day_of_week   String   @db.VarChar(3)
-  start_time    DateTime
-  end_time      DateTime
   student_count Int
+  max_students  Int?
+  year          Int
+  semester      String @db.VarChar(10)
+  class_type    String? @db.VarChar(10)
+  status        String? @db.VarChar(20)
+  notes         String?
 
-  course    Course    @relation(fields: [course_id], references: [id])
-  professor Professor @relation(fields: [professor_id], references: [id])
-  classroom Classroom @relation(fields: [classroom_id], references: [id])
-  time_slot TimeSlot  @relation(fields: [time_slot_id], references: [id])
+  course        Course    @relation(fields: [course_id], references: [id])
+  professor     Professor @relation(fields: [professor_id], references: [id])
+  classroom     Classroom @relation(fields: [classroom_id], references: [id])
+  time_slot     TimeSlot  @relation(fields: [time_slot_id], references: [id])
 }
