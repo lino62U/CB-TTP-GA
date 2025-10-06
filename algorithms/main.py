@@ -7,7 +7,7 @@ Lee un JSON de entrada con la plantilla que generamos y busca un horario minimiz
 penalizaciones dadas por restricciones duras y blandas.
 
 Uso:
-    python ga_timetabling_unsa.py --input input.json
+    python3 main.py --input input.json
 
 Notas:
 - Cada bloque en los cursos se modela como 1 "slot" (duración: 50 min).

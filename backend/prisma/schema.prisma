@@ -1,0 +1,157 @@
+// ---------------------------------------------------------
+// Prisma Schema for UNAS Schedules Project
+// ---------------------------------------------------------
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------
+// 1. UNIVERSITY METADATA
+// ---------------------------------------------------------
+model UniversityMetadata {
+  id                 Int      @id @default(autoincrement())
+  university_name    String   @db.VarChar(150)
+  school_name        String   @db.VarChar(150)
+  semester_code      String   @db.VarChar(10) // e.g. 2025-A or 2025-B
+  curriculum_name    String   @db.VarChar(50) // e.g. Second Semester
+  block_duration_min Int
+  day_start_time     DateTime @db.Time
+  day_end_time       DateTime @db.Time
+}
+
+// ---------------------------------------------------------
+// 2. TIME SLOTS
+// ---------------------------------------------------------
+model TimeSlot {
+  id          Int      @id @default(autoincrement())
+  day_of_week String   @db.VarChar(3) // MON, TUE, WED...
+  start_time  DateTime @db.Time
+  end_time    DateTime @db.Time
+
+  professorAvailabilities ProfessorAvailability[]
+  Schedule                Schedule[]
+
+  @@unique([day_of_week, start_time, end_time], name: "unique_timeslot")
+}
+
+// ---------------------------------------------------------
+// 3. CLASSROOMS
+// ---------------------------------------------------------
+model Classroom {
+  id        Int        @id @default(autoincrement())
+  room_code String     @unique @db.VarChar(10)
+  room_name String?    @db.VarChar(100)
+  room_type String     @db.VarChar(10) // THEORY or LAB
+  capacity  Int
+  Schedule  Schedule[]
+}
+
+// ---------------------------------------------------------
+// 4. PROFESSORS
+// ---------------------------------------------------------
+model Professor {
+  id              Int     @id @default(autoincrement())
+  name            String  @unique @db.VarChar(100)
+  preferred_shift String? @db.VarChar(20)
+
+  availabilities ProfessorAvailability[]
+  courses        ProfessorCourse[]
+  Schedule       Schedule[]
+}
+
+// ---------------------------------------------------------
+// 5. PROFESSOR AVAILABILITY
+// ---------------------------------------------------------
+model ProfessorAvailability {
+  id           Int @id @default(autoincrement())
+  professor_id Int
+  time_slot_id Int
+
+  professor Professor @relation(fields: [professor_id], references: [id])
+  time_slot TimeSlot  @relation(fields: [time_slot_id], references: [id])
+}
+
+// ---------------------------------------------------------
+// 6. COURSES
+// ---------------------------------------------------------
+model Course {
+  id             Int     @id @default(autoincrement())
+  code           String  @unique
+  name           String
+  department     String
+  department2    String?
+  department3    String?
+  credits        Int
+  theory_hours   Float
+  practice_hours Float
+  total_hours    Float
+  semi_hours     Float
+  lab_hours      Float
+  year           Int
+  semester       String
+
+  professors    ProfessorCourse[]
+  prerequisites CoursePrerequisite[]
+  schedules     Schedule[] // <--- agregar esto
+}
+
+model ProfessorCourse {
+  professor   Professor @relation(fields: [professorId], references: [id])
+  professorId Int
+
+  course   Course @relation(fields: [courseId], references: [id])
+  courseId Int
+
+  @@id([professorId, courseId])
+}
+
+// ---------------------------------------------------------
+// 7. COURSE PREREQUISITES
+// ---------------------------------------------------------
+model CoursePrerequisite {
+  id                Int    @id @default(autoincrement())
+  course_code       Int
+  prerequisite_code String @db.VarChar(20)
+
+  course Course @relation(fields: [course_code], references: [id])
+}
+
+// ---------------------------------------------------------
+// 9. OPTIMIZATION WEIGHTS (for the genetic algorithm)
+// ---------------------------------------------------------
+model OptimizationWeight {
+  id              Int    @id @default(autoincrement())
+  constraint_type String @db.VarChar(20) // HARD or SOFT
+  constraint_name String @db.VarChar(50)
+  weight_value    Int
+}
+
+// ---------------------------------------------------------
+// 10. SCHEDULE
+// ---------------------------------------------------------
+model Schedule {
+  id           Int @id @default(autoincrement())
+  course_id    Int
+  professor_id Int
+  classroom_id Int
+  time_slot_id Int
+
+  student_count Int
+  max_students  Int?
+  year          Int
+  semester      String @db.VarChar(10)
+  class_type    String? @db.VarChar(10)
+  status        String? @db.VarChar(20)
+  notes         String?
+
+  course        Course    @relation(fields: [course_id], references: [id])
+  professor     Professor @relation(fields: [professor_id], references: [id])
+  classroom     Classroom @relation(fields: [classroom_id], references: [id])
+  time_slot     TimeSlot  @relation(fields: [time_slot_id], references: [id])
+}

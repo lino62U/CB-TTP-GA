@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    /* 📁 Estructura del proyecto */
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    /* ⚙️ Configuración del entorno */
+    "target": "ES2020",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "types": ["node"],
+
+    /* 💬 Archivos JSON y compatibilidad */
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* 🧱 Comprobaciones */
+    "strict": true,
+    "skipLibCheck": true,
+    "exactOptionalPropertyTypes": false,
+    "noUncheckedIndexedAccess": false,
+
+    /* 🧭 Depuración */
+    "sourceMap": true,
+    "declaration": false,
+
+    /* 🧩 Módulos */
+    "isolatedModules": true,
+    "moduleDetection": "force"
+  },
+  "include": ["src", "prisma"]
+}
