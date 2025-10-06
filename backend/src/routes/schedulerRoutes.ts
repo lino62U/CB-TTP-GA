@@ -3,6 +3,7 @@ import { spawn } from "child_process";
 import path from "path";
 import { getInfoData } from "../controllers/infoController";
 import prisma from "../db/prismaClient";
+import { formatScheduleByYear } from "../utils/formateOuput";
 
 const router = Router();
 
@@ -79,7 +80,9 @@ router.get("/run", async (req: Request, res: Response) => {
           });
         }
 
-        res.json({ schedule: result, message: "Saved to database" });
+        const formatted = formatScheduleByYear(result);
+        res.json(formatted);
+        // res.json({ schedule: result, message: "Saved to database" });
       } catch (err) {
         console.error("Failed to parse Python output or insert into DB:", err, pyOutput);
         res.status(500).json({ error: "Invalid output from Python script or DB insert failed", details: pyOutput });
