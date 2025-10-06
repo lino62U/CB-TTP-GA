@@ -1,0 +1,503 @@
+{
+    "metadata": {
+      "universidad": "Universidad Nacional de San Agustín de Arequipa",
+      "escuela": "Ingeniería de Sistemas",
+      "semestre": "2025-I",
+      "curriculo": "Segundo Semestre",
+      "duracion_bloque_min": 50,
+      "inicio_jornada": "07:00",
+      "fin_jornada": "21:10"
+    },
+  
+    "periodos": [
+      "LUN_07:00_07:50", "LUN_07:50_08:40", "LUN_08:50_09:40", "LUN_09:40_10:30", "LUN_10:40_11:30", "LUN_11:30_12:20",
+      "MAR_07:00_07:50", "MAR_07:50_08:40", "MAR_08:50_09:40", "MAR_09:40_10:30", "MAR_10:40_11:30", "MAR_11:30_12:20",
+      "MIE_07:00_07:50", "MIE_07:50_08:40", "MIE_08:50_09:40", "MIE_09:40_10:30", "MIE_10:40_11:30", "MIE_11:30_12:20",
+      "JUE_07:00_07:50", "JUE_07:50_08:40", "JUE_08:50_09:40", "JUE_09:40_10:30", "JUE_10:40_11:30", "JUE_11:30_12:20",
+      "VIE_07:00_07:50", "VIE_07:50_08:40", "VIE_08:50_09:40", "VIE_09:40_10:30", "VIE_10:40_11:30", "VIE_11:30_12:20",
+      "LUN_14:00_14:50", "LUN_14:50_15:40", "LUN_15:50_16:40", "LUN_16:40_17:30", "LUN_17:40_18:30", "LUN_18:30_19:20", "LUN_19:20_20:10", 
+      "MAR_14:00_14:50", "MAR_14:50_15:40", "MAR_15:50_16:40", "MAR_16:40_17:30", "MAR_17:40_18:30", "MAR_18:30_19:20", "MAR_19:20_20:10",
+      "MIE_14:00_14:50", "MIE_14:50_15:40", "MIE_15:50_16:40", "MIE_16:40_17:30", "MIE_17:40_18:30", "MIE_18:30_19:20", "MIE_19:20_20:10",
+      "JUE_14:00_14:50", "JUE_14:50_15:40", "JUE_15:50_16:40", "JUE_16:40_17:30", "JUE_17:40_18:30", "JUE_18:30_19:20", "JUE_19:20_20:10", 
+      "VIE_14:00_14:50", "VIE_14:50_15:40", "VIE_15:50_16:40", "VIE_16:40_17:30", "VIE_17:40_18:30", "VIE_18:30_19:20", "VIE_19:20_20:10"
+    ],
+  
+    "aulas": {
+      "teoricas": [
+        {"id": "T1", "capacidad": 40},
+        {"id": "T2", "capacidad": 40},
+        {"id": "T3", "capacidad": 35},
+        {"id": "T4", "capacidad": 50},
+        {"id": "T5", "capacidad": 45}
+      ],
+      "laboratorios": [
+        {"id": "LAB1", "nombre": "Laboratorio de Programación Científica 1", "capacidad": 25},
+        {"id": "LAB2", "nombre": "Laboratorio de Programación Científica 2", "capacidad": 25},
+        {"id": "LAB3", "nombre": "Laboratorio Expandible de Programación Científica", "capacidad": 30}
+      ]
+    },
+  
+    "profesores": {
+      "Juan Carlos": {
+        "cursos": ["TRABAJO DE INVESTIGACIÓN", "INTELIGENCIA ARTIFICIAL"],
+        "disponibilidad": ["JUE_08:50_09:40", "JUE_09:40_10:30", "VIE_08:50_09:40", "VIE_09:40_10:30", "MIE_10:40_11:30", "MIE_11:30_12:20"],
+        "preferencia": "mañana"
+      },
+      "Ana Maria": {
+        "cursos": ["INTERACCION HUMANO COMPUTADOR", "CIENCIA DE LA COMPUTACION I"],
+        "disponibilidad": ["LUN_07:00_07:50", "LUN_07:50_08:40", "MAR_07:00_07:50", "MAR_07:50_08:40", "MIE_14:00_14:50", "MIE_14:50_15:40"],
+        "preferencia": "mañana"
+      },
+      "Cristian": {
+        "cursos": ["ESTRUCTURAS DISCRETAS II", "ALGORITMOS Y ESTRUCTURAS DE DATOS"],
+        "disponibilidad": ["MAR_08:50_09:40", "MAR_09:40_10:30", "JUE_08:50_09:40", "JUE_09:40_10:30", "VIE_14:00_14:50", "VIE_14:50_15:40"],
+        "preferencia": "tarde"
+      },
+      "Edward": {
+        "cursos": ["BASE DE DATOS I", "BASES DE DATOS"],
+        "disponibilidad": ["LUN_10:40_11:30", "LUN_11:30_12:20", "MAR_10:40_11:30", "MAR_11:30_12:20", "JUE_14:50_15:40", "JUE_15:50_16:40"],
+        "preferencia": "mañana"
+      },
+      "Eliana": {
+        "cursos": ["CIENCIA DE LA COMPUTACION I", "CALCULO EN UNA VARIABLE"],
+        "disponibilidad": ["MIE_07:00_07:50", "MIE_07:50_08:40", "MIE_08:50_09:40", "JUE_14:00_14:50", "JUE_14:50_15:40", "VIE_08:50_09:40"],
+        "preferencia": "mañana"
+      },
+      "Franci": {
+        "cursos": ["TEORIA DE LA COMPUTACION", "INGLES TECNICO PROFESIONAL II"],
+        "disponibilidad": ["LUN_14:00_14:50", "LUN_14:50_15:40", "MAR_15:50_16:40", "MAR_16:40_17:30", "MIE_17:40_18:30"],
+        "preferencia": "tarde"
+      },
+      "Wilber": {
+        "cursos": ["PRACTICAS PRE PROFESIONALES", "PROGRAMACION COMPETITIVA"],
+        "disponibilidad": ["MIE_07:00_07:50", "MIE_07:50_08:40", "MIE_08:50_09:40", "JUE_14:00_14:50", "JUE_14:50_15:40"],
+        "preferencia": "mañana"
+      },
+      "Roxana": {
+        "cursos": ["COMUNICACION INTEGRAL", "ESTADISTICA Y PROBABILIDADES"],
+        "disponibilidad": ["JUE_07:00_07:50", "JUE_07:50_08:40", "VIE_07:00_07:50", "VIE_07:50_08:40", "LUN_16:40_17:30"],
+        "preferencia": "mañana"
+      },
+      "Alvaro": {
+        "cursos": ["CLOUD COMPUTING", "MATEMATICA APLICADA A LA COMPUTACION"],
+        "disponibilidad": ["LUN_08:50_09:40", "LUN_09:40_10:30", "MAR_08:50_09:40", "MAR_09:40_10:30", "MIE_14:00_14:50", "MIE_14:50_15:40"],
+        "preferencia": "mañana"
+      },
+      "Yuber": {
+        "cursos": ["SISTEMAS OPERATIVOS", "ALGEBRA LINEAL NUMERICA"],
+        "disponibilidad": ["MAR_15:50_16:40", "MAR_16:40_17:30", "MIE_15:50_16:40", "MIE_16:40_17:30", "JUE_17:40_18:30"],
+        "preferencia": "tarde"
+      },
+      "Edgar": {
+        "cursos": ["INGENIERIA DE SOFTWARE II", "TOPICOS EN INGENIERIA DE SOFTWARE (E)"],
+        "disponibilidad": ["LUN_10:40_11:30", "LUN_11:30_12:20", "MAR_10:40_11:30", "MAR_11:30_12:20", "VIE_14:00_14:50"],
+        "preferencia": "mañana"
+      },
+      "Yessenia": {
+        "cursos": ["TRABAJO INTERDISCIPLINAR III", "INTELIGENCIA ARTIFICIAL"],
+        "disponibilidad": ["MAR_07:00_07:50", "MAR_07:50_08:40", "JUE_08:50_09:40", "JUE_09:40_10:30", "VIE_14:00_14:50"],
+        "preferencia": "mañana"
+      },
+      "Rosa": {
+        "cursos": ["ESTRUCTURAS DE DATOS AVANZADOS", "PROYECTO DE FINAL DE CARRERA I"],
+        "disponibilidad": ["JUE_08:50_09:40", "JUE_09:40_10:30", "VIE_08:50_09:40", "VIE_09:40_10:30", "LUN_14:50_15:40"],
+        "preferencia": "mañana"
+      },
+      "Prof_Bio": {
+        "cursos": ["ECOLOGIA Y CONSERVACION AMBIENTAL"],
+        "disponibilidad": ["MIE_14:00_14:50", "MIE_14:50_15:40", "JUE_15:50_16:40", "VIE_16:40_17:30"],
+        "preferencia": "tarde"
+      },
+      "Prof_Socio": {
+        "cursos": ["RELACIONES HUMANAS"],
+        "disponibilidad": ["LUN_17:40_18:30", "MAR_18:30_19:20", "MIE_19:20_20:10"],
+        "preferencia": "tarde"
+      },
+      "Prof_Hist": {
+        "cursos": ["REALIDAD NACIONAL"],
+        "disponibilidad": ["VIE_07:00_07:50", "VIE_07:50_08:40", "LUN_08:50_09:40"],
+        "preferencia": "mañana"
+      },
+      "Percy": {
+        "cursos": ["ROBOTICA (E)", "INTERNET DE LAS COSAS"],
+        "disponibilidad": ["LUN_10:40_11:30", "LUN_11:30_12:20", "MAR_10:40_11:30", "MAR_11:30_12:20", "JUE_14:50_15:40"],
+        "preferencia": "mañana"
+      },
+      "Rolando": {
+        "cursos": ["TOPICOS EN CIBERSEGURIDAD (E)"],
+        "disponibilidad": ["MAR_15:50_16:40", "MAR_16:40_17:30", "MIE_15:50_16:40", "MIE_16:40_17:30"],
+        "preferencia": "tarde"
+      }
+    },
+  
+    "cursos": [
+      {
+        "codigo": "1701208",
+        "nombre": "ESTRUCTURAS DISCRETAS II",
+        "creditos": 5,
+        "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 4},
+        "prerrequisitos": ["1701107", "1701106"],
+        "profesor": "Cristian",
+        "aula_tipo": "LAB",
+        "estudiantes": 50
+      },
+      {
+        "codigo": "1701209",
+        "nombre": "CIENCIA DE LA COMPUTACION I",
+        "creditos": 5,
+        "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 4},
+        "prerrequisitos": ["1701106"],
+        "profesor": "Eliana",
+        "aula_tipo": "LAB",
+        "estudiantes": 50
+      },
+      {
+        "codigo": "1701210",
+        "nombre": "CALCULO EN UNA VARIABLE",
+        "creditos": 5,
+        "horas": {"teoricas": 4, "practicas": 2, "laboratorio": 0},
+        "prerrequisitos": [],
+        "profesor": "Eliana",
+        "aula_tipo": "T",
+        "estudiantes": 60
+      },
+      {
+        "codigo": "1701212",
+        "nombre": "INGLES TECNICO PROFESIONAL II",
+        "creditos": 3,
+        "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 0},
+        "prerrequisitos": ["1701105"],
+        "profesor": "Franci",
+        "aula_tipo": "T",
+        "estudiantes": 50
+      },
+      {
+        "codigo": "1701215",
+        "nombre": "COMUNICACION INTEGRAL",
+        "creditos": 3,
+        "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 0},
+        "prerrequisitos": [],
+        "profesor": "Roxana",
+        "aula_tipo": "T",
+        "estudiantes": 50
+      },
+      {
+        "codigo": "1701216",
+        "nombre": "REALIDAD NACIONAL",
+        "creditos": 2,
+        "horas": {"teoricas": 1, "practicas": 2, "laboratorio": 0},
+        "prerrequisitos": [],
+        "profesor": "Prof_Hist",
+        "aula_tipo": "T",
+        "estudiantes": 50
+      },
+      {
+        "codigo": "1702224",
+        "nombre": "ALGORITMOS Y ESTRUCTURAS DE DATOS",
+        "creditos": 5,
+        "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 4},
+        "prerrequisitos": ["1702118"],
+        "profesor": "Cristian",
+        "aula_tipo": "LAB",
+        "estudiantes": 45
+      },
+      {
+        "codigo": "1702225",
+        "nombre": "TEORIA DE LA COMPUTACION",
+        "creditos": 4,
+        "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 2},
+        "prerrequisitos": ["1701208"],
+        "profesor": "Franci",
+        "aula_tipo": "LAB",
+        "estudiantes": 45
+      },
+      {
+        "codigo": "1702226",
+        "nombre": "BASE DE DATOS I",
+        "creditos": 4,
+        "horas": {"teoricas": 2, "practicas": 0, "laboratorio": 4},
+        "prerrequisitos": ["1701209", "1701208"],
+        "profesor": "Edward",
+        "aula_tipo": "LAB",
+        "estudiantes": 45
+      },
+      {
+        "codigo": "1702227",
+        "nombre": "ALGEBRA LINEAL NUMERICA",
+        "creditos": 4,
+        "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 2},
+        "prerrequisitos": ["1701210"],
+        "profesor": "Yuber",
+        "aula_tipo": "LAB",
+        "estudiantes": 45
+      },
+      {
+        "codigo": "1702228",
+        "nombre": "ESTADISTICA Y PROBABILIDADES",
+        "creditos": 4,
+        "horas": {"teoricas": 3, "practicas": 2, "laboratorio": 0},
+        "prerrequisitos": ["1702121"],
+        "profesor": "Roxana",
+        "aula_tipo": "T",
+        "estudiantes": 45
+      },
+      {
+        "codigo": "1702229",
+        "nombre": "ECOLOGIA Y CONSERVACION AMBIENTAL",
+        "creditos": 2,
+        "horas": {"teoricas": 1, "practicas": 2, "laboratorio": 0},
+        "prerrequisitos": [],
+        "profesor": "Prof_Bio",
+        "aula_tipo": "T",
+        "estudiantes": 45
+      },
+      {
+        "codigo": "1703236",
+        "nombre": "PROGRAMACION COMPETITIVA",
+        "creditos": 3,
+        "horas": {"teoricas": 0, "practicas": 6, "laboratorio": 0},
+        "prerrequisitos": ["1703131"],
+        "profesor": "Wilber",
+        "aula_tipo": "T",
+        "estudiantes": 40
+      },
+      {
+        "codigo": "1703237",
+        "nombre": "INGENIERIA DE SOFTWARE II",
+        "creditos": 4,
+        "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 2},
+        "prerrequisitos": ["1703132"],
+        "profesor": "Edgar",
+        "aula_tipo": "LAB",
+        "estudiantes": 40
+      },
+      {
+        "codigo": "1703238",
+        "nombre": "ESTRUCTURAS DE DATOS AVANZADOS",
+        "creditos": 4,
+        "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 2},
+        "prerrequisitos": ["1703131"],
+        "profesor": "Rosa",
+        "aula_tipo": "LAB",
+        "estudiantes": 40
+      },
+      {
+        "codigo": "1703239",
+        "nombre": "SISTEMAS OPERATIVOS",
+        "creditos": 4,
+        "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 2},
+        "prerrequisitos": ["1702117"],
+        "profesor": "Yuber",
+        "aula_tipo": "LAB",
+        "estudiantes": 40
+      },
+      {
+        "codigo": "1703240",
+        "nombre": "TRABAJO INTERDISCIPLINAR II",
+        "creditos": 3,
+        "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 0},
+        "prerrequisitos": ["1702120"],
+        "profesor": "Yessenia",
+        "aula_tipo": "T",
+        "estudiantes": 40
+      },
+      {
+        "codigo": "1703241",
+        "nombre": "MATEMATICA APLICADA A LA COMPUTACION",
+        "creditos": 4,
+        "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 2},
+        "prerrequisitos": ["1703135"],
+        "profesor": "Alvaro",
+        "aula_tipo": "LAB",
+        "estudiantes": 40
+      },
+      {
+        "codigo": "1704248",
+        "nombre": "INTERACCION HUMANO COMPUTADOR",
+        "creditos": 3,
+        "horas": {"teoricas": 1, "practicas": 4, "laboratorio": 0},
+        "prerrequisitos": ["1704143"],
+        "profesor": "Ana Maria",
+        "aula_tipo": "T",
+        "estudiantes": 35
+      },
+      {
+        "codigo": "1704249",
+        "nombre": "PROYECTO DE FINAL DE CARRERA I",
+        "creditos": 3,
+        "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 0},
+        "prerrequisitos": ["1704142", "1703238"],
+        "profesor": "Rosa",
+        "aula_tipo": "T",
+        "estudiantes": 35
+      },
+      {
+        "codigo": "1704250",
+        "nombre": "COMPUTACION PARALELA Y DISTRIBUIDA",
+        "creditos": 4,
+        "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 2},
+        "prerrequisitos": ["1703236", "1704144"],
+        "profesor": "Alvaro",
+        "aula_tipo": "LAB",
+        "estudiantes": 35
+      },
+      {
+        "codigo": "1704251",
+        "nombre": "SEGURIDAD EN COMPUTACION",
+        "creditos": 3,
+        "horas": {"teoricas": 1, "practicas": 2, "laboratorio": 2},
+        "prerrequisitos": ["1704144"],
+        "profesor": "Rolando",
+        "aula_tipo": "LAB",
+        "estudiantes": 35
+      },
+      {
+        "codigo": "1704252",
+        "nombre": "FORMACION DE EMPRESAS DE BASE TECNOLOGICA I",
+        "creditos": 3,
+        "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 0},
+        "prerrequisitos": ["1704143"],
+        "profesor": "Yessenia",
+        "aula_tipo": "T",
+        "estudiantes": 35
+      },
+      {
+        "codigo": "1704253",
+        "nombre": "RELACIONES HUMANAS",
+        "creditos": 2,
+        "horas": {"teoricas": 1, "practicas": 2, "laboratorio": 0},
+        "prerrequisitos": [],
+        "profesor": "Prof_Socio",
+        "aula_tipo": "T",
+        "estudiantes": 35
+      },
+      {
+        "codigo": "1704254",
+        "nombre": "FISICA COMPUTACIONAL (E)",
+        "creditos": 3,
+        "horas": {"teoricas": 1, "practicas": 2, "laboratorio": 2},
+        "prerrequisitos": ["1703241"],
+        "profesor": "Percy",
+        "aula_tipo": "LAB",
+        "estudiantes": 30
+      },
+      {
+        "codigo": "1704255",
+        "nombre": "TOPICOS EN INGENIERIA DE SOFTWARE (E)",
+        "creditos": 3,
+        "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 0},
+        "prerrequisitos": ["1704145"],
+        "profesor": "Edgar",
+        "aula_tipo": "T",
+        "estudiantes": 30
+      },
+      {
+        "codigo": "1705265",
+        "nombre": "CLOUD COMPUTING",
+        "creditos": 4,
+        "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 2},
+        "prerrequisitos": ["1705157"],
+        "profesor": "Alvaro",
+        "aula_tipo": "LAB",
+        "estudiantes": 30
+      },
+      {
+        "codigo": "1705267",
+        "nombre": "TRABAJO INTERDISCIPLINAR III",
+        "creditos": 2,
+        "horas": {"teoricas": 1, "practicas": 2, "laboratorio": 0},
+        "prerrequisitos": ["1703240", "1704254"],
+        "profesor": "Yessenia",
+        "aula_tipo": "T",
+        "estudiantes": 40
+      },
+      {
+        "codigo": "1705268",
+        "nombre": "INTERNET DE LAS COSAS",
+        "creditos": 3,
+        "horas": {"teoricas": 1, "practicas": 2, "laboratorio": 2},
+        "prerrequisitos": ["1704250"],
+        "profesor": "Percy",
+        "aula_tipo": "LAB",
+        "estudiantes": 25
+      },
+      {
+        "codigo": "1705269",
+        "nombre": "ROBOTICA (E)",
+        "creditos": 4,
+        "horas": {"teoricas": 2, "practicas": 0, "laboratorio": 4},
+        "prerrequisitos": ["1705162"],
+        "profesor": "Percy",
+        "aula_tipo": "LAB",
+        "estudiantes": 20
+      },
+      {
+        "codigo": "1705270",
+        "nombre": "TOPICOS EN CIBERSEGURIDAD (E)",
+        "creditos": 4,
+        "horas": {"teoricas": 2, "practicas": 0, "laboratorio": 4},
+        "prerrequisitos": ["1704251"],
+        "profesor": "Rolando",
+        "aula_tipo": "LAB",
+        "estudiantes": 25
+      },
+      {
+        "codigo": "1705271",
+        "nombre": "PRACTICAS PRE PROFESIONALES",
+        "creditos": 2,
+        "horas": {"teoricas": 0, "practicas": 4, "laboratorio": 0},
+        "profesor": "Wilber",
+        "aula_tipo": "T",
+        "estudiantes": 50
+      },
+      {
+        "codigo": "1705272",
+        "nombre": "TRABAJO DE INVESTIGACIÓN",
+        "creditos": 6,
+        "horas": {"teoricas": 3, "practicas": 6, "laboratorio": 0},
+        "prerrequisitos": ["1705156"],
+        "profesor": "Juan Carlos",
+        "aula_tipo": "T",
+        "estudiantes": 40
+      }
+    ],
+  
+    "curriculos": {
+      "Primer Año": ["1701208", "1701209", "1701210", "1701212", "1701215", "1701216"],
+      "Segundo Año": ["1702224", "1702225", "1702226", "1702227", "1702228", "1702229"],
+      "Tercer Año": ["1703236", "1703237", "1703238", "1703239", "1703240", "1703241"],
+      "Cuarto Año": ["1704248", "1704249", "1704250", "1704251", "1704252", "1704253", "1704254", "1704255"],
+      "Quinto Año": ["1705265", "1705267", "1705268", "1705269", "1705270", "1705271", "1705272"]
+    },
+  
+    "preferencias": {
+      "turno_preferido": "mañana",
+      "dias_preferidos": ["LUN", "MAR", "MIE"],
+      "bloques_preferidos": ["07:00_07:50", "07:50_08:40", "08:50_09:40", "09:40_10:30", "10:40_11:30", "11:30_12:20"]
+    },
+  
+    "pesos": {
+      "M": 1000000,
+      "restricciones_duras": {
+        "no_solapamiento_profesor": 1000,
+        "no_solapamiento_aula": 900,
+        "disponibilidad_profesor": 800,
+        "capacidad_aula": 700,
+        "tipo_aula": 600,
+        "carga_horaria": 500
+      },
+      "restricciones_blandas": {
+        "minimizacion_huecos": 150,
+        "turno_preferido_estudiante": 200,
+        "preferencia_profesor": 100,
+        "concentracion_diaria": 120,
+        "balance_aulas": 100,
+        "franjas_extremas": 80,
+        "continuidad_curso": 90,
+        "fuera_bloque_preferido": 110,
+        "dias_extra": 130,
+        "distribucion_balanceada": 100,
+        "uso_optimo_aulas": 100
+      }
+    }
+  }

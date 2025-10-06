@@ -1,0 +1,410 @@
+{
+  "schedule": {
+    "metadata": {
+      "university_name": "Universidad Nacional de San Agustín de Arequipa",
+      "school_name": "Ingeniería de Sistemas",
+      "semester_code": "2025-I",
+      "curriculum_name": "Segundo Semestre",
+      "block_duration_min": 50,
+      "day_start_time": "1970-01-01T07:00:00.000Z",
+      "day_end_time": "1970-01-01T21:10:00.000Z"
+    },
+    "schedule": [
+      {
+        "course_code": "1705268",
+        "course_name": "INTERNET DE LAS COSAS",
+        "day_of_week": "MON",
+        "start_time": "09:40",
+        "end_time": "10:30",
+        "classroom_code": "LAB1",
+        "professor_name": "Percy",
+        "student_count": 25
+      },
+      {
+        "course_code": "1705268",
+        "course_name": "INTERNET DE LAS COSAS",
+        "day_of_week": "MON",
+        "start_time": "10:40",
+        "end_time": "11:30",
+        "classroom_code": "LAB2",
+        "professor_name": "Percy",
+        "student_count": 25
+      },
+      {
+        "course_code": "1705268",
+        "course_name": "INTERNET DE LAS COSAS",
+        "day_of_week": "MON",
+        "start_time": "11:30",
+        "end_time": "12:20",
+        "classroom_code": "LAB1",
+        "professor_name": "Percy",
+        "student_count": 25
+      },
+      {
+        "course_code": "1705269",
+        "course_name": "ROBOTICA (E)",
+        "day_of_week": "MON",
+        "start_time": "14:00",
+        "end_time": "14:50",
+        "classroom_code": "LAB2",
+        "professor_name": "Percy",
+        "student_count": 20
+      },
+      {
+        "course_code": "1705272",
+        "course_name": "TRABAJO DE INVESTIGACIÓN",
+        "day_of_week": "MON",
+        "start_time": "16:40",
+        "end_time": "17:30",
+        "classroom_code": "T5",
+        "professor_name": "Juan Carlos",
+        "student_count": 40
+      },
+      {
+        "course_code": "1705267",
+        "course_name": "TRABAJO INTERDISCIPLINAR III",
+        "day_of_week": "MON",
+        "start_time": "17:40",
+        "end_time": "18:30",
+        "classroom_code": "T2",
+        "professor_name": "Yessenia",
+        "student_count": 40
+      },
+      {
+        "course_code": "1705268",
+        "course_name": "INTERNET DE LAS COSAS",
+        "day_of_week": "MON",
+        "start_time": "18:30",
+        "end_time": "19:20",
+        "classroom_code": "LAB2",
+        "professor_name": "Percy",
+        "student_count": 25
+      },
+      {
+        "course_code": "1705272",
+        "course_name": "TRABAJO DE INVESTIGACIÓN",
+        "day_of_week": "MON",
+        "start_time": "19:20",
+        "end_time": "20:10",
+        "classroom_code": "T2",
+        "professor_name": "Juan Carlos",
+        "student_count": 40
+      },
+      {
+        "course_code": "1705267",
+        "course_name": "TRABAJO INTERDISCIPLINAR III",
+        "day_of_week": "TUE",
+        "start_time": "07:50",
+        "end_time": "08:40",
+        "classroom_code": "T4",
+        "professor_name": "Yessenia",
+        "student_count": 40
+      },
+      {
+        "course_code": "1705272",
+        "course_name": "TRABAJO DE INVESTIGACIÓN",
+        "day_of_week": "TUE",
+        "start_time": "08:50",
+        "end_time": "09:40",
+        "classroom_code": "T5",
+        "professor_name": "Juan Carlos",
+        "student_count": 40
+      },
+      {
+        "course_code": "1705265",
+        "course_name": "CLOUD COMPUTING",
+        "day_of_week": "TUE",
+        "start_time": "09:40",
+        "end_time": "10:30",
+        "classroom_code": "LAB3",
+        "professor_name": "Alvaro",
+        "student_count": 30
+      },
+      {
+        "course_code": "1705269",
+        "course_name": "ROBOTICA (E)",
+        "day_of_week": "TUE",
+        "start_time": "10:40",
+        "end_time": "11:30",
+        "classroom_code": "LAB3",
+        "professor_name": "Percy",
+        "student_count": 20
+      },
+      {
+        "course_code": "1705265",
+        "course_name": "CLOUD COMPUTING",
+        "day_of_week": "TUE",
+        "start_time": "11:30",
+        "end_time": "12:20",
+        "classroom_code": "LAB3",
+        "professor_name": "Alvaro",
+        "student_count": 30
+      },
+      {
+        "course_code": "1705269",
+        "course_name": "ROBOTICA (E)",
+        "day_of_week": "TUE",
+        "start_time": "14:50",
+        "end_time": "15:40",
+        "classroom_code": "LAB3",
+        "professor_name": "Percy",
+        "student_count": 20
+      },
+      {
+        "course_code": "1705270",
+        "course_name": "TOPICOS EN CIBERSEGURIDAD (E)",
+        "day_of_week": "TUE",
+        "start_time": "15:50",
+        "end_time": "16:40",
+        "classroom_code": "LAB2",
+        "professor_name": "Rolando",
+        "student_count": 25
+      },
+      {
+        "course_code": "1705270",
+        "course_name": "TOPICOS EN CIBERSEGURIDAD (E)",
+        "day_of_week": "TUE",
+        "start_time": "16:40",
+        "end_time": "17:30",
+        "classroom_code": "LAB1",
+        "professor_name": "Rolando",
+        "student_count": 25
+      },
+      {
+        "course_code": "1705271",
+        "course_name": "PRACTICAS PRE PROFESIONALES",
+        "day_of_week": "WED",
+        "start_time": "07:00",
+        "end_time": "07:50",
+        "classroom_code": "T4",
+        "professor_name": "Wilber",
+        "student_count": 50
+      },
+      {
+        "course_code": "1705269",
+        "course_name": "ROBOTICA (E)",
+        "day_of_week": "WED",
+        "start_time": "07:50",
+        "end_time": "08:40",
+        "classroom_code": "LAB2",
+        "professor_name": "Percy",
+        "student_count": 20
+      },
+      {
+        "course_code": "1705271",
+        "course_name": "PRACTICAS PRE PROFESIONALES",
+        "day_of_week": "WED",
+        "start_time": "08:50",
+        "end_time": "09:40",
+        "classroom_code": "T4",
+        "professor_name": "Wilber",
+        "student_count": 50
+      },
+      {
+        "course_code": "1705272",
+        "course_name": "TRABAJO DE INVESTIGACIÓN",
+        "day_of_week": "WED",
+        "start_time": "10:40",
+        "end_time": "11:30",
+        "classroom_code": "T1",
+        "professor_name": "Juan Carlos",
+        "student_count": 40
+      },
+      {
+        "course_code": "1705265",
+        "course_name": "CLOUD COMPUTING",
+        "day_of_week": "WED",
+        "start_time": "14:00",
+        "end_time": "14:50",
+        "classroom_code": "LAB3",
+        "professor_name": "Alvaro",
+        "student_count": 30
+      },
+      {
+        "course_code": "1705265",
+        "course_name": "CLOUD COMPUTING",
+        "day_of_week": "WED",
+        "start_time": "14:50",
+        "end_time": "15:40",
+        "classroom_code": "LAB3",
+        "professor_name": "Alvaro",
+        "student_count": 30
+      },
+      {
+        "course_code": "1705270",
+        "course_name": "TOPICOS EN CIBERSEGURIDAD (E)",
+        "day_of_week": "WED",
+        "start_time": "15:50",
+        "end_time": "16:40",
+        "classroom_code": "LAB2",
+        "professor_name": "Rolando",
+        "student_count": 25
+      },
+      {
+        "course_code": "1705270",
+        "course_name": "TOPICOS EN CIBERSEGURIDAD (E)",
+        "day_of_week": "WED",
+        "start_time": "16:40",
+        "end_time": "17:30",
+        "classroom_code": "LAB1",
+        "professor_name": "Rolando",
+        "student_count": 25
+      },
+      {
+        "course_code": "1705265",
+        "course_name": "CLOUD COMPUTING",
+        "day_of_week": "THU",
+        "start_time": "08:50",
+        "end_time": "09:40",
+        "classroom_code": "LAB3",
+        "professor_name": "Alvaro",
+        "student_count": 30
+      },
+      {
+        "course_code": "1705272",
+        "course_name": "TRABAJO DE INVESTIGACIÓN",
+        "day_of_week": "THU",
+        "start_time": "09:40",
+        "end_time": "10:30",
+        "classroom_code": "T5",
+        "professor_name": "Juan Carlos",
+        "student_count": 40
+      },
+      {
+        "course_code": "1705269",
+        "course_name": "ROBOTICA (E)",
+        "day_of_week": "THU",
+        "start_time": "10:40",
+        "end_time": "11:30",
+        "classroom_code": "LAB2",
+        "professor_name": "Percy",
+        "student_count": 20
+      },
+      {
+        "course_code": "1705268",
+        "course_name": "INTERNET DE LAS COSAS",
+        "day_of_week": "THU",
+        "start_time": "14:00",
+        "end_time": "14:50",
+        "classroom_code": "LAB1",
+        "professor_name": "Percy",
+        "student_count": 25
+      },
+      {
+        "course_code": "1705271",
+        "course_name": "PRACTICAS PRE PROFESIONALES",
+        "day_of_week": "THU",
+        "start_time": "14:50",
+        "end_time": "15:40",
+        "classroom_code": "T4",
+        "professor_name": "Wilber",
+        "student_count": 50
+      },
+      {
+        "course_code": "1705272",
+        "course_name": "TRABAJO DE INVESTIGACIÓN",
+        "day_of_week": "THU",
+        "start_time": "16:40",
+        "end_time": "17:30",
+        "classroom_code": "T1",
+        "professor_name": "Juan Carlos",
+        "student_count": 40
+      },
+      {
+        "course_code": "1705272",
+        "course_name": "TRABAJO DE INVESTIGACIÓN",
+        "day_of_week": "FRI",
+        "start_time": "08:50",
+        "end_time": "09:40",
+        "classroom_code": "T1",
+        "professor_name": "Juan Carlos",
+        "student_count": 40
+      },
+      {
+        "course_code": "1705272",
+        "course_name": "TRABAJO DE INVESTIGACIÓN",
+        "day_of_week": "FRI",
+        "start_time": "09:40",
+        "end_time": "10:30",
+        "classroom_code": "T4",
+        "professor_name": "Juan Carlos",
+        "student_count": 40
+      },
+      {
+        "course_code": "1705269",
+        "course_name": "ROBOTICA (E)",
+        "day_of_week": "FRI",
+        "start_time": "10:40",
+        "end_time": "11:30",
+        "classroom_code": "LAB1",
+        "professor_name": "Percy",
+        "student_count": 20
+      },
+      {
+        "course_code": "1705271",
+        "course_name": "PRACTICAS PRE PROFESIONALES",
+        "day_of_week": "FRI",
+        "start_time": "11:30",
+        "end_time": "12:20",
+        "classroom_code": "T4",
+        "professor_name": "Wilber",
+        "student_count": 50
+      },
+      {
+        "course_code": "1705267",
+        "course_name": "TRABAJO INTERDISCIPLINAR III",
+        "day_of_week": "FRI",
+        "start_time": "14:00",
+        "end_time": "14:50",
+        "classroom_code": "T1",
+        "professor_name": "Yessenia",
+        "student_count": 40
+      },
+      {
+        "course_code": "1705265",
+        "course_name": "CLOUD COMPUTING",
+        "day_of_week": "FRI",
+        "start_time": "15:50",
+        "end_time": "16:40",
+        "classroom_code": "LAB3",
+        "professor_name": "Alvaro",
+        "student_count": 30
+      },
+      {
+        "course_code": "1705270",
+        "course_name": "TOPICOS EN CIBERSEGURIDAD (E)",
+        "day_of_week": "FRI",
+        "start_time": "16:40",
+        "end_time": "17:30",
+        "classroom_code": "LAB3",
+        "professor_name": "Rolando",
+        "student_count": 25
+      },
+      {
+        "course_code": "1705270",
+        "course_name": "TOPICOS EN CIBERSEGURIDAD (E)",
+        "day_of_week": "FRI",
+        "start_time": "17:40",
+        "end_time": "18:30",
+        "classroom_code": "LAB2",
+        "professor_name": "Rolando",
+        "student_count": 25
+      },
+      {
+        "course_code": "1705272",
+        "course_name": "TRABAJO DE INVESTIGACIÓN",
+        "day_of_week": "FRI",
+        "start_time": "18:30",
+        "end_time": "19:20",
+        "classroom_code": "T5",
+        "professor_name": "Juan Carlos",
+        "student_count": 40
+      }
+    ],
+    "statistics": {
+      "total_courses": 7,
+      "total_sessions": 39
+    }
+  },
+  "message": "Saved to database"
+}

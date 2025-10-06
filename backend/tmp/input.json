@@ -1,0 +1,768 @@
+{
+  "metadata": {
+    "university_name": "Universidad Nacional de San Agustín de Arequipa",
+    "school_name": "Ingeniería de Sistemas",
+    "semester_code": "2025-I",
+    "curriculum_name": "Segundo Semestre",
+    "block_duration_min": 50,
+    "day_start_time": "1970-01-01T07:00:00.000Z",
+    "day_end_time": "1970-01-01T21:10:00.000Z"
+  },
+  "periods": [
+    {
+      "day_of_week": "JUE",
+      "start_time": "07:00",
+      "end_time": "07:50"
+    },
+    {
+      "day_of_week": "JUE",
+      "start_time": "07:50",
+      "end_time": "08:40"
+    },
+    {
+      "day_of_week": "JUE",
+      "start_time": "08:50",
+      "end_time": "09:40"
+    },
+    {
+      "day_of_week": "JUE",
+      "start_time": "09:40",
+      "end_time": "10:30"
+    },
+    {
+      "day_of_week": "JUE",
+      "start_time": "10:40",
+      "end_time": "11:30"
+    },
+    {
+      "day_of_week": "JUE",
+      "start_time": "11:30",
+      "end_time": "12:20"
+    },
+    {
+      "day_of_week": "JUE",
+      "start_time": "14:00",
+      "end_time": "14:50"
+    },
+    {
+      "day_of_week": "JUE",
+      "start_time": "14:50",
+      "end_time": "15:40"
+    },
+    {
+      "day_of_week": "JUE",
+      "start_time": "15:50",
+      "end_time": "16:40"
+    },
+    {
+      "day_of_week": "JUE",
+      "start_time": "16:40",
+      "end_time": "17:30"
+    },
+    {
+      "day_of_week": "JUE",
+      "start_time": "17:40",
+      "end_time": "18:30"
+    },
+    {
+      "day_of_week": "JUE",
+      "start_time": "18:30",
+      "end_time": "19:20"
+    },
+    {
+      "day_of_week": "JUE",
+      "start_time": "19:20",
+      "end_time": "20:10"
+    },
+    {
+      "day_of_week": "LUN",
+      "start_time": "07:00",
+      "end_time": "07:50"
+    },
+    {
+      "day_of_week": "LUN",
+      "start_time": "07:50",
+      "end_time": "08:40"
+    },
+    {
+      "day_of_week": "LUN",
+      "start_time": "08:50",
+      "end_time": "09:40"
+    },
+    {
+      "day_of_week": "LUN",
+      "start_time": "09:40",
+      "end_time": "10:30"
+    },
+    {
+      "day_of_week": "LUN",
+      "start_time": "10:40",
+      "end_time": "11:30"
+    },
+    {
+      "day_of_week": "LUN",
+      "start_time": "11:30",
+      "end_time": "12:20"
+    },
+    {
+      "day_of_week": "LUN",
+      "start_time": "14:00",
+      "end_time": "14:50"
+    },
+    {
+      "day_of_week": "LUN",
+      "start_time": "14:50",
+      "end_time": "15:40"
+    },
+    {
+      "day_of_week": "LUN",
+      "start_time": "15:50",
+      "end_time": "16:40"
+    },
+    {
+      "day_of_week": "LUN",
+      "start_time": "16:40",
+      "end_time": "17:30"
+    },
+    {
+      "day_of_week": "LUN",
+      "start_time": "17:40",
+      "end_time": "18:30"
+    },
+    {
+      "day_of_week": "LUN",
+      "start_time": "18:30",
+      "end_time": "19:20"
+    },
+    {
+      "day_of_week": "LUN",
+      "start_time": "19:20",
+      "end_time": "20:10"
+    },
+    {
+      "day_of_week": "MAR",
+      "start_time": "07:00",
+      "end_time": "07:50"
+    },
+    {
+      "day_of_week": "MAR",
+      "start_time": "07:50",
+      "end_time": "08:40"
+    },
+    {
+      "day_of_week": "MAR",
+      "start_time": "08:50",
+      "end_time": "09:40"
+    },
+    {
+      "day_of_week": "MAR",
+      "start_time": "09:40",
+      "end_time": "10:30"
+    },
+    {
+      "day_of_week": "MAR",
+      "start_time": "10:40",
+      "end_time": "11:30"
+    },
+    {
+      "day_of_week": "MAR",
+      "start_time": "11:30",
+      "end_time": "12:20"
+    },
+    {
+      "day_of_week": "MAR",
+      "start_time": "14:00",
+      "end_time": "14:50"
+    },
+    {
+      "day_of_week": "MAR",
+      "start_time": "14:50",
+      "end_time": "15:40"
+    },
+    {
+      "day_of_week": "MAR",
+      "start_time": "15:50",
+      "end_time": "16:40"
+    },
+    {
+      "day_of_week": "MAR",
+      "start_time": "16:40",
+      "end_time": "17:30"
+    },
+    {
+      "day_of_week": "MAR",
+      "start_time": "17:40",
+      "end_time": "18:30"
+    },
+    {
+      "day_of_week": "MAR",
+      "start_time": "18:30",
+      "end_time": "19:20"
+    },
+    {
+      "day_of_week": "MAR",
+      "start_time": "19:20",
+      "end_time": "20:10"
+    },
+    {
+      "day_of_week": "MIE",
+      "start_time": "07:00",
+      "end_time": "07:50"
+    },
+    {
+      "day_of_week": "MIE",
+      "start_time": "07:50",
+      "end_time": "08:40"
+    },
+    {
+      "day_of_week": "MIE",
+      "start_time": "08:50",
+      "end_time": "09:40"
+    },
+    {
+      "day_of_week": "MIE",
+      "start_time": "09:40",
+      "end_time": "10:30"
+    },
+    {
+      "day_of_week": "MIE",
+      "start_time": "10:40",
+      "end_time": "11:30"
+    },
+    {
+      "day_of_week": "MIE",
+      "start_time": "11:30",
+      "end_time": "12:20"
+    },
+    {
+      "day_of_week": "MIE",
+      "start_time": "14:00",
+      "end_time": "14:50"
+    },
+    {
+      "day_of_week": "MIE",
+      "start_time": "14:50",
+      "end_time": "15:40"
+    },
+    {
+      "day_of_week": "MIE",
+      "start_time": "15:50",
+      "end_time": "16:40"
+    },
+    {
+      "day_of_week": "MIE",
+      "start_time": "16:40",
+      "end_time": "17:30"
+    },
+    {
+      "day_of_week": "MIE",
+      "start_time": "17:40",
+      "end_time": "18:30"
+    },
+    {
+      "day_of_week": "MIE",
+      "start_time": "18:30",
+      "end_time": "19:20"
+    },
+    {
+      "day_of_week": "MIE",
+      "start_time": "19:20",
+      "end_time": "20:10"
+    },
+    {
+      "day_of_week": "VIE",
+      "start_time": "07:00",
+      "end_time": "07:50"
+    },
+    {
+      "day_of_week": "VIE",
+      "start_time": "07:50",
+      "end_time": "08:40"
+    },
+    {
+      "day_of_week": "VIE",
+      "start_time": "08:50",
+      "end_time": "09:40"
+    },
+    {
+      "day_of_week": "VIE",
+      "start_time": "09:40",
+      "end_time": "10:30"
+    },
+    {
+      "day_of_week": "VIE",
+      "start_time": "10:40",
+      "end_time": "11:30"
+    },
+    {
+      "day_of_week": "VIE",
+      "start_time": "11:30",
+      "end_time": "12:20"
+    },
+    {
+      "day_of_week": "VIE",
+      "start_time": "14:00",
+      "end_time": "14:50"
+    },
+    {
+      "day_of_week": "VIE",
+      "start_time": "14:50",
+      "end_time": "15:40"
+    },
+    {
+      "day_of_week": "VIE",
+      "start_time": "15:50",
+      "end_time": "16:40"
+    },
+    {
+      "day_of_week": "VIE",
+      "start_time": "16:40",
+      "end_time": "17:30"
+    },
+    {
+      "day_of_week": "VIE",
+      "start_time": "17:40",
+      "end_time": "18:30"
+    },
+    {
+      "day_of_week": "VIE",
+      "start_time": "18:30",
+      "end_time": "19:20"
+    },
+    {
+      "day_of_week": "VIE",
+      "start_time": "19:20",
+      "end_time": "20:10"
+    }
+  ],
+  "classrooms": [
+    {
+      "room_code": "T1",
+      "room_name": null,
+      "room_type": "THEORY",
+      "capacity": 40
+    },
+    {
+      "room_code": "T2",
+      "room_name": null,
+      "room_type": "THEORY",
+      "capacity": 40
+    },
+    {
+      "room_code": "T3",
+      "room_name": null,
+      "room_type": "THEORY",
+      "capacity": 35
+    },
+    {
+      "room_code": "T4",
+      "room_name": null,
+      "room_type": "THEORY",
+      "capacity": 50
+    },
+    {
+      "room_code": "T5",
+      "room_name": null,
+      "room_type": "THEORY",
+      "capacity": 45
+    },
+    {
+      "room_code": "LAB1",
+      "room_name": "Laboratorio de Programación Científica 1",
+      "room_type": "LAB",
+      "capacity": 25
+    },
+    {
+      "room_code": "LAB2",
+      "room_name": "Laboratorio de Programación Científica 2",
+      "room_type": "LAB",
+      "capacity": 25
+    },
+    {
+      "room_code": "LAB3",
+      "room_name": "Laboratorio Expandible de Programación Científica",
+      "room_type": "LAB",
+      "capacity": 30
+    }
+  ],
+  "professors": [
+    {
+      "professor_id": 1,
+      "name": "Alvaro",
+      "courses": [
+        "CLOUD COMPUTING"
+      ],
+      "availabilities": [
+        {
+          "day_of_week": "LUN",
+          "start_time": "08:50",
+          "end_time": "09:40"
+        },
+        {
+          "day_of_week": "LUN",
+          "start_time": "09:40",
+          "end_time": "10:30"
+        },
+        {
+          "day_of_week": "MAR",
+          "start_time": "08:50",
+          "end_time": "09:40"
+        },
+        {
+          "day_of_week": "MAR",
+          "start_time": "09:40",
+          "end_time": "10:30"
+        },
+        {
+          "day_of_week": "MIE",
+          "start_time": "14:00",
+          "end_time": "14:50"
+        },
+        {
+          "day_of_week": "MIE",
+          "start_time": "14:50",
+          "end_time": "15:40"
+        }
+      ]
+    },
+    {
+      "professor_id": 2,
+      "name": "Yessenia",
+      "courses": [
+        "TRABAJO INTERDISCIPLINAR III"
+      ],
+      "availabilities": [
+        {
+          "day_of_week": "MAR",
+          "start_time": "07:00",
+          "end_time": "07:50"
+        },
+        {
+          "day_of_week": "MAR",
+          "start_time": "07:50",
+          "end_time": "08:40"
+        },
+        {
+          "day_of_week": "JUE",
+          "start_time": "08:50",
+          "end_time": "09:40"
+        },
+        {
+          "day_of_week": "JUE",
+          "start_time": "09:40",
+          "end_time": "10:30"
+        },
+        {
+          "day_of_week": "VIE",
+          "start_time": "14:00",
+          "end_time": "14:50"
+        }
+      ]
+    },
+    {
+      "professor_id": 3,
+      "name": "Wilber",
+      "courses": [
+        "PRACTICAS PRE PROFESIONALES"
+      ],
+      "availabilities": [
+        {
+          "day_of_week": "MIE",
+          "start_time": "07:00",
+          "end_time": "07:50"
+        },
+        {
+          "day_of_week": "MIE",
+          "start_time": "07:50",
+          "end_time": "08:40"
+        },
+        {
+          "day_of_week": "MIE",
+          "start_time": "08:50",
+          "end_time": "09:40"
+        },
+        {
+          "day_of_week": "JUE",
+          "start_time": "14:00",
+          "end_time": "14:50"
+        },
+        {
+          "day_of_week": "JUE",
+          "start_time": "14:50",
+          "end_time": "15:40"
+        }
+      ]
+    },
+    {
+      "professor_id": 4,
+      "name": "Percy",
+      "courses": [
+        "INTERNET DE LAS COSAS",
+        "ROBOTICA (E)"
+      ],
+      "availabilities": [
+        {
+          "day_of_week": "LUN",
+          "start_time": "10:40",
+          "end_time": "11:30"
+        },
+        {
+          "day_of_week": "LUN",
+          "start_time": "11:30",
+          "end_time": "12:20"
+        },
+        {
+          "day_of_week": "MAR",
+          "start_time": "10:40",
+          "end_time": "11:30"
+        },
+        {
+          "day_of_week": "MAR",
+          "start_time": "11:30",
+          "end_time": "12:20"
+        },
+        {
+          "day_of_week": "JUE",
+          "start_time": "14:50",
+          "end_time": "15:40"
+        }
+      ]
+    },
+    {
+      "professor_id": 5,
+      "name": "Rolando",
+      "courses": [
+        "TOPICOS EN CIBERSEGURIDAD (E)"
+      ],
+      "availabilities": [
+        {
+          "day_of_week": "MAR",
+          "start_time": "15:50",
+          "end_time": "16:40"
+        },
+        {
+          "day_of_week": "MAR",
+          "start_time": "16:40",
+          "end_time": "17:30"
+        },
+        {
+          "day_of_week": "MIE",
+          "start_time": "15:50",
+          "end_time": "16:40"
+        },
+        {
+          "day_of_week": "MIE",
+          "start_time": "16:40",
+          "end_time": "17:30"
+        }
+      ]
+    },
+    {
+      "professor_id": 6,
+      "name": "Juan Carlos",
+      "courses": [
+        "TRABAJO DE INVESTIGACIÓN"
+      ],
+      "availabilities": [
+        {
+          "day_of_week": "JUE",
+          "start_time": "08:50",
+          "end_time": "09:40"
+        },
+        {
+          "day_of_week": "JUE",
+          "start_time": "09:40",
+          "end_time": "10:30"
+        },
+        {
+          "day_of_week": "VIE",
+          "start_time": "08:50",
+          "end_time": "09:40"
+        },
+        {
+          "day_of_week": "VIE",
+          "start_time": "09:40",
+          "end_time": "10:30"
+        }
+      ]
+    }
+  ],
+  "courses": [
+    {
+      "course_code": "1705265",
+      "course_name": "CLOUD COMPUTING",
+      "credits": 4,
+      "hours": {
+        "theory": 2,
+        "practice": 2,
+        "lab": 2
+      },
+      "prerequisites": [
+        "1705157"
+      ],
+      "professor_id": 1,
+      "classroom_type": "LAB",
+      "student_count": 30
+    },
+    {
+      "course_code": "1705267",
+      "course_name": "TRABAJO INTERDISCIPLINAR III",
+      "credits": 2,
+      "hours": {
+        "theory": 1,
+        "practice": 2,
+        "lab": 0
+      },
+      "prerequisites": [
+        "1703240",
+        "1704254"
+      ],
+      "professor_id": 2,
+      "classroom_type": "THEORY",
+      "student_count": 40
+    },
+    {
+      "course_code": "1705268",
+      "course_name": "INTERNET DE LAS COSAS",
+      "credits": 3,
+      "hours": {
+        "theory": 1,
+        "practice": 2,
+        "lab": 2
+      },
+      "prerequisites": [
+        "1704250"
+      ],
+      "professor_id": 4,
+      "classroom_type": "LAB",
+      "student_count": 25
+    },
+    {
+      "course_code": "1705269",
+      "course_name": "ROBOTICA (E)",
+      "credits": 4,
+      "hours": {
+        "theory": 2,
+        "practice": 0,
+        "lab": 4
+      },
+      "prerequisites": [
+        "1705162"
+      ],
+      "professor_id": 4,
+      "classroom_type": "LAB",
+      "student_count": 20
+    },
+    {
+      "course_code": "1705270",
+      "course_name": "TOPICOS EN CIBERSEGURIDAD (E)",
+      "credits": 4,
+      "hours": {
+        "theory": 2,
+        "practice": 0,
+        "lab": 4
+      },
+      "prerequisites": [
+        "1704251"
+      ],
+      "professor_id": 5,
+      "classroom_type": "LAB",
+      "student_count": 25
+    },
+    {
+      "course_code": "1705271",
+      "course_name": "PRACTICAS PRE PROFESIONALES",
+      "credits": 2,
+      "hours": {
+        "theory": 0,
+        "practice": 4,
+        "lab": 0
+      },
+      "prerequisites": [],
+      "professor_id": 3,
+      "classroom_type": "THEORY",
+      "student_count": 50
+    },
+    {
+      "course_code": "1705272",
+      "course_name": "TRABAJO DE INVESTIGACIÓN",
+      "credits": 6,
+      "hours": {
+        "theory": 3,
+        "practice": 6,
+        "lab": 0
+      },
+      "prerequisites": [
+        "1705156"
+      ],
+      "professor_id": 6,
+      "classroom_type": "THEORY",
+      "student_count": 40
+    }
+  ],
+  "curricula": {
+    "Segundo Semestre": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "preferences": {
+    "preferred_shift": "morning",
+    "preferred_days": [
+      "MON",
+      "TUE",
+      "WED"
+    ],
+    "preferred_slots": [
+      "07:00_07:50",
+      "07:50_08:40",
+      "08:50_09:40",
+      "09:40_10:30",
+      "10:40_11:30",
+      "11:30_12:20"
+    ]
+  },
+  "weights": {
+    "hard_constraints": [
+      {
+        "constraint_name": "no_solapamiento_profesor",
+        "weight_value": 1000
+      },
+      {
+        "constraint_name": "no_solapamiento_aula",
+        "weight_value": 900
+      },
+      {
+        "constraint_name": "disponibilidad_profesor",
+        "weight_value": 800
+      },
+      {
+        "constraint_name": "capacidad_aula",
+        "weight_value": 700
+      }
+    ],
+    "soft_constraints": [
+      {
+        "constraint_name": "turno_preferido_estudiante",
+        "weight_value": 200
+      },
+      {
+        "constraint_name": "minimizacion_huecos",
+        "weight_value": 150
+      },
+      {
+        "constraint_name": "distribucion_balanceada",
+        "weight_value": 100
+      },
+      {
+        "constraint_name": "uso_optimo_aulas",
+        "weight_value": 100
+      }
+    ]
+  }
+}
