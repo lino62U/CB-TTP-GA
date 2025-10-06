@@ -60,29 +60,22 @@ export const generateMockScheduleResult = (): ScheduleResult => {
 };
 
 // Transforma resultado a schedules
-export const transformToSchedules = (result: ScheduleResult): { [year: string]: TimetableEntry[] } => {
+export const transformToSchedules = (
+  result: any
+): { [year: string]: TimetableEntry[] } => {
   const yearSchedules: { [year: string]: TimetableEntry[] } = {};
 
-  Object.entries(result.per_curriculum).forEach(([year, yearCourses]) => {
+  Object.entries(result.schedules_by_year).forEach(([year, yearData]: [string, any]) => {
     const timetable: TimetableEntry[] = [];
 
-    Object.entries(yearCourses).forEach(([courseCode, assignments]) => {
-      const courseInfo = result.courses[courseCode];
-      if (!courseInfo) return;
-
-      assignments.forEach(assignment => {
-        const parts = assignment.period.split('_');
-        const day = parts[0];
-        const timeSlot = `${parts[1]}-${parts[2]}`;
-
-        timetable.push({
-          day,
-          timeSlot,
-          course: courseInfo.nombre,
-          teacher: courseInfo.profesor,
-          room: assignment.aula,
-          type: courseInfo.aula_tipo || 'T',
-        });
+    yearData.schedule.forEach((s: any) => {
+      timetable.push({
+        day: s.day_of_week,
+        timeSlot: `${s.start_time}-${s.end_time}`,
+        course: s.course_name,
+        teacher: s.professor_name,
+        room: s.classroom_code,
+        type: s.classroom_type || "THEORY",
       });
     });
 
@@ -130,11 +123,29 @@ export const exportSchedulesToExcel = (schedules: { [year: string]: TimetableEnt
 };
 
 // Run algorithm (simula delay y mock) – nota: ignora Infrastructure por ahora, agrégala si backend la usa
-export const runScheduleAlgorithm = async (params: AlgorithmParams): Promise<{ [year: string]: TimetableEntry[] }> => {
-  // En real: api.post('/api/schedule/run', { params, infrastructure })
-  // Por mock:
-  await new Promise(resolve => setTimeout(resolve, 2000));
 
-  const mockResult = generateMockScheduleResult();
-  return transformToSchedules(mockResult);
+export const runScheduleAlgorithm = async (
+  params: AlgorithmParams
+): Promise<{ [year: string]: TimetableEntry[] }> => {
+  try {
+    const response = await fetch("http://localhost:4000/schedule/run", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`Error al ejecutar el algoritmo: ${response.statusText}`);
+    }
+
+    const result = await response.json();
+
+    // Suponiendo que necesitas transformar la respuesta como antes
+    return transformToSchedules(result);
+
+  } catch (error) {
+    console.error("Error en runScheduleAlgorithm:", error);
+    throw error;
+  }
 };

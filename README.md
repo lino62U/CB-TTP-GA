@@ -151,3 +151,6 @@ Si quieres, el siguiente paso lo puedo hacer ya:
 * **Implementar pseudocódigo** (o código en Python) de la función `fitness(sol)` que calcule `Violaciones_Hard` y `pen_soft` según los pesos propuestos.
 
 ¿Cuál prefieres que haga ahora?
+
+
+## 10. Ejecución del proyecto
