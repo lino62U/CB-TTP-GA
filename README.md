@@ -63,7 +63,7 @@
 
 ---
 
-## ANÁLISIS DETALLADO DE ALGORITMOS
+##  ALGORITMOS
 
 ### Algoritmo Genético Principal (`run_ga.py`)
 
