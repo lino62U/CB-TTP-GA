@@ -686,44 +686,47 @@ def run_ga(data: Dict[str, Any]):
     return best, d_best
 
 # ---------------------------
-# Pretty print solution
+# Export to JSON
 # ---------------------------
-def pretty_print_solution(sol: Dict[str, List[Tuple[Period, AulaID]]], data: Dict[str, Any], out_path=None):
-    course_map = data['_courses_map']
-    lines = []
-    lines.append("CourseCode | CourseName | (period,aula) ...")
-    for ccode, assigns in sol.items():
-        name = course_map[ccode]['nombre']
-        assigns_str = ", ".join([f"{p}@{a}" for (p,a) in assigns])
-        lines.append(f"{ccode} | {name} | {assigns_str}")
-    txt = "\n".join(lines)
-    print(txt)
-    if out_path:
-        with open(out_path, 'w', encoding='utf-8') as f:
-            f.write(txt)
-
-def print_per_curriculum(sol: Dict[str, List[Tuple[Period, AulaID]]], data: Dict[str, Any]):
+def save_schedule_as_json(sol: Dict[str, List[Tuple[Period, AulaID]]], data: Dict[str, Any], diag: Dict[str, Any], out_path="best_schedule.json"):
     """
-    Genera archivos separados por currículo (año).
+    Exporta el horario global y por currículo a un solo archivo JSON estructurado.
     """
     course_map = data['_courses_map']
-    course_to_currs = data.get('_course_to_currs', {})
     curriculos = data.get('curriculos', {})
     
+    # Horario global: dict de course_code -> list de dicts {"period": str, "aula": str}
+    global_schedule = {}
+    for ccode, assigns in sol.items():
+        if ccode in course_map:
+            global_schedule[ccode] = [{"period": p, "aula": a} for p, a in assigns]
+    
+    # Horario por currículo: nested dict curr_name -> course_code -> list de dicts
+    per_curriculum = {}
     for curr_name, course_codes in curriculos.items():
-        lines = [f"=== Horario para {curr_name} ==="]
-        for ccode in sorted(course_codes):  # Ordenado por código para consistencia
+        per_curriculum[curr_name] = {}
+        for ccode in sorted(course_codes):
             if ccode in sol:
-                name = course_map[ccode]['nombre']
-                assigns_str = ", ".join([f"{p}@{a}" for (p,a) in sol[ccode]])
-                lines.append(f"{ccode} | {name} | {assigns_str}")
+                per_curriculum[curr_name][ccode] = [{"period": p, "aula": a} for p, a in sol[ccode]]
             else:
-                lines.append(f"{ccode} | NO ASIGNADO")
-        txt = "\n".join(lines)
-        out_path = f"horario_{curr_name.lower().replace(' ', '_').replace('°', '')}.txt"
-        with open(out_path, 'w', encoding='utf-8') as f:
-            f.write(txt)
-        print(f"Guardado: {out_path}")
+                per_curriculum[curr_name][ccode] = []  # Marca como no asignado
+    
+    # Estructura JSON final
+    output = {
+        "metadata": {
+            "fitness": diag.get('fitness', 0),
+            "hard_violations": diag.get('hard', 0),
+            "soft_penalties": diag.get('soft', 0),
+            "total_diagnostics": {k: v for k, v in diag.items() if k not in ['hard', 'soft', 'fitness']}
+        },
+        "global_schedule": global_schedule,
+        "per_curriculum": per_curriculum
+    }
+    
+    with open(out_path, 'w', encoding='utf-8') as f:
+        json.dump(output, f, indent=2, ensure_ascii=False)
+    
+    print(f"Se guardó el horario en {out_path}")
 
 # ---------------------------
 # CLI
@@ -747,9 +750,8 @@ def main():
         data['pesos']['M'] = 1000000
 
     best, diag = run_ga(data)
-    pretty_print_solution(best, data, out_path="best_schedule_global.txt")
-    print_per_curriculum(best, data)
-    print("Se guardaron horarios por año: horario_primer_año.txt, horario_segundo_año.txt, etc.")
+    save_schedule_as_json(best, data, diag)
+    print("Se guardó el horario completo en formato JSON: best_schedule.json")
 
 if __name__ == "__main__":
     main()

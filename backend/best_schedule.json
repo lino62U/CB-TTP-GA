@@ -1,0 +1,1577 @@
+{
+  "metadata": {
+    "fitness": 45198230.0,
+    "hard_violations": 45153700,
+    "soft_penalties": 44530.0,
+    "total_diagnostics": {
+      "H1_conflict": 45,
+      "H2_prof_conflict": 91,
+      "H4_aula_conflict": 1,
+      "H5_capacidad": 18,
+      "H6_tipo_mismatch": 82,
+      "S1_gaps": 22,
+      "S2_mixed": 66,
+      "S3_prof_pref": 39,
+      "S4_daily_over": 79,
+      "S5_overuse": 39.0,
+      "S6_extremas": 18,
+      "S7_gaps": 1,
+      "S8_fuera_bloque": 72,
+      "S9_dias_extra": 10
+    }
+  },
+  "global_schedule": {
+    "1701208": [
+      {
+        "period": "JUE_08:50_09:40",
+        "aula": "T4"
+      },
+      {
+        "period": "MAR_09:40_10:30",
+        "aula": "T4"
+      },
+      {
+        "period": "JUE_08:50_09:40",
+        "aula": "LAB2"
+      },
+      {
+        "period": "VIE_14:50_15:40",
+        "aula": "T4"
+      },
+      {
+        "period": "MAR_08:50_09:40",
+        "aula": "T4"
+      },
+      {
+        "period": "VIE_14:00_14:50",
+        "aula": "T4"
+      },
+      {
+        "period": "JUE_09:40_10:30",
+        "aula": "T4"
+      },
+      {
+        "period": "VIE_14:50_15:40",
+        "aula": "T3"
+      }
+    ],
+    "1701209": [
+      {
+        "period": "MIE_08:50_09:40",
+        "aula": "T4"
+      },
+      {
+        "period": "JUE_14:50_15:40",
+        "aula": "T4"
+      },
+      {
+        "period": "MIE_07:50_08:40",
+        "aula": "T4"
+      },
+      {
+        "period": "MIE_07:00_07:50",
+        "aula": "T4"
+      },
+      {
+        "period": "JUE_14:00_14:50",
+        "aula": "T4"
+      },
+      {
+        "period": "JUE_14:50_15:40",
+        "aula": "LAB3"
+      },
+      {
+        "period": "MIE_07:50_08:40",
+        "aula": "T1"
+      },
+      {
+        "period": "VIE_08:50_09:40",
+        "aula": "T4"
+      }
+    ],
+    "1701210": [
+      {
+        "period": "JUE_14:00_14:50",
+        "aula": "T2"
+      },
+      {
+        "period": "JUE_14:00_14:50",
+        "aula": "T5"
+      },
+      {
+        "period": "VIE_08:50_09:40",
+        "aula": "T1"
+      },
+      {
+        "period": "JUE_14:50_15:40",
+        "aula": "T5"
+      },
+      {
+        "period": "MIE_08:50_09:40",
+        "aula": "T5"
+      },
+      {
+        "period": "MIE_07:00_07:50",
+        "aula": "LAB3"
+      }
+    ],
+    "1701212": [
+      {
+        "period": "MAR_15:50_16:40",
+        "aula": "T4"
+      },
+      {
+        "period": "LUN_14:50_15:40",
+        "aula": "T4"
+      },
+      {
+        "period": "LUN_14:00_14:50",
+        "aula": "T4"
+      },
+      {
+        "period": "MIE_17:40_18:30",
+        "aula": "T4"
+      }
+    ],
+    "1701215": [
+      {
+        "period": "JUE_07:00_07:50",
+        "aula": "T4"
+      },
+      {
+        "period": "LUN_16:40_17:30",
+        "aula": "T4"
+      },
+      {
+        "period": "JUE_07:00_07:50",
+        "aula": "T1"
+      },
+      {
+        "period": "JUE_07:50_08:40",
+        "aula": "T4"
+      }
+    ],
+    "1701216": [
+      {
+        "period": "VIE_07:50_08:40",
+        "aula": "T4"
+      },
+      {
+        "period": "LUN_08:50_09:40",
+        "aula": "T4"
+      },
+      {
+        "period": "VIE_07:00_07:50",
+        "aula": "T4"
+      }
+    ],
+    "1702224": [
+      {
+        "period": "MAR_09:40_10:30",
+        "aula": "T5"
+      },
+      {
+        "period": "MAR_08:50_09:40",
+        "aula": "T5"
+      },
+      {
+        "period": "VIE_14:50_15:40",
+        "aula": "T5"
+      },
+      {
+        "period": "VIE_14:00_14:50",
+        "aula": "T5"
+      },
+      {
+        "period": "JUE_09:40_10:30",
+        "aula": "T5"
+      },
+      {
+        "period": "JUE_08:50_09:40",
+        "aula": "LAB1"
+      },
+      {
+        "period": "JUE_08:50_09:40",
+        "aula": "T5"
+      },
+      {
+        "period": "MAR_08:50_09:40",
+        "aula": "LAB2"
+      }
+    ],
+    "1702225": [
+      {
+        "period": "MAR_15:50_16:40",
+        "aula": "T5"
+      },
+      {
+        "period": "MAR_16:40_17:30",
+        "aula": "T4"
+      },
+      {
+        "period": "LUN_14:50_15:40",
+        "aula": "T5"
+      },
+      {
+        "period": "MIE_17:40_18:30",
+        "aula": "T5"
+      },
+      {
+        "period": "MAR_16:40_17:30",
+        "aula": "T5"
+      },
+      {
+        "period": "LUN_14:00_14:50",
+        "aula": "T5"
+      }
+    ],
+    "1702226": [
+      {
+        "period": "MAR_11:30_12:20",
+        "aula": "T5"
+      },
+      {
+        "period": "LUN_10:40_11:30",
+        "aula": "T4"
+      },
+      {
+        "period": "MAR_10:40_11:30",
+        "aula": "T5"
+      },
+      {
+        "period": "LUN_11:30_12:20",
+        "aula": "T5"
+      },
+      {
+        "period": "JUE_14:50_15:40",
+        "aula": "T5"
+      },
+      {
+        "period": "JUE_15:50_16:40",
+        "aula": "T5"
+      }
+    ],
+    "1702227": [
+      {
+        "period": "MIE_16:40_17:30",
+        "aula": "T4"
+      },
+      {
+        "period": "MIE_16:40_17:30",
+        "aula": "T5"
+      },
+      {
+        "period": "MIE_15:50_16:40",
+        "aula": "T4"
+      },
+      {
+        "period": "JUE_17:40_18:30",
+        "aula": "T5"
+      },
+      {
+        "period": "JUE_17:40_18:30",
+        "aula": "T4"
+      },
+      {
+        "period": "MIE_15:50_16:40",
+        "aula": "T5"
+      }
+    ],
+    "1702228": [
+      {
+        "period": "LUN_16:40_17:30",
+        "aula": "T5"
+      },
+      {
+        "period": "JUE_07:00_07:50",
+        "aula": "T5"
+      },
+      {
+        "period": "JUE_07:50_08:40",
+        "aula": "T5"
+      },
+      {
+        "period": "VIE_07:50_08:40",
+        "aula": "T5"
+      },
+      {
+        "period": "VIE_07:00_07:50",
+        "aula": "T5"
+      }
+    ],
+    "1702229": [
+      {
+        "period": "MIE_14:00_14:50",
+        "aula": "T5"
+      },
+      {
+        "period": "VIE_16:40_17:30",
+        "aula": "T5"
+      },
+      {
+        "period": "MIE_14:50_15:40",
+        "aula": "T5"
+      }
+    ],
+    "1703236": [
+      {
+        "period": "MIE_08:50_09:40",
+        "aula": "T1"
+      },
+      {
+        "period": "MIE_07:00_07:50",
+        "aula": "T1"
+      },
+      {
+        "period": "JUE_14:50_15:40",
+        "aula": "T1"
+      },
+      {
+        "period": "MIE_07:00_07:50",
+        "aula": "T5"
+      },
+      {
+        "period": "MIE_07:50_08:40",
+        "aula": "T2"
+      },
+      {
+        "period": "JUE_14:00_14:50",
+        "aula": "T1"
+      }
+    ],
+    "1703237": [
+      {
+        "period": "MAR_11:30_12:20",
+        "aula": "T2"
+      },
+      {
+        "period": "LUN_11:30_12:20",
+        "aula": "T2"
+      },
+      {
+        "period": "MAR_10:40_11:30",
+        "aula": "T1"
+      },
+      {
+        "period": "LUN_10:40_11:30",
+        "aula": "T5"
+      },
+      {
+        "period": "VIE_14:00_14:50",
+        "aula": "T1"
+      },
+      {
+        "period": "MAR_11:30_12:20",
+        "aula": "T1"
+      }
+    ],
+    "1703238": [
+      {
+        "period": "VIE_09:40_10:30",
+        "aula": "T4"
+      },
+      {
+        "period": "VIE_09:40_10:30",
+        "aula": "T1"
+      },
+      {
+        "period": "JUE_08:50_09:40",
+        "aula": "T1"
+      },
+      {
+        "period": "LUN_14:50_15:40",
+        "aula": "T1"
+      },
+      {
+        "period": "JUE_09:40_10:30",
+        "aula": "T2"
+      },
+      {
+        "period": "VIE_08:50_09:40",
+        "aula": "T5"
+      }
+    ],
+    "1703239": [
+      {
+        "period": "MIE_15:50_16:40",
+        "aula": "T1"
+      },
+      {
+        "period": "MAR_15:50_16:40",
+        "aula": "T2"
+      },
+      {
+        "period": "JUE_17:40_18:30",
+        "aula": "T1"
+      },
+      {
+        "period": "MIE_16:40_17:30",
+        "aula": "T2"
+      },
+      {
+        "period": "MIE_15:50_16:40",
+        "aula": "T2"
+      },
+      {
+        "period": "MAR_16:40_17:30",
+        "aula": "T2"
+      }
+    ],
+    "1703240": [
+      {
+        "period": "MAR_07:50_08:40",
+        "aula": "T5"
+      },
+      {
+        "period": "MAR_07:00_07:50",
+        "aula": "T5"
+      },
+      {
+        "period": "MAR_07:50_08:40",
+        "aula": "T1"
+      },
+      {
+        "period": "MAR_07:00_07:50",
+        "aula": "T2"
+      }
+    ],
+    "1703241": [
+      {
+        "period": "MAR_09:40_10:30",
+        "aula": "T2"
+      },
+      {
+        "period": "LUN_08:50_09:40",
+        "aula": "T2"
+      },
+      {
+        "period": "LUN_09:40_10:30",
+        "aula": "T4"
+      },
+      {
+        "period": "MAR_08:50_09:40",
+        "aula": "T2"
+      },
+      {
+        "period": "MIE_14:00_14:50",
+        "aula": "T2"
+      },
+      {
+        "period": "MIE_14:50_15:40",
+        "aula": "T2"
+      }
+    ],
+    "1704248": [
+      {
+        "period": "LUN_07:00_07:50",
+        "aula": "T3"
+      },
+      {
+        "period": "LUN_07:00_07:50",
+        "aula": "T2"
+      },
+      {
+        "period": "MIE_14:50_15:40",
+        "aula": "T1"
+      },
+      {
+        "period": "MIE_14:50_15:40",
+        "aula": "T3"
+      },
+      {
+        "period": "LUN_07:50_08:40",
+        "aula": "T3"
+      }
+    ],
+    "1704249": [
+      {
+        "period": "JUE_08:50_09:40",
+        "aula": "T3"
+      },
+      {
+        "period": "LUN_14:50_15:40",
+        "aula": "T3"
+      },
+      {
+        "period": "VIE_09:40_10:30",
+        "aula": "T3"
+      },
+      {
+        "period": "VIE_08:50_09:40",
+        "aula": "T3"
+      }
+    ],
+    "1704250": [
+      {
+        "period": "LUN_08:50_09:40",
+        "aula": "T1"
+      },
+      {
+        "period": "MAR_08:50_09:40",
+        "aula": "T3"
+      },
+      {
+        "period": "LUN_09:40_10:30",
+        "aula": "T1"
+      },
+      {
+        "period": "MAR_09:40_10:30",
+        "aula": "T1"
+      },
+      {
+        "period": "MAR_09:40_10:30",
+        "aula": "T3"
+      },
+      {
+        "period": "MIE_14:00_14:50",
+        "aula": "T3"
+      }
+    ],
+    "1704251": [
+      {
+        "period": "MIE_16:40_17:30",
+        "aula": "T3"
+      },
+      {
+        "period": "MIE_16:40_17:30",
+        "aula": "T1"
+      },
+      {
+        "period": "MAR_16:40_17:30",
+        "aula": "T3"
+      },
+      {
+        "period": "MIE_15:50_16:40",
+        "aula": "T3"
+      },
+      {
+        "period": "MAR_15:50_16:40",
+        "aula": "T1"
+      }
+    ],
+    "1704252": [
+      {
+        "period": "MAR_07:50_08:40",
+        "aula": "T3"
+      },
+      {
+        "period": "JUE_09:40_10:30",
+        "aula": "T3"
+      },
+      {
+        "period": "MAR_07:00_07:50",
+        "aula": "T4"
+      },
+      {
+        "period": "MAR_07:00_07:50",
+        "aula": "T1"
+      }
+    ],
+    "1704253": [
+      {
+        "period": "MIE_19:20_20:10",
+        "aula": "T5"
+      },
+      {
+        "period": "MAR_18:30_19:20",
+        "aula": "T1"
+      },
+      {
+        "period": "LUN_17:40_18:30",
+        "aula": "T1"
+      }
+    ],
+    "1704254": [
+      {
+        "period": "LUN_11:30_12:20",
+        "aula": "T4"
+      },
+      {
+        "period": "MAR_11:30_12:20",
+        "aula": "LAB3"
+      },
+      {
+        "period": "LUN_10:40_11:30",
+        "aula": "LAB3"
+      },
+      {
+        "period": "MAR_10:40_11:30",
+        "aula": "T2"
+      },
+      {
+        "period": "JUE_14:50_15:40",
+        "aula": "T2"
+      }
+    ],
+    "1704255": [
+      {
+        "period": "MAR_10:40_11:30",
+        "aula": "T3"
+      },
+      {
+        "period": "LUN_11:30_12:20",
+        "aula": "T3"
+      },
+      {
+        "period": "VIE_14:00_14:50",
+        "aula": "T3"
+      },
+      {
+        "period": "LUN_10:40_11:30",
+        "aula": "T3"
+      }
+    ],
+    "1705265": [
+      {
+        "period": "MIE_14:50_15:40",
+        "aula": "LAB3"
+      },
+      {
+        "period": "LUN_09:40_10:30",
+        "aula": "T2"
+      },
+      {
+        "period": "MAR_08:50_09:40",
+        "aula": "LAB3"
+      },
+      {
+        "period": "MAR_09:40_10:30",
+        "aula": "LAB3"
+      },
+      {
+        "period": "MIE_14:00_14:50",
+        "aula": "T1"
+      },
+      {
+        "period": "LUN_08:50_09:40",
+        "aula": "LAB3"
+      }
+    ],
+    "1705267": [
+      {
+        "period": "MAR_07:50_08:40",
+        "aula": "T2"
+      },
+      {
+        "period": "VIE_14:00_14:50",
+        "aula": "T2"
+      },
+      {
+        "period": "MAR_07:00_07:50",
+        "aula": "T3"
+      }
+    ],
+    "1705268": [
+      {
+        "period": "MAR_11:30_12:20",
+        "aula": "LAB1"
+      },
+      {
+        "period": "LUN_10:40_11:30",
+        "aula": "LAB2"
+      },
+      {
+        "period": "LUN_10:40_11:30",
+        "aula": "LAB1"
+      },
+      {
+        "period": "LUN_11:30_12:20",
+        "aula": "LAB2"
+      },
+      {
+        "period": "LUN_11:30_12:20",
+        "aula": "LAB1"
+      }
+    ],
+    "1705269": [
+      {
+        "period": "MAR_11:30_12:20",
+        "aula": "LAB2"
+      },
+      {
+        "period": "MAR_11:30_12:20",
+        "aula": "T4"
+      },
+      {
+        "period": "MAR_10:40_11:30",
+        "aula": "LAB2"
+      },
+      {
+        "period": "JUE_14:50_15:40",
+        "aula": "T3"
+      },
+      {
+        "period": "JUE_14:50_15:40",
+        "aula": "LAB2"
+      },
+      {
+        "period": "MAR_10:40_11:30",
+        "aula": "LAB1"
+      }
+    ],
+    "1705270": [
+      {
+        "period": "MIE_15:50_16:40",
+        "aula": "LAB1"
+      },
+      {
+        "period": "MAR_16:40_17:30",
+        "aula": "LAB2"
+      },
+      {
+        "period": "MIE_16:40_17:30",
+        "aula": "LAB1"
+      },
+      {
+        "period": "MIE_15:50_16:40",
+        "aula": "LAB2"
+      },
+      {
+        "period": "MAR_15:50_16:40",
+        "aula": "LAB2"
+      },
+      {
+        "period": "MAR_16:40_17:30",
+        "aula": "LAB3"
+      }
+    ],
+    "1705271": [
+      {
+        "period": "JUE_14:00_14:50",
+        "aula": "LAB2"
+      },
+      {
+        "period": "MIE_07:50_08:40",
+        "aula": "T5"
+      },
+      {
+        "period": "MIE_07:00_07:50",
+        "aula": "T2"
+      },
+      {
+        "period": "MIE_08:50_09:40",
+        "aula": "T3"
+      }
+    ],
+    "1705272": [
+      {
+        "period": "JUE_08:50_09:40",
+        "aula": "T2"
+      },
+      {
+        "period": "VIE_09:40_10:30",
+        "aula": "T5"
+      },
+      {
+        "period": "MIE_11:30_12:20",
+        "aula": "T2"
+      },
+      {
+        "period": "JUE_09:40_10:30",
+        "aula": "T1"
+      },
+      {
+        "period": "MIE_10:40_11:30",
+        "aula": "T2"
+      },
+      {
+        "period": "MIE_10:40_11:30",
+        "aula": "T4"
+      },
+      {
+        "period": "VIE_08:50_09:40",
+        "aula": "T2"
+      },
+      {
+        "period": "MIE_11:30_12:20",
+        "aula": "T1"
+      },
+      {
+        "period": "VIE_09:40_10:30",
+        "aula": "T2"
+      }
+    ]
+  },
+  "per_curriculum": {
+    "Primer Año": {
+      "1701208": [
+        {
+          "period": "JUE_08:50_09:40",
+          "aula": "T4"
+        },
+        {
+          "period": "MAR_09:40_10:30",
+          "aula": "T4"
+        },
+        {
+          "period": "JUE_08:50_09:40",
+          "aula": "LAB2"
+        },
+        {
+          "period": "VIE_14:50_15:40",
+          "aula": "T4"
+        },
+        {
+          "period": "MAR_08:50_09:40",
+          "aula": "T4"
+        },
+        {
+          "period": "VIE_14:00_14:50",
+          "aula": "T4"
+        },
+        {
+          "period": "JUE_09:40_10:30",
+          "aula": "T4"
+        },
+        {
+          "period": "VIE_14:50_15:40",
+          "aula": "T3"
+        }
+      ],
+      "1701209": [
+        {
+          "period": "MIE_08:50_09:40",
+          "aula": "T4"
+        },
+        {
+          "period": "JUE_14:50_15:40",
+          "aula": "T4"
+        },
+        {
+          "period": "MIE_07:50_08:40",
+          "aula": "T4"
+        },
+        {
+          "period": "MIE_07:00_07:50",
+          "aula": "T4"
+        },
+        {
+          "period": "JUE_14:00_14:50",
+          "aula": "T4"
+        },
+        {
+          "period": "JUE_14:50_15:40",
+          "aula": "LAB3"
+        },
+        {
+          "period": "MIE_07:50_08:40",
+          "aula": "T1"
+        },
+        {
+          "period": "VIE_08:50_09:40",
+          "aula": "T4"
+        }
+      ],
+      "1701210": [
+        {
+          "period": "JUE_14:00_14:50",
+          "aula": "T2"
+        },
+        {
+          "period": "JUE_14:00_14:50",
+          "aula": "T5"
+        },
+        {
+          "period": "VIE_08:50_09:40",
+          "aula": "T1"
+        },
+        {
+          "period": "JUE_14:50_15:40",
+          "aula": "T5"
+        },
+        {
+          "period": "MIE_08:50_09:40",
+          "aula": "T5"
+        },
+        {
+          "period": "MIE_07:00_07:50",
+          "aula": "LAB3"
+        }
+      ],
+      "1701212": [
+        {
+          "period": "MAR_15:50_16:40",
+          "aula": "T4"
+        },
+        {
+          "period": "LUN_14:50_15:40",
+          "aula": "T4"
+        },
+        {
+          "period": "LUN_14:00_14:50",
+          "aula": "T4"
+        },
+        {
+          "period": "MIE_17:40_18:30",
+          "aula": "T4"
+        }
+      ],
+      "1701215": [
+        {
+          "period": "JUE_07:00_07:50",
+          "aula": "T4"
+        },
+        {
+          "period": "LUN_16:40_17:30",
+          "aula": "T4"
+        },
+        {
+          "period": "JUE_07:00_07:50",
+          "aula": "T1"
+        },
+        {
+          "period": "JUE_07:50_08:40",
+          "aula": "T4"
+        }
+      ],
+      "1701216": [
+        {
+          "period": "VIE_07:50_08:40",
+          "aula": "T4"
+        },
+        {
+          "period": "LUN_08:50_09:40",
+          "aula": "T4"
+        },
+        {
+          "period": "VIE_07:00_07:50",
+          "aula": "T4"
+        }
+      ]
+    },
+    "Segundo Año": {
+      "1702224": [
+        {
+          "period": "MAR_09:40_10:30",
+          "aula": "T5"
+        },
+        {
+          "period": "MAR_08:50_09:40",
+          "aula": "T5"
+        },
+        {
+          "period": "VIE_14:50_15:40",
+          "aula": "T5"
+        },
+        {
+          "period": "VIE_14:00_14:50",
+          "aula": "T5"
+        },
+        {
+          "period": "JUE_09:40_10:30",
+          "aula": "T5"
+        },
+        {
+          "period": "JUE_08:50_09:40",
+          "aula": "LAB1"
+        },
+        {
+          "period": "JUE_08:50_09:40",
+          "aula": "T5"
+        },
+        {
+          "period": "MAR_08:50_09:40",
+          "aula": "LAB2"
+        }
+      ],
+      "1702225": [
+        {
+          "period": "MAR_15:50_16:40",
+          "aula": "T5"
+        },
+        {
+          "period": "MAR_16:40_17:30",
+          "aula": "T4"
+        },
+        {
+          "period": "LUN_14:50_15:40",
+          "aula": "T5"
+        },
+        {
+          "period": "MIE_17:40_18:30",
+          "aula": "T5"
+        },
+        {
+          "period": "MAR_16:40_17:30",
+          "aula": "T5"
+        },
+        {
+          "period": "LUN_14:00_14:50",
+          "aula": "T5"
+        }
+      ],
+      "1702226": [
+        {
+          "period": "MAR_11:30_12:20",
+          "aula": "T5"
+        },
+        {
+          "period": "LUN_10:40_11:30",
+          "aula": "T4"
+        },
+        {
+          "period": "MAR_10:40_11:30",
+          "aula": "T5"
+        },
+        {
+          "period": "LUN_11:30_12:20",
+          "aula": "T5"
+        },
+        {
+          "period": "JUE_14:50_15:40",
+          "aula": "T5"
+        },
+        {
+          "period": "JUE_15:50_16:40",
+          "aula": "T5"
+        }
+      ],
+      "1702227": [
+        {
+          "period": "MIE_16:40_17:30",
+          "aula": "T4"
+        },
+        {
+          "period": "MIE_16:40_17:30",
+          "aula": "T5"
+        },
+        {
+          "period": "MIE_15:50_16:40",
+          "aula": "T4"
+        },
+        {
+          "period": "JUE_17:40_18:30",
+          "aula": "T5"
+        },
+        {
+          "period": "JUE_17:40_18:30",
+          "aula": "T4"
+        },
+        {
+          "period": "MIE_15:50_16:40",
+          "aula": "T5"
+        }
+      ],
+      "1702228": [
+        {
+          "period": "LUN_16:40_17:30",
+          "aula": "T5"
+        },
+        {
+          "period": "JUE_07:00_07:50",
+          "aula": "T5"
+        },
+        {
+          "period": "JUE_07:50_08:40",
+          "aula": "T5"
+        },
+        {
+          "period": "VIE_07:50_08:40",
+          "aula": "T5"
+        },
+        {
+          "period": "VIE_07:00_07:50",
+          "aula": "T5"
+        }
+      ],
+      "1702229": [
+        {
+          "period": "MIE_14:00_14:50",
+          "aula": "T5"
+        },
+        {
+          "period": "VIE_16:40_17:30",
+          "aula": "T5"
+        },
+        {
+          "period": "MIE_14:50_15:40",
+          "aula": "T5"
+        }
+      ]
+    },
+    "Tercer Año": {
+      "1703236": [
+        {
+          "period": "MIE_08:50_09:40",
+          "aula": "T1"
+        },
+        {
+          "period": "MIE_07:00_07:50",
+          "aula": "T1"
+        },
+        {
+          "period": "JUE_14:50_15:40",
+          "aula": "T1"
+        },
+        {
+          "period": "MIE_07:00_07:50",
+          "aula": "T5"
+        },
+        {
+          "period": "MIE_07:50_08:40",
+          "aula": "T2"
+        },
+        {
+          "period": "JUE_14:00_14:50",
+          "aula": "T1"
+        }
+      ],
+      "1703237": [
+        {
+          "period": "MAR_11:30_12:20",
+          "aula": "T2"
+        },
+        {
+          "period": "LUN_11:30_12:20",
+          "aula": "T2"
+        },
+        {
+          "period": "MAR_10:40_11:30",
+          "aula": "T1"
+        },
+        {
+          "period": "LUN_10:40_11:30",
+          "aula": "T5"
+        },
+        {
+          "period": "VIE_14:00_14:50",
+          "aula": "T1"
+        },
+        {
+          "period": "MAR_11:30_12:20",
+          "aula": "T1"
+        }
+      ],
+      "1703238": [
+        {
+          "period": "VIE_09:40_10:30",
+          "aula": "T4"
+        },
+        {
+          "period": "VIE_09:40_10:30",
+          "aula": "T1"
+        },
+        {
+          "period": "JUE_08:50_09:40",
+          "aula": "T1"
+        },
+        {
+          "period": "LUN_14:50_15:40",
+          "aula": "T1"
+        },
+        {
+          "period": "JUE_09:40_10:30",
+          "aula": "T2"
+        },
+        {
+          "period": "VIE_08:50_09:40",
+          "aula": "T5"
+        }
+      ],
+      "1703239": [
+        {
+          "period": "MIE_15:50_16:40",
+          "aula": "T1"
+        },
+        {
+          "period": "MAR_15:50_16:40",
+          "aula": "T2"
+        },
+        {
+          "period": "JUE_17:40_18:30",
+          "aula": "T1"
+        },
+        {
+          "period": "MIE_16:40_17:30",
+          "aula": "T2"
+        },
+        {
+          "period": "MIE_15:50_16:40",
+          "aula": "T2"
+        },
+        {
+          "period": "MAR_16:40_17:30",
+          "aula": "T2"
+        }
+      ],
+      "1703240": [
+        {
+          "period": "MAR_07:50_08:40",
+          "aula": "T5"
+        },
+        {
+          "period": "MAR_07:00_07:50",
+          "aula": "T5"
+        },
+        {
+          "period": "MAR_07:50_08:40",
+          "aula": "T1"
+        },
+        {
+          "period": "MAR_07:00_07:50",
+          "aula": "T2"
+        }
+      ],
+      "1703241": [
+        {
+          "period": "MAR_09:40_10:30",
+          "aula": "T2"
+        },
+        {
+          "period": "LUN_08:50_09:40",
+          "aula": "T2"
+        },
+        {
+          "period": "LUN_09:40_10:30",
+          "aula": "T4"
+        },
+        {
+          "period": "MAR_08:50_09:40",
+          "aula": "T2"
+        },
+        {
+          "period": "MIE_14:00_14:50",
+          "aula": "T2"
+        },
+        {
+          "period": "MIE_14:50_15:40",
+          "aula": "T2"
+        }
+      ]
+    },
+    "Cuarto Año": {
+      "1704248": [
+        {
+          "period": "LUN_07:00_07:50",
+          "aula": "T3"
+        },
+        {
+          "period": "LUN_07:00_07:50",
+          "aula": "T2"
+        },
+        {
+          "period": "MIE_14:50_15:40",
+          "aula": "T1"
+        },
+        {
+          "period": "MIE_14:50_15:40",
+          "aula": "T3"
+        },
+        {
+          "period": "LUN_07:50_08:40",
+          "aula": "T3"
+        }
+      ],
+      "1704249": [
+        {
+          "period": "JUE_08:50_09:40",
+          "aula": "T3"
+        },
+        {
+          "period": "LUN_14:50_15:40",
+          "aula": "T3"
+        },
+        {
+          "period": "VIE_09:40_10:30",
+          "aula": "T3"
+        },
+        {
+          "period": "VIE_08:50_09:40",
+          "aula": "T3"
+        }
+      ],
+      "1704250": [
+        {
+          "period": "LUN_08:50_09:40",
+          "aula": "T1"
+        },
+        {
+          "period": "MAR_08:50_09:40",
+          "aula": "T3"
+        },
+        {
+          "period": "LUN_09:40_10:30",
+          "aula": "T1"
+        },
+        {
+          "period": "MAR_09:40_10:30",
+          "aula": "T1"
+        },
+        {
+          "period": "MAR_09:40_10:30",
+          "aula": "T3"
+        },
+        {
+          "period": "MIE_14:00_14:50",
+          "aula": "T3"
+        }
+      ],
+      "1704251": [
+        {
+          "period": "MIE_16:40_17:30",
+          "aula": "T3"
+        },
+        {
+          "period": "MIE_16:40_17:30",
+          "aula": "T1"
+        },
+        {
+          "period": "MAR_16:40_17:30",
+          "aula": "T3"
+        },
+        {
+          "period": "MIE_15:50_16:40",
+          "aula": "T3"
+        },
+        {
+          "period": "MAR_15:50_16:40",
+          "aula": "T1"
+        }
+      ],
+      "1704252": [
+        {
+          "period": "MAR_07:50_08:40",
+          "aula": "T3"
+        },
+        {
+          "period": "JUE_09:40_10:30",
+          "aula": "T3"
+        },
+        {
+          "period": "MAR_07:00_07:50",
+          "aula": "T4"
+        },
+        {
+          "period": "MAR_07:00_07:50",
+          "aula": "T1"
+        }
+      ],
+      "1704253": [
+        {
+          "period": "MIE_19:20_20:10",
+          "aula": "T5"
+        },
+        {
+          "period": "MAR_18:30_19:20",
+          "aula": "T1"
+        },
+        {
+          "period": "LUN_17:40_18:30",
+          "aula": "T1"
+        }
+      ],
+      "1704254": [
+        {
+          "period": "LUN_11:30_12:20",
+          "aula": "T4"
+        },
+        {
+          "period": "MAR_11:30_12:20",
+          "aula": "LAB3"
+        },
+        {
+          "period": "LUN_10:40_11:30",
+          "aula": "LAB3"
+        },
+        {
+          "period": "MAR_10:40_11:30",
+          "aula": "T2"
+        },
+        {
+          "period": "JUE_14:50_15:40",
+          "aula": "T2"
+        }
+      ],
+      "1704255": [
+        {
+          "period": "MAR_10:40_11:30",
+          "aula": "T3"
+        },
+        {
+          "period": "LUN_11:30_12:20",
+          "aula": "T3"
+        },
+        {
+          "period": "VIE_14:00_14:50",
+          "aula": "T3"
+        },
+        {
+          "period": "LUN_10:40_11:30",
+          "aula": "T3"
+        }
+      ]
+    },
+    "Quinto Año": {
+      "1705265": [
+        {
+          "period": "MIE_14:50_15:40",
+          "aula": "LAB3"
+        },
+        {
+          "period": "LUN_09:40_10:30",
+          "aula": "T2"
+        },
+        {
+          "period": "MAR_08:50_09:40",
+          "aula": "LAB3"
+        },
+        {
+          "period": "MAR_09:40_10:30",
+          "aula": "LAB3"
+        },
+        {
+          "period": "MIE_14:00_14:50",
+          "aula": "T1"
+        },
+        {
+          "period": "LUN_08:50_09:40",
+          "aula": "LAB3"
+        }
+      ],
+      "1705267": [
+        {
+          "period": "MAR_07:50_08:40",
+          "aula": "T2"
+        },
+        {
+          "period": "VIE_14:00_14:50",
+          "aula": "T2"
+        },
+        {
+          "period": "MAR_07:00_07:50",
+          "aula": "T3"
+        }
+      ],
+      "1705268": [
+        {
+          "period": "MAR_11:30_12:20",
+          "aula": "LAB1"
+        },
+        {
+          "period": "LUN_10:40_11:30",
+          "aula": "LAB2"
+        },
+        {
+          "period": "LUN_10:40_11:30",
+          "aula": "LAB1"
+        },
+        {
+          "period": "LUN_11:30_12:20",
+          "aula": "LAB2"
+        },
+        {
+          "period": "LUN_11:30_12:20",
+          "aula": "LAB1"
+        }
+      ],
+      "1705269": [
+        {
+          "period": "MAR_11:30_12:20",
+          "aula": "LAB2"
+        },
+        {
+          "period": "MAR_11:30_12:20",
+          "aula": "T4"
+        },
+        {
+          "period": "MAR_10:40_11:30",
+          "aula": "LAB2"
+        },
+        {
+          "period": "JUE_14:50_15:40",
+          "aula": "T3"
+        },
+        {
+          "period": "JUE_14:50_15:40",
+          "aula": "LAB2"
+        },
+        {
+          "period": "MAR_10:40_11:30",
+          "aula": "LAB1"
+        }
+      ],
+      "1705270": [
+        {
+          "period": "MIE_15:50_16:40",
+          "aula": "LAB1"
+        },
+        {
+          "period": "MAR_16:40_17:30",
+          "aula": "LAB2"
+        },
+        {
+          "period": "MIE_16:40_17:30",
+          "aula": "LAB1"
+        },
+        {
+          "period": "MIE_15:50_16:40",
+          "aula": "LAB2"
+        },
+        {
+          "period": "MAR_15:50_16:40",
+          "aula": "LAB2"
+        },
+        {
+          "period": "MAR_16:40_17:30",
+          "aula": "LAB3"
+        }
+      ],
+      "1705271": [
+        {
+          "period": "JUE_14:00_14:50",
+          "aula": "LAB2"
+        },
+        {
+          "period": "MIE_07:50_08:40",
+          "aula": "T5"
+        },
+        {
+          "period": "MIE_07:00_07:50",
+          "aula": "T2"
+        },
+        {
+          "period": "MIE_08:50_09:40",
+          "aula": "T3"
+        }
+      ],
+      "1705272": [
+        {
+          "period": "JUE_08:50_09:40",
+          "aula": "T2"
+        },
+        {
+          "period": "VIE_09:40_10:30",
+          "aula": "T5"
+        },
+        {
+          "period": "MIE_11:30_12:20",
+          "aula": "T2"
+        },
+        {
+          "period": "JUE_09:40_10:30",
+          "aula": "T1"
+        },
+        {
+          "period": "MIE_10:40_11:30",
+          "aula": "T2"
+        },
+        {
+          "period": "MIE_10:40_11:30",
+          "aula": "T4"
+        },
+        {
+          "period": "VIE_08:50_09:40",
+          "aula": "T2"
+        },
+        {
+          "period": "MIE_11:30_12:20",
+          "aula": "T1"
+        },
+        {
+          "period": "VIE_09:40_10:30",
+          "aula": "T2"
+        }
+      ]
+    }
+  }
+}

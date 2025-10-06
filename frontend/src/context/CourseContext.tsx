@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect, ReactNode, useContext } from 'react';
-import type { Course } from '../utils/typescopy';
-import { getCourses as fetchCoursesAPI } from '../services/coordinatorService';
+import type { Course } from '../utils/type';
+import { getCourses as fetchCoursesAPI } from '../services/courseService';
 import axios from 'axios';
 
 interface CourseContextType {

@@ -1,7 +1,7 @@
 
 import React from 'react';
-import type { Timetable, TimetableEntry } from '../utils/typescopy';
-import { TIME_SLOTS, DAYS_OF_WEEK } from '../utils/constants';
+import type { Timetable, TimetableEntry } from '../../types/index';
+import { TIME_SLOTS, DAYS_OF_WEEK } from '../../utils/constants';
 
 interface TimetableDisplayProps {
   schedule: Timetable;

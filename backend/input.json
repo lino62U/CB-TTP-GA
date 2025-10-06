@@ -1,163 +1,952 @@
 {
   "metadata": {
-    "universidad": "Universidad Nacional de San Agustín de Arequipa",
-    "escuela": "Ingeniería de Sistemas",
-    "semestre": "2025-I",
-    "curriculo": "Segundo Semestre",
-    "duracion_bloque_min": 50,
-    "inicio_jornada": "07:00",
-    "fin_jornada": "21:10"
+    "university_name": "Universidad Nacional de San Agustín de Arequipa",
+    "school_name": "Ingeniería de Sistemas",
+    "semester_code": "2025-I",
+    "block_duration_min": 50,
+    "day_start_time": "1970-01-01T07:00:00.000Z",
+    "day_end_time": "1970-01-01T21:10:00.000Z"
   },
-
-  "periodos": [
-    "LUN_07:00_07:50", "LUN_07:50_08:40", "LUN_08:50_09:40", "LUN_09:40_10:30", "LUN_10:40_11:30", "LUN_11:30_12:20",
-    "MAR_07:00_07:50", "MAR_07:50_08:40", "MAR_08:50_09:40", "MAR_09:40_10:30", "MAR_10:40_11:30", "MAR_11:30_12:20",
-    "MIE_07:00_07:50", "MIE_07:50_08:40", "MIE_08:50_09:40", "MIE_09:40_10:30", "MIE_10:40_11:30", "MIE_11:30_12:20",
-    "JUE_07:00_07:50", "JUE_07:50_08:40", "JUE_08:50_09:40", "JUE_09:40_10:30", "JUE_10:40_11:30", "JUE_11:30_12:20",
-    "VIE_07:00_07:50", "VIE_07:50_08:40", "VIE_08:50_09:40", "VIE_09:40_10:30", "VIE_10:40_11:30", "VIE_11:30_12:20",
-    "LUN_14:00_14:50", "LUN_14:50_15:40", "LUN_15:50_16:40", "LUN_16:40_17:30", "LUN_17:40_18:30", "LUN_18:30_19:20", "LUN_19:20_20:10", 
-    "MAR_14:00_14:50", "MAR_14:50_15:40", "MAR_15:50_16:40", "MAR_16:40_17:30", "MAR_17:40_18:30", "MAR_18:30_19:20", "MAR_19:20_20:10",
-    "MIE_14:00_14:50", "MIE_14:50_15:40", "MIE_15:50_16:40", "MIE_16:40_17:30", "MIE_17:40_18:30", "MIE_18:30_19:20", "MIE_19:20_20:10",
-    "JUE_14:00_14:50", "JUE_14:50_15:40", "JUE_15:50_16:40", "JUE_16:40_17:30", "JUE_17:40_18:30", "JUE_18:30_19:20", "JUE_19:20_20:10", 
-    "VIE_14:00_14:50", "VIE_14:50_15:40", "VIE_15:50_16:40", "VIE_16:40_17:30", "VIE_17:40_18:30", "VIE_18:30_19:20", "VIE_19:20_20:10"
-  ],
-
-  "aulas": {
-    "teoricas": [
-      {"id": "T1", "capacidad": 40},
-      {"id": "T2", "capacidad": 40},
-      {"id": "T3", "capacidad": 35},
-      {"id": "T4", "capacidad": 50},
-      {"id": "T5", "capacidad": 45}
-    ],
-    "laboratorios": [
-      {"id": "LAB1", "nombre": "Laboratorio de Programación Científica 1", "capacidad": 25},
-      {"id": "LAB2", "nombre": "Laboratorio de Programación Científica 2", "capacidad": 25},
-      {"id": "LAB3", "nombre": "Laboratorio Expandible de Programación Científica", "capacidad": 30}
-    ]
-  },
-
-  "profesores": {
-    "Alvaro": {
-      "cursos": ["CLOUD COMPUTING"],
-      "disponibilidad": ["LUN_08:50_09:40", "LUN_09:40_10:30", "MAR_08:50_09:40", "MAR_09:40_10:30", "MIE_14:00_14:50", "MIE_14:50_15:40"]
+  "schedules_by_year": {
+    "Primer Año": {
+      "curriculum_name": "Primer Año - Segundo Semestre",
+      "schedule": [
+        {
+          "course_code": "1701208",
+          "course_name": "ESTRUCTURAS DISCRETAS II",
+          "day_of_week": "MON",
+          "start_time": "07:00",
+          "end_time": "07:50",
+          "classroom_code": "T1",
+          "professor_name": "Cristian",
+          "student_count": 50
+        },
+        {
+          "course_code": "1701208",
+          "course_name": "ESTRUCTURAS DISCRETAS II",
+          "day_of_week": "MON",
+          "start_time": "07:50",
+          "end_time": "08:40",
+          "classroom_code": "LAB1",
+          "professor_name": "Cristian",
+          "student_count": 50
+        },
+        {
+          "course_code": "1701209",
+          "course_name": "CIENCIA DE LA COMPUTACION I",
+          "day_of_week": "TUE",
+          "start_time": "08:50",
+          "end_time": "09:40",
+          "classroom_code": "LAB2",
+          "professor_name": "Eliana",
+          "student_count": 50
+        },
+        {
+          "course_code": "1701209",
+          "course_name": "CIENCIA DE LA COMPUTACION I",
+          "day_of_week": "TUE",
+          "start_time": "09:40",
+          "end_time": "10:30",
+          "classroom_code": "T2",
+          "professor_name": "Eliana",
+          "student_count": 50
+        },
+        {
+          "course_code": "1701210",
+          "course_name": "CALCULO EN UNA VARIABLE",
+          "day_of_week": "WED",
+          "start_time": "10:40",
+          "end_time": "11:30",
+          "classroom_code": "T3",
+          "professor_name": "Eliana",
+          "student_count": 60
+        },
+        {
+          "course_code": "1701210",
+          "course_name": "CALCULO EN UNA VARIABLE",
+          "day_of_week": "WED",
+          "start_time": "11:30",
+          "end_time": "12:20",
+          "classroom_code": "T1",
+          "professor_name": "Eliana",
+          "student_count": 60
+        },
+        {
+          "course_code": "1701212",
+          "course_name": "INGLES TECNICO PROFESIONAL II",
+          "day_of_week": "THU",
+          "start_time": "14:00",
+          "end_time": "14:50",
+          "classroom_code": "T4",
+          "professor_name": "Franci",
+          "student_count": 50
+        },
+        {
+          "course_code": "1701212",
+          "course_name": "INGLES TECNICO PROFESIONAL II",
+          "day_of_week": "THU",
+          "start_time": "14:50",
+          "end_time": "15:40",
+          "classroom_code": "T2",
+          "professor_name": "Franci",
+          "student_count": 50
+        },
+        {
+          "course_code": "1701215",
+          "course_name": "COMUNICACION INTEGRAL",
+          "day_of_week": "FRI",
+          "start_time": "15:50",
+          "end_time": "16:40",
+          "classroom_code": "T5",
+          "professor_name": "Roxana",
+          "student_count": 50
+        },
+        {
+          "course_code": "1701215",
+          "course_name": "COMUNICACION INTEGRAL",
+          "day_of_week": "FRI",
+          "start_time": "16:40",
+          "end_time": "17:30",
+          "classroom_code": "T3",
+          "professor_name": "Roxana",
+          "student_count": 50
+        },
+        {
+          "course_code": "1701216",
+          "course_name": "REALIDAD NACIONAL",
+          "day_of_week": "FRI",
+          "start_time": "17:40",
+          "end_time": "18:30",
+          "classroom_code": "T1",
+          "professor_name": "Prof_Hist",
+          "student_count": 50
+        },
+        {
+          "course_code": "1701216",
+          "course_name": "REALIDAD NACIONAL",
+          "day_of_week": "FRI",
+          "start_time": "18:30",
+          "end_time": "19:20",
+          "classroom_code": "T2",
+          "professor_name": "Prof_Hist",
+          "student_count": 50
+        }
+      ],
+      "statistics": {
+        "total_courses": 6,
+        "total_sessions": 12
+      }
     },
-    "Yessenia": {
-      "cursos": ["TRABAJO INTERDISCIPLINAR III"],
-      "disponibilidad": ["MAR_07:00_07:50", "MAR_07:50_08:40", "JUE_08:50_09:40", "JUE_09:40_10:30", "VIE_14:00_14:50"]
+    "Segundo Año": {
+      "curriculum_name": "Segundo Año - Segundo Semestre",
+      "schedule": [
+        {
+          "course_code": "1702224",
+          "course_name": "ALGORITMOS Y ESTRUCTURAS DE DATOS",
+          "day_of_week": "MON",
+          "start_time": "07:00",
+          "end_time": "07:50",
+          "classroom_code": "LAB1",
+          "professor_name": "Cristian",
+          "student_count": 45
+        },
+        {
+          "course_code": "1702224",
+          "course_name": "ALGORITMOS Y ESTRUCTURAS DE DATOS",
+          "day_of_week": "MON",
+          "start_time": "07:50",
+          "end_time": "08:40",
+          "classroom_code": "T1",
+          "professor_name": "Cristian",
+          "student_count": 45
+        },
+        {
+          "course_code": "1702225",
+          "course_name": "TEORIA DE LA COMPUTACION",
+          "day_of_week": "TUE",
+          "start_time": "08:50",
+          "end_time": "09:40",
+          "classroom_code": "LAB2",
+          "professor_name": "Franci",
+          "student_count": 45
+        },
+        {
+          "course_code": "1702225",
+          "course_name": "TEORIA DE LA COMPUTACION",
+          "day_of_week": "TUE",
+          "start_time": "09:40",
+          "end_time": "10:30",
+          "classroom_code": "T2",
+          "professor_name": "Franci",
+          "student_count": 45
+        },
+        {
+          "course_code": "1702226",
+          "course_name": "BASE DE DATOS I",
+          "day_of_week": "WED",
+          "start_time": "10:40",
+          "end_time": "11:30",
+          "classroom_code": "LAB3",
+          "professor_name": "Edward",
+          "student_count": 45
+        },
+        {
+          "course_code": "1702226",
+          "course_name": "BASE DE DATOS I",
+          "day_of_week": "WED",
+          "start_time": "11:30",
+          "end_time": "12:20",
+          "classroom_code": "T3",
+          "professor_name": "Edward",
+          "student_count": 45
+        },
+        {
+          "course_code": "1702227",
+          "course_name": "ALGEBRA LINEAL NUMERICA",
+          "day_of_week": "THU",
+          "start_time": "14:00",
+          "end_time": "14:50",
+          "classroom_code": "LAB1",
+          "professor_name": "Yuber",
+          "student_count": 45
+        },
+        {
+          "course_code": "1702227",
+          "course_name": "ALGEBRA LINEAL NUMERICA",
+          "day_of_week": "THU",
+          "start_time": "14:50",
+          "end_time": "15:40",
+          "classroom_code": "T4",
+          "professor_name": "Yuber",
+          "student_count": 45
+        },
+        {
+          "course_code": "1702228",
+          "course_name": "ESTADISTICA Y PROBABILIDADES",
+          "day_of_week": "FRI",
+          "start_time": "15:50",
+          "end_time": "16:40",
+          "classroom_code": "T5",
+          "professor_name": "Roxana",
+          "student_count": 45
+        },
+        {
+          "course_code": "1702228",
+          "course_name": "ESTADISTICA Y PROBABILIDADES",
+          "day_of_week": "FRI",
+          "start_time": "16:40",
+          "end_time": "17:30",
+          "classroom_code": "T1",
+          "professor_name": "Roxana",
+          "student_count": 45
+        },
+        {
+          "course_code": "1702229",
+          "course_name": "ECOLOGIA Y CONSERVACION AMBIENTAL",
+          "day_of_week": "FRI",
+          "start_time": "17:40",
+          "end_time": "18:30",
+          "classroom_code": "T2",
+          "professor_name": "Prof_Bio",
+          "student_count": 45
+        },
+        {
+          "course_code": "1702229",
+          "course_name": "ECOLOGIA Y CONSERVACION AMBIENTAL",
+          "day_of_week": "FRI",
+          "start_time": "18:30",
+          "end_time": "19:20",
+          "classroom_code": "T3",
+          "professor_name": "Prof_Bio",
+          "student_count": 45
+        }
+      ],
+      "statistics": {
+        "total_courses": 6,
+        "total_sessions": 12
+      }
     },
-    "Wilber": {
-      "cursos": ["PRACTICAS PRE PROFESIONALES"],
-      "disponibilidad": ["MIE_07:00_07:50", "MIE_07:50_08:40", "MIE_08:50_09:40", "JUE_14:00_14:50", "JUE_14:50_15:40"]
+    "Tercer Año": {
+      "curriculum_name": "Tercer Año - Segundo Semestre",
+      "schedule": [
+        {
+          "course_code": "1703236",
+          "course_name": "PROGRAMACION COMPETITIVA",
+          "day_of_week": "MON",
+          "start_time": "07:00",
+          "end_time": "07:50",
+          "classroom_code": "T1",
+          "professor_name": "Wilber",
+          "student_count": 40
+        },
+        {
+          "course_code": "1703236",
+          "course_name": "PROGRAMACION COMPETITIVA",
+          "day_of_week": "MON",
+          "start_time": "07:50",
+          "end_time": "08:40",
+          "classroom_code": "T2",
+          "professor_name": "Wilber",
+          "student_count": 40
+        },
+        {
+          "course_code": "1703237",
+          "course_name": "INGENIERIA DE SOFTWARE II",
+          "day_of_week": "TUE",
+          "start_time": "08:50",
+          "end_time": "09:40",
+          "classroom_code": "LAB1",
+          "professor_name": "Edgar",
+          "student_count": 40
+        },
+        {
+          "course_code": "1703237",
+          "course_name": "INGENIERIA DE SOFTWARE II",
+          "day_of_week": "TUE",
+          "start_time": "09:40",
+          "end_time": "10:30",
+          "classroom_code": "T3",
+          "professor_name": "Edgar",
+          "student_count": 40
+        },
+        {
+          "course_code": "1703238",
+          "course_name": "ESTRUCTURAS DE DATOS AVANZADOS",
+          "day_of_week": "WED",
+          "start_time": "10:40",
+          "end_time": "11:30",
+          "classroom_code": "LAB2",
+          "professor_name": "Rosa",
+          "student_count": 40
+        },
+        {
+          "course_code": "1703238",
+          "course_name": "ESTRUCTURAS DE DATOS AVANZADOS",
+          "day_of_week": "WED",
+          "start_time": "11:30",
+          "end_time": "12:20",
+          "classroom_code": "T4",
+          "professor_name": "Rosa",
+          "student_count": 40
+        },
+        {
+          "course_code": "1703239",
+          "course_name": "SISTEMAS OPERATIVOS",
+          "day_of_week": "THU",
+          "start_time": "14:00",
+          "end_time": "14:50",
+          "classroom_code": "LAB3",
+          "professor_name": "Yuber",
+          "student_count": 40
+        },
+        {
+          "course_code": "1703239",
+          "course_name": "SISTEMAS OPERATIVOS",
+          "day_of_week": "THU",
+          "start_time": "14:50",
+          "end_time": "15:40",
+          "classroom_code": "T5",
+          "professor_name": "Yuber",
+          "student_count": 40
+        },
+        {
+          "course_code": "1703240",
+          "course_name": "TRABAJO INTERDISCIPLINAR II",
+          "day_of_week": "FRI",
+          "start_time": "15:50",
+          "end_time": "16:40",
+          "classroom_code": "T1",
+          "professor_name": "Yessenia",
+          "student_count": 40
+        },
+        {
+          "course_code": "1703240",
+          "course_name": "TRABAJO INTERDISCIPLINAR II",
+          "day_of_week": "FRI",
+          "start_time": "16:40",
+          "end_time": "17:30",
+          "classroom_code": "T2",
+          "professor_name": "Yessenia",
+          "student_count": 40
+        },
+        {
+          "course_code": "1703241",
+          "course_name": "MATEMATICA APLICADA A LA COMPUTACION",
+          "day_of_week": "FRI",
+          "start_time": "17:40",
+          "end_time": "18:30",
+          "classroom_code": "LAB1",
+          "professor_name": "Alvaro",
+          "student_count": 40
+        },
+        {
+          "course_code": "1703241",
+          "course_name": "MATEMATICA APLICADA A LA COMPUTACION",
+          "day_of_week": "FRI",
+          "start_time": "18:30",
+          "end_time": "19:20",
+          "classroom_code": "T3",
+          "professor_name": "Alvaro",
+          "student_count": 40
+        }
+      ],
+      "statistics": {
+        "total_courses": 6,
+        "total_sessions": 12
+      }
     },
-    "Percy": {
-      "cursos": ["ROBOTICA (E)", "INTERNET DE LAS COSAS"],
-      "disponibilidad": ["LUN_10:40_11:30", "LUN_11:30_12:20", "MAR_10:40_11:30", "MAR_11:30_12:20", "JUE_14:50_15:40"]
+    "Cuarto Año": {
+      "curriculum_name": "Cuarto Año - Segundo Semestre",
+      "schedule": [
+        {
+          "course_code": "1704248",
+          "course_name": "INTERACCION HUMANO COMPUTADOR",
+          "day_of_week": "MON",
+          "start_time": "07:00",
+          "end_time": "07:50",
+          "classroom_code": "T1",
+          "professor_name": "Ana Maria",
+          "student_count": 35
+        },
+        {
+          "course_code": "1704248",
+          "course_name": "INTERACCION HUMANO COMPUTADOR",
+          "day_of_week": "MON",
+          "start_time": "07:50",
+          "end_time": "08:40",
+          "classroom_code": "T2",
+          "professor_name": "Ana Maria",
+          "student_count": 35
+        },
+        {
+          "course_code": "1704249",
+          "course_name": "PROYECTO DE FINAL DE CARRERA I",
+          "day_of_week": "TUE",
+          "start_time": "08:50",
+          "end_time": "09:40",
+          "classroom_code": "T3",
+          "professor_name": "Rosa",
+          "student_count": 35
+        },
+        {
+          "course_code": "1704249",
+          "course_name": "PROYECTO DE FINAL DE CARRERA I",
+          "day_of_week": "TUE",
+          "start_time": "09:40",
+          "end_time": "10:30",
+          "classroom_code": "T4",
+          "professor_name": "Rosa",
+          "student_count": 35
+        },
+        {
+          "course_code": "1704250",
+          "course_name": "COMPUTACION PARALELA Y DISTRIBUIDA",
+          "day_of_week": "WED",
+          "start_time": "10:40",
+          "end_time": "11:30",
+          "classroom_code": "LAB1",
+          "professor_name": "Alvaro",
+          "student_count": 35
+        },
+        {
+          "course_code": "1704250",
+          "course_name": "COMPUTACION PARALELA Y DISTRIBUIDA",
+          "day_of_week": "WED",
+          "start_time": "11:30",
+          "end_time": "12:20",
+          "classroom_code": "T5",
+          "professor_name": "Alvaro",
+          "student_count": 35
+        },
+        {
+          "course_code": "1704251",
+          "course_name": "SEGURIDAD EN COMPUTACION",
+          "day_of_week": "THU",
+          "start_time": "14:00",
+          "end_time": "14:50",
+          "classroom_code": "LAB2",
+          "professor_name": "Rolando",
+          "student_count": 35
+        },
+        {
+          "course_code": "1704251",
+          "course_name": "SEGURIDAD EN COMPUTACION",
+          "day_of_week": "THU",
+          "start_time": "14:50",
+          "end_time": "15:40",
+          "classroom_code": "T1",
+          "professor_name": "Rolando",
+          "student_count": 35
+        },
+        {
+          "course_code": "1704252",
+          "course_name": "FORMACION DE EMPRESAS DE BASE TECNOLOGICA I",
+          "day_of_week": "FRI",
+          "start_time": "15:50",
+          "end_time": "16:40",
+          "classroom_code": "T2",
+          "professor_name": "Yessenia",
+          "student_count": 35
+        },
+        {
+          "course_code": "1704252",
+          "course_name": "FORMACION DE EMPRESAS DE BASE TECNOLOGICA I",
+          "day_of_week": "FRI",
+          "start_time": "16:40",
+          "end_time": "17:30",
+          "classroom_code": "T3",
+          "professor_name": "Yessenia",
+          "student_count": 35
+        },
+        {
+          "course_code": "1704253",
+          "course_name": "RELACIONES HUMANAS",
+          "day_of_week": "FRI",
+          "start_time": "17:40",
+          "end_time": "18:30",
+          "classroom_code": "T4",
+          "professor_name": "Prof_Socio",
+          "student_count": 35
+        },
+        {
+          "course_code": "1704253",
+          "course_name": "RELACIONES HUMANAS",
+          "day_of_week": "FRI",
+          "start_time": "18:30",
+          "end_time": "19:20",
+          "classroom_code": "T5",
+          "professor_name": "Prof_Socio",
+          "student_count": 35
+        },
+        {
+          "course_code": "1704254",
+          "course_name": "FISICA COMPUTACIONAL (E)",
+          "day_of_week": "FRI",
+          "start_time": "19:20",
+          "end_time": "20:10",
+          "classroom_code": "LAB3",
+          "professor_name": "Percy",
+          "student_count": 30
+        },
+        {
+          "course_code": "1704255",
+          "course_name": "TOPICOS EN INGENIERIA DE SOFTWARE (E)",
+          "day_of_week": "FRI",
+          "start_time": "19:20",
+          "end_time": "20:10",
+          "classroom_code": "T1",
+          "professor_name": "Edgar",
+          "student_count": 30
+        }
+      ],
+      "statistics": {
+        "total_courses": 8,
+        "total_sessions": 14
+      }
     },
-    "Rolando": {
-      "cursos": ["TOPICOS EN CIBERSEGURIDAD (E)"],
-      "disponibilidad": ["MAR_15:50_16:40", "MAR_16:40_17:30", "MIE_15:50_16:40", "MIE_16:40_17:30"]
-    },
-    "Juan Carlos": {
-      "cursos": ["TRABAJO DE INVESTIGACIÓN"],
-      "disponibilidad": ["JUE_08:50_09:40", "JUE_09:40_10:30", "VIE_08:50_09:40", "VIE_09:40_10:30"]
+    "Quinto Año": {
+      "curriculum_name": "Quinto Año - Segundo Semestre",
+      "schedule": [
+        {
+          "course_code": "1705268",
+          "course_name": "INTERNET DE LAS COSAS",
+          "day_of_week": "MON",
+          "start_time": "09:40",
+          "end_time": "10:30",
+          "classroom_code": "LAB1",
+          "professor_name": "Percy",
+          "student_count": 25
+        },
+        {
+          "course_code": "1705268",
+          "course_name": "INTERNET DE LAS COSAS",
+          "day_of_week": "MON",
+          "start_time": "10:40",
+          "end_time": "11:30",
+          "classroom_code": "LAB2",
+          "professor_name": "Percy",
+          "student_count": 25
+        },
+        {
+          "course_code": "1705268",
+          "course_name": "INTERNET DE LAS COSAS",
+          "day_of_week": "MON",
+          "start_time": "11:30",
+          "end_time": "12:20",
+          "classroom_code": "LAB1",
+          "professor_name": "Percy",
+          "student_count": 25
+        },
+        {
+          "course_code": "1705269",
+          "course_name": "ROBOTICA (E)",
+          "day_of_week": "MON",
+          "start_time": "14:00",
+          "end_time": "14:50",
+          "classroom_code": "LAB2",
+          "professor_name": "Percy",
+          "student_count": 20
+        },
+        {
+          "course_code": "1705272",
+          "course_name": "TRABAJO DE INVESTIGACIÓN",
+          "day_of_week": "MON",
+          "start_time": "16:40",
+          "end_time": "17:30",
+          "classroom_code": "T5",
+          "professor_name": "Juan Carlos",
+          "student_count": 40
+        },
+        {
+          "course_code": "1705267",
+          "course_name": "TRABAJO INTERDISCIPLINAR III",
+          "day_of_week": "MON",
+          "start_time": "17:40",
+          "end_time": "18:30",
+          "classroom_code": "T2",
+          "professor_name": "Yessenia",
+          "student_count": 40
+        },
+        {
+          "course_code": "1705268",
+          "course_name": "INTERNET DE LAS COSAS",
+          "day_of_week": "MON",
+          "start_time": "18:30",
+          "end_time": "19:20",
+          "classroom_code": "LAB2",
+          "professor_name": "Percy",
+          "student_count": 25
+        },
+        {
+          "course_code": "1705272",
+          "course_name": "TRABAJO DE INVESTIGACIÓN",
+          "day_of_week": "MON",
+          "start_time": "19:20",
+          "end_time": "20:10",
+          "classroom_code": "T2",
+          "professor_name": "Juan Carlos",
+          "student_count": 40
+        },
+        {
+          "course_code": "1705267",
+          "course_name": "TRABAJO INTERDISCIPLINAR III",
+          "day_of_week": "TUE",
+          "start_time": "07:50",
+          "end_time": "08:40",
+          "classroom_code": "T4",
+          "professor_name": "Yessenia",
+          "student_count": 40
+        },
+        {
+          "course_code": "1705272",
+          "course_name": "TRABAJO DE INVESTIGACIÓN",
+          "day_of_week": "TUE",
+          "start_time": "08:50",
+          "end_time": "09:40",
+          "classroom_code": "T5",
+          "professor_name": "Juan Carlos",
+          "student_count": 40
+        },
+        {
+          "course_code": "1705265",
+          "course_name": "CLOUD COMPUTING",
+          "day_of_week": "TUE",
+          "start_time": "09:40",
+          "end_time": "10:30",
+          "classroom_code": "LAB3",
+          "professor_name": "Alvaro",
+          "student_count": 30
+        },
+        {
+          "course_code": "1705269",
+          "course_name": "ROBOTICA (E)",
+          "day_of_week": "TUE",
+          "start_time": "10:40",
+          "end_time": "11:30",
+          "classroom_code": "LAB3",
+          "professor_name": "Percy",
+          "student_count": 20
+        },
+        {
+          "course_code": "1705265",
+          "course_name": "CLOUD COMPUTING",
+          "day_of_week": "TUE",
+          "start_time": "11:30",
+          "end_time": "12:20",
+          "classroom_code": "LAB3",
+          "professor_name": "Alvaro",
+          "student_count": 30
+        },
+        {
+          "course_code": "1705269",
+          "course_name": "ROBOTICA (E)",
+          "day_of_week": "TUE",
+          "start_time": "14:50",
+          "end_time": "15:40",
+          "classroom_code": "LAB3",
+          "professor_name": "Percy",
+          "student_count": 20
+        },
+        {
+          "course_code": "1705270",
+          "course_name": "TOPICOS EN CIBERSEGURIDAD (E)",
+          "day_of_week": "TUE",
+          "start_time": "15:50",
+          "end_time": "16:40",
+          "classroom_code": "LAB2",
+          "professor_name": "Rolando",
+          "student_count": 25
+        },
+        {
+          "course_code": "1705270",
+          "course_name": "TOPICOS EN CIBERSEGURIDAD (E)",
+          "day_of_week": "TUE",
+          "start_time": "16:40",
+          "end_time": "17:30",
+          "classroom_code": "LAB1",
+          "professor_name": "Rolando",
+          "student_count": 25
+        },
+        {
+          "course_code": "1705271",
+          "course_name": "PRACTICAS PRE PROFESIONALES",
+          "day_of_week": "WED",
+          "start_time": "07:00",
+          "end_time": "07:50",
+          "classroom_code": "T4",
+          "professor_name": "Wilber",
+          "student_count": 50
+        },
+        {
+          "course_code": "1705269",
+          "course_name": "ROBOTICA (E)",
+          "day_of_week": "WED",
+          "start_time": "07:50",
+          "end_time": "08:40",
+          "classroom_code": "LAB2",
+          "professor_name": "Percy",
+          "student_count": 20
+        },
+        {
+          "course_code": "1705271",
+          "course_name": "PRACTICAS PRE PROFESIONALES",
+          "day_of_week": "WED",
+          "start_time": "08:50",
+          "end_time": "09:40",
+          "classroom_code": "T4",
+          "professor_name": "Wilber",
+          "student_count": 50
+        },
+        {
+          "course_code": "1705272",
+          "course_name": "TRABAJO DE INVESTIGACIÓN",
+          "day_of_week": "WED",
+          "start_time": "10:40",
+          "end_time": "11:30",
+          "classroom_code": "T1",
+          "professor_name": "Juan Carlos",
+          "student_count": 40
+        },
+        {
+          "course_code": "1705265",
+          "course_name": "CLOUD COMPUTING",
+          "day_of_week": "WED",
+          "start_time": "14:00",
+          "end_time": "14:50",
+          "classroom_code": "LAB3",
+          "professor_name": "Alvaro",
+          "student_count": 30
+        },
+        {
+          "course_code": "1705265",
+          "course_name": "CLOUD COMPUTING",
+          "day_of_week": "WED",
+          "start_time": "14:50",
+          "end_time": "15:40",
+          "classroom_code": "LAB3",
+          "professor_name": "Alvaro",
+          "student_count": 30
+        },
+        {
+          "course_code": "1705270",
+          "course_name": "TOPICOS EN CIBERSEGURIDAD (E)",
+          "day_of_week": "WED",
+          "start_time": "15:50",
+          "end_time": "16:40",
+          "classroom_code": "LAB2",
+          "professor_name": "Rolando",
+          "student_count": 25
+        },
+        {
+          "course_code": "1705270",
+          "course_name": "TOPICOS EN CIBERSEGURIDAD (E)",
+          "day_of_week": "WED",
+          "start_time": "16:40",
+          "end_time": "17:30",
+          "classroom_code": "LAB1",
+          "professor_name": "Rolando",
+          "student_count": 25
+        },
+        {
+          "course_code": "1705265",
+          "course_name": "CLOUD COMPUTING",
+          "day_of_week": "THU",
+          "start_time": "08:50",
+          "end_time": "09:40",
+          "classroom_code": "LAB3",
+          "professor_name": "Alvaro",
+          "student_count": 30
+        },
+        {
+          "course_code": "1705272",
+          "course_name": "TRABAJO DE INVESTIGACIÓN",
+          "day_of_week": "THU",
+          "start_time": "09:40",
+          "end_time": "10:30",
+          "classroom_code": "T5",
+          "professor_name": "Juan Carlos",
+          "student_count": 40
+        },
+        {
+          "course_code": "1705269",
+          "course_name": "ROBOTICA (E)",
+          "day_of_week": "THU",
+          "start_time": "10:40",
+          "end_time": "11:30",
+          "classroom_code": "LAB2",
+          "professor_name": "Percy",
+          "student_count": 20
+        },
+        {
+          "course_code": "1705268",
+          "course_name": "INTERNET DE LAS COSAS",
+          "day_of_week": "THU",
+          "start_time": "14:00",
+          "end_time": "14:50",
+          "classroom_code": "LAB1",
+          "professor_name": "Percy",
+          "student_count": 25
+        },
+        {
+          "course_code": "1705271",
+          "course_name": "PRACTICAS PRE PROFESIONALES",
+          "day_of_week": "THU",
+          "start_time": "14:50",
+          "end_time": "15:40",
+          "classroom_code": "T4",
+          "professor_name": "Wilber",
+          "student_count": 50
+        },
+        {
+          "course_code": "1705272",
+          "course_name": "TRABAJO DE INVESTIGACIÓN",
+          "day_of_week": "THU",
+          "start_time": "16:40",
+          "end_time": "17:30",
+          "classroom_code": "T1",
+          "professor_name": "Juan Carlos",
+          "student_count": 40
+        },
+        {
+          "course_code": "1705272",
+          "course_name": "TRABAJO DE INVESTIGACIÓN",
+          "day_of_week": "FRI",
+          "start_time": "08:50",
+          "end_time": "09:40",
+          "classroom_code": "T1",
+          "professor_name": "Juan Carlos",
+          "student_count": 40
+        },
+        {
+          "course_code": "1705272",
+          "course_name": "TRABAJO DE INVESTIGACIÓN",
+          "day_of_week": "FRI",
+          "start_time": "09:40",
+          "end_time": "10:30",
+          "classroom_code": "T4",
+          "professor_name": "Juan Carlos",
+          "student_count": 40
+        },
+        {
+          "course_code": "1705269",
+          "course_name": "ROBOTICA (E)",
+          "day_of_week": "FRI",
+          "start_time": "10:40",
+          "end_time": "11:30",
+          "classroom_code": "LAB1",
+          "professor_name": "Percy",
+          "student_count": 20
+        },
+        {
+          "course_code": "1705271",
+          "course_name": "PRACTICAS PRE PROFESIONALES",
+          "day_of_week": "FRI",
+          "start_time": "11:30",
+          "end_time": "12:20",
+          "classroom_code": "T4",
+          "professor_name": "Wilber",
+          "student_count": 50
+        },
+        {
+          "course_code": "1705267",
+          "course_name": "TRABAJO INTERDISCIPLINAR III",
+          "day_of_week": "FRI",
+          "start_time": "14:00",
+          "end_time": "14:50",
+          "classroom_code": "T1",
+          "professor_name": "Yessenia",
+          "student_count": 40
+        },
+        {
+          "course_code": "1705265",
+          "course_name": "CLOUD COMPUTING",
+          "day_of_week": "FRI",
+          "start_time": "15:50",
+          "end_time": "16:40",
+          "classroom_code": "LAB3",
+          "professor_name": "Alvaro",
+          "student_count": 30
+        },
+        {
+          "course_code": "1705270",
+          "course_name": "TOPICOS EN CIBERSEGURIDAD (E)",
+          "day_of_week": "FRI",
+          "start_time": "16:40",
+          "end_time": "17:30",
+          "classroom_code": "LAB3",
+          "professor_name": "Rolando",
+          "student_count": 25
+        },
+        {
+          "course_code": "1705270",
+          "course_name": "TOPICOS EN CIBERSEGURIDAD (E)",
+          "day_of_week": "FRI",
+          "start_time": "17:40",
+          "end_time": "18:30",
+          "classroom_code": "LAB2",
+          "professor_name": "Rolando",
+          "student_count": 25
+        },
+        {
+          "course_code": "1705272",
+          "course_name": "TRABAJO DE INVESTIGACIÓN",
+          "day_of_week": "FRI",
+          "start_time": "18:30",
+          "end_time": "19:20",
+          "classroom_code": "T5",
+          "professor_name": "Juan Carlos",
+          "student_count": 40
+        }
+      ],
+      "statistics": {
+        "total_courses": 7,
+        "total_sessions": 39
+      }
     }
   },
-
-  "cursos": [
-    {
-      "codigo": "1705265",
-      "nombre": "CLOUD COMPUTING",
-      "creditos": 4,
-      "horas": {"teoricas": 2, "practicas": 2, "laboratorio": 2},
-      "prerrequisitos": ["1705157"],
-      "profesor": "Alvaro",
-      "aula_tipo": "LAB",
-      "estudiantes": 30
-    },
-    {
-      "codigo": "1705267",
-      "nombre": "TRABAJO INTERDISCIPLINAR III",
-      "creditos": 2,
-      "horas": {"teoricas": 1, "practicas": 2, "laboratorio": 0},
-      "prerrequisitos": ["1703240", "1704254"],
-      "profesor": "Yessenia",
-      "aula_tipo": "T",
-      "estudiantes": 40
-    },
-    {
-      "codigo": "1705268",
-      "nombre": "INTERNET DE LAS COSAS",
-      "creditos": 3,
-      "horas": {"teoricas": 1, "practicas": 2, "laboratorio": 2},
-      "prerrequisitos": ["1704250"],
-      "profesor": "Percy",
-      "aula_tipo": "LAB",
-      "estudiantes": 25
-    },
-    {
-      "codigo": "1705269",
-      "nombre": "ROBOTICA (E)",
-      "creditos": 4,
-      "horas": {"teoricas": 2, "practicas": 0, "laboratorio": 4},
-      "prerrequisitos": ["1705162"],
-      "profesor": "Percy",
-      "aula_tipo": "LAB",
-      "estudiantes": 20
-    },
-    {
-      "codigo": "1705270",
-      "nombre": "TOPICOS EN CIBERSEGURIDAD (E)",
-      "creditos": 4,
-      "horas": {"teoricas": 2, "practicas": 0, "laboratorio": 4},
-      "prerrequisitos": ["1704251"],
-      "profesor": "Rolando",
-      "aula_tipo": "LAB",
-      "estudiantes": 25
-    },
-    {
-      "codigo": "1705271",
-      "nombre": "PRACTICAS PRE PROFESIONALES",
-      "creditos": 2,
-      "horas": {"teoricas": 0, "practicas": 4, "laboratorio": 0},
-      "profesor": "Wilber",
-      "aula_tipo": "T",
-      "estudiantes": 50
-    },
-    {
-      "codigo": "1705272",
-      "nombre": "TRABAJO DE INVESTIGACIÓN",
-      "creditos": 6,
-      "horas": {"teoricas": 3, "practicas": 6, "laboratorio": 0},
-      "prerrequisitos": ["1705156"],
-      "profesor": "Juan Carlos",
-      "aula_tipo": "T",
-      "estudiantes": 40
-    }
-  ],
-
-  "curriculos": {
-    "Segundo Semestre": ["1705265", "1705267", "1705268", "1705269", "1705270", "1705271", "1705272"]
+  "global_statistics": {
+    "total_courses": 32,
+    "total_sessions": 89
   },
-
-  "preferencias": {
-    "turno_preferido": "mañana",
-    "dias_preferidos": ["LUN", "MAR", "MIE"],
-    "bloques_preferidos": ["07:00_07:50", "07:50_08:40", "08:50_09:40", "09:40_10:30", "10:40_11:30", "11:30_12:20"]
-  },
-
-  "pesos": {
-    "restricciones_duras": {
-      "no_solapamiento_profesor": 1000,
-      "no_solapamiento_aula": 900,
-      "disponibilidad_profesor": 800,
-      "capacidad_aula": 700
-    },
-    "restricciones_blandas": {
-      "turno_preferido_estudiante": 200,
-      "minimizacion_huecos": 150,
-      "distribucion_balanceada": 100,
-      "uso_optimo_aulas": 100
-    }
-  }
+  "message": "Saved to database"
 }

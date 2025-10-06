@@ -1,6 +1,6 @@
 import React from 'react';
-import { DAYS_OF_WEEK, TIME_SLOTS } from '../utils/constants';
-import type { Availability, Day } from '../utils/typescopy';
+import { DAYS_OF_WEEK, TIME_SLOTS } from '../../utils/constants';
+import type { Availability, Day } from '../../types/index';
 
 interface AvailabilityGridProps {
   availability: Availability;

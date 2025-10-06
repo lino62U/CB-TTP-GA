@@ -1,7 +1,7 @@
 
-import type { Course, Timetable } from './types';
+import type { Course, Timetable } from '../types/index';
 
-import type { Day } from './typescopy';
+import type { Day } from '../types/index';
 export const DAYS_OF_WEEK: Day[] = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
 export const TIME_SLOTS: string[] = [
   '07:00 - 07:50',
