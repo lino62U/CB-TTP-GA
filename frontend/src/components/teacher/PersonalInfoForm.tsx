@@ -144,7 +144,7 @@ const PersonalInfoForm: React.FC<PersonalInfoFormProps> = ({
 
       {/* Turno */}
       <div className="mt-4">
-        <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
+        <label className="block text-sm font-semibold text-gray-700 mb-2 items-center gap-2">
           <Clock size={18} /> Preferencia de Turno
         </label>
         <select
