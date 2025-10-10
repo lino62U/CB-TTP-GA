@@ -62,9 +62,10 @@ const TeacherPage: React.FC = () => {
     <div className="min-h-screen flex flex-col justify-between bg-gray-50 pt-20">
       <div className="w-full mx-auto px-4 md:px-8 flex-1">
       {/* max-w-6xl para mantener un ancho máximo */}
+      <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-primary mb-6">Portal del Docente</h1>
         <p className="text-gray-600 mb-8">Complete el siguiente formulario para registrar sus cursos, disponibilidad horaria y preferencias.</p>
-        
+        </div>
         <form onSubmit={handleSubmit} className="w-full flex flex-col gap-8"> {/* Aseguramos que el formulario ocupe todo el ancho */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="flex flex-col gap-6">
