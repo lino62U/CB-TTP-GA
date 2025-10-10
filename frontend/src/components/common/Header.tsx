@@ -13,7 +13,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="bg-primary shadow-md">
+    <header className="bg-primary shadow-md fixed w-full top-0 left-0 z-50">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo con enlace */}
         <Link to="/" className="text-2xl font-bold text-white">

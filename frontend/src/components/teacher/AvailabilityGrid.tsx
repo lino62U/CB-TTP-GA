@@ -11,17 +11,13 @@ const AvailabilityGrid: React.FC<AvailabilityGridProps> = ({ availability, setAv
   const toggleSlot = (day: Day, timeSlot: string) => {
     setAvailability(prev => {
       const newAvailability = { ...prev };
-      const daySlots = newAvailability[day] || {};
-      
-      if (daySlots[timeSlot]) {
-        delete daySlots[timeSlot];
-      } else {
-        daySlots[timeSlot] = true;
-      }
+      const daySlots = { ...(newAvailability[day] || {}) };
+      daySlots[timeSlot] = !daySlots[timeSlot];
       newAvailability[day] = daySlots;
       return newAvailability;
     });
   };
+  
 
   return (
     <div className="overflow-x-auto">
@@ -39,7 +35,7 @@ const AvailabilityGrid: React.FC<AvailabilityGridProps> = ({ availability, setAv
             <tr key={timeSlot}>
               <td className="p-2 border border-gray-200 font-medium text-gray-600 sticky left-0 bg-white z-10 w-28">{timeSlot}</td>
               {DAYS_OF_WEEK.map(day => {
-                const isSelected = Array.isArray(availability[day]) && availability[day].includes(timeSlot);
+                const isSelected = !!availability[day]?.[timeSlot];
                 return (
                   <td
                     key={`${day}-${timeSlot}`}

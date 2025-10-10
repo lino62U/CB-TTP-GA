@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Combobox } from '@headlessui/react';
-import { Check, ChevronsUpDown, BookOpen, X, Clock, User, Mail, MailCheck, MailIcon } from 'lucide-react';
+import { Check, ChevronsUpDown, BookOpen, X, Clock, User, MailIcon } from 'lucide-react';
 import Card from '../common/Card';
 import Input from '../common/Input';
 import { useCourses } from '../../hooks/useCourses';

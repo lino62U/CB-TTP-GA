@@ -10,7 +10,7 @@ import { useNotifications } from '../../hooks/useNotifications';
 
 interface AlgorithmRunnerProps {
   params: AlgorithmParams;
-  onParamsChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onParamsChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   onRunAlgorithm: (params: AlgorithmParams) => void;
   isLoading: boolean;
 }
@@ -64,13 +64,57 @@ const AlgorithmRunner: React.FC<AlgorithmRunnerProps> = ({
   return (
     <Card title="Generador de Horarios" icon={<PlayCircle />}>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        <Input label="Población (pop)" name="population" type="number" value={params.population} onChange={onParamsChange} />
-        <Input label="Generaciones (gens)" name="generations" type="number" value={params.generations} onChange={onParamsChange} />
-        <Input label="Tasa de Mutación" name="mutationRate" type="number" step="0.01" value={params.mutationRate} onChange={onParamsChange} />
+        <Input
+          label="Población (pop)"
+          name="population"
+          type="number"
+          value={params.population}
+          onChange={onParamsChange}
+        />
+        <Input
+          label="Generaciones (gens)"
+          name="generations"
+          type="number"
+          value={params.generations}
+          onChange={onParamsChange}
+        />
+        <Input
+          label="Tasa de Mutación"
+          name="mutationRate"
+          type="number"
+          step="0.01"
+          value={params.mutationRate}
+          onChange={onParamsChange}
+        />
       </div>
+
+      {/* 🔽 NUEVO: Select para semestre */}
+      <div className="mb-6">
+        <label htmlFor="semester" className="block text-sm font-medium text-gray-700 mb-1">
+          Semestre Académico
+        </label>
+        <select
+          id="semester"
+          name="semester"
+          value={params.semester || 'A'}
+          onChange={onParamsChange}
+          className="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-primary/30 focus:border-primary"
+        >
+          <option value="A">Semestre A</option>
+          <option value="B">Semestre B</option>
+        </select>
+      </div>
+
       <Button onClick={handleRun} disabled={isLoading} size="lg" className="w-full">
-        {isLoading ? <><Spinner /> Generando Horarios...</> : 'Ejecutar Algoritmo y Generar Horarios (Prueba)'}
+        {isLoading ? (
+          <>
+            <Spinner /> Generando Horarios...
+          </>
+        ) : (
+          'Ejecutar Algoritmo y Generar Horarios (Prueba)'
+        )}
       </Button>
+
       {isLoading && renderProgressBar()}
     </Card>
   );
