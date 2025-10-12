@@ -41,7 +41,7 @@ router.get("/run", async (req: Request, res: Response) => {
         for (const session of result.schedule) {
           // 1️⃣ Buscar IDs
           const course = await prisma.course.findUnique({ where: { code: session.course_code } });
-          const professor = await prisma.professor.findUnique({ where: { name: session.professor_name } });
+          const professor = await prisma.user.findUnique({ where: { id: session.professor_id } });
           const classroom = await prisma.classroom.findUnique({ where: { room_code: session.classroom_code } });
 
           if (!course || !professor || !classroom) {
@@ -70,7 +70,7 @@ router.get("/run", async (req: Request, res: Response) => {
           await prisma.schedule.create({
             data: {
               course_id: course.id,
-              professor_id: professor.id,
+              user_id: professor.id,
               classroom_id: classroom.id,
               time_slot_id: timeSlot.id,
               student_count: session.student_count,
@@ -78,6 +78,11 @@ router.get("/run", async (req: Request, res: Response) => {
               year: course.year,
             },
           });
+          session.professor = {
+            id: professor.id,
+            name: professor.name,
+            email: professor.email,
+          };
         }
 
         const formatted = formatScheduleByYear(result);

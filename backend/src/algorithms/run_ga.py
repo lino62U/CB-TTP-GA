@@ -52,7 +52,6 @@ def convert_input_format(new_data: Dict[str, Any]) -> Dict[str, Any]:
         disponibilidad = []
         for avail in prof['availabilities']:
             day = avail['day_of_week']
-            # Buscar periodos que coincidan con esta disponibilidad
             for p in periods_list:
                 if p.startswith(day + "_"):
                     parts = p.split("_")
@@ -60,32 +59,22 @@ def convert_input_format(new_data: Dict[str, Any]) -> Dict[str, Any]:
                     p_end = parts[2]
                     if avail['start_time'] <= p_start and p_end <= avail['end_time']:
                         disponibilidad.append(p)
-        
-        profs_map[prof['name']] = {
+        # Cambiar la clave a 'professor_id'
+        profs_map[prof['professor_id']] = {
             'id': prof['professor_id'],
             'nombre': prof['name'],
             'disponibilidad': disponibilidad
         }
     data['_profs_map'] = profs_map
-    
+
     # 4. Convertir cursos (dividiendo teoría y lab)
     courses_map = {}
-    course_counter = 0
-    
     for course in new_data['courses']:
         theory_hours = course.get('theory_hours', 0)
         lab_hours = course.get('lab_hours', 0)
-        
-        # Obtener lista de profesores
+        # Obtener lista de profesores (IDs)
         prof_ids = course.get('professors', [])
-        prof_names = []
-        for pid in prof_ids:
-            for prof in new_data['professors']:
-                if prof['professor_id'] == pid:
-                    prof_names.append(prof['name'])
-                    break
-        
-        # Crear entrada para teoría si tiene horas de teoría
+        # Usar directamente los IDs
         if theory_hours > 0:
             course_code_theory = f"{course['course_code']}_T"
             courses_map[course_code_theory] = {
@@ -93,15 +82,13 @@ def convert_input_format(new_data: Dict[str, Any]) -> Dict[str, Any]:
                 'nombre': f"{course['course_name']} (Teoría)",
                 'creditos': course['credits'],
                 'estudiantes': 30,  # Valor por defecto
-                'profesores': prof_names,
+                'profesores': prof_ids,  # Usar IDs
                 'aula_tipo': 'T',
                 '_blocks_needed': theory_hours,
                 'prerequisitos': course.get('prerequisites', []),
                 'original_code': course['course_code'],
                 'year': course['year']
             }
-        
-        # Crear entrada para laboratorio si tiene horas de lab
         if lab_hours > 0:
             course_code_lab = f"{course['course_code']}_LAB"
             courses_map[course_code_lab] = {
@@ -109,14 +96,13 @@ def convert_input_format(new_data: Dict[str, Any]) -> Dict[str, Any]:
                 'nombre': f"{course['course_name']} (Laboratorio)",
                 'creditos': course['credits'],
                 'estudiantes': 30,  # Valor por defecto
-                'profesores': prof_names,
+                'profesores': prof_ids,  # Usar IDs
                 'aula_tipo': 'LAB',
                 '_blocks_needed': lab_hours,
                 'prerequisitos': course.get('prerequisites', []),
                 'original_code': course['course_code'],
                 'year': course['year']
             }
-    
     data['_courses_map'] = courses_map
     
     # 5. Preferencias
@@ -156,7 +142,7 @@ def random_assignment_for_course(course: Dict[str, Any], data: Dict[str, Any]) -
     aula_type = course.get('aula_tipo', 'T')
     periods = data['periodos']
     aulas = data['_aulas_list']
-    profesores = course.get('profesores', [])
+    profesores = course.get('profesores', [])  # IDs
     
     # Filtrar aulas por tipo
     aulas_filtradas = [a for a in aulas if a['tipo'] == aula_type]
@@ -404,24 +390,12 @@ def mutate(ind: Dict, data: Dict[str, Any], mut_prob=MUTATION_PROB) -> Dict:
             idx = random.randrange(len(assigns))
             typ = random.choice([1, 2, 3])
             old_p, old_a, old_prof = assigns[idx]
-            
-            if typ == 1:  # Cambiar periodo
-                new_period = random.choice(periods)
-                new[ccode][idx] = (new_period, old_a, old_prof)
-            elif typ == 2:  # Cambiar aula
+            if typ == 3:  # Cambiar profesor
                 course_info = data['_courses_map'][ccode]
-                a_tipo = course_info.get('aula_tipo', 'T')
-                candidates = [x['id'] for x in aulas if x['tipo'] == a_tipo]
-                if candidates:
-                    new_a = random.choice(candidates)
-                    new[ccode][idx] = (old_p, new_a, old_prof)
-            else:  # Cambiar profesor
-                course_info = data['_courses_map'][ccode]
-                profs = course_info.get('profesores', [])
+                profs = course_info.get('profesores', [])  # IDs
                 if profs:
                     new_prof = random.choice(profs)
                     new[ccode][idx] = (old_p, old_a, new_prof)
-    
     return new
 
 def run_ga(data: Dict[str, Any]):
@@ -516,7 +490,7 @@ def convert_solution_to_json(sol: Dict[str, List[Tuple[Period, AulaID, str]]], d
                 "end_time": end_time,
                 "classroom_code": aula,
                 "classroom_type": room_type,
-                "professor_name": profesor,
+                "professor_id": profesor,  # Usar ID
                 "student_count": course_info.get('estudiantes', 0)
             }
             schedule_entries.append(entry)

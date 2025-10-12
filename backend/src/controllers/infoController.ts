@@ -1,4 +1,3 @@
-// src/controllers/infoController.ts
 import { Request, Response } from "express";
 import prisma from "../db/prismaClient";
 
@@ -38,18 +37,20 @@ export const getInfoData = async (semester: string) => {
     capacity: c.capacity,
   }));
 
-  // 🔹 Professors
-  const professors = await prisma.professor.findMany({
+  // 🔹 Professors (ahora se asocian a un usuario)
+  const professors = await prisma.user.findMany({
+    where: { role: "PROFESSOR" },
     include: {
-      courses: { select: { course: true } },
+      professorCourses: { select: { course: true } },
       availabilities: { include: { time_slot: true } },
     },
   });
 
   const professorsFormatted = professors.map(p => ({
     professor_id: p.id,
-    name: p.name,
-    courses: p.courses.map(c => c.course.code),
+    name: p.name, // 👈 viene del User
+    email: p.email,
+    courses: p.professorCourses.map(c => c.course.code),
     availabilities: p.availabilities.map(a => ({
       day_of_week: a.time_slot.day_of_week,
       start_time: a.time_slot.start_time.toISOString().substring(11, 16),
@@ -66,13 +67,14 @@ export const getInfoData = async (semester: string) => {
       theory_hours: true,
       practice_hours: true,
       lab_hours: true,
-      professors: true,
       year: true,
+      semester: true,
       prerequisites: { select: { prerequisite_code: true } },
+      professors: { select: { userId: true } },
     },
     where: {
-      semester: semester
-    }
+      semester,
+    },
   });
 
   const coursesFormatted = courses.map(c => ({
@@ -81,12 +83,10 @@ export const getInfoData = async (semester: string) => {
     credits: c.credits,
     year: c.year,
     prerequisites: c.prerequisites.map(p => p.prerequisite_code),
-    professors: c.professors.map(p => p.professorId),
+    professors: c.professors.map(p => p.userId),
     theory_hours: c.theory_hours + c.practice_hours,
-    // practice_hours: c.practice_hours,
     lab_hours: c.lab_hours,
   }));
-
 
   // 🔹 Optimization weights
   const weights = await prisma.optimizationWeight.findMany();

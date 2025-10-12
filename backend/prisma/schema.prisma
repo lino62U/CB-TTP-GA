@@ -1,5 +1,5 @@
 // ---------------------------------------------------------
-// Prisma Schema for UNAS Schedules Project
+// Prisma Schema for UNSA Schedules Project (Optimized)
 // ---------------------------------------------------------
 
 generator client {
@@ -35,7 +35,7 @@ model TimeSlot {
   end_time    DateTime @db.Time
 
   professorAvailabilities ProfessorAvailability[]
-  Schedule                Schedule[]
+  schedules               Schedule[]
 
   @@unique([day_of_week, start_time, end_time], name: "unique_timeslot")
 }
@@ -49,32 +49,40 @@ model Classroom {
   room_name String?    @db.VarChar(100)
   room_type String     @db.VarChar(10) // THEORY or LAB
   capacity  Int
-  Schedule  Schedule[]
+  schedules Schedule[]
 }
 
 // ---------------------------------------------------------
-// 4. PROFESSORS
+// 4. USERS (incluye profesores, admin, alumnos, etc.)
 // ---------------------------------------------------------
-model Professor {
-  id              Int     @id @default(autoincrement())
-  name            String  @unique @db.VarChar(100)
+model User {
+  id           Int      @id @default(autoincrement())
+  name         String   @db.VarChar(100)
+  email        String   @unique @db.VarChar(150)
+  password     String   @db.VarChar(255) // hashed
+  role         String   @default("USER") @db.VarChar(20) // ADMIN, PROFESSOR, STUDENT
   preferred_shift String? @db.VarChar(20)
 
   availabilities ProfessorAvailability[]
-  courses        ProfessorCourse[]
-  Schedule       Schedule[]
+  professorCourses ProfessorCourse[]
+  schedules Schedule[]
+
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
 }
 
 // ---------------------------------------------------------
 // 5. PROFESSOR AVAILABILITY
 // ---------------------------------------------------------
 model ProfessorAvailability {
-  id           Int @id @default(autoincrement())
-  professor_id Int
+  id         Int  @id @default(autoincrement())
+  user_id    Int
   time_slot_id Int
 
-  professor Professor @relation(fields: [professor_id], references: [id])
-  time_slot TimeSlot  @relation(fields: [time_slot_id], references: [id])
+  user      User     @relation(fields: [user_id], references: [id])
+  time_slot TimeSlot @relation(fields: [time_slot_id], references: [id])
+
+  @@unique([user_id, time_slot_id])
 }
 
 // ---------------------------------------------------------
@@ -98,32 +106,35 @@ model Course {
 
   professors    ProfessorCourse[]
   prerequisites CoursePrerequisite[]
-  schedules     Schedule[] // <--- agregar esto
-}
-
-model ProfessorCourse {
-  professor   Professor @relation(fields: [professorId], references: [id])
-  professorId Int
-
-  course   Course @relation(fields: [courseId], references: [id])
-  courseId Int
-
-  @@id([professorId, courseId])
+  schedules     Schedule[]
 }
 
 // ---------------------------------------------------------
-// 7. COURSE PREREQUISITES
+// 7. PROFESSOR–COURSE RELATION
+// ---------------------------------------------------------
+model ProfessorCourse {
+  user      User   @relation(fields: [userId], references: [id])
+  userId    Int
+
+  course    Course @relation(fields: [courseId], references: [id])
+  courseId  Int
+
+  @@id([userId, courseId])
+}
+
+// ---------------------------------------------------------
+// 8. COURSE PREREQUISITES
 // ---------------------------------------------------------
 model CoursePrerequisite {
   id                Int    @id @default(autoincrement())
-  course_code       Int
+  course_id         Int
   prerequisite_code String @db.VarChar(20)
 
-  course Course @relation(fields: [course_code], references: [id])
+  course Course @relation(fields: [course_id], references: [id])
 }
 
 // ---------------------------------------------------------
-// 9. OPTIMIZATION WEIGHTS (for the genetic algorithm)
+// 9. OPTIMIZATION WEIGHTS (for GA)
 // ---------------------------------------------------------
 model OptimizationWeight {
   id              Int    @id @default(autoincrement())
@@ -138,7 +149,7 @@ model OptimizationWeight {
 model Schedule {
   id           Int @id @default(autoincrement())
   course_id    Int
-  professor_id Int
+  user_id      Int  // professor_id → ahora referencia a User
   classroom_id Int
   time_slot_id Int
 
@@ -150,8 +161,8 @@ model Schedule {
   status        String? @db.VarChar(20)
   notes         String?
 
-  course        Course    @relation(fields: [course_id], references: [id])
-  professor     Professor @relation(fields: [professor_id], references: [id])
-  classroom     Classroom @relation(fields: [classroom_id], references: [id])
-  time_slot     TimeSlot  @relation(fields: [time_slot_id], references: [id])
+  course    Course   @relation(fields: [course_id], references: [id])
+  user      User     @relation(fields: [user_id], references: [id])
+  classroom Classroom @relation(fields: [classroom_id], references: [id])
+  time_slot TimeSlot  @relation(fields: [time_slot_id], references: [id])
 }

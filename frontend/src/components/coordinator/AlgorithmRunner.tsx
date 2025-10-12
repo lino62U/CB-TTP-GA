@@ -36,7 +36,7 @@ const AlgorithmRunner: React.FC<AlgorithmRunnerProps> = ({
       await onRunAlgorithm(params); // Llama callback del page
       clearInterval(interval);
       setProgress(100);
-      addNotification('¡Horarios generados con éxito para todos los años! (Datos de prueba)', 'success');
+      addNotification('¡Horarios generados con éxito para todos los años!', 'success');
     } catch (error) {
       clearInterval(interval);
       setProgress(0);

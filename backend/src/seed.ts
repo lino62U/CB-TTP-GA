@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import fs from "fs";
 import path from "path";
+import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
@@ -10,14 +11,15 @@ type ProfessorJSON = {
   preferencia?: string;
 };
 
-
 async function main() {
-  // Leer el JSON
+  // -------------------------
+  // 0️⃣ Leer JSON
+  // -------------------------
   const filePath = path.join(__dirname, "data.json");
   const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
 
   // -------------------------
-  // 1️⃣ Metadata
+  // 1️⃣ University Metadata
   // -------------------------
   await prisma.universityMetadata.create({
     data: {
@@ -32,7 +34,7 @@ async function main() {
   });
 
   // -------------------------
-  // 2️⃣ TimeSlots (periodos)
+  // 2️⃣ TimeSlots
   // -------------------------
   for (const periodo of data.periodos) {
     const [day, start, end] = periodo.split("_");
@@ -65,20 +67,17 @@ async function main() {
   await addRooms(data.aulas.practicas, "PRACTICE");
   await addRooms(data.aulas.laboratorios, "LAB");
 
-
   // -------------------------
-  // 5️⃣ Courses
+  // 4️⃣ Courses
   // -------------------------
-
   const yearMap: Record<string, number> = {
-    "primer_ano": 1,
-    "segundo_ano": 2,
-    "tercer_ano": 3,
-    "cuarto_ano": 4,
-    "quinto_ano": 5
+    primer_ano: 1,
+    segundo_ano: 2,
+    tercer_ano: 3,
+    cuarto_ano: 4,
+    quinto_ano: 5,
   };
 
-  // Primero guardamos todos los cursos y guardamos un map de código -> id
   const courseCodeMap: Record<string, number> = {};
 
   for (const yearObj of data.cursos) {
@@ -99,34 +98,32 @@ async function main() {
               semi_hours: course.horas_semi,
               lab_hours: course.horas_lab,
               year: yearMap[yearKey],
-              semester: semesterKey == "primer_semestre" ? "A" : "B",
+              semester: semesterKey === "primer_semestre" ? "A" : "B",
             },
           });
-          // Guardamos id para usarlo en prerequisitos
           courseCodeMap[course.codigo] = createdCourse.id;
         }
       }
     }
   }
 
-  // Luego recorremos de nuevo para agregar los prerequisitos
+  // -------------------------
+  // 5️⃣ Course Prerequisites
+  // -------------------------
   for (const yearObj of data.cursos) {
-    for (const [yearKey, yearData] of Object.entries(yearObj)) {
-      for (const [semesterKey, semesterCourses] of Object.entries(yearData as any)) {
+    for (const [_, yearData] of Object.entries(yearObj)) {
+      for (const [_, semesterCourses] of Object.entries(yearData as any)) {
         for (const course of semesterCourses as any[]) {
           if (course.prerequisitos?.length) {
             for (const prereqCode of course.prerequisitos) {
               const courseId = courseCodeMap[course.codigo];
-              const prereqCourseId = courseCodeMap[prereqCode];
-              if (courseId && prereqCourseId) {
+              if (courseId) {
                 await prisma.coursePrerequisite.create({
                   data: {
-                    course_code: courseId,
-                    prerequisite_code: prereqCode, // aquí guardamos el código del prerequisito
+                    course_id: courseId,
+                    prerequisite_code: prereqCode,
                   },
                 });
-              } else {
-                console.warn(`⚠️ Prerequisite not found for course ${course.codigo}: ${prereqCode}`);
               }
             }
           }
@@ -134,20 +131,28 @@ async function main() {
       }
     }
   }
+
   // -------------------------
-  // 4️⃣ Professors
+  // 6️⃣ Professors → Users con role = "PROFESSOR"
   // -------------------------
   for (const [profName, profDataRaw] of Object.entries(data.profesores)) {
     const profData = profDataRaw as ProfessorJSON;
 
-    const professor = await prisma.professor.create({
+    const email = `${profName.split(" ").slice(1, 2).join(".").toLowerCase()}@unsa.edu.pe`;
+
+    const user = await prisma.user.create({
       data: {
         name: profName,
+        email,
+        password: await bcrypt.hash("123456", 10), // ⚠️ deberías reemplazar con un hash real (bcrypt)
+        role: "PROFESSOR",
         preferred_shift: profData.preferencia || null,
       },
     });
 
+    // ---------------------
     // Disponibilidad del profesor
+    // ---------------------
     if (profData.disponibilidad?.length) {
       for (const slot of profData.disponibilidad) {
         const [day, start, end] = slot.split("_");
@@ -158,28 +163,30 @@ async function main() {
             end_time: new Date(`1970-01-01T${end}:00Z`),
           },
         });
+
         if (timeSlot) {
           await prisma.professorAvailability.create({
             data: {
-              professor_id: professor.id,
+              user_id: user.id,
               time_slot_id: timeSlot.id,
             },
           });
+        } else {
+          console.warn(`⚠️ TimeSlot not found for ${slot}`);
         }
       }
     }
 
-    // 🔗 Relación con cursos (many-to-many)
+    // ---------------------
+    // Relación profesor ↔ curso
+    // ---------------------
     if (profData.cursos?.length) {
       for (const courseCode of profData.cursos) {
-        const course = await prisma.course.findUnique({
-          where: { code: courseCode },
-        });
-
+        const course = await prisma.course.findUnique({ where: { code: courseCode } });
         if (course) {
           await prisma.professorCourse.create({
             data: {
-              professorId: professor.id,
+              userId: user.id,
               courseId: course.id,
             },
           });

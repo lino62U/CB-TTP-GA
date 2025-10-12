@@ -3,14 +3,19 @@ import cors from "cors"; // <--- importar cors
 import professorRoutes from "./routes/professorRoutes";
 import infoRoutes from "./routes/infoRoutes";
 import scheduleRoutes from "./routes/schedulerRoutes";
-
+import authRoutes from "./routes/authRoutes"; // <--- importar rutas de autenticación
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // -----------------------------
 // Middleware
 // -----------------------------
-app.use(cors()); // <--- permite cualquier origen
+app.use(
+  cors({
+    origin: "http://localhost:5173", // ⚠️ URL de tu frontend Vite
+    credentials: true, // ✅ permite enviar cookies y encabezados de autorización
+  })
+);
 app.use(express.json());
 
 // -----------------------------
@@ -23,7 +28,7 @@ app.get("/health", (_req, res) => {
 app.use("/professors", professorRoutes);
 app.use("/info", infoRoutes);
 app.use("/schedule", scheduleRoutes);
-
+app.use("/auth", authRoutes); // <--- nueva ruta para autenticación
 // -----------------------------
 // Iniciar servidor
 // -----------------------------

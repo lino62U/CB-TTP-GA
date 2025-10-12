@@ -73,7 +73,7 @@ export const transformToSchedules = (
         day: s.day_of_week,
         timeSlot: `${s.start_time}-${s.end_time}`,
         course: s.course_name,
-        teacher: s.professor_name,
+        teacher: s.professor.name,
         room: s.classroom_code,
         type: s.classroom_type || "THEORY",
       });

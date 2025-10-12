@@ -1,6 +1,7 @@
 // components/common/Header.tsx
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import UserMenu from '../UserMenu';
 
 const Header: React.FC = () => {
   const location = useLocation(); // Obtener la ruta actual
@@ -40,6 +41,7 @@ const Header: React.FC = () => {
           >
             Coordinador
           </Link>
+            <UserMenu />
         </div>
       </nav>
     </header>

@@ -7,27 +7,49 @@ import CoordinatorPage from './pages/CoordinatorPage';
 import { NotificationProvider } from './context/NotificationContext';
 import { CourseProvider } from './context/CourseContext';
 import NotificationCenter from './components/common/NotificationCenter';
-import Header from './components/common/Header';  // Importar el Header
-import Footer from './components/common/Footer';  // Importar el Footer
+import Header from './components/common/Header';
+import Footer from './components/common/Footer';
+import SignInPage from './pages/auth/SignInPage';
+import SignUpPage from './pages/auth/SignUpPage';
+import ProtectedRoute from './components/ProtectedRoute';
+import { useAuthStore } from "./store/authStore";
 
 const App: React.FC = () => {
+  const { isAuthenticated } = useAuthStore();
+
   return (
     <NotificationProvider>
       <CourseProvider>
         <HashRouter>
           <div className="min-h-screen flex flex-col">
-            {/* Usar el Header aquí */}
-            <Header />
+            {isAuthenticated && <Header />}
 
             <main className="flex-grow container mx-auto p-4 sm:p-6 lg:p-8">
               <Routes>
                 <Route path="/" element={<HomePage />} />
-                <Route path="/teacher" element={<TeacherPage />} />
-                <Route path="/coordinator" element={<CoordinatorPage />} />
+                <Route path="/auth/signin" element={<SignInPage />} />
+                <Route path="/auth/signup" element={<SignUpPage />} />
+
+                {/* 🔒 Rutas protegidas */}
+                <Route
+                  path="/teacher"
+                  element={
+                    <ProtectedRoute>
+                      <TeacherPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/coordinator"
+                  element={
+                    <ProtectedRoute>
+                      <CoordinatorPage />
+                    </ProtectedRoute>
+                  }
+                />
               </Routes>
             </main>
 
-            {/* Usar el Footer aquí */}
             <Footer />
           </div>
         </HashRouter>
