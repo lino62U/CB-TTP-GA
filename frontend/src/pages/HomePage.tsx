@@ -6,8 +6,8 @@ import { Users, UserCog } from 'lucide-react';
 
 const HomePage: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center text-center h-full -mt-16">
-      <div className="bg-white p-12 rounded-2xl shadow-xl">
+    <div className="min-h-screen flex flex-col items-center justify-center text-center bg-gray-50">
+      <div className="bg-white p-12 rounded-2xl shadow-xl max-w-4xl mx-auto">
         <h1 className="text-5xl font-extrabold text-primary mb-4">
           UniTimetableAI
         </h1>
