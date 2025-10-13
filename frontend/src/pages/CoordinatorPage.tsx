@@ -4,6 +4,7 @@ import ResourceManager from '../components/coordinator/ResourceManager';
 import CurriculumUploader from '../components/coordinator/CurriculumUploader';
 import TeachersList from '../components/coordinator/TeachersList';
 import AlgorithmRunner from '../components/coordinator/AlgorithmRunner';
+import AdvancedConfiguration from '../components/coordinator/AdvancedConfiguration';
 import SchedulesDisplay from '../components/coordinator/SchedulesDisplay';
 import type { AlgorithmParams, Infrastructure, Timetable, TeacherInfo, Room } from '../types';
 import { getTeachers, runScheduleAlgorithm } from '../services/coordinatorService';
@@ -20,6 +21,7 @@ const CoordinatorPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [teachers, setTeachers] = useState<TeacherInfo[]>([]);
   const [teachersError, setTeachersError] = useState<string | null>(null);
+  const [advancedConfig, setAdvancedConfig] = useState<any>(null);
   const { addNotification } = useNotifications();
 
   const teachersErrorNotified = useRef(false);
@@ -71,20 +73,26 @@ const CoordinatorPage: React.FC = () => {
     }));
   }, []);
 
-  const handleParamsChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setParams(prev => ({ ...prev, [e.target.name]: Number(e.target.value) }));
+  const handleParamsChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const value = e.target.type === 'number' ? Number(e.target.value) : e.target.value;
+    setParams(prev => ({ ...prev, [e.target.name]: value }));
   }, []);
 
   const handleRunAlgorithm = useCallback(async (currentParams: AlgorithmParams) => {
     setIsLoading(true);
     setSchedules(null);
     try {
-      const transformedSchedules = await runScheduleAlgorithm(currentParams);
+      // Combinar parámetros básicos con configuraciones avanzadas
+      const paramsWithAdvancedConfig = {
+        ...currentParams,
+        advanced_config: advancedConfig
+      };
+      const transformedSchedules = await runScheduleAlgorithm(paramsWithAdvancedConfig);
       setSchedules(transformedSchedules);
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  }, [advancedConfig]);
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20 px-4 md:px-8">
@@ -116,6 +124,9 @@ const CoordinatorPage: React.FC = () => {
           onParamsChange={handleParamsChange}
           onRunAlgorithm={handleRunAlgorithm}
           isLoading={isLoading}
+        />
+        <AdvancedConfiguration
+          onConfigurationChange={setAdvancedConfig}
         />
         <SchedulesDisplay schedules={schedules} />
       </div>
