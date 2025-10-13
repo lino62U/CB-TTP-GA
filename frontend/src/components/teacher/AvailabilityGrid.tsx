@@ -1,6 +1,6 @@
 import React from 'react';
-import { DAYS_OF_WEEK, TIME_SLOTS } from '../utils/constants';
-import type { Availability, Day } from '../utils/typescopy';
+import { DAYS_OF_WEEK, TIME_SLOTS } from '../../utils/constants';
+import type { Availability, Day } from '../../types/index';
 
 interface AvailabilityGridProps {
   availability: Availability;
@@ -11,16 +11,13 @@ const AvailabilityGrid: React.FC<AvailabilityGridProps> = ({ availability, setAv
   const toggleSlot = (day: Day, timeSlot: string) => {
     setAvailability(prev => {
       const newAvailability = { ...prev };
-      const daySlots = newAvailability[day] || [];
-      
-      if (daySlots.includes(timeSlot)) {
-        newAvailability[day] = daySlots.filter(slot => slot !== timeSlot);
-      } else {
-        newAvailability[day] = [...daySlots, timeSlot];
-      }
+      const daySlots = { ...(newAvailability[day] || {}) };
+      daySlots[timeSlot] = !daySlots[timeSlot];
+      newAvailability[day] = daySlots;
       return newAvailability;
     });
   };
+  
 
   return (
     <div className="overflow-x-auto">
@@ -38,7 +35,7 @@ const AvailabilityGrid: React.FC<AvailabilityGridProps> = ({ availability, setAv
             <tr key={timeSlot}>
               <td className="p-2 border border-gray-200 font-medium text-gray-600 sticky left-0 bg-white z-10 w-28">{timeSlot}</td>
               {DAYS_OF_WEEK.map(day => {
-                const isSelected = availability[day]?.includes(timeSlot);
+                const isSelected = !!availability[day]?.[timeSlot];
                 return (
                   <td
                     key={`${day}-${timeSlot}`}

@@ -1,7 +1,7 @@
 
 import React from 'react';
-import type { Timetable, TimetableEntry } from '../utils/typescopy';
-import { TIME_SLOTS, DAYS_OF_WEEK } from '../utils/constants';
+import type { Timetable, TimetableEntry } from '../../types/index';
+import { TIME_SLOTS, DAYS_OF_WEEK } from '../../utils/constants';
 
 interface TimetableDisplayProps {
   schedule: Timetable;
@@ -28,6 +28,8 @@ const TimetableDisplay: React.FC<TimetableDisplayProps> = ({ schedule }) => {
     scheduleMap.set(key, entry);
   });
 
+  const uniqueTimeSlots = Array.from(new Set(schedule.map(s => s.timeSlot))).sort();
+
   return (
     <div className="overflow-x-auto p-4 bg-white rounded-b-lg">
       <table className="w-full border-collapse text-sm text-center">
@@ -40,7 +42,7 @@ const TimetableDisplay: React.FC<TimetableDisplayProps> = ({ schedule }) => {
           </tr>
         </thead>
         <tbody>
-          {TIME_SLOTS.map(timeSlot => (
+          {uniqueTimeSlots.map(timeSlot => (
             <tr key={timeSlot} className="h-20">
               <td className="p-2 border border-gray-200 font-medium text-gray-600 sticky left-0 bg-white z-10 w-28">{timeSlot}</td>
               {DAYS_OF_WEEK.map(day => {
@@ -60,6 +62,7 @@ const TimetableDisplay: React.FC<TimetableDisplayProps> = ({ schedule }) => {
             </tr>
           ))}
         </tbody>
+
       </table>
     </div>
   );

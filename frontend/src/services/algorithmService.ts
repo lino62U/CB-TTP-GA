@@ -1,5 +1,5 @@
 
-import type { AlgorithmParams, Infrastructure, Timetable } from '../utils/typescopy';
+import type { AlgorithmParams, Infrastructure, Timetable } from '../utils/type';
 
 
 /**
