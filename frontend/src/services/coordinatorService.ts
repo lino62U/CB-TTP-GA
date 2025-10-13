@@ -128,11 +128,17 @@ export const runScheduleAlgorithm = async (
   params: AlgorithmParams
 ): Promise<{ [year: string]: TimetableEntry[] }> => {
   try {
+    const body = {
+      semester: params.semester || 'B',
+      advanced_config: params.advanced_config || null,
+    };
+
     const response = await fetch("http://localhost:4000/schedule/run", {
-      method: "GET",
+      method: "POST",
       headers: {
         "Content-Type": "application/json"
-      }
+      },
+      body: JSON.stringify(body)
     });
 
     if (!response.ok) {
