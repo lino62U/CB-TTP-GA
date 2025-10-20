@@ -7,11 +7,19 @@ import { formatScheduleByYear } from "../utils/formateOuput";
 
 const router = Router();
 
-router.get("/run", async (req: Request, res: Response) => {
+router.post("/run", async (req: Request, res: Response) => {
   try {
-    const scheduleData = await getInfoData("B");
+    const { semester = 'B', advanced_config = null } = req.body || {};
+    const scheduleData = await getInfoData(semester);
 
-    // 🔹 Ejecutar Python
+    // Incorporar advanced_config si fue provisto
+    if (advanced_config) {
+      // Merge simple: colocar bajo la clave "advanced_config" para que el script Python
+      // pueda leerlo desde la entrada y aplicar los ajustes correspondientes.
+      (scheduleData as any).advanced_config = advanced_config;
+    }
+
+    // Ejecutar Python
     const scriptPath = path.resolve(__dirname, "../algorithms/run_ga.py");
     const pyProcess = spawn("python3", [scriptPath]);
     pyProcess.stdin.write(JSON.stringify(scheduleData));

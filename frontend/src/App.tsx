@@ -24,33 +24,36 @@ const App: React.FC = () => {
           <div className="min-h-screen flex flex-col">
             {isAuthenticated && <Header />}
 
-            <main className="flex-grow container mx-auto p-4 sm:p-6 lg:p-8">
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/auth/signin" element={<SignInPage />} />
-                <Route path="/auth/signup" element={<SignUpPage />} />
+            <Routes>
+              {/* Rutas públicas que manejan su propio layout */}
+              <Route path="/" element={<HomePage />} />
+              <Route path="/auth/signin" element={<SignInPage />} />
+              <Route path="/auth/signup" element={<SignUpPage />} />
 
-                {/* 🔒 Rutas protegidas */}
-                <Route
-                  path="/teacher"
-                  element={
-                    <ProtectedRoute>
+              {/* 🔒 Rutas protegidas con contenedor */}
+              <Route
+                path="/teacher"
+                element={
+                  <ProtectedRoute>
+                    <main className="flex-grow container mx-auto p-4 sm:p-6 lg:p-8">
                       <TeacherPage />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/coordinator"
-                  element={
-                    <ProtectedRoute>
+                    </main>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/coordinator"
+                element={
+                  <ProtectedRoute>
+                    <main className="flex-grow container mx-auto p-4 sm:p-6 lg:p-8">
                       <CoordinatorPage />
-                    </ProtectedRoute>
-                  }
-                />
-              </Routes>
-            </main>
+                    </main>
+                  </ProtectedRoute>
+                }
+              />
+            </Routes>
 
-            <Footer />
+            {isAuthenticated && <Footer />}
           </div>
         </HashRouter>
       </CourseProvider>

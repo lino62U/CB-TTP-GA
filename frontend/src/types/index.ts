@@ -3,6 +3,17 @@ export interface AlgorithmParams {
   population: number;
   generations: number;
   mutationRate: number;
+  semester?: string;
+  advanced_config?: {
+    weights?: {
+      [key: string]: number;
+    };
+    generations?: number;
+    population_size?: number;
+    mutation_rate?: number;
+    selection_rate?: number;
+    elite_size?: number;
+  };
 }
 
 export interface Room {

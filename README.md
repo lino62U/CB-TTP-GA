@@ -690,6 +690,81 @@ router.post('/run', async (req: Request, res: Response) => {
   }
 });
 
+## Configuraciones avanzadas
+
+Debajo se describen los constraints utilizados por el algoritmo genético y los pesos
+asignados a cada uno. Estos parámetros permiten ajustar el comportamiento del
+algoritmo sin modificar su implementación interna, y pueden pasarse al proceso
+Python a través del cuerpo de la petición o mediante un archivo de configuración.
+
+### Constraints y pesos (ejemplo)
+
+- **disponibilidad_profesores** — peso: 5
+  - El algoritmo prioriza sesiones que respeten la disponibilidad declarada por
+    cada profesor. Un peso mayor reduce la probabilidad de asignar un horario
+    en un slot no disponible.
+
+- **capacidad_aulas** — peso: 3
+  - Penaliza la asignación de cursos a aulas con capacidad inferior a la demanda.
+
+- **conflictos_horario** — peso: 10
+  - Penaliza fuertemente la asignación de un profesor o grupo a dos sesiones que
+    se solapan en el tiempo.
+
+- **preferencias_curso** — peso: 2
+  - Considera preferencias expresas de ubicación o franja horaria para determinados
+    cursos o asignaturas.
+
+- **balance_carga_profesores** — peso: 1
+  - Incentiva una distribución equitativa de la carga lectiva entre profesores.
+
+### Modificaciones avanzadas
+
+- **Ajuste de pesos:** cada constraint puede recibir un peso entero (mayor => más
+  influencia en la función de fitness). Recomendación: comenzar con valores
+  pequeños y ajustar progresivamente según los resultados.
+
+- **Parámetros del algoritmo:** número de generaciones, tamaño de población,
+  tasa de mutación y método de selección. Estos parámetros afectan convergencia y diversidad.
+
+- **Mecanismos de penalización:** además de pesos, se puede definir una penalización
+  binaria para incumplimientos críticos (por ejemplo, conflictos de horario),
+  lo que fuerza soluciones válidas en primera instancia.
+
+### Cómo aplicar estas configuraciones
+
+- **En la API:** incluir un objeto `advanced_config` en el cuerpo de la petición `POST /schedule/run`.
+
+  Ejemplo (JSON):
+
+```json
+{
+  "semester": "B",
+  "advanced_config": {
+    "weights": {
+      "availability": 5,
+      "capacity": 3,
+      "conflicts": 10,
+      "preferences": 2,
+      "balance": 1
+    },
+    "generations": 1000,
+    "population_size": 200,
+    "mutation_rate": 0.02
+  }
+}
+```
+
+- **En archivo de configuración:** cargar un JSON equivalente desde el servidor y
+  enviarlo al proceso Python cuando se ejecute el algoritmo.
+
+### Notas finales
+
+- Los nombres y pesos mostrados son un ejemplo. Ajuste las configuraciones según
+  las necesidades del centro y valide los resultados con ejecuciones controladas.
+- Mantener un log de ejecuciones (parámetros + métricas) facilita la comparación
+  y afinamiento de las configuraciones.
+
 async function saveScheduleToDatabase(result: any) {
   // Limpiar horario anterior
   await prisma.schedule.deleteMany({});
