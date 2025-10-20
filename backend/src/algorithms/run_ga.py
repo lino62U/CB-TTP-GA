@@ -276,9 +276,17 @@ def tssp_assignment_for_course(course: Dict[str, Any], data: Dict[str, Any]) -> 
             global_aula_period_cnt[aula_id][period] += 1
         
         else:
-            # Si no hay slots válidos, se asigna aleatoriamente para cumplir H7, 
-            # confiando en que el GA lo arreglará, o se omite (mejor omitir).
-            pass
+            # Si no hay slots válidos, asignar aleatoriamente (el GA lo reparará después)
+            # Esto asegura que todos los bloques sean asignados
+            period = random.choice(data['periodos'])
+            aula_id = random.choice(aulas_filtradas)
+            prof_id = random.choice(available_profs) if available_profs else ""
+            
+            assignments.append((period, aula_id, prof_id))
+            
+            if prof_id:
+                global_prof_period_cnt[prof_id][period] += 1
+            global_aula_period_cnt[aula_id][period] += 1
             
     return assignments
 

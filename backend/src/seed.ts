@@ -15,7 +15,7 @@ async function main() {
   // -------------------------
   // 0️⃣ Leer JSON
   // -------------------------
-  const filePath = path.join(__dirname, "data.json");
+  const filePath = path.join(__dirname, "data__.json");
   const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
 
   // -------------------------
