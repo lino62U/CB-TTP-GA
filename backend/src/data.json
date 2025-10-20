@@ -141,13 +141,13 @@
   "profesores": {
     "DR. JUAN CARLOS GUTIERREZ CACERES": {
       "cursos": [
-        "1701106",
-        "1701102",
-        "1701209",
-        "1701105",
-        "1703241",
-        "1702229",
-        "1703131"
+        "2501101",
+        "2501102",
+        "2501103",
+        "2501104",
+        "2501105",
+        "2501211",
+        "2504142"
       ],
       "disponibilidad": [
         "JUE_08:50_09:40",
@@ -161,13 +161,13 @@
     },
     "MG. ANA MARIA CUADROS VALDIVIA": {
       "cursos": [
-        "1701106",
-        "1701107",
-        "1701208",
-        "1703236",
-        "1701210",
-        "1701212",
-        "1702117"
+        "2501101",
+        "2501106",
+        "2501207",
+        "2501208",
+        "2501209",
+        "2501210",
+        "2502113"
       ],
       "disponibilidad": [
         "LUN_07:00_07:50",
@@ -181,13 +181,13 @@
     },
     "DR. CRISTIAN JOSE LOPEZ DEL ALAMO": {
       "cursos": [
-        "1701102",
-        "1702229",
-        "1701216",
-        "1702117",
-        "1703236",
-        "1702227",
-        "1705160"
+        "2501102",
+        "2501211",
+        "2501212",
+        "2502113",
+        "2502114",
+        "2502115",
+        "2502223"
       ],
       "disponibilidad": [
         "MAR_08:50_09:40",
@@ -201,12 +201,12 @@
     },
     "DR. EDWARD HINOJOSA CARDENAS": {
       "cursos": [
-        "1701209",
-        "1702121",
-        "1702122",
-        "1702123",
-        "1703238",
-        "1702228"
+        "2501103",
+        "2502116",
+        "2502117",
+        "2502118",
+        "2502219",
+        "2503130"
       ],
       "disponibilidad": [
         "LUN_10:40_11:30",
@@ -220,13 +220,13 @@
     },
     "MG. ELIANA MARIA ADRIAZOLA HERRERA": {
       "cursos": [
-        "1701105",
-        "1704144",
-        "1703239",
-        "1703236",
-        "1705160",
-        "1702229",
-        "1704147"
+        "2501104",
+        "2502220",
+        "2502221",
+        "2502222",
+        "2502223",
+        "2502224",
+        "2503235"
       ],
       "disponibilidad": [
         "MIE_07:00_07:50",
@@ -240,11 +240,11 @@
     },
     "MG. FRANCI SUNI LOPEZ": {
       "cursos": [
-        "1703131",
-        "1703238",
-        "1703133",
-        "1703236",
-        "1704254"
+        "2503125",
+        "2503126",
+        "2503127",
+        "2503128",
+        "2504248"
       ],
       "disponibilidad": [
         "LUN_14:00_14:50",
@@ -257,13 +257,13 @@
     },
     "MG. WILBER ROBERTO RAMOS LOVON": {
       "cursos": [
-        "1703241",
-        "1702226",
-        "1702228",
-        "1703236",
-        "1703132",
-        "1703239",
-        "1703135"
+        "2501105",
+        "2503129",
+        "2503130",
+        "2503231",
+        "2503232",
+        "2503233",
+        "2503236"
       ],
       "disponibilidad": [
         "MIE_07:00_07:50",
@@ -276,11 +276,11 @@
     },
     "DRA. ROXANA FLORES QUISPE": {
       "cursos": [
-        "1702225",
-        "1704147",
-        "1703135",
-        "1704142",
-        "1703241"
+        "2503234",
+        "2503235",
+        "2503236",
+        "2504137",
+        "2504249"
       ],
       "disponibilidad": [
         "JUE_07:00_07:50",
@@ -293,11 +293,12 @@
     },
     "DR. ALVARO HENRY MAMANI ALIAGA": {
       "cursos": [
-        "1703237",
-        "1704143",
-        "1703130",
-        "1705158",
-        "1703131"
+        "2504138",
+        "2504139",
+        "2504140",
+        "2504141",
+        "2504142",
+        "2505259"
       ],
       "disponibilidad": [
         "LUN_08:50_09:40",
@@ -311,11 +312,11 @@
     },
     "DR. YUBER ELMER VELAZCO PAREDES": {
       "cursos": [
-        "1704147",
-        "1704251",
-        "1704249",
-        "1704248",
-        "1702226"
+        "2504143",
+        "2504144",
+        "2504245",
+        "2504246",
+        "2505261"
       ],
       "disponibilidad": [
         "MAR_15:50_16:40",
@@ -328,11 +329,11 @@
     },
     "DR. EDGAR SARMIENTO CALISAYA": {
       "cursos": [
-        "1705157",
-        "1704254",
-        "1703241",
-        "1704143",
-        "1705272"
+        "2504247",
+        "2504248",
+        "2504249",
+        "2504250",
+        "2505260"
       ],
       "disponibilidad": [
         "LUN_10:40_11:30",
@@ -345,11 +346,11 @@
     },
     "DRA. YESSENIA DEYSI, YARI RAMOS": {
       "cursos": [
-        "1704143",
-        "1704147",
-        "1703130",
-        "1705265",
-        "1703241"
+        "2504251",
+        "2504252",
+        "2505153",
+        "2505154",
+        "2505157"
       ],
       "disponibilidad": [
         "MAR_07:00_07:50",
@@ -362,11 +363,11 @@
     },
     "MG. ROSA YULIANA PACCOTACYA YANQUE": {
       "cursos": [
-        "1704146",
-        "1705161",
-        "1703241",
-        "1704254",
-        "1705271"
+        "2505155",
+        "2505156",
+        "2505157",
+        "2505158",
+        "2505263"
       ],
       "disponibilidad": [
         "JUE_08:50_09:40",
@@ -379,11 +380,11 @@
     },
     "MG. PERCY": {
       "cursos": [
-        "1704143",
-        "1705272",
-        "1702226",
-        "1704143",
-        "1705269"
+        "2505159",
+        "2505260",
+        "2505261",
+        "2505262",
+        "2505265"
       ],
       "disponibilidad": [
         "LUN_10:40_11:30",
@@ -396,11 +397,11 @@
     },
     "MG. ROLANDO": {
       "cursos": [
-        "1705271",
-        "1705270",
-        "1705269",
-        "1705161",
-        "1705265"
+        "2505263",
+        "2505264",
+        "2505265",
+        "2505266",
+        "2505154"
       ],
       "disponibilidad": [
         "MAR_15:50_16:40",
@@ -409,6 +410,46 @@
         "MIE_16:40_17:30"
       ],
       "preferencia": "tarde"
+    }
+  },
+  "preferencias": {
+    "turno_preferido": "mañana",
+    "dias_preferidos": [
+      "LUN",
+      "MAR",
+      "MIE"
+    ],
+    "bloques_preferidos": [
+      "07:00_07:50",
+      "07:50_08:40",
+      "08:50_09:40",
+      "09:40_10:30",
+      "10:40_11:30",
+      "11:30_12:20"
+    ]
+  },
+  "pesos": {
+    "M": 1000000,
+    "restricciones_duras": {
+      "no_solapamiento_profesor": 1000,
+      "no_solapamiento_aula": 900,
+      "disponibilidad_profesor": 800,
+      "capacidad_aula": 700,
+      "tipo_aula": 600,
+      "carga_horaria": 500
+    },
+    "restricciones_blandas": {
+      "minimizacion_huecos": 150,
+      "turno_preferido_estudiante": 200,
+      "preferencia_profesor": 100,
+      "concentracion_diaria": 120,
+      "balance_aulas": 100,
+      "franjas_extremas": 80,
+      "continuidad_curso": 90,
+      "fuera_bloque_preferido": 110,
+      "dias_extra": 130,
+      "distribucion_balanceada": 100,
+      "uso_optimo_aulas": 100
     }
   },
   "cursos": [
@@ -522,7 +563,10 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1701107",
+              "1701106"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -536,7 +580,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1701106"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -564,7 +610,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1701105"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -810,7 +858,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1701106"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -830,7 +880,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1702226"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -844,7 +896,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1702224"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -858,7 +912,10 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1702118",
+              "1702226"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -872,7 +929,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1702225"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -886,7 +945,10 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1702228",
+              "1702224"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -900,7 +962,10 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1702121",
+              "1702227"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -958,7 +1023,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1703131"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -972,7 +1039,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1703132"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -986,7 +1055,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1703131"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1000,7 +1071,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1702117"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1014,7 +1087,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1702120"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1028,7 +1103,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1703135"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1132,7 +1209,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1703131"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1274,7 +1353,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1703131"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1294,7 +1375,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1704249"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1308,7 +1391,10 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1703130",
+              "1704250"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1350,7 +1436,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1702122"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1364,7 +1452,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1703134"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1378,7 +1468,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1704147"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1392,7 +1484,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1704146"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1406,7 +1500,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1703241"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1420,7 +1516,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1702226"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1436,7 +1534,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1705157"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1450,7 +1550,10 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1703240",
+              "1704254"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1464,7 +1567,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1702120"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1478,7 +1583,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1704250"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1492,7 +1599,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1705162"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1506,7 +1615,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1704251"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1534,7 +1645,9 @@
             "dpto_adscrito2": "",
             "dpto_adscrito3": "",
             "creditos": null,
-            "prerequisitos": [],
+            "prerequisitos": [
+              "1705156"
+            ],
             "horas_teoria": 0.0,
             "horas_practica": 0.0,
             "horas_total": 0.0,
@@ -1544,45 +1657,5 @@
         ]
       }
     }
-  ],
-  "preferencias": {
-    "turno_preferido": "mañana",
-    "dias_preferidos": [
-      "LUN",
-      "MAR",
-      "MIE"
-    ],
-    "bloques_preferidos": [
-      "07:00_07:50",
-      "07:50_08:40",
-      "08:50_09:40",
-      "09:40_10:30",
-      "10:40_11:30",
-      "11:30_12:20"
-    ]
-  },
-  "pesos": {
-    "M": 1000000,
-    "restricciones_duras": {
-      "no_solapamiento_profesor": 1000,
-      "no_solapamiento_aula": 900,
-      "disponibilidad_profesor": 800,
-      "capacidad_aula": 700,
-      "tipo_aula": 600,
-      "carga_horaria": 500
-    },
-    "restricciones_blandas": {
-      "minimizacion_huecos": 150,
-      "turno_preferido_estudiante": 200,
-      "preferencia_profesor": 100,
-      "concentracion_diaria": 120,
-      "balance_aulas": 100,
-      "franjas_extremas": 80,
-      "continuidad_curso": 90,
-      "fuera_bloque_preferido": 110,
-      "dias_extra": 130,
-      "distribucion_balanceada": 100,
-      "uso_optimo_aulas": 100
-    }
-  }
+  ]
 }
