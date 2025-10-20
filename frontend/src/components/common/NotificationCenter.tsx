@@ -17,7 +17,7 @@ interface NotificationItemProps {
   onClose: () => void;
 }
 
-const NotificationItem: React.FC<NotificationItemProps> = ({ id, message, type, onClose }) => {
+const NotificationItem: React.FC<NotificationItemProps> = ({ message, type, onClose }) => {
   useEffect(() => {
     const timer = setTimeout(onClose, 5000); // desaparece automáticamente
     return () => clearTimeout(timer);

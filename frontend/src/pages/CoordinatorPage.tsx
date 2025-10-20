@@ -15,7 +15,14 @@ const CoordinatorPage: React.FC = () => {
     classrooms: [{ id: 'c1', name: 'Salón 101', capacity: 40 }, { id: 'c2', name: 'Salón 102', capacity: 35 }],
     labs: [{ id: 'l1', name: 'Lab de Cómputo A', capacity: 25 }],
   });
-  const [params, setParams] = useState<AlgorithmParams>({ population: 100, generations: 50, mutationRate: 0.1 });
+  const [params, setParams] = useState<AlgorithmParams>({
+    population: 100,      // POP_SIZE
+    generations: 200,     // GENERATIONS
+    tournament: 3,        // TOURNAMENT_K
+    crossover: 0.8,       // CROSSOVER_PROB
+    mutationRate: 0.2,    // MUTATION_PROB
+    semester: "B",        // por defecto
+  });
   const [schedules, setSchedules] = useState<{ [year: string]: Timetable } | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [teachers, setTeachers] = useState<TeacherInfo[]>([]);
@@ -71,9 +78,20 @@ const CoordinatorPage: React.FC = () => {
     }));
   }, []);
 
-  const handleParamsChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setParams(prev => ({ ...prev, [e.target.name]: Number(e.target.value) }));
-  }, []);
+  const handleParamsChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+      const { name, value } = e.target;
+      setParams(prev => ({
+        ...prev,
+        [name]:
+          name === "population" || name === "generations" || name === "mutationRate"
+            ? Number(value)
+            : value, // mantiene el string "A" o "B"
+      }));
+    },
+    []
+  );
+  
 
   const handleRunAlgorithm = useCallback(async (currentParams: AlgorithmParams) => {
     setIsLoading(true);

@@ -1,7 +1,7 @@
 // services/coordinatorService.ts
 import api from '../config/axios'; // Cambia a api en lugar de axios
 import * as XLSX from 'xlsx';
-import type { AlgorithmParams, Infrastructure, ScheduleResult, TimetableEntry } from '../types';
+import type { AlgorithmParams, ScheduleResult, TimetableEntry } from '../types';
 
 export const getTeachers = (): Promise<{ data: any[] }> => { // Tipa response si sabes el shape
   return api.get('/api/teachers');
@@ -127,23 +127,23 @@ export const exportSchedulesToExcel = (schedules: { [year: string]: TimetableEnt
 export const runScheduleAlgorithm = async (
   params: AlgorithmParams
 ): Promise<{ [year: string]: TimetableEntry[] }> => {
+  console.log("Ejecutando algoritmo con parámetros:", params);
+
   try {
-    const response = await fetch("http://localhost:4000/schedule/run", {
-      method: "GET",
+    // Envío con Axios usando tu instancia 'api'
+    const response = await api.get("/schedule/run", {
+      params, // si el backend recibe parámetros por query string
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     });
 
-    if (!response.ok) {
-      throw new Error(`Error al ejecutar el algoritmo: ${response.statusText}`);
+    if (!response.data) {
+      throw new Error("Respuesta vacía del backend");
     }
 
-    const result = await response.json();
-
-    // Suponiendo que necesitas transformar la respuesta como antes
-    return transformToSchedules(result);
-
+    // Transforma el resultado al formato interno
+    return transformToSchedules(response.data);
   } catch (error) {
     console.error("Error en runScheduleAlgorithm:", error);
     throw error;

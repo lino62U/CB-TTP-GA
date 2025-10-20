@@ -1,3 +1,4 @@
+# Your first line of Python code
 #!/usr/bin/env python3
 import json
 import sys
@@ -5,7 +6,7 @@ import random
 import copy
 import argparse
 from collections import defaultdict
-from typing import Dict, List, Tuple, Any
+from typing import Dict, List, Tuple, Any, Set
 
 # Parámetros del GA
 POP_SIZE = 100
@@ -19,8 +20,16 @@ Period = str
 AulaID = str
 CourseCode = str
 
+# --- ESTRUCTURAS DE DATOS GLOBALES PARA EL TSSP ---
+# Usadas para rastrear los conflictos durante la construcción secuencial
+global_prof_period_cnt = defaultdict(lambda: defaultdict(int))
+global_aula_period_cnt = defaultdict(lambda: defaultdict(int))
+global_aula_map = {}
+
+
 def convert_input_format(new_data: Dict[str, Any]) -> Dict[str, Any]:
-    """Convierte el JSON de entrada al formato interno del GA."""
+    """Convierte el JSON de entrada al formato interno del GA y calcula la prioridad TSSP."""
+    global global_aula_map
     data = {}
     
     # 1. Generar lista de periodos
@@ -31,20 +40,22 @@ def convert_input_format(new_data: Dict[str, Any]) -> Dict[str, Any]:
         end = period['end_time']
         period_str = f"{day}_{start}_{end}"
         periods_list.append(period_str)
-    
     data['periodos'] = periods_list
     
     # 2. Convertir aulas
     classroom_type_map = {"THEORY": "T", "LAB": "LAB"}
     aulas_list = []
     for room in new_data['classrooms']:
-        aulas_list.append({
+        aula_data = {
             'id': room['room_code'],
             'nombre': room.get('room_name', room['room_code']),
             'tipo': classroom_type_map.get(room['room_type'], room['room_type']),
             'capacidad': room['capacity']
-        })
+        }
+        aulas_list.append(aula_data)
+        global_aula_map[aula_data['id']] = aula_data # Global para TSSP
     data['_aulas_list'] = aulas_list
+    data['_aulas_map'] = global_aula_map
     
     # 3. Convertir profesores
     profs_map = {}
@@ -57,62 +68,90 @@ def convert_input_format(new_data: Dict[str, Any]) -> Dict[str, Any]:
                     parts = p.split("_")
                     p_start = parts[1]
                     p_end = parts[2]
+                    # Solo incluir si el periodo cae DENTRO del rango de disponibilidad
                     if avail['start_time'] <= p_start and p_end <= avail['end_time']:
                         disponibilidad.append(p)
-        # Cambiar la clave a 'professor_id'
+        
         profs_map[prof['professor_id']] = {
             'id': prof['professor_id'],
             'nombre': prof['name'],
-            'disponibilidad': disponibilidad
+            'disponibilidad': set(disponibilidad) # Convertido a set para busqueda O(1)
         }
     data['_profs_map'] = profs_map
+
+    # --- DATOS PARA EL CÁLCULO DE PRIORIDAD TSSP ---
+    aulas_teoria_aptas = [a for a in aulas_list if a['tipo'] == 'T']
+    aulas_lab_aptas = [a for a in aulas_list if a['tipo'] == 'LAB']
+    W_R, W_B, W_Y = 3, 2, 1 # Pesos para la fórmula de prioridad TSSP
 
     # 4. Convertir cursos (dividiendo teoría y lab)
     courses_map = {}
     for course in new_data['courses']:
         theory_hours = course.get('theory_hours', 0)
         lab_hours = course.get('lab_hours', 0)
-        # Obtener lista de profesores (IDs)
         prof_ids = course.get('professors', [])
-        # Usar directamente los IDs
+        num_profs = len(prof_ids) if prof_ids else 1
+        year = course['year']
+        
         if theory_hours > 0:
             course_code_theory = f"{course['course_code']}_T"
+            
+            # CÁLCULO DE PRIORIDAD TSSP
+            # Rigidez: Prof. Disponibles * Aulas Aptas para Teoría
+            num_aulas = len(aulas_teoria_aptas) if aulas_teoria_aptas else 1
+            factor_rigidez = 1 / (num_profs * num_aulas)
+            score_teoria = (W_R * factor_rigidez) + \
+                           (W_B * theory_hours) + \
+                           (W_Y * year)
+            
             courses_map[course_code_theory] = {
                 'codigo': course_code_theory,
                 'nombre': f"{course['course_name']} (Teoría)",
                 'creditos': course['credits'],
-                'estudiantes': 30,  # Valor por defecto
-                'profesores': prof_ids,  # Usar IDs
+                'estudiantes': 30,
+                'profesores': prof_ids,
                 'aula_tipo': 'T',
                 '_blocks_needed': theory_hours,
                 'prerequisitos': course.get('prerequisites', []),
                 'original_code': course['course_code'],
-                'year': course['year']
+                'year': year,
+                '_tssp_priority_score': score_teoria, # AGREGADO
             }
+        
         if lab_hours > 0:
             course_code_lab = f"{course['course_code']}_LAB"
+            
+            # CÁLCULO DE PRIORIDAD TSSP
+            # Rigidez: Prof. Disponibles * Aulas Aptas para Lab
+            num_aulas = len(aulas_lab_aptas) if aulas_lab_aptas else 1
+            factor_rigidez = 1 / (num_profs * num_aulas)
+            score_lab = (W_R * factor_rigidez) + \
+                        (W_B * lab_hours) + \
+                        (W_Y * year)
+            
             courses_map[course_code_lab] = {
                 'codigo': course_code_lab,
                 'nombre': f"{course['course_name']} (Laboratorio)",
                 'creditos': course['credits'],
-                'estudiantes': 30,  # Valor por defecto
-                'profesores': prof_ids,  # Usar IDs
+                'estudiantes': 30,
+                'profesores': prof_ids,
                 'aula_tipo': 'LAB',
                 '_blocks_needed': lab_hours,
                 'prerequisitos': course.get('prerequisites', []),
                 'original_code': course['course_code'],
-                'year': course['year']
+                'year': year,
+                '_tssp_priority_score': score_lab, # AGREGADO
             }
     data['_courses_map'] = courses_map
     
-    # 5. Preferencias
+    # 5. Preferencias (igual que antes)
     data['preferencias'] = {
         'turno_preferido': new_data['preferences']['preferred_shift'].lower(),
         'dias_preferidos': new_data['preferences'].get('preferred_days', []),
         'franjas_preferidas': new_data['preferences'].get('preferred_slots', [])
     }
     
-    # 6. Pesos (valores por defecto si no se proporcionan)
+    # 6. Pesos (igual que antes)
     data['pesos'] = {
         'M': 1000000,
         'restricciones_duras': {
@@ -131,39 +170,158 @@ def convert_input_format(new_data: Dict[str, Any]) -> Dict[str, Any]:
         }
     }
     
-    # 7. Metadatos
+    # 7. Metadatos (igual que antes)
     data['metadata'] = new_data['metadata']
     
     return data
 
-def random_assignment_for_course(course: Dict[str, Any], data: Dict[str, Any]) -> List[Tuple[Period, AulaID, str]]:
-    """Genera una asignación aleatoria para un curso (periodo, aula, profesor)."""
+# --- FUNCIONES TSSP ---
+
+def check_hard_constraints_for_slot(period: Period, aula: AulaID, prof: str, course: Dict[str, Any], data: Dict[str, Any]) -> bool:
+    """Verifica si un slot (p, a, prof) viola restricciones duras (H2, H3, H4, H5, H6)."""
+    
+    # H2: Conflicto de profesor (Ya asignado a otro curso en este periodo)
+    if prof and global_prof_period_cnt[prof][period] > 0:
+        return False
+        
+    # H3: Disponibilidad profesor
+    if prof:
+        available = data['_profs_map'].get(prof, {}).get('disponibilidad', set())
+        if available and period not in available:
+            return False
+            
+    # H4: Conflicto de aula (Ya asignada a otro curso en este periodo)
+    if global_aula_period_cnt[aula][period] > 0:
+        return False
+        
+    # H5: Capacidad de aula
+    est = course.get('estudiantes', 30)
+    cap = global_aula_map.get(aula, {}).get('capacidad', 0)
+    if est > cap:
+        return False
+        
+    # H6: Tipo de aula requerido
+    required_type = course.get('aula_tipo', None)
+    actual_type = global_aula_map.get(aula, {}).get('tipo', None)
+    if required_type and actual_type != required_type:
+        return False
+        
+    return True
+
+def calculate_soft_cost_for_slot(period: Period, aula: AulaID, prof: str, course: Dict[str, Any], data: Dict[str, Any]) -> float:
+    """Calcula el costo de restricciones blandas (S2, S6) para un slot. (S1 se calcula al final)"""
+    cost = 0
+    w_S = data.get('pesos', {}).get('restricciones_blandas', {})
+    w_S_S2 = w_S.get('turno_preferido_estudiante', 3)
+    w_S_S6 = w_S.get('franjas_extremas', 1)
+    
+    # S2: Turno preferido
+    pref_shift = data['preferencias'].get('turno_preferido', 'morning')
+    if pref_shift == 'morning' and not is_morning_period(period):
+        cost += w_S_S2
+        
+    # S6: Franjas extremas (simplificado: primer y último slot del día)
+    # Una implementación completa requeriría saber el orden de todos los periodos del día.
+    # Por ahora, nos saltamos S6 para mantener la complejidad del TSSP simple.
+    # cost += check_extreme_slots(period) * w_S_S6
+    
+    return cost
+
+def tssp_assignment_for_course(course: Dict[str, Any], data: Dict[str, Any]) -> List[Tuple[Period, AulaID, str]]:
+    """Genera asignaciones para un curso usando la lógica secuencial del TSSP."""
     blocks = course['_blocks_needed']
-    aula_type = course.get('aula_tipo', 'T')
-    periods = data['periodos']
-    aulas = data['_aulas_list']
-    profesores = course.get('profesores', [])  # IDs
-    
-    # Filtrar aulas por tipo
-    aulas_filtradas = [a for a in aulas if a['tipo'] == aula_type]
-    if not aulas_filtradas:
-        aulas_filtradas = aulas
-    
     assignments = []
-    for b in range(blocks):
-        chosen_aula = random.choice(aulas_filtradas)['id']
-        chosen_period = random.choice(periods)
-        chosen_prof = random.choice(profesores) if profesores else ""
-        assignments.append((chosen_period, chosen_aula, chosen_prof))
     
+    available_profs = course.get('profesores', [])
+    if not available_profs: available_profs = [""] # Permitir asignacion sin profesor si no hay
+    aula_type = course.get('aula_tipo', 'T')
+    aulas_filtradas = [a['id'] for a in data['_aulas_list'] if a['tipo'] == aula_type]
+    
+    if not aulas_filtradas:
+        # Fallback a cualquier aula si no hay del tipo requerido (para evitar crash)
+        aulas_filtradas = [a['id'] for a in data['_aulas_list']]
+
+    for b in range(blocks):
+        best_slot = None
+        min_cost = float('inf')
+        
+        # Generar todas las combinaciones válidas para el bloque actual
+        valid_slots = []
+        for period in data['periodos']:
+            for aula_id in aulas_filtradas:
+                for prof_id in available_profs:
+                    # 1. Verificar Restricciones Duras
+                    if check_hard_constraints_for_slot(period, aula_id, prof_id, course, data):
+                        # 2. Calcular Costo Blando
+                        soft_cost = calculate_soft_cost_for_slot(period, aula_id, prof_id, course, data)
+                        valid_slots.append(((period, aula_id, prof_id), soft_cost))
+        
+        # Selección del mejor slot (o un slot aleatorio si hay empate o para variedad)
+        if valid_slots:
+            # Ordenar por costo (ascendente)
+            valid_slots.sort(key=lambda x: x[1])
+            
+            # Elegir entre los slots con el mejor costo (ej. el 10% mejor) para introducir aleatoriedad
+            best_cost = valid_slots[0][1]
+            best_options = [s[0] for s in valid_slots if s[1] == best_cost]
+            
+            chosen_slot = random.choice(best_options)
+            
+            # Asignar y actualizar las estructuras globales de conflicto
+            assignments.append(chosen_slot)
+            
+            period, aula_id, prof_id = chosen_slot
+            if prof_id:
+                global_prof_period_cnt[prof_id][period] += 1
+            global_aula_period_cnt[aula_id][period] += 1
+        
+        else:
+            # Si no hay slots válidos, se asigna aleatoriamente para cumplir H7, 
+            # confiando en que el GA lo arreglará, o se omite (mejor omitir).
+            pass
+            
     return assignments
 
-def random_individual(data: Dict[str, Any]) -> Dict[CourseCode, List[Tuple[Period, AulaID, str]]]:
-    """Genera un individuo aleatorio (solución inicial)."""
+def tssp_individual(data: Dict[str, Any]) -> Dict[CourseCode, List[Tuple[Period, AulaID, str]]]:
+    """Genera un individuo utilizando la construcción secuencial TSSP."""
+    
+    # Reiniciar contadores globales para la construcción del nuevo individuo
+    global global_prof_period_cnt, global_aula_period_cnt
+    global_prof_period_cnt = defaultdict(lambda: defaultdict(int))
+    global_aula_period_cnt = defaultdict(lambda: defaultdict(int))
+    
+    # 1. Ordenar cursos por prioridad (mayor score = más difícil = primero)
+    courses_to_assign = sorted(
+        data['_courses_map'].values(), 
+        key=lambda c: c['_tssp_priority_score'], 
+        reverse=True
+    )
+    
     ind = {}
-    for code, course in data['_courses_map'].items():
-        ind[code] = random_assignment_for_course(course, data)
+    
+    # 2. Asignar cursos secuencialmente
+    for course in courses_to_assign:
+        code = course['codigo']
+        # La asignación TSSP actualiza global_prof_period_cnt y global_aula_period_cnt
+        ind[code] = tssp_assignment_for_course(course, data)
+        
     return ind
+
+def initialize_tssp_population(data: Dict[str, Any]) -> List[Dict]:
+    """Genera POP_SIZE individuos, cada uno construido con el TSSP."""
+    print(f"Inicializando población con TSSP (tamaño {POP_SIZE})...", file=sys.stderr)
+    population = []
+    for _ in range(POP_SIZE):
+        # Cada llamada a tssp_individual genera una solución con un punto de partida diferente 
+        # (debido a la aleatoriedad en caso de empate de soft_cost)
+        individual = tssp_individual(data) 
+        population.append(individual)
+    
+    # Los individuos TSSP ya deberían estar 'reparados' en cuanto a las restricciones duras (H2, H4) 
+    # que se chequean durante la construcción. No se requiere la llamada a repair(ind, data) posterior.
+    return population
+
+# --- FUNCIONES RESTANTES (iguales que antes) ---
 
 def is_morning_period(period: Period) -> bool:
     """Verifica si un periodo es por la mañana."""
@@ -223,7 +381,7 @@ def evaluate(ind: Dict[str, List[Tuple[Period, AulaID, str]]], data: Dict[str, A
     for ccode, assigns in ind.items():
         for (p, a, prof) in assigns:
             if prof and prof in prof_map:
-                available = set(prof_map[prof].get('disponibilidad', []))
+                available = prof_map[prof].get('disponibilidad', set())
                 if available and p not in available:
                     cost_hard += w_H['H3']
                     diagnostics['H3_prof_unavailable'] += 1
@@ -323,7 +481,7 @@ def repair(ind: Dict[str, List[Tuple[Period, AulaID, str]]], data: Dict[str, Any
     aulas = data['_aulas_list']
     courses = data['_courses_map']
 
-    # Reparar conflictos de aula
+    # Reparar conflictos de aula (H4)
     aula_period = defaultdict(lambda: defaultdict(list))
     for ccode, assigns in new.items():
         for idx, (p, a, prof) in enumerate(assigns):
@@ -335,19 +493,21 @@ def repair(ind: Dict[str, List[Tuple[Period, AulaID, str]]], data: Dict[str, Any
                 continue
             
             a_type = None
-            for a in aulas:
-                if a['id'] == aula:
-                    a_type = a['tipo']
+            for a_info in aulas:
+                if a_info['id'] == aula:
+                    a_type = a_info['tipo']
                     break
             
             candidates = [aa['id'] for aa in aulas if aa['tipo'] == a_type and aa['id'] != aula]
             
+            # Reasignar a una aula disponible del mismo tipo
             for (ccode, idx) in lst[1:]:
                 if candidates:
                     new_a = random.choice(candidates)
                     old_p, old_a, old_prof = new[ccode][idx]
                     new[ccode][idx] = (old_p, new_a, old_prof)
-
+                # Si no hay candidates, se deja el conflicto, confiando en el GA
+    
     return new
 
 def tournament_selection(pop: List[Dict], fitnesses: List[float], k=TOURNAMENT_K) -> Dict:
@@ -376,7 +536,7 @@ def crossover(parent1: Dict, parent2: Dict, data: Dict[str, Any]) -> Tuple[Dict,
     return child1, child2
 
 def mutate(ind: Dict, data: Dict[str, Any], mut_prob=MUTATION_PROB) -> Dict:
-    """Operador de mutación."""
+    """Operador de mutación. (Permite cambiar periodo, aula y profesor)"""
     new = copy.deepcopy(ind)
     periods = data['periodos']
     aulas = data['_aulas_list']
@@ -388,21 +548,36 @@ def mutate(ind: Dict, data: Dict[str, Any], mut_prob=MUTATION_PROB) -> Dict:
                 continue
             
             idx = random.randrange(len(assigns))
-            typ = random.choice([1, 2, 3])
+            typ = random.choice([1, 2, 3]) # 1: Periodo, 2: Aula, 3: Profesor
             old_p, old_a, old_prof = assigns[idx]
-            if typ == 3:  # Cambiar profesor
+
+            if typ == 1:  # Cambiar Periodo
+                new_p = random.choice(periods)
+                new[ccode][idx] = (new_p, old_a, old_prof)
+            
+            elif typ == 2: # Cambiar Aula
                 course_info = data['_courses_map'][ccode]
-                profs = course_info.get('profesores', [])  # IDs
+                aula_type = course_info.get('aula_tipo', 'T')
+                aulas_filtradas = [a['id'] for a in aulas if a['tipo'] == aula_type]
+                if aulas_filtradas:
+                    new_a = random.choice(aulas_filtradas)
+                    new[ccode][idx] = (old_p, new_a, old_prof)
+            
+            elif typ == 3:  # Cambiar profesor
+                course_info = data['_courses_map'][ccode]
+                profs = course_info.get('profesores', [])
                 if profs:
                     new_prof = random.choice(profs)
                     new[ccode][idx] = (old_p, old_a, new_prof)
     return new
 
+
 def run_ga(data: Dict[str, Any]):
     """Ejecuta el algoritmo genético."""
-    population = [random_individual(data) for _ in range(POP_SIZE)]
-    population = [repair(ind, data) for ind in population]
+    # MODIFICACIÓN CLAVE: Usar la inicialización TSSP
+    population = initialize_tssp_population(data)
     
+    # Evaluar la población inicial
     fitnesses = []
     diagnostics_list = []
     for ind in population:
@@ -417,19 +592,24 @@ def run_ga(data: Dict[str, Any]):
     print(f"Init best fitness: {best_fit}, diag: {diagnostics_list[best_idx]}", file=sys.stderr)
 
     for gen in range(1, GENERATIONS + 1):
+        # Elitismo: El mejor individuo pasa a la nueva generación
         newpop = [copy.deepcopy(best)]
         
         while len(newpop) < POP_SIZE:
             p1 = tournament_selection(population, fitnesses)
             p2 = tournament_selection(population, fitnesses)
             
+            # Cruce
             if random.random() < CROSSOVER_PROB:
                 c1, c2 = crossover(p1, p2, data)
             else:
                 c1, c2 = copy.deepcopy(p1), copy.deepcopy(p2)
             
+            # Mutación
             c1 = mutate(c1, data)
             c2 = mutate(c2, data)
+            
+            # Reparación (solo necesaria para reparar H4 después de cruce/mutación)
             c1 = repair(c1, data)
             c2 = repair(c2, data)
             
@@ -461,14 +641,15 @@ def run_ga(data: Dict[str, Any]):
     return best, d_best
 
 def convert_solution_to_json(sol: Dict[str, List[Tuple[Period, AulaID, str]]], data: Dict[str, Any]) -> Dict[str, Any]:
-    """Convierte la solución al formato JSON de salida."""
+    # ... (código existente)
     course_map = data['_courses_map']
     aulas_map = {a['id']: a for a in data['_aulas_list']}
     
     schedule_entries = []
     
     for ccode, assigns in sol.items():
-        course_info = course_map[ccode]
+        course_info = course_map.get(ccode, {})
+        if not course_info: continue
         
         for (period, aula, profesor) in assigns:
             # Parsear el periodo "DIA_HH:MM_HH:MM"
@@ -482,15 +663,15 @@ def convert_solution_to_json(sol: Dict[str, List[Tuple[Period, AulaID, str]]], d
             room_type = "THEORY" if aula_info.get('tipo') == 'T' else "LAB"
             
             entry = {
-                "course_code": course_info.get('original_code', ccode),
-                "course_name": course_info['nombre'],
-                "year": course_info['year'],
+                "course_code": course_info.get('original_code', ccode.split('_')[0]),
+                "course_name": course_info.get('nombre', ccode),
+                "year": course_info.get('year', 0),
                 "day_of_week": day,
                 "start_time": start_time,
                 "end_time": end_time,
                 "classroom_code": aula,
                 "classroom_type": room_type,
-                "professor_id": profesor,  # Usar ID
+                "professor_id": profesor,
                 "student_count": course_info.get('estudiantes', 0)
             }
             schedule_entries.append(entry)
@@ -503,34 +684,55 @@ def convert_solution_to_json(sol: Dict[str, List[Tuple[Period, AulaID, str]]], d
         "metadata": data.get('metadata', {}),
         "schedule": schedule_entries,
         "statistics": {
-            "total_courses": len(set(course_map[c].get('original_code', c) for c in sol.keys())),
+            "total_courses": len(set(course_map[c].get('original_code', c) for c in sol.keys() if c in course_map)),
             "total_sessions": sum(len(assigns) for assigns in sol.values())
         }
     }
 
 def main():
-    global POP_SIZE, GENERATIONS
+    global POP_SIZE, GENERATIONS, TOURNAMENT_K, CROSSOVER_PROB, MUTATION_PROB
+
     parser = argparse.ArgumentParser()
     parser.add_argument('--pop', type=int, default=POP_SIZE)
     parser.add_argument('--gens', type=int, default=GENERATIONS)
+    parser.add_argument('--tournament', type=int, default=TOURNAMENT_K)
+    parser.add_argument('--crossover', type=float, default=CROSSOVER_PROB)
+    parser.add_argument('--mutation', type=float, default=MUTATION_PROB)
     args = parser.parse_args()
-    
+
     POP_SIZE = args.pop
     GENERATIONS = args.gens
-    
-    # Leer JSON desde stdin
-    input_data = json.load(sys.stdin)
-    
+    TOURNAMENT_K = args.tournament
+    CROSSOVER_PROB = args.crossover
+    MUTATION_PROB = args.mutation
+
+    # 🔹 Imprimir parámetros de debug en stderr
+    import sys
+    print("===== Parámetros recibidos =====", file=sys.stderr)
+    print(f"POP_SIZE = {POP_SIZE}", file=sys.stderr)
+    print(f"GENERATIONS = {GENERATIONS}", file=sys.stderr)
+    print(f"TOURNAMENT_K = {TOURNAMENT_K}", file=sys.stderr)
+    print(f"CROSSOVER_PROB = {CROSSOVER_PROB}", file=sys.stderr)
+    print(f"MUTATION_PROB = {MUTATION_PROB}", file=sys.stderr)
+    print("===============================", file=sys.stderr)
+
+    # 🔹 Leer JSON desde stdin
+    try:
+        input_data = json.load(sys.stdin)
+    except json.JSONDecodeError as e:
+        print(f"Error al leer JSON de entrada: {e}", file=sys.stderr)
+        sys.exit(1)
+
     # Convertir al formato interno
     data = convert_input_format(input_data)
-    
+
     # Ejecutar GA
     best, diag = run_ga(data)
-    
+
     # Convertir solución a JSON
     output_json = convert_solution_to_json(best, data)
-    
-    # Imprimir JSON a stdout
+
+    # 🔹 Imprimir solo el JSON final en stdout (Node lo parseará)
     print(json.dumps(output_json, indent=2, ensure_ascii=False))
 
 if __name__ == "__main__":

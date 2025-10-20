@@ -9,11 +9,31 @@ const router = Router();
 
 router.get("/run", async (req: Request, res: Response) => {
   try {
-    const scheduleData = await getInfoData("B");
+    const { semester = "B" } = req.query; // <--- obtiene A o B dinámicamente
+    console.log("📘 Valor recibido de 'semester':", semester);
+    const scheduleData = await getInfoData(String(semester));
+
+    // 🔹 Imprimir todo lo que llega en la request
+    console.log("===== REQ =====");
+    console.log("Query params:", req.query);
+   
+    console.log("================");
 
     // 🔹 Ejecutar Python
     const scriptPath = path.resolve(__dirname, "../algorithms/run_ga.py");
-    const pyProcess = spawn("python3", [scriptPath]);
+
+
+    const pyProcess = spawn("python3", [
+      scriptPath,
+      "--pop", String(req.query.population || 100),
+      "--gens", String(req.query.generations || 200),
+      "--mutation", String(req.query.mutationRate || 0.2),
+      "--tournament", String(req.query.tournament || 3),
+      "--crossover", String(req.query.crossover || 0.8), // ✅ agregar crossover
+    ]);
+
+
+
     pyProcess.stdin.write(JSON.stringify(scheduleData));
     pyProcess.stdin.end();
 
