@@ -149,3 +149,15 @@ export const runScheduleAlgorithm = async (
     throw error;
   }
 };
+
+// === Nuevas funciones para guardar y cargar horarios ===
+export const getSavedSchedule = async (): Promise<any> => {
+  const response = await api.get('/schedule/latest');
+  return response.data;
+};
+
+export const saveSchedule = async (data: any): Promise<void> => {
+  await api.post('/schedule/save', data, {
+    headers: { 'Content-Type': 'application/json' },
+  });
+};
