@@ -1,21 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { LogOut, User } from "lucide-react";
 import { useAuthStore } from "../store/authStore";
 
 const UserMenu: React.FC = () => {
   const { user, logout } = useAuthStore();
   const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
-  if (!user) return null; // si no hay usuario autenticado, no mostrar nada
+  // Hook siempre se llama, sin importar si hay usuario o no
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      // Solo cerrar si hay menú abierto y hay usuario
+      if (user && open && menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [user, open]);
+
+  if (!user) return null; // Condicional después de los hooks
 
   const handleLogout = () => {
     logout();
-    window.location.href = "/#/auth/sign-in"; // redirigir al login
+    window.location.href = "/";
   };
 
   return (
-    <div className="relative">
-      {/* Botón principal */}
+    <div className="relative" ref={menuRef}>
       <button
         onClick={() => setOpen(!open)}
         className="flex items-center gap-2 py-4 px-6 rounded-full bg-gray-100 hover:bg-gray-200 transition"
@@ -24,7 +39,6 @@ const UserMenu: React.FC = () => {
         <span className="text-sm font-medium text-gray-700">{user.name.split(" ")[0]}</span>
       </button>
 
-      {/* Menú desplegable */}
       {open && (
         <div className="absolute right-0 mt-2 w-44 bg-white border border-gray-200 shadow-lg rounded-xl z-50">
           <div className="p-3 border-b text-xs text-gray-500">

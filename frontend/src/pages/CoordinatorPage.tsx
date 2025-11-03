@@ -180,10 +180,10 @@ const CoordinatorPage: React.FC = () => {
 
   // === Render ===
   return (
-    <div className="min-h-screen bg-gray-50 pt-20 px-4 md:px-8">
-      <div className="space-y-8 max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gray-50 pt-20">
+      <div className="w-[90%] mx-auto px-4 md:px-8 py-8">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-primary mb-2">
+          <h1 className="text-3xl font-bold text-primary mb-4">
             Panel del Coordinador Académico
           </h1>
           <p className="text-gray-600">

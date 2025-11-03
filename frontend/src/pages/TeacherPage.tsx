@@ -74,7 +74,8 @@ const TeacherPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
-      <div className="max-w-6xl mx-auto px-4 md:px-8 py-8">
+      <div className="w-[90%] mx-auto px-4 md:px-8 py-8">
+
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-primary mb-4">Portal del Docente</h1>
           {professor && (
