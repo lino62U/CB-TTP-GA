@@ -190,7 +190,23 @@ async function main() {
   }
 
   // -------------------------
-  // 6️⃣ Professors → Users con role = "PROFESSOR" (usando upsert)
+  // 6️⃣ Crear usuario coordinador por defecto
+  // -------------------------
+  console.log("👑 Creando usuario coordinador...");
+  await prisma.user.upsert({
+    where: { email: "coordinador@unsa.edu.pe" },
+    update: {},
+    create: {
+      name: "Coordinador del Sistema",
+      email: "coordinador@unsa.edu.pe",
+      password: await bcrypt.hash("123456", 10),
+      role: "COORDINATOR",
+      preferred_shift: null,
+    },
+  });
+
+  // -------------------------
+  // 7️⃣ Professors → Users con role = "PROFESSOR" (usando upsert)
   // -------------------------
   console.log("👨‍🏫 Agregando profesores...");
   for (const [profName, profDataRaw] of Object.entries(data.profesores)) {
