@@ -21,10 +21,10 @@ const App: React.FC = () => {
     <NotificationProvider>
       <CourseProvider>
         <HashRouter>
-          <div className="min-h-screen flex flex-col">
-            {isAuthenticated && <Header />}
+        <div className="min-h-screen flex flex-col w-full overflow-x-hidden">
+            <Header />
 
-            <main className="flex-grow container mx-auto p-4 sm:p-6 lg:p-8">
+            <main className="flex-grow w-full min-h-screen">
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/auth/signin" element={<SignInPage />} />
@@ -50,7 +50,8 @@ const App: React.FC = () => {
               </Routes>
             </main>
 
-            <Footer />
+            {isAuthenticated && <Footer />}
+            
           </div>
         </HashRouter>
       </CourseProvider>

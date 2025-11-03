@@ -1,4 +1,4 @@
-import type { Timetable, TimetableEntry } from "./type";
+import type { Timetable, TimetableEntry } from "../types/index";
 
 export interface ScheduleResult {
   per_curriculum: {

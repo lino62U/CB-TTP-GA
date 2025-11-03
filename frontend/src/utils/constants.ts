@@ -1,5 +1,5 @@
 
-import type { Course, Timetable } from '../types/index';
+import type { Course } from '../types/index';
 
 import type { Day } from '../types/index';
 export const DAYS_OF_WEEK: Day[] = ['LUN', 'MAR', 'MIE', 'JUE', 'VIE'];
@@ -38,19 +38,3 @@ export const MOCK_TEACHERS_AVAILABILITY = [
     { name: "Dr. Edsger Dijkstra", email: "edijkstra@uni.edu", courses: "CS201, CS401" },
 ];
 
-export const MOCK_TIMETABLE: Timetable = {
-  'LUN': {
-    '7:50 - 8:40': { course: 'Cálculo I', teacher: 'Dra. Lovelace', room: 'Salón 101', type: 'Teoría' },
-    '8:50 - 9:40': { course: 'Cálculo I', teacher: 'Dra. Lovelace', room: 'Salón 101', type: 'Teoría' },
-    '10:40 - 11:30': { course: 'Intro a Programación', teacher: 'Dr. Turing', room: 'Lab A', type: 'Laboratorio' },
-  },
-  'MAR': {
-    '8:50 - 9:40': { course: 'Estructuras de Datos', teacher: 'Dr. Dijkstra', room: 'Salón 202', type: 'Teoría' },
-    '9:40 - 10:30': { course: 'Estructuras de Datos', teacher: 'Dr. Dijkstra', room: 'Salón 202', type: 'Teoría' },
-    '14:00 - 14:50': { course: 'Intro a Programación', teacher: 'Dr. Turing', room: 'Salón 105', type: 'Práctica' },
-  },
-  'MIE': {
-    '7:00 - 7:50': { course: 'Sistemas Operativos', teacher: 'Dr. Dijkstra', room: 'Lab B', type: 'Laboratorio' },
-    '10:40 - 11:30': { course: 'Cálculo I', teacher: 'Dra. Lovelace', room: 'Salón 101', type: 'Práctica' },
-  },
-};

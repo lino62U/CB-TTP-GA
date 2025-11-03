@@ -1,7 +1,7 @@
 // services/coordinatorService.ts
 import api from '../config/axios'; // Cambia a api en lugar de axios
-import * as XLSX from 'xlsx';
-import type { AlgorithmParams, Infrastructure, ScheduleResult, TimetableEntry } from '../types';
+import ExcelJS from 'exceljs';
+import type { AlgorithmParams, ScheduleResult, TimetableEntry } from '../types';
 
 export const getTeachers = (): Promise<{ data: any[] }> => { // Tipa response si sabes el shape
   return api.get('/api/teachers');
@@ -85,67 +85,145 @@ export const transformToSchedules = (
   return yearSchedules;
 };
 
-// Export a Excel (sin notificaciones, las maneja el page)
-export const exportSchedulesToExcel = (schedules: { [year: string]: TimetableEntry[] }): void => {
-  if (!schedules) return;
+// Export a Excel con estilos por curso
+// Export a Excel con colores por curso (sin zebra rows)
+export const exportSchedulesToExcel = async (schedules: { [year: string]: TimetableEntry[] }) => {
+  const workbook = new ExcelJS.Workbook();
 
-  const wb = XLSX.utils.book_new();
   const DAYS_OF_WEEK = ['LUN', 'MAR', 'MIE', 'JUE', 'VIE'];
   const TIME_SLOTS = [
-    '07:00-07:50', '07:50-08:40', '08:50-09:40', '09:40-10:30',
-    '10:40-11:30', '11:30-12:20', '14:00-14:50', '14:50-15:40',
-    '15:50-16:40', '16:40-17:30', '17:40-18:30', '18:30-19:20'
+    '07:00-07:50','07:50-08:40','08:50-09:40','09:40-10:30',
+    '10:40-11:30','11:30-12:20','14:00-14:50','14:50-15:40',
+    '15:50-16:40','16:40-17:30','17:40-18:30','18:30-19:20'
   ];
 
-  Object.entries(schedules).forEach(([year, yearTimetable]) => {
-    const scheduleMap = new Map<string, string>();
-    yearTimetable.forEach(entry => {
-      const key = `${entry.day}-${entry.timeSlot}`;
-      const content = scheduleMap.get(key) ? `${scheduleMap.get(key)}\n${entry.course} @ ${entry.room}` : `${entry.course} @ ${entry.room}`;
-      scheduleMap.set(key, content);
+  // Colores suaves y legibles
+  const COLORS = [
+    'FFD700','90EE90','ADD8E6','FFA07A','E6E6FA','FFE4B5','98FB98',
+    'FFB6C1','D8BFD8','AFEEEE','F0E68C','87CEFA','F5DEB3','B0C4DE'
+  ];
+
+  for (const [year, timetable] of Object.entries(schedules)) {
+    const sheet = workbook.addWorksheet(year);
+
+    // Cabecera
+    sheet.addRow(['Hora', ...DAYS_OF_WEEK]);
+    sheet.getRow(1).eachCell(cell => {
+      cell.fill = { type: 'pattern', pattern:'solid', fgColor:{argb:'4F46E5'} };
+      cell.font = { bold: true, color: { argb: 'FFFFFF' } };
+      cell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
+      cell.border = {
+        top: { style: 'thin' },
+        left: { style: 'thin' },
+        bottom: { style: 'thin' },
+        right: { style: 'thin' }
+      };
     });
 
-    const aoa: string[][] = [['Hora', ...DAYS_OF_WEEK]];
-    TIME_SLOTS.forEach(timeSlot => {
-      const row: string[] = [timeSlot];
-      DAYS_OF_WEEK.forEach(day => {
-        const key = `${day}-${timeSlot}`;
-        row.push(scheduleMap.get(key) || '');
+    // Asignar un color único a cada curso
+    const courses = Array.from(new Set(timetable.map(t => t.course)));
+    const courseColorMap = new Map<string, string>();
+    courses.forEach((course, index) => {
+      courseColorMap.set(course, COLORS[index % COLORS.length]);
+    });
+
+    // Filas de horarios
+    TIME_SLOTS.forEach((slot) => {
+      const rowData = [slot];
+      for (const day of DAYS_OF_WEEK) {
+        const entry = timetable.find(e => e.day === day && e.timeSlot === slot);
+        if (entry) {
+          rowData.push(`${entry.course} @ ${entry.room}`);
+        } else {
+          rowData.push('');
+        }
+      }
+
+      const row = sheet.addRow(rowData);
+
+      row.eachCell((cell, colIndex) => {
+        let fillColor = 'FFFFFF'; // por defecto blanco para celdas vacías
+
+        if (colIndex > 0) {
+          const entry = timetable.find(e => e.day === DAYS_OF_WEEK[colIndex-1] && e.timeSlot === slot);
+          if (entry) fillColor = courseColorMap.get(entry.course)!;
+        }
+
+        cell.alignment = { horizontal: 'center', vertical: 'middle', wrapText: true };
+        cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: fillColor } };
+        cell.border = {
+          top: { style: 'thin' },
+          left: { style: 'thin' },
+          bottom: { style: 'thin' },
+          right: { style: 'thin' }
+        };
       });
-      aoa.push(row);
     });
 
-    const ws = XLSX.utils.aoa_to_sheet(aoa);
-    XLSX.utils.book_append_sheet(wb, ws, year.replace(/\s+/g, '_'));
-  });
+    // Ajuste automático de ancho de columnas considerando contenido multi-línea
+    sheet.columns.forEach(column => {
+      if (!column) return; // <--- chequeo de seguridad
+      let maxLength = 0;
+      column.eachCell?.({ includeEmpty: true }, cell => { // <--- optional chaining
+        const cellText = String(cell.value || '');
+        const lines = cellText.split('\n');
+        lines.forEach(line => {
+          if (line.length > maxLength) maxLength = line.length;
+        });
+      });
+      column.width = Math.min(maxLength + 5, 50);
+    });
+  }
 
-  XLSX.writeFile(wb, 'horarios_por_anio.xlsx');
+  // Guardar archivo
+  const buf = await workbook.xlsx.writeBuffer();
+  const blob = new Blob([buf], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'horarios_por_anio.xlsx';
+  a.click();
+  URL.revokeObjectURL(url);
 };
+
+
 
 // Run algorithm (simula delay y mock) – nota: ignora Infrastructure por ahora, agrégala si backend la usa
 
 export const runScheduleAlgorithm = async (
   params: AlgorithmParams
 ): Promise<{ [year: string]: TimetableEntry[] }> => {
+  console.log("Ejecutando algoritmo con parámetros:", params);
+
   try {
-    const response = await fetch("http://localhost:4000/schedule/run", {
-      method: "GET",
+    // Envío con Axios usando tu instancia 'api'
+    const response = await api.get("/schedule/run", {
+      params, // si el backend recibe parámetros por query string
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     });
 
-    if (!response.ok) {
-      throw new Error(`Error al ejecutar el algoritmo: ${response.statusText}`);
+    if (!response.data) {
+      throw new Error("Respuesta vacía del backend");
     }
 
-    const result = await response.json();
-
-    // Suponiendo que necesitas transformar la respuesta como antes
-    return transformToSchedules(result);
-
+    // Transforma el resultado al formato interno
+    return transformToSchedules(response.data);
   } catch (error) {
     console.error("Error en runScheduleAlgorithm:", error);
     throw error;
   }
+};
+
+// === Nuevas funciones para guardar y cargar horarios ===
+export const getSavedSchedule = async (): Promise<any> => {
+  const response = await api.get('/schedule/latest');
+  return response.data;
+};
+
+export const saveSchedule = async (data: any): Promise<void> => {
+  await api.post('/schedule/save', data, {
+    headers: { 'Content-Type': 'application/json' },
+  });
 };

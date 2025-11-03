@@ -1,0 +1,1516 @@
+{
+  "schedules": {
+    "FirstYear": [
+      {
+        "day": "LUN",
+        "timeSlot": "07:00-07:50",
+        "course": "CÁLCULO EN UNA VARIABLE (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "07:50-08:40",
+        "course": "CÁLCULO EN UNA VARIABLE (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "08:50-09:40",
+        "course": "CÁLCULO EN UNA VARIABLE (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "10:40-11:30",
+        "course": "PROGRAMACIÓN I (Laboratorio)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "14:00-14:50",
+        "course": "PROGRAMACIÓN I (Laboratorio)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "LAB1",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "07:00-07:50",
+        "course": "ESTRUCTURAS DISCRETAS II (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "07:00-07:50",
+        "course": "REALIDAD NACIONAL (Teoría)",
+        "teacher": "DR. CRISTIAN JOSE LOPEZ DEL ALAMO",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "07:50-08:40",
+        "course": "ESTRUCTURAS DISCRETAS II (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "07:50-08:40",
+        "course": "REALIDAD NACIONAL (Teoría)",
+        "teacher": "DR. CRISTIAN JOSE LOPEZ DEL ALAMO",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "08:50-09:40",
+        "course": "LINGÜÍSTICA, COMPRENSIÓN Y REDACCIÓN ACADÉMICA (Teoría)",
+        "teacher": "DR. CRISTIAN JOSE LOPEZ DEL ALAMO",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "14:00-14:50",
+        "course": "REALIDAD NACIONAL (Teoría)",
+        "teacher": "DR. CRISTIAN JOSE LOPEZ DEL ALAMO",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "14:50-15:40",
+        "course": "CÁLCULO EN UNA VARIABLE (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "15:50-16:40",
+        "course": "CÁLCULO EN UNA VARIABLE (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "19:20-20:10",
+        "course": "PROGRAMACIÓN I (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "07:00-07:50",
+        "course": "ESTRUCTURAS DISCRETAS II (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "07:50-08:40",
+        "course": "ESTRUCTURAS DISCRETAS II (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "08:50-09:40",
+        "course": "CÁLCULO EN UNA VARIABLE (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "09:40-10:30",
+        "course": "ESTRUCTURAS DISCRETAS II (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "10:40-11:30",
+        "course": "ESTRUCTURAS DISCRETAS II (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "14:00-14:50",
+        "course": "INGLÉS II (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "14:50-15:40",
+        "course": "INGLÉS II (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "19:20-20:10",
+        "course": "LINGÜÍSTICA, COMPRENSIÓN Y REDACCIÓN ACADÉMICA (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "08:50-09:40",
+        "course": "INGLÉS II (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "09:40-10:30",
+        "course": "INGLÉS II (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "10:40-11:30",
+        "course": "PROGRAMACIÓN I (Laboratorio)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "11:30-12:20",
+        "course": "PROGRAMACIÓN I (Laboratorio)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "19:20-20:10",
+        "course": "PROGRAMACIÓN I (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "08:50-09:40",
+        "course": "LINGÜÍSTICA, COMPRENSIÓN Y REDACCIÓN ACADÉMICA (Teoría)",
+        "teacher": "DR. CRISTIAN JOSE LOPEZ DEL ALAMO",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "09:40-10:30",
+        "course": "LINGÜÍSTICA, COMPRENSIÓN Y REDACCIÓN ACADÉMICA (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "14:00-14:50",
+        "course": "PROGRAMACIÓN I (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "14:50-15:40",
+        "course": "PROGRAMACIÓN I (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "14:50-15:40",
+        "course": "LINGÜÍSTICA, COMPRENSIÓN Y REDACCIÓN ACADÉMICA (Teoría)",
+        "teacher": "DR. CRISTIAN JOSE LOPEZ DEL ALAMO",
+        "room": "T2",
+        "type": "THEORY"
+      }
+    ],
+    "SecondYear": [
+      {
+        "day": "LUN",
+        "timeSlot": "10:40-11:30",
+        "course": "ECOLOGÍA Y CONSERVACIÓN AMBIENTAL (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "11:30-12:20",
+        "course": "ESTRUCTURA DE DATOS (Laboratorio)",
+        "teacher": "DR. EDWARD HINOJOSA CARDENAS",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "11:30-12:20",
+        "course": "ECOLOGÍA Y CONSERVACIÓN AMBIENTAL (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "16:40-17:30",
+        "course": "LENGUAJES DE PROGRAMACIÓN (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "18:30-19:20",
+        "course": "SISTEMAS OPERATIVOS (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "08:50-09:40",
+        "course": "REDES Y COMUNICACIÓN (Laboratorio)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "09:40-10:30",
+        "course": "REDES Y COMUNICACIÓN (Laboratorio)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "09:40-10:30",
+        "course": "INGLÉS IV (Teoría)",
+        "teacher": "DR. CRISTIAN JOSE LOPEZ DEL ALAMO",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "10:40-11:30",
+        "course": "ESTRUCTURA DE DATOS (Laboratorio)",
+        "teacher": "DR. EDWARD HINOJOSA CARDENAS",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "14:50-15:40",
+        "course": "SISTEMAS OPERATIVOS (Laboratorio)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "LAB1",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "15:50-16:40",
+        "course": "SISTEMAS OPERATIVOS (Laboratorio)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "17:40-18:30",
+        "course": "ECOLOGÍA Y CONSERVACIÓN AMBIENTAL (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "07:00-07:50",
+        "course": "REDES Y COMUNICACIÓN (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "07:50-08:40",
+        "course": "REDES Y COMUNICACIÓN (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "09:40-10:30",
+        "course": "ESTRUCTURA DE DATOS (Teoría)",
+        "teacher": "DR. EDWARD HINOJOSA CARDENAS",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "10:40-11:30",
+        "course": "LENGUAJES DE PROGRAMACIÓN (Laboratorio)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "LAB2",
+        "type": "LAB"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "17:40-18:30",
+        "course": "LENGUAJES DE PROGRAMACIÓN (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "18:30-19:20",
+        "course": "ECOLOGÍA Y CONSERVACIÓN AMBIENTAL (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "19:20-20:10",
+        "course": "LENGUAJES DE PROGRAMACIÓN (Laboratorio)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "09:40-10:30",
+        "course": "INGLÉS IV (Teoría)",
+        "teacher": "DR. CRISTIAN JOSE LOPEZ DEL ALAMO",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "14:00-14:50",
+        "course": "ESTRUCTURA DE DATOS (Teoría)",
+        "teacher": "DR. EDWARD HINOJOSA CARDENAS",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "14:50-15:40",
+        "course": "ESTRUCTURA DE DATOS (Teoría)",
+        "teacher": "DR. EDWARD HINOJOSA CARDENAS",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "15:50-16:40",
+        "course": "ESTRUCTURA DE DATOS (Teoría)",
+        "teacher": "DR. EDWARD HINOJOSA CARDENAS",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "16:40-17:30",
+        "course": "REDES Y COMUNICACIÓN (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "17:40-18:30",
+        "course": "REDES Y COMUNICACIÓN (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "18:30-19:20",
+        "course": "SISTEMAS OPERATIVOS (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "19:20-20:10",
+        "course": "SISTEMAS OPERATIVOS (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "08:50-09:40",
+        "course": "SISTEMAS OPERATIVOS (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "14:00-14:50",
+        "course": "LENGUAJES DE PROGRAMACIÓN (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "14:00-14:50",
+        "course": "INGLÉS IV (Teoría)",
+        "teacher": "DR. CRISTIAN JOSE LOPEZ DEL ALAMO",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "14:50-15:40",
+        "course": "LENGUAJES DE PROGRAMACIÓN (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "14:50-15:40",
+        "course": "INGLÉS IV (Teoría)",
+        "teacher": "DR. CRISTIAN JOSE LOPEZ DEL ALAMO",
+        "room": "T4",
+        "type": "THEORY"
+      }
+    ],
+    "ThirdYear": [
+      {
+        "day": "LUN",
+        "timeSlot": "09:40-10:30",
+        "course": "ECUACIONES DIFERENCIALES (Laboratorio)",
+        "teacher": "DRA. ROXANA FLORES QUISPE",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "15:50-16:40",
+        "course": "TEORÍA DE LA COMPUTACIÓN (Teoría)",
+        "teacher": "DRA. ROXANA FLORES QUISPE",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "16:40-17:30",
+        "course": "SISTEMAS DISTRIBUIDOS (Teoría)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "16:40-17:30",
+        "course": "TEORÍA DE LA COMPUTACIÓN (Teoría)",
+        "teacher": "DRA. ROXANA FLORES QUISPE",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "17:40-18:30",
+        "course": "SISTEMAS DISTRIBUIDOS (Teoría)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "17:40-18:30",
+        "course": "ECUACIONES DIFERENCIALES (Laboratorio)",
+        "teacher": "DRA. ROXANA FLORES QUISPE",
+        "room": "LAB1",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "18:30-19:20",
+        "course": "PROGRAMACIÓN COMPETITIVA (Laboratorio)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "LAB2",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "19:20-20:10",
+        "course": "INGENIERIA DE SOFTWARE I (Laboratorio)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "16:40-17:30",
+        "course": "SISTEMAS DISTRIBUIDOS (Laboratorio)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "LAB2",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "17:40-18:30",
+        "course": "SISTEMAS DISTRIBUIDOS (Laboratorio)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "07:00-07:50",
+        "course": "PROGRAMACIÓN COMPETITIVA (Laboratorio)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "LAB2",
+        "type": "LAB"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "07:00-07:50",
+        "course": "INGENIERIA DE SOFTWARE I (Teoría)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "07:00-07:50",
+        "course": "SISTEMAS DISTRIBUIDOS (Teoría)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "07:50-08:40",
+        "course": "PROGRAMACIÓN COMPETITIVA (Laboratorio)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "07:50-08:40",
+        "course": "INGENIERIA DE SOFTWARE I (Teoría)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "07:50-08:40",
+        "course": "SISTEMAS DISTRIBUIDOS (Teoría)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "08:50-09:40",
+        "course": "PROGRAMACIÓN COMPETITIVA (Laboratorio)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "LAB1",
+        "type": "LAB"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "08:50-09:40",
+        "course": "INGENIERIA DE SOFTWARE I (Teoría)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "08:50-09:40",
+        "course": "INTELIGENCIA ARTIFICIAL I (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "09:40-10:30",
+        "course": "INGENIERIA DE SOFTWARE I (Teoría)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "09:40-10:30",
+        "course": "INTELIGENCIA ARTIFICIAL I (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "11:30-12:20",
+        "course": "ECUACIONES DIFERENCIALES (Teoría)",
+        "teacher": "DRA. ROXANA FLORES QUISPE",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "14:00-14:50",
+        "course": "ECUACIONES DIFERENCIALES (Teoría)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "14:50-15:40",
+        "course": "ECUACIONES DIFERENCIALES (Teoría)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "07:00-07:50",
+        "course": "TEORÍA DE LA COMPUTACIÓN (Teoría)",
+        "teacher": "DRA. ROXANA FLORES QUISPE",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "07:50-08:40",
+        "course": "TEORÍA DE LA COMPUTACIÓN (Teoría)",
+        "teacher": "DRA. ROXANA FLORES QUISPE",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "10:40-11:30",
+        "course": "ECUACIONES DIFERENCIALES (Teoría)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "14:00-14:50",
+        "course": "PROGRAMACIÓN COMPETITIVA (Laboratorio)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "14:00-14:50",
+        "course": "INTELIGENCIA ARTIFICIAL I (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "14:50-15:40",
+        "course": "PROGRAMACIÓN COMPETITIVA (Laboratorio)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "LAB2",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "14:50-15:40",
+        "course": "INTELIGENCIA ARTIFICIAL I (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "18:30-19:20",
+        "course": "TEORÍA DE LA COMPUTACIÓN (Teoría)",
+        "teacher": "DRA. ROXANA FLORES QUISPE",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "07:00-07:50",
+        "course": "TEORÍA DE LA COMPUTACIÓN (Teoría)",
+        "teacher": "DRA. ROXANA FLORES QUISPE",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "08:50-09:40",
+        "course": "INGENIERIA DE SOFTWARE I (Laboratorio)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "LAB1",
+        "type": "LAB"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "08:50-09:40",
+        "course": "INTELIGENCIA ARTIFICIAL I (Laboratorio)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "09:40-10:30",
+        "course": "INTELIGENCIA ARTIFICIAL I (Laboratorio)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "LAB3",
+        "type": "LAB"
+      }
+    ],
+    "FourthYear": [
+      {
+        "day": "LUN",
+        "timeSlot": "07:50-08:40",
+        "course": "INTERACCIÓN HUMANO COMPUTADOR (Laboratorio)",
+        "teacher": "DR. YUBER ELMER VELAZCO PAREDES",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "10:40-11:30",
+        "course": "FÍSICA COMPUTACIONAL (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "11:30-12:20",
+        "course": "FÍSICA COMPUTACIONAL (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "15:50-16:40",
+        "course": "DESARROLLO DE TECNOLOGÍAS EMERGENTES (E) (Laboratorio)",
+        "teacher": "DRA. YESSENIA DEYSI, YARI RAMOS",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "16:40-17:30",
+        "course": "POLÍTICAS PÚBLICAS Y ANTICORRUPCIÓN (Teoría)",
+        "teacher": "DRA. ROXANA FLORES QUISPE",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "17:40-18:30",
+        "course": "INTELIGENCIA ARTIFICIAL III (E) (Laboratorio)",
+        "teacher": "DRA. YESSENIA DEYSI, YARI RAMOS",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "07:00-07:50",
+        "course": "BIG DATA (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "07:00-07:50",
+        "course": "INTELIGENCIA ARTIFICIAL III (E) (Laboratorio)",
+        "teacher": "DRA. YESSENIA DEYSI, YARI RAMOS",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "07:50-08:40",
+        "course": "INTELIGENCIA ARTIFICIAL III (E) (Laboratorio)",
+        "teacher": "DRA. YESSENIA DEYSI, YARI RAMOS",
+        "room": "LAB1",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "11:30-12:20",
+        "course": "DESARROLLO DE APLICACIONES MOVIL (E) (Laboratorio)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "14:00-14:50",
+        "course": "PROYECTOS I (Teoría)",
+        "teacher": "DR. YUBER ELMER VELAZCO PAREDES",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "14:00-14:50",
+        "course": "DESARROLLO DE APLICACIONES MOVIL (E) (Laboratorio)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "LAB2",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "14:50-15:40",
+        "course": "PROYECTOS I (Teoría)",
+        "teacher": "DR. YUBER ELMER VELAZCO PAREDES",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "15:50-16:40",
+        "course": "PROYECTOS I (Teoría)",
+        "teacher": "DR. YUBER ELMER VELAZCO PAREDES",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "16:40-17:30",
+        "course": "PROYECTOS I (Teoría)",
+        "teacher": "DR. YUBER ELMER VELAZCO PAREDES",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "16:40-17:30",
+        "course": "INTERACCIÓN HUMANO COMPUTADOR (Laboratorio)",
+        "teacher": "DR. YUBER ELMER VELAZCO PAREDES",
+        "room": "LAB1",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "19:20-20:10",
+        "course": "DESARROLLO DE TECNOLOGÍAS EMERGENTES (E) (Laboratorio)",
+        "teacher": "DRA. YESSENIA DEYSI, YARI RAMOS",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "09:40-10:30",
+        "course": "FÍSICA COMPUTACIONAL (Teoría)",
+        "teacher": "MG. FRANCI SUNI LOPEZ",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "10:40-11:30",
+        "course": "FÍSICA COMPUTACIONAL (Teoría)",
+        "teacher": "MG. FRANCI SUNI LOPEZ",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "15:50-16:40",
+        "course": "INTERACCIÓN HUMANO COMPUTADOR (Teoría)",
+        "teacher": "DR. YUBER ELMER VELAZCO PAREDES",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "16:40-17:30",
+        "course": "INTERACCIÓN HUMANO COMPUTADOR (Teoría)",
+        "teacher": "DR. YUBER ELMER VELAZCO PAREDES",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "17:40-18:30",
+        "course": "DESARROLLO DE APLICACIONES MOVIL (E) (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "18:30-19:20",
+        "course": "BIG DATA (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "18:30-19:20",
+        "course": "DESARROLLO DE APLICACIONES MOVIL (E) (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "19:20-20:10",
+        "course": "BIG DATA (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "07:00-07:50",
+        "course": "POLÍTICAS PÚBLICAS Y ANTICORRUPCIÓN (Teoría)",
+        "teacher": "DRA. ROXANA FLORES QUISPE",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "07:50-08:40",
+        "course": "POLÍTICAS PÚBLICAS Y ANTICORRUPCIÓN (Teoría)",
+        "teacher": "DRA. ROXANA FLORES QUISPE",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "07:50-08:40",
+        "course": "INTELIGENCIA ARTIFICIAL III (E) (Laboratorio)",
+        "teacher": "DRA. YESSENIA DEYSI, YARI RAMOS",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "08:50-09:40",
+        "course": "DESARROLLO DE TECNOLOGÍAS EMERGENTES (E) (Teoría)",
+        "teacher": "DRA. YESSENIA DEYSI, YARI RAMOS",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "09:40-10:30",
+        "course": "DESARROLLO DE TECNOLOGÍAS EMERGENTES (E) (Teoría)",
+        "teacher": "DRA. YESSENIA DEYSI, YARI RAMOS",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "09:40-10:30",
+        "course": "DESARROLLO DE TECNOLOGÍAS EMERGENTES (E) (Teoría)",
+        "teacher": "DRA. YESSENIA DEYSI, YARI RAMOS",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "11:30-12:20",
+        "course": "POLÍTICAS PÚBLICAS Y ANTICORRUPCIÓN (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "17:40-18:30",
+        "course": "PROYECTOS I (Teoría)",
+        "teacher": "DR. YUBER ELMER VELAZCO PAREDES",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "08:50-09:40",
+        "course": "DESARROLLO DE APLICACIONES MOVIL (E) (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "09:40-10:30",
+        "course": "BIG DATA (Laboratorio)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "LAB2",
+        "type": "LAB"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "10:40-11:30",
+        "course": "INTERACCIÓN HUMANO COMPUTADOR (Laboratorio)",
+        "teacher": "DR. YUBER ELMER VELAZCO PAREDES",
+        "room": "LAB2",
+        "type": "LAB"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "10:40-11:30",
+        "course": "BIG DATA (Laboratorio)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "11:30-12:20",
+        "course": "INTERACCIÓN HUMANO COMPUTADOR (Laboratorio)",
+        "teacher": "DR. YUBER ELMER VELAZCO PAREDES",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "16:40-17:30",
+        "course": "DESARROLLO DE TECNOLOGÍAS EMERGENTES (E) (Teoría)",
+        "teacher": "DRA. YESSENIA DEYSI, YARI RAMOS",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "17:40-18:30",
+        "course": "INTELIGENCIA ARTIFICIAL III (E) (Teoría)",
+        "teacher": "DRA. YESSENIA DEYSI, YARI RAMOS",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "18:30-19:20",
+        "course": "INTELIGENCIA ARTIFICIAL III (E) (Teoría)",
+        "teacher": "DRA. YESSENIA DEYSI, YARI RAMOS",
+        "room": "T2",
+        "type": "THEORY"
+      }
+    ],
+    "FifthYear": [
+      {
+        "day": "LUN",
+        "timeSlot": "07:50-08:40",
+        "course": "CIBERSEGURIDAD (E) (Laboratorio)",
+        "teacher": "MG. ROLANDO",
+        "room": "LAB1",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "08:50-09:40",
+        "course": "CIBERSEGURIDAD (E) (Laboratorio)",
+        "teacher": "MG. ROLANDO",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "09:40-10:30",
+        "course": "VISUALIZACIÓN DE DATOS (Teoría)",
+        "teacher": "DR. YUBER ELMER VELAZCO PAREDES",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "10:40-11:30",
+        "course": "VISUALIZACIÓN DE DATOS (Teoría)",
+        "teacher": "MG. PERCY",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "10:40-11:30",
+        "course": "DESARROLLO EMOCIONAL, GESTIÓN DE CONFLICTOS Y LIDERAZGO (Teoría)",
+        "teacher": "MG. PERCY",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "10:40-11:30",
+        "course": "PRÁCTICAS PRE-PROFESIONALES (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "11:30-12:20",
+        "course": "DESARROLLO EMOCIONAL, GESTIÓN DE CONFLICTOS Y LIDERAZGO (Teoría)",
+        "teacher": "MG. PERCY",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "14:50-15:40",
+        "course": "PRÁCTICAS PRE-PROFESIONALES (Teoría)",
+        "teacher": "MG. ROSA YULIANA PACCOTACYA YANQUE",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "17:40-18:30",
+        "course": "PROCESAMIENTO DE LENGUAJE NATURAL (E) (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "18:30-19:20",
+        "course": "PROCESAMIENTO DE LENGUAJE NATURAL (E) (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "08:50-09:40",
+        "course": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "09:40-10:30",
+        "course": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+        "teacher": "MG. PERCY",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "10:40-11:30",
+        "course": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "11:30-12:20",
+        "course": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+        "teacher": "MG. PERCY",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "14:00-14:50",
+        "course": "PRÁCTICAS PRE-PROFESIONALES (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "14:50-15:40",
+        "course": "PRÁCTICAS PRE-PROFESIONALES (Teoría)",
+        "teacher": "MG. ROSA YULIANA PACCOTACYA YANQUE",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "15:50-16:40",
+        "course": "PRÁCTICAS PRE-PROFESIONALES (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "15:50-16:40",
+        "course": "CIBERSEGURIDAD (E) (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "16:40-17:30",
+        "course": "VISUALIZACIÓN DE DATOS (Laboratorio)",
+        "teacher": "MG. PERCY",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "16:40-17:30",
+        "course": "CIBERSEGURIDAD (E) (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "17:40-18:30",
+        "course": "VISUALIZACIÓN DE DATOS (Laboratorio)",
+        "teacher": "DR. YUBER ELMER VELAZCO PAREDES",
+        "room": "LAB1",
+        "type": "LAB"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "11:30-12:20",
+        "course": "PRÁCTICAS PRE-PROFESIONALES (Teoría)",
+        "teacher": "MG. ROSA YULIANA PACCOTACYA YANQUE",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "11:30-12:20",
+        "course": "ROBÓTICA (E) (Teoría)",
+        "teacher": "MG. PERCY",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "14:00-14:50",
+        "course": "PRÁCTICAS PRE-PROFESIONALES (Teoría)",
+        "teacher": "MG. ROSA YULIANA PACCOTACYA YANQUE",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "14:00-14:50",
+        "course": "ROBÓTICA (E) (Teoría)",
+        "teacher": "MG. PERCY",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "16:40-17:30",
+        "course": "PROCESAMIENTO DE LENGUAJE NATURAL (E) (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "17:40-18:30",
+        "course": "VISUALIZACIÓN DE DATOS (Teoría)",
+        "teacher": "DR. YUBER ELMER VELAZCO PAREDES",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "17:40-18:30",
+        "course": "PROCESAMIENTO DE LENGUAJE NATURAL (E) (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "18:30-19:20",
+        "course": "VISUALIZACIÓN DE DATOS (Teoría)",
+        "teacher": "DR. YUBER ELMER VELAZCO PAREDES",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "07:00-07:50",
+        "course": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+        "teacher": "MG. PERCY",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "07:00-07:50",
+        "course": "PROCESAMIENTO DE LENGUAJE NATURAL (E) (Laboratorio)",
+        "teacher": "MG. ROLANDO",
+        "room": "LAB1",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "07:50-08:40",
+        "course": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+        "teacher": "MG. PERCY",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "07:50-08:40",
+        "course": "PROCESAMIENTO DE LENGUAJE NATURAL (E) (Laboratorio)",
+        "teacher": "MG. ROLANDO",
+        "room": "LAB2",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "10:40-11:30",
+        "course": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+        "teacher": "MG. PERCY",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "14:00-14:50",
+        "course": "ROBÓTICA (E) (Laboratorio)",
+        "teacher": "MG. PERCY",
+        "room": "LAB1",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "14:50-15:40",
+        "course": "ROBÓTICA (E) (Laboratorio)",
+        "teacher": "MG. PERCY",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "15:50-16:40",
+        "course": "CIBERSEGURIDAD (E) (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "16:40-17:30",
+        "course": "CIBERSEGURIDAD (E) (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "17:40-18:30",
+        "course": "DESARROLLO EMOCIONAL, GESTIÓN DE CONFLICTOS Y LIDERAZGO (Teoría)",
+        "teacher": "MG. PERCY",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "18:30-19:20",
+        "course": "DESARROLLO EMOCIONAL, GESTIÓN DE CONFLICTOS Y LIDERAZGO (Teoría)",
+        "teacher": "MG. PERCY",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "09:40-10:30",
+        "course": "PRÁCTICAS PRE-PROFESIONALES (Teoría)",
+        "teacher": "MG. ROSA YULIANA PACCOTACYA YANQUE",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "10:40-11:30",
+        "course": "ROBÓTICA (E) (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "11:30-12:20",
+        "course": "ROBÓTICA (E) (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T4",
+        "type": "THEORY"
+      }
+    ]
+  },
+  "params": {
+    "population": 100,
+    "generations": 1000,
+    "tournament": 3,
+    "crossover": 0.8,
+    "mutationRate": 0.2,
+    "semester": "B"
+  },
+  "infrastructure": {
+    "classrooms": [
+      {
+        "id": "c1",
+        "name": "Salón 101",
+        "capacity": 40
+      },
+      {
+        "id": "c2",
+        "name": "Salón 102",
+        "capacity": 35
+      }
+    ],
+    "labs": [
+      {
+        "id": "l1",
+        "name": "Lab de Cómputo A",
+        "capacity": 25
+      }
+    ]
+  },
+  "timestamp": "2025-11-03T06:05:48.003Z"
+}

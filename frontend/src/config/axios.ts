@@ -14,9 +14,10 @@ interface MyAxiosRequestConfig extends AxiosRequestConfig {
   headers?: MyHeaders;
 }
 
+// 👇 Usa variable de entorno, con fallback local por si no existe
 const api = axios.create({
-  baseURL: "http://localhost:4000/",
-  timeout: 3000,
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:3000/",
+  timeout: 0,
   withCredentials: true,
 });
 

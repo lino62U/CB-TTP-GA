@@ -4,6 +4,7 @@ import professorRoutes from "./routes/professorRoutes";
 import infoRoutes from "./routes/infoRoutes";
 import scheduleRoutes from "./routes/schedulerRoutes";
 import authRoutes from "./routes/authRoutes"; // <--- importar rutas de autenticación
+import courseRoutes from "./routes/courseRoutes";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -29,6 +30,7 @@ app.use("/professors", professorRoutes);
 app.use("/info", infoRoutes);
 app.use("/schedule", scheduleRoutes);
 app.use("/auth", authRoutes); // <--- nueva ruta para autenticación
+app.use("/courses", courseRoutes);
 // -----------------------------
 // Iniciar servidor
 // -----------------------------

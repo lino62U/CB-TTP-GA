@@ -412,1067 +412,6 @@
       "preferencia": "tarde"
     }
   },
-  "cursos": [
-    {
-      "primer_ano": {
-        "primer_semestre": [
-          {
-            "codigo": "2501101",
-            "nombre": "FUNDAMENTOS DE LA MATEMÁTICA",
-            "dpto_adscrito": "MATEMATICAS",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 3,
-            "prerequisitos": [],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2501102",
-            "nombre": "METODOLOGÍA DEL TRABAJO ACADÉMICO",
-            "dpto_adscrito": "EDUCACION",
-            "dpto_adscrito2": "FL",
-            "dpto_adscrito3": "",
-            "creditos": 2,
-            "prerequisitos": [],
-            "horas_teoria": 0.0,
-            "horas_practica": 4.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2501103",
-            "nombre": "INTRODUCCIÓN A LA CIENCIA DE LA COMPUTACIÓN",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [],
-            "horas_teoria": 2.0,
-            "horas_practica": 0.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 4.0
-          },
-          {
-            "codigo": "2501104",
-            "nombre": "INGLÉS I",
-            "dpto_adscrito": "LITERATURA Y LINGÜÍSTICA",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 3,
-            "prerequisitos": [],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2501105",
-            "nombre": "INTRODUCCIÓN A LA PROGRAMACIÓN",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 5,
-            "prerequisitos": [],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 4.0
-          },
-          {
-            "codigo": "2501106",
-            "nombre": "ESTRUCTURAS DISCRETAS I",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 5,
-            "prerequisitos": [],
-            "horas_teoria": 4.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          }
-        ],
-        "segundo_semestre": [
-          {
-            "codigo": "2501207",
-            "nombre": "ESTRUCTURAS DISCRETAS II",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 5,
-            "prerequisitos": [
-              "2501106",
-              "2501105"
-            ],
-            "horas_teoria": 4.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2501208",
-            "nombre": "PROGRAMACIÓN I",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 5,
-            "prerequisitos": [
-              "2501105"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 4.0
-          },
-          {
-            "codigo": "2501209",
-            "nombre": "CÁLCULO EN UNA VARIABLE",
-            "dpto_adscrito": "MATEMATICAS",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 5,
-            "prerequisitos": [
-              "2501101"
-            ],
-            "horas_teoria": 4.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2501210",
-            "nombre": "INGLÉS II",
-            "dpto_adscrito": "LITERATURA Y LINGÜÍSTICA",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 3,
-            "prerequisitos": [
-              "2501104"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2501211",
-            "nombre": "LINGÜÍSTICA, COMPRENSIÓN Y REDACCIÓN ACADÉMICA",
-            "dpto_adscrito": "LITERATURA Y LINGÜÍSTICA",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 3,
-            "prerequisitos": [],
-            "horas_teoria": 1.0,
-            "horas_practica": 4.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2501212",
-            "nombre": "REALIDAD NACIONAL",
-            "dpto_adscrito": "HISTO.GEOGR.Y ANTR",
-            "dpto_adscrito2": "SO",
-            "dpto_adscrito3": "",
-            "creditos": 2,
-            "prerequisitos": [],
-            "horas_teoria": 1.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          }
-        ]
-      }
-    },
-    {
-      "segundo_ano": {
-        "primer_semestre": [
-          {
-            "codigo": "2502113",
-            "nombre": "ARQUITECTURA DE COMPUTADORES",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2501207"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2502114",
-            "nombre": "PROGRAMACIÓN II",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 5,
-            "prerequisitos": [
-              "2501208"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 4.0
-          },
-          {
-            "codigo": "2502115",
-            "nombre": "ÁLGEBRA LINEAL",
-            "dpto_adscrito": "MATEMATICAS",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 5,
-            "prerequisitos": [
-              "2501209"
-            ],
-            "horas_teoria": 4.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2502116",
-            "nombre": "CÁLCULO EN VARIAS VARIABLES",
-            "dpto_adscrito": "MATEMATICAS",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 5,
-            "prerequisitos": [
-              "2501209"
-            ],
-            "horas_teoria": 4.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2502117",
-            "nombre": "INGLÉS III",
-            "dpto_adscrito": "LITERATURA Y LINGÜÍSTICA",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 3,
-            "prerequisitos": [
-              "2501210"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2502118",
-            "nombre": "CIUDADANIA E INTERCULTURALIDAD",
-            "dpto_adscrito": "HISTO.GEOGR.Y ANTR",
-            "dpto_adscrito2": "SO",
-            "dpto_adscrito3": "PR",
-            "creditos": 2,
-            "prerequisitos": [],
-            "horas_teoria": 1.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          }
-        ],
-        "segundo_semestre": [
-          {
-            "codigo": "2502219",
-            "nombre": "ESTRUCTURA DE DATOS",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2502114"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2502220",
-            "nombre": "REDES Y COMUNICACIÓN",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2502113"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2502221",
-            "nombre": "SISTEMAS OPERATIVOS",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2502113"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2502222",
-            "nombre": "LENGUAJES DE PROGRAMACIÓN",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2502114"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2502223",
-            "nombre": "INGLÉS IV",
-            "dpto_adscrito": "LITERATURA Y LINGÜÍSTICA",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 3,
-            "prerequisitos": [
-              "2502117"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2502224",
-            "nombre": "ECOLOGÍA Y CONSERVACIÓN AMBIENTAL",
-            "dpto_adscrito": "BIOLOGIA",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 3,
-            "prerequisitos": [],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          }
-        ]
-      }
-    },
-    {
-      "tercer_ano": {
-        "primer_semestre": [
-          {
-            "codigo": "2503125",
-            "nombre": "ANÁLISIS Y DISEÑO DE ALGORITMOS",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2502219"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2503126",
-            "nombre": "ESTRUCTURA DE DATOS AVANZADOS",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2502219"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2503127",
-            "nombre": "COMPILADORES",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 3,
-            "prerequisitos": [
-              "2502221"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 0.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2503128",
-            "nombre": "PROGRAMACIÓN CONCURRENTE Y PARALELA",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2502220"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2503129",
-            "nombre": "BASE DE DATOS I",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2502114",
-              "2501207"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2503130",
-            "nombre": "ESTADÍSTICA Y PROBABILIDADES",
-            "dpto_adscrito": "ESTADISTICA",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2502116"
-            ],
-            "horas_teoria": 3.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          }
-        ],
-        "segundo_semestre": [
-          {
-            "codigo": "2503231",
-            "nombre": "PROGRAMACIÓN COMPETITIVA",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 3,
-            "prerequisitos": [
-              "2503125",
-              "2503126"
-            ],
-            "horas_teoria": 0.0,
-            "horas_practica": 0.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 6.0
-          },
-          {
-            "codigo": "2503232",
-            "nombre": "INGENIERIA DE SOFTWARE I",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2502114"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2503233",
-            "nombre": "SISTEMAS DISTRIBUIDOS",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2503128"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2503234",
-            "nombre": "TEORÍA DE LA COMPUTACIÓN",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 5,
-            "prerequisitos": [
-              "2503125"
-            ],
-            "horas_teoria": 4.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2503235",
-            "nombre": "INTELIGENCIA ARTIFICIAL I",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2503130"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2503236",
-            "nombre": "ECUACIONES DIFERENCIALES",
-            "dpto_adscrito": "MATEMATICAS",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2502116",
-              "2502115"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          }
-        ]
-      }
-    },
-    {
-      "cuarto_ano": {
-        "primer_semestre": [
-          {
-            "codigo": "2504137",
-            "nombre": "INVESTIGACIÓN CIENCIA DE LA COMPUTACIÓN",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2503125"
-            ],
-            "horas_teoria": 3.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2504138",
-            "nombre": "INGENIERÍA DE SOFTWARE II",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 3,
-            "prerequisitos": [
-              "2503232"
-            ],
-            "horas_teoria": 1.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2504139",
-            "nombre": "DESARROLLO DE APLICACIONES WEB",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 3,
-            "prerequisitos": [
-              "2503129"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 0.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2504140",
-            "nombre": "BASE DE DATOS II",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2503129"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2504141",
-            "nombre": "ÉTICA GENERAL Y DEONTOLOGÍA",
-            "dpto_adscrito": "FILOSOFIA",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 2,
-            "prerequisitos": [],
-            "horas_teoria": 1.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2504142",
-            "nombre": "DISEÑO DE VIDEOJUEGOS (E)",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2504143",
-            "nombre": "INTELIGENCIA ARTIFICIAL II (E)",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2503235"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 0.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 4.0
-          },
-          {
-            "codigo": "2504144",
-            "nombre": "SEGURIDAD EN COMPUTACIÓN (E)",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2502220"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          }
-        ],
-        "segundo_semestre": [
-          {
-            "codigo": "2504245",
-            "nombre": "PROYECTOS I",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2504137"
-            ],
-            "horas_teoria": 3.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2504246",
-            "nombre": "INTERACCIÓN HUMANO COMPUTADOR",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2504139",
-              "2504138"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 0.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 4.0
-          },
-          {
-            "codigo": "2504247",
-            "nombre": "BIG DATA",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2503233"
-            ],
-            "horas_teoria": 3.0,
-            "horas_practica": 0.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2504248",
-            "nombre": "FÍSICA COMPUTACIONAL",
-            "dpto_adscrito": "FISICA",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 3,
-            "prerequisitos": [
-              "2503236"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2504249",
-            "nombre": "POLÍTICAS PÚBLICAS Y ANTICORRUPCIÓN",
-            "dpto_adscrito": "DERECHO PUBLICO",
-            "dpto_adscrito2": "PR",
-            "dpto_adscrito3": "",
-            "creditos": 3,
-            "prerequisitos": [],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2504250",
-            "nombre": "DESARROLLO DE APLICACIONES MOVIL (E)",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [],
-            "horas_teoria": 3.0,
-            "horas_practica": 0.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2504251",
-            "nombre": "DESARROLLO DE TECNOLOGÍAS EMERGENTES (E)",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2504252",
-            "nombre": "INTELIGENCIA ARTIFICIAL III (E)",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2504143"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 0.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 4.0
-          }
-        ]
-      }
-    },
-    {
-      "quinto_ano": {
-        "primer_semestre": [
-          {
-            "codigo": "2505153",
-            "nombre": "PROYECTOS II",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2504245"
-            ],
-            "horas_teoria": 3.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2505154",
-            "nombre": "CLOUD COMPUTING",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 3,
-            "prerequisitos": [
-              "2504247"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 0.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2505155",
-            "nombre": "COMPUTACIÓN GRÁFICA",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2503126",
-              "2504248"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2505156",
-            "nombre": "CIENCIA DE DATOS",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2504247",
-              "2504140"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 0.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 4.0
-          },
-          {
-            "codigo": "2505157",
-            "nombre": "MATEMÁTICA APLICADA A LA COMPUTACIÓN",
-            "dpto_adscrito": "MATEMATICAS",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2504248"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2505158",
-            "nombre": "VISIÓN COMPUTACIONAL (E)",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2505159",
-            "nombre": "DESARROLLO DE SOFTWARE EMPRESARIAL (E)",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          }
-        ],
-        "segundo_semestre": [
-          {
-            "codigo": "2505260",
-            "nombre": "TRABAJO DE INVESTIGACIÓN",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 5,
-            "prerequisitos": [
-              "2505153"
-            ],
-            "horas_teoria": 3.0,
-            "horas_practica": 4.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2505261",
-            "nombre": "VISUALIZACIÓN DE DATOS",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [
-              "2504246"
-            ],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2505262",
-            "nombre": "DESARROLLO EMOCIONAL, GESTIÓN DE CONFLICTOS Y LIDERAZGO",
-            "dpto_adscrito": "PSICOLOGIA",
-            "dpto_adscrito2": "TS",
-            "dpto_adscrito3": "",
-            "creditos": 3,
-            "prerequisitos": [],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2505263",
-            "nombre": "PRÁCTICAS PRE-PROFESIONALES",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [],
-            "horas_teoria": 0.0,
-            "horas_practica": 8.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 0.0
-          },
-          {
-            "codigo": "2505264",
-            "nombre": "CIBERSEGURIDAD (E)",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2505265",
-            "nombre": "ROBÓTICA (E)",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          },
-          {
-            "codigo": "2505266",
-            "nombre": "PROCESAMIENTO DE LENGUAJE NATURAL (E)",
-            "dpto_adscrito": "INGENIERIA DE SIST",
-            "dpto_adscrito2": "",
-            "dpto_adscrito3": "",
-            "creditos": 4,
-            "prerequisitos": [],
-            "horas_teoria": 2.0,
-            "horas_practica": 2.0,
-            "horas_total": 0.0,
-            "horas_semi": 0.0,
-            "horas_lab": 2.0
-          }
-        ]
-      }
-    }
-  ],
   "preferencias": {
     "turno_preferido": "mañana",
     "dias_preferidos": [
@@ -1512,5 +451,1211 @@
       "distribucion_balanceada": 100,
       "uso_optimo_aulas": 100
     }
-  }
+  },
+  "cursos": [
+    {
+      "primer_ano": {
+        "primer_semestre": [
+          {
+            "codigo": "1701101",
+            "nombre": "RAZONAMIENTO LOGICO MATEMATICO",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1701102",
+            "nombre": "METODOLOGIA DEL TRABAJO INTELECTUAL",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1701104",
+            "nombre": "ARTE COMPUTACIONAL",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1701105",
+            "nombre": "INGLES TECNICO PROFESIONAL I",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1701106",
+            "nombre": "FUNDAMENTOS DE COMPUTACION",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1701107",
+            "nombre": "ESTRUCTURAS DISCRETAS I",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1701114",
+            "nombre": "LIDERAZGO Y ORATORIA",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          }
+        ],
+        "segundo_semestre": [
+          {
+            "codigo": "1701208",
+            "nombre": "ESTRUCTURAS DISCRETAS II",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1701107",
+              "1701106"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1701209",
+            "nombre": "CIENCIA DE LA COMPUTACION I",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1701106"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1701210",
+            "nombre": "CALCULO EN UNA VARIABLE",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1701212",
+            "nombre": "INGLES TECNICO PROFESIONAL II",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1701105"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1701215",
+            "nombre": "COMUNICACION INTEGRAL",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1701216",
+            "nombre": "REALIDAD NACIONAL",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1701107",
+            "nombre": "1701106",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "segundo_ano": {
+        "primer_semestre": [
+          {
+            "codigo": "1702117",
+            "nombre": "ARQUITECTURA DE COMPUTADORES",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1702118",
+            "nombre": "CIENCIAS DE LA COMPUTACION II",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1702119",
+            "nombre": "DESARROLLO BASADO EN PLATAFORMAS",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1702120",
+            "nombre": "TRABAJO INTERDISCIPLINAR I",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1702121",
+            "nombre": "CALCULO EN VARIAS VARIABLES",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1702122",
+            "nombre": "INGLES TECNICO PROFESIONAL III",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1702123",
+            "nombre": "CIUDADANIA E INTERCULTURALIDAD",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          }
+        ],
+        "segundo_semestre": [
+          {
+            "codigo": "1702224",
+            "nombre": "ALGORITMOS Y ESTRUCTURAS DE DATOS",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1702225",
+            "nombre": "TEORIA DE LA COMPUTACION",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1702226",
+            "nombre": "BASE DE DATOS I",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1702227",
+            "nombre": "ALGEBRA LINEAL NUMERICA",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1702228",
+            "nombre": "ESTADISTICA Y PROBABILIDADES",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1702229",
+            "nombre": "ECOLOGIA Y CONSERVACION AMBIENTAL",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1701209",
+            "nombre": "1701208",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1701106"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "tercer_ano": {
+        "primer_semestre": [
+          {
+            "codigo": "1703130",
+            "nombre": "BASE DE DATOS II",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1702226"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1703131",
+            "nombre": "ANALISIS Y DISENO DE ALGORITMOS",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1702224"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1703132",
+            "nombre": "INGENIERIA DE SOFTWARE I",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1702118",
+              "1702226"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1703133",
+            "nombre": "COMPILADORES",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1702225"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1703134",
+            "nombre": "ANALISIS EXPLORATORIO DE DATOS ESPACIALES",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1702228",
+              "1702224"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1703135",
+            "nombre": "ECUACIONES DIFERENCIALES",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1702121",
+              "1702227"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1702118",
+            "nombre": "1702226",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1702228",
+            "nombre": "1702224",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1702121",
+            "nombre": "1702227",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          }
+        ],
+        "segundo_semestre": [
+          {
+            "codigo": "1703236",
+            "nombre": "PROGRAMACION COMPETITIVA",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1703131"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1703237",
+            "nombre": "INGENIERIA DE SOFTWARE II",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1703132"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1703238",
+            "nombre": "ESTRUCTURAS DE DATOS AVANZADOS",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1703131"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1703239",
+            "nombre": "SISTEMAS OPERATIVOS",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1702117"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1703240",
+            "nombre": "TRABAJO INTERDISCIPLINAR II",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1702120"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1703241",
+            "nombre": "MATEMATICA APLICADA A LA COMPUTACION",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1703135"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "cuarto_ano": {
+        "primer_semestre": [
+          {
+            "codigo": "1704142",
+            "nombre": "INVESTIGACION EN CIENCIAS DE LA COMPUTACION",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1704143",
+            "nombre": "DESARROLLO DE SOFTWARE EMPRESARIAL",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1704144",
+            "nombre": "REDES Y COMUNICACION",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1704145",
+            "nombre": "INGENIERIA DE SOFTWARE III",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1704146",
+            "nombre": "COMPUTACION GRAFICA",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1704147",
+            "nombre": "INTELIGENCIA ARTIFICIAL",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1703238",
+            "nombre": "1703241",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1703131"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          }
+        ],
+        "segundo_semestre": [
+          {
+            "codigo": "1704248",
+            "nombre": "INTERACCION HUMANO COMPUTADOR",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1704249",
+            "nombre": "PROYECTO DE FINAL DE CARRERA I",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1704250",
+            "nombre": "COMPUTACION PARALELA Y DISTRIBUIDA",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1704251",
+            "nombre": "SEGURIDAD EN COMPUTACION",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1704252",
+            "nombre": "FORMACION DE EMPRESAS DE BASE TECNOLOGICA I",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1704253",
+            "nombre": "RELACIONES HUMANAS",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1704254",
+            "nombre": "FISICA COMPUTACIONAL (E)",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1704255",
+            "nombre": "TOPICOS EN INGENIERIA DE SOFTWARE (E)",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1704142",
+            "nombre": "1703238",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1703236",
+            "nombre": "1704144",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1703131"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "quinto_ano": {
+        "primer_semestre": [
+          {
+            "codigo": "1705156",
+            "nombre": "PROYECTO DE FINAL DE CARRERA II",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1704249"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1705157",
+            "nombre": "BIG DATA",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1703130",
+              "1704250"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1705158",
+            "nombre": "ETICA GENERAL Y PROFESIONAL",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1705159",
+            "nombre": "FORMACION DE EMPRESAS DE BASE TECNOLOGICA II",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1705160",
+            "nombre": "INGLES TECNICO PROFESIONAL IV",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1702122"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1705161",
+            "nombre": "TOPICOS EN CIENCIA DE DATOS (E)",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1703134"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1705162",
+            "nombre": "TOPICOS EN INTELIGENCIA ARTIFICIAL (E)",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1704147"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1705163",
+            "nombre": "TOPICOS EN COMPUTACION GRAFICA (E)",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1704146"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1705164",
+            "nombre": "BIOINFORMATICA (E)",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1703241"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1703130",
+            "nombre": "1704250",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1702226"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          }
+        ],
+        "segundo_semestre": [
+          {
+            "codigo": "1705265",
+            "nombre": "CLOUD COMPUTING",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1705157"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1705267",
+            "nombre": "TRABAJO INTERDISCIPLINAR III",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1703240",
+              "1704254"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1703240",
+            "nombre": "1704254",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1702120"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1705268",
+            "nombre": "INTERNET DE LAS COSAS",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1704250"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1705269",
+            "nombre": "ROBOTICA (E)",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1705162"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1705270",
+            "nombre": "TOPICOS EN CIBERSEGURIDAD (E)",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1704251"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1705271",
+            "nombre": "PRACTICAS PRE PROFESIONALES",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          },
+          {
+            "codigo": "1705272",
+            "nombre": "TRABAJO DE INVESTIGACIÓN",
+            "dpto_adscrito": "",
+            "dpto_adscrito2": "",
+            "dpto_adscrito3": "",
+            "creditos": null,
+            "prerequisitos": [
+              "1705156"
+            ],
+            "horas_teoria": 0.0,
+            "horas_practica": 0.0,
+            "horas_total": 0.0,
+            "horas_semi": 0.0,
+            "horas_lab": 0.0
+          }
+        ]
+      }
+    }
+  ]
 }

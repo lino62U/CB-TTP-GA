@@ -1,4 +1,7 @@
+version: "3.9"
+
 services:
+  # 🗄️ Base de datos PostgreSQL
   db:
     image: postgres:16
     container_name: unsa_schedules_db
@@ -14,20 +17,51 @@ services:
     networks:
       - unsa_net
 
+  # ⚙️ Backend Node.js + Prisma
   backend:
-    build: ./app
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: unsa_backend
     restart: always
     depends_on:
       - db
     environment:
-      - DATABASE_URL=postgresql+psycopg2://admin:admin@db:5432/unsa_schedules
+      DATABASE_URL: "postgresql://admin:admin@db:5432/unsa_schedules?schema=public"
+      NODE_ENV: "development"
+      PORT: 3000
     ports:
-      - "8000:8000"
+      - "3000:3000"  # Backend accesible desde localhost:3000
+      - "5555:5555"  # Prisma Studio accesible desde localhost:5555
     networks:
       - unsa_net
     volumes:
-      - ./app:/app
+      - ./backend:/usr/src/app
+    command: >
+      sh -c "npx prisma migrate deploy &&
+             npx prisma generate &&
+             npm run seed &&
+             npm run dev &
+             npx prisma studio --port 5555 --hostname 0.0.0.0 --browser none"
+
+  # 💻 Frontend (React/Vite)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: unsa_frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "5173:5173"  # Frontend accesible desde localhost:5173
+    networks:
+      - unsa_net
+    volumes:
+      - ./frontend:/usr/src/app
+    environment:
+      - VITE_API_URL=http://localhost:3000   # URL del backend para el frontend
+    command: ["npm", "run", "dev", "--", "--host"]
 
 networks:
   unsa_net:

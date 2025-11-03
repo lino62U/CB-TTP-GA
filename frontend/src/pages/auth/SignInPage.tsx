@@ -13,7 +13,6 @@ const SignInPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // 🧩 Rellenar automáticamente en modo desarrollo
   useEffect(() => {
     if (import.meta.env.MODE === "development") {
       setEmail("juan@unsa.edu.pe");
@@ -30,11 +29,8 @@ const SignInPage: React.FC = () => {
     try {
       const res = await axios.post("/auth/signin", { email, password, role });
       if (res.status !== 200) throw new Error("Credenciales incorrectas");
-
       const data = res.data;
       loginStore.login(data.user, data.token);
-
-      // 🚀 Redirigir según el rol
       if (role === "COORDINATOR") navigate("/coordinator");
       else navigate("/teacher");
     } catch (err: any) {
@@ -47,62 +43,80 @@ const SignInPage: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-full bg-gray-50">
-      <div className="bg-white p-10 rounded-2xl shadow-xl w-full max-w-md relative">
+    <div className="relative flex items-center justify-center min-h-screen overflow-hidden">
+      {/* Fondo con imagen institucional y overlay vino tinto */}
+      <div
+        className="absolute inset-0 bg-cover bg-center brightness-75 blur-sm"
+        style={{
+          backgroundImage:
+            "url('https://www.unsa.edu.pe/wp-content/uploads/2022/02/FACHADA-UNSA3-878x426.jpg')",
+        }}
+      />
+      <div className="absolute inset-0 bg-black/70" />
 
-        <h1 className="text-3xl font-extrabold text-center text-primary mb-6">
+      {/* Contenedor del formulario */}
+      <div className="relative z-10 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl p-10 w-full max-w-md text-center border border-gray-200">
+        <h1 className="text-4xl font-extrabold text-[#7b1d26] mb-6">
           Iniciar Sesión
         </h1>
+        <p className="text-gray-600 mb-8 text-base">
+          Bienvenido a <span className="font-semibold text-[#5a0b15]">UniTimetableAI</span>.  
+          Inicie sesión para continuar.
+        </p>
 
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-5 text-left">
           <div>
-            <label className="block text-left text-gray-600 mb-1">
+            <label className="block text-gray-700 font-medium mb-1">
               Correo institucional
             </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
-              placeholder="profesor@universidad.edu"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#7b1d26]"
+              placeholder="profesor@unsa.edu.pe"
               required
             />
           </div>
 
           <div>
-            <label className="block text-left text-gray-600 mb-1">
+            <label className="block text-gray-700 font-medium mb-1">
               Contraseña
             </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#7b1d26]"
               placeholder="••••••••"
               required
             />
           </div>
 
           <div>
-            <label className="block text-left text-gray-600 mb-1">Rol</label>
+            <label className="block text-gray-700 font-medium mb-1">Rol</label>
             <select
               value={role}
               onChange={(e) => setRole(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#7b1d26]"
             >
               <option value="PROFESSOR">Profesor</option>
               <option value="COORDINATOR">Coordinador</option>
             </select>
           </div>
 
-          {error && <p className="text-red-600 text-sm text-center">{error}</p>}
+          {error && (
+            <p className="text-red-600 text-sm text-center font-medium mt-2">
+              {error}
+            </p>
+          )}
 
           <button
             type="submit"
-            className={`w-full mt-4 flex justify-center items-center text-white font-semibold py-2 rounded-lg transition ${
+            className={`w-full mt-6 flex justify-center items-center text-white font-semibold py-3 rounded-lg transition-all duration-300 ${
               loading
                 ? "bg-gray-400 cursor-not-allowed"
-                : "bg-primary hover:bg-primary/90"
+                : "bg-[#7b1d26] hover:bg-[#5a0b15] hover:scale-105 shadow-md"
             }`}
             disabled={loading}
           >
@@ -111,19 +125,19 @@ const SignInPage: React.FC = () => {
           </button>
         </form>
 
-        {/* 🔹 Enlace a registro */}
+        {/* Enlace al registro */}
         <p className="text-center text-gray-600 mt-6 text-sm">
           ¿No tienes cuenta?{" "}
           <button
             type="button"
             onClick={() => navigate("/auth/signup")}
-            className="text-primary font-semibold hover:underline"
+            className="text-[#7b1d26] font-semibold hover:underline"
           >
             Regístrate aquí
           </button>
         </p>
 
-        {/* Ejemplo rápido en dev */}
+        {/* Demo en modo desarrollo */}
         {import.meta.env.MODE === "development" && (
           <div className="mt-6 text-xs text-gray-500 text-center">
             <p>

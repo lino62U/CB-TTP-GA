@@ -3,6 +3,9 @@ export interface AlgorithmParams {
   population: number;
   generations: number;
   mutationRate: number;
+  semester: string;
+  tournament: number;
+  crossover: number;
 }
 
 export interface Room {

@@ -4,16 +4,41 @@ import path from "path";
 import { getInfoData } from "../controllers/infoController";
 import prisma from "../db/prismaClient";
 import { formatScheduleByYear } from "../utils/formateOuput";
+import fs from "fs"; // <--- faltaba esto
 
 const router = Router();
 
+// 🗂️ Archivo donde guardaremos el horario
+const DATA_FILE = path.join(__dirname, "../db/savedSchedule.json ");
+
+
 router.get("/run", async (req: Request, res: Response) => {
   try {
-    const scheduleData = await getInfoData("B");
+    const { semester = "B" } = req.query; // <--- obtiene A o B dinámicamente
+    console.log("📘 Valor recibido de 'semester':", semester);
+    const scheduleData = await getInfoData(String(semester));
+
+    // 🔹 Imprimir todo lo que llega en la request
+    console.log("===== REQ =====");
+    console.log("Query params:", req.query);
+   
+    console.log("================");
 
     // 🔹 Ejecutar Python
     const scriptPath = path.resolve(__dirname, "../algorithms/run_ga.py");
-    const pyProcess = spawn("python3", [scriptPath]);
+
+
+    const pyProcess = spawn("python3", [
+      scriptPath,
+      "--pop", String(req.query.population || 100),
+      "--gens", String(req.query.generations || 200),
+      "--mutation", String(req.query.mutationRate || 0.2),
+      "--tournament", String(req.query.tournament || 3),
+      "--crossover", String(req.query.crossover || 0.8), // ✅ agregar crossover
+    ]);
+
+
+
     pyProcess.stdin.write(JSON.stringify(scheduleData));
     pyProcess.stdin.end();
 
@@ -98,5 +123,45 @@ router.get("/run", async (req: Request, res: Response) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+
+// =========================
+//   RUTA: Guardar horario
+// =========================
+router.post("/save", (req, res) => {
+  const scheduleData = req.body;
+
+  try {
+    // Crear carpeta si no existe
+    const dir = path.dirname(DATA_FILE);
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+
+    fs.writeFileSync(DATA_FILE, JSON.stringify(scheduleData, null, 2), "utf-8");
+    res.status(200).json({ message: "Horario guardado exitosamente" });
+  } catch (error) {
+    console.error("Error al guardar horario:", error);
+    res.status(500).json({ error: "Error al guardar el horario" });
+  }
+});
+
+// =========================
+//   RUTA: Obtener último horario guardado
+// =========================
+router.get("/latest", (req, res) => {
+  try {
+    if (!fs.existsSync(DATA_FILE)) {
+      return res.status(404).json({ message: "No hay horario guardado" });
+    }
+
+    const data = fs.readFileSync(DATA_FILE, "utf-8");
+    const schedule = JSON.parse(data);
+
+    res.status(200).json(schedule);
+  } catch (error) {
+    console.error("Error al obtener horario:", error);
+    res.status(500).json({ error: "Error al obtener el horario" });
+  }
+});
+
 
 export default router;

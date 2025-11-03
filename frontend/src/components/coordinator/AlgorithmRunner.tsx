@@ -86,24 +86,39 @@ const AlgorithmRunner: React.FC<AlgorithmRunnerProps> = ({
           value={params.mutationRate}
           onChange={onParamsChange}
         />
+        <Input
+          label="Torneo (tournament)"
+          name="tournament"
+          type="number"
+          value={params.tournament}
+          onChange={onParamsChange}
+        />
+        <Input
+          label="Probabilidad de Crossover"
+          name="crossover"
+          type="number"
+          step="0.01"
+          value={params.crossover}
+          onChange={onParamsChange}
+        />
+        <div className="mb-6">
+          <label htmlFor="semester" className="block text-sm font-medium text-gray-700 mb-1">
+            Semestre Académico
+          </label>
+          <select
+            id="semester"
+            name="semester"
+            value={params.semester || 'A'}
+            onChange={onParamsChange}
+            className="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-primary/30 focus:border-primary"
+          >
+            <option value="A">Semestre A</option>
+            <option value="B">Semestre B</option>
+          </select>
+        </div>
       </div>
 
-      {/* 🔽 NUEVO: Select para semestre */}
-      <div className="mb-6">
-        <label htmlFor="semester" className="block text-sm font-medium text-gray-700 mb-1">
-          Semestre Académico
-        </label>
-        <select
-          id="semester"
-          name="semester"
-          value={params.semester || 'A'}
-          onChange={onParamsChange}
-          className="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-primary/30 focus:border-primary"
-        >
-          <option value="A">Semestre A</option>
-          <option value="B">Semestre B</option>
-        </select>
-      </div>
+      
 
       <Button onClick={handleRun} disabled={isLoading} size="lg" className="w-full">
         {isLoading ? (
