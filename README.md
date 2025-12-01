@@ -1,16 +1,33 @@
-# CB-TTP-GA - Sistema de Programación de Horarios Universitarios con Algoritmos Genéticos
+# CB-TTP-GA: Sistema de Programación de Horarios Universitarios Basado en Algoritmos Genéticos
+
+## Introducción
+
+El problema de programación de horarios universitarios, conocido como *University Timetabling Problem* (UTP), representa un desafío clásico de optimización combinatoria clasificado como NP-Hard. En el contexto de instituciones educativas como la Universidad Nacional de San Agustín (UNSA), este problema se especializa en el *Curriculum Timetabling Problem*, donde se deben asignar cursos, profesores, aulas y grupos de estudiantes a franjas horarias específicas, respetando restricciones duras (e.g., no superposiciones) y blandas (e.g., preferencias de horarios). La complejidad inherente del problema demanda enfoques metaheurísticos eficientes.
+
+Tras una revisión exhaustiva de literatura y benchmarks, se evidencia que los algoritmos genéticos (GA) superan a métodos híbridos en términos de tiempo de compilación y complejidad computacional, logrando soluciones viables con menor overhead. Este proyecto propone un sistema integral que integra un motor de GA personalizado con una arquitectura web escalable, facilitando la generación automatizada de horarios curriculares adaptados a la UNSA.
+
+![Pipeline del Sistema](img/ti-pipeline.png)
+
+*Figura 1: Pipeline general del sistema, ilustrando el flujo desde la ingesta de datos hasta la generación y visualización de horarios.*
+
+## Visión General del Sistema
+
+El sistema CB-TTP-GA adopta una arquitectura en capas con separación de responsabilidades, implementada como un monorepo que alberga un frontend en React y un backend en Node.js. La comunicación se realiza vía API REST, mientras que un pipeline ETL procesa datos académicos para alimentar el motor de algoritmos en Python.
+
+### Componentes Principales
+
+- **Frontend**: Interfaz web intuitiva para usuarios (profesores y coordinadores), construida con React y TypeScript. Permite la gestión de disponibilidades, visualización de horarios y ejecución de generaciones. Utiliza Tailwind CSS para un diseño responsive y Axios para peticiones HTTP.
+  
+- **Backend**: Servidor Express.js con Prisma ORM para persistencia en PostgreSQL. Maneja autenticación implícita, validación de datos y orquestación del GA mediante subprocess spawning a Python.
+
+- **Motor de GA**: Implementación personalizada en Python que resuelve el UTP mediante evolución genética, optimizando bajo restricciones específicas de la UNSA.
+
+El flujo operativo inicia con la carga de metadatos curriculares, prosigue con la ejecución del GA y culmina en la persistencia y exportación de resultados.
+
+## Arquitectura del Sistema
 
 
-
-
-## ARQUITECTURA DEL SISTEMA
-
-### Patrón Arquitectónico
-- **Arquitectura en Capas** (Layered Architecture)
-- **Separación de Responsabilidades** (Separation of Concerns)
-- **API REST** para comunicación cliente-servidor
-- **Monorepo** con frontend y backend independientes
-- **Pipeline ETL** para procesamiento de datos académicos
+El sistema emplea una arquitectura en capas con separación de preocupaciones, API REST para interacciones cliente-servidor y un monorepo para frontend y backend independientes. Un pipeline ETL asegura el procesamiento eficiente de datos académicos.
 
 ### Stack Tecnológico Completo
 
@@ -1372,28 +1389,6 @@ io.on('connection', (socket) => {
 });
 ```
 
-### Roadmap de Funcionalidades
-
-#### Fase 1 (Q1 2025)
-- [ ] Autenticación de usuarios con roles
-- [ ] Dashboard analytics avanzado
-- [ ] Exportación a múltiples formatos
-- [ ] Notificaciones por email
-- [ ] API REST completa documentada
-
-#### Fase 2 (Q2 2025)
-- [ ] Optimización multi-objetivo
-- [ ] Machine Learning para predicciones
-- [ ] Integración con sistemas LMS
-- [ ] Mobile app (React Native)
-- [ ] Reportes avanzados con BI
-
-#### Fase 3 (Q3 2025)
-- [ ] Microservicios architecture
-- [ ] Cloud-native deployment
-- [ ] Real-time collaboration
-- [ ] Advanced analytics
-- [ ] International localization
 
 ---
 
