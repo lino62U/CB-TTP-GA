@@ -6,6 +6,7 @@ import TeachersList from '../components/coordinator/TeachersList';
 import AlgorithmRunner from '../components/coordinator/AlgorithmRunner';
 import SchedulesDisplay from '../components/coordinator/SchedulesDisplay';
 import { CourseUploadComponent } from '../components/coordinator/CourseUploadComponent';
+import DocenteAssignmentComponent from '../components/coordinator/DocenteAssignmentComponent';
 import Button from '../components/common/Button';
 import type { AlgorithmParams, Infrastructure, Timetable, TeacherInfo, Room } from '../types';
 import {
@@ -18,7 +19,7 @@ import { useNotifications } from '../hooks/useNotifications';
 import { Download, Save, FileText, Users, Settings } from 'lucide-react';
 import { exportSchedulesToExcel } from '../services/coordinatorService';
 const CoordinatorPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'schedule' | 'courses' | 'settings'>('schedule');
+  const [activeTab, setActiveTab] = useState<'schedule' | 'courses' | 'docentes' | 'settings'>('schedule');
   const [infrastructure, setInfrastructure] = useState<Infrastructure>({
     classrooms: [
       { id: 'c1', name: 'Salón 101', capacity: 40 },
@@ -184,6 +185,7 @@ const CoordinatorPage: React.FC = () => {
   const tabs = [
     { id: 'schedule', label: 'Horarios', icon: Settings },
     { id: 'courses', label: 'Gestión de Cursos', icon: FileText },
+    { id: 'docentes', label: 'Asignación Docentes', icon: Users },
     { id: 'settings', label: 'Configuración', icon: Users }
   ];
 
@@ -283,6 +285,10 @@ const CoordinatorPage: React.FC = () => {
 
         {activeTab === 'courses' && (
           <CourseUploadComponent />
+        )}
+
+        {activeTab === 'docentes' && (
+          <DocenteAssignmentComponent />
         )}
 
         {activeTab === 'settings' && (

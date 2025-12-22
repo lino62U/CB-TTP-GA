@@ -17,6 +17,11 @@ interface CourseData {
   horas_total: number;
   horas_semi: number;
   horas_lab: number;
+  // Campos adicionales para asignación de docentes
+  docente_asignado?: string;
+  docente_sugerido?: string;
+  requiere_docente: boolean;
+  modalidad: 'teoria' | 'practica' | 'laboratorio' | 'mixto';
 }
 
 /**
@@ -62,7 +67,9 @@ export class PDFCourseProcessor {
                   horas_practica: 2.0,
                   horas_total: 4.0,
                   horas_semi: 0.0,
-                  horas_lab: 0.0
+                  horas_lab: 0.0,
+                  requiere_docente: true,
+                  modalidad: 'teoria' as const
                 },
                 {
                   codigo: "2501103",
@@ -76,7 +83,9 @@ export class PDFCourseProcessor {
                   horas_practica: 0.0,
                   horas_total: 6.0,
                   horas_semi: 0.0,
-                  horas_lab: 4.0
+                  horas_lab: 4.0,
+                  requiere_docente: true,
+                  modalidad: 'mixto' as const
                 }
               ],
               segundo_semestre: [
@@ -92,7 +101,9 @@ export class PDFCourseProcessor {
                   horas_practica: 2.0,
                   horas_total: 8.0,
                   horas_semi: 0.0,
-                  horas_lab: 4.0
+                  horas_lab: 4.0,
+                  requiere_docente: true,
+                  modalidad: 'mixto' as const
                 }
               ]
             }
@@ -107,6 +118,45 @@ export class PDFCourseProcessor {
       console.error('❌ Error procesando PDF:', error);
       throw new Error(`Error al procesar PDF: ${error?.message || 'Error desconocido'}`);
     }
+  }
+
+  /**
+   * Determina la modalidad del curso basado en las horas
+   */
+  private determinarModalidad(horas_teoria: number, horas_practica: number, horas_lab: number): 'teoria' | 'practica' | 'laboratorio' | 'mixto' {
+    if (horas_lab > 0 && horas_teoria > 0) {
+      return 'mixto';
+    } else if (horas_lab > 0) {
+      return 'laboratorio';
+    } else if (horas_practica > 0 && horas_teoria > 0) {
+      return 'mixto';
+    } else if (horas_practica > 0) {
+      return 'practica';
+    } else {
+      return 'teoria';
+    }
+  }
+
+  /**
+   * Sugiere un docente basado en el departamento y tipo de curso
+   */
+  private sugerirDocente(dpto_adscrito: string, nombre_curso: string, modalidad: string): string {
+    // Lógica básica de sugerencia por departamento
+    const sugerencias: Record<string, string[]> = {
+      'SI': ['Prof. García', 'Prof. Rodriguez', 'Prof. López'],
+      'MS': ['Prof. Martinez', 'Prof. Fernandez', 'Prof. Sánchez'],
+      'HU': ['Prof. Jiménez', 'Prof. Morales', 'Prof. Vargas'],
+      'FI': ['Prof. Torres', 'Prof. Ramírez', 'Prof. Castro']
+    };
+
+    const profesores = sugerencias[dpto_adscrito] || ['Prof. A asignar'];
+    
+    // Lógica específica por modalidad
+    if (modalidad === 'laboratorio' || modalidad === 'mixto') {
+      return profesores[0] + ' (Lab)';
+    }
+    
+    return profesores[0];
   }
 
   /**
