@@ -5,6 +5,7 @@ import infoRoutes from "./routes/infoRoutes";
 import scheduleRoutes from "./routes/schedulerRoutes";
 import authRoutes from "./routes/authRoutes"; // <--- importar rutas de autenticación
 import courseRoutes from "./routes/courseRoutes";
+import { courseUploadRoutes } from "./routes/courseUploadRoutes"; // <--- nueva ruta para PDFs
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -31,6 +32,7 @@ app.use("/info", infoRoutes);
 app.use("/schedule", scheduleRoutes);
 app.use("/auth", authRoutes); // <--- nueva ruta para autenticación
 app.use("/courses", courseRoutes);
+app.use("/api/courses", courseUploadRoutes); // <--- nueva ruta para subir PDFs
 // -----------------------------
 // Iniciar servidor
 // -----------------------------

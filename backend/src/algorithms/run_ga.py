@@ -45,9 +45,13 @@ global_aula_map = {}
 MIN_SEPARATION_HOURS = 4    # Mínimo 4 horas entre teoría y laboratorio
 MIN_BLOCKS_PER_COURSE = 2   # Mínimo 2 bloques por curso
 
-# Constantes para bloques consecutivos (H10)
+# Constantes para bloques consecutivos y agrupación inteligente
 MIN_CONSECUTIVE_BLOCKS = 2  # Mínimo bloques consecutivos
 MAX_CONSECUTIVE_BLOCKS = 4  # Máximo bloques consecutivos
+
+# Configuración para agrupación de horas impares
+ALLOW_SINGLE_BLOCK = True   # Permitir un bloque suelto si las horas son impares
+PREFER_BLOCK_GROUPING = True # Priorizar agrupación por tipo de curso
 
 
 # ============================================================================
@@ -312,6 +316,205 @@ def obtener_periodos_consecutivos(periodos: List[Period], data: Dict[str, Any]) 
             bloques_consecutivos.append(bloque_actual)
     
     return bloques_consecutivos
+
+# ============================================================================
+# FUNCIONES DE AGRUPACIÓN INTELIGENTE DE BLOQUES
+# ============================================================================
+
+def calcular_agrupacion_optima_bloques(total_horas: int, tipo_curso: str) -> List[int]:
+    """
+    Calcula la agrupación óptima de bloques según las horas totales y tipo de curso.
+    
+    Reglas:
+    - Si total_horas es par: dividir en bloques de 2
+    - Si total_horas es impar: n-1 bloques de 2 + 1 bloque suelto
+    - Respetar límites MIN_CONSECUTIVE_BLOCKS y MAX_CONSECUTIVE_BLOCKS
+    
+    Args:
+        total_horas: Número total de horas del curso
+        tipo_curso: 'teoria', 'laboratorio', 'practica'
+        
+    Returns:
+        Lista con los tamaños de bloques óptimos
+    """
+    if total_horas <= 0:
+        return []
+    
+    # Caso especial: 1 hora - permitir solo si ALLOW_SINGLE_BLOCK es True
+    if total_horas == 1:
+        if ALLOW_SINGLE_BLOCK:
+            return [1]
+        else:
+            return [2]  # Forzar mínimo 2 bloques
+    
+    bloques = []
+    horas_restantes = total_horas
+    
+    # Estrategia principal: crear bloques de 2 horas
+    while horas_restantes >= 2:
+        if horas_restantes == 3:
+            # Caso especial: 3 horas = 2 + 1
+            bloques.extend([2, 1])
+            horas_restantes = 0
+        elif horas_restantes >= 4:
+            # Crear bloques de 2-4 horas según disponibilidad
+            tamaño_bloque = min(4, horas_restantes, MAX_CONSECUTIVE_BLOCKS)
+            if tamaño_bloque >= 2:
+                bloques.append(tamaño_bloque)
+                horas_restantes -= tamaño_bloque
+        else:
+            # 2 horas exactas
+            bloques.append(2)
+            horas_restantes -= 2
+    
+    # Si queda 1 hora y está permitido
+    if horas_restantes == 1 and ALLOW_SINGLE_BLOCK:
+        bloques.append(1)
+    elif horas_restantes == 1 and not ALLOW_SINGLE_BLOCK:
+        # Redistribuir: convertir último bloque
+        if bloques:
+            ultimo_bloque = bloques.pop()
+            if ultimo_bloque == 2:
+                bloques.append(3)  # 2 + 1 restante = 3
+            else:
+                bloques.extend([ultimo_bloque, 1])
+    
+    return bloques
+
+def calcular_coherencia_horaria_profesor(horarios_profesor: Dict[str, List[Period]], 
+                                       orden_dias: Dict[str, Dict[Period, int]]) -> Tuple[float, Dict]:
+    """
+    Calcula la coherencia horaria de un profesor (evitar horarios extremos).
+    
+    Args:
+        horarios_profesor: Diccionario día -> lista de períodos del profesor
+        orden_dias: Mapeo de días y períodos a índices ordenados
+        
+    Returns:
+        Tuple[float, Dict]: (penalizacion, diagnosticos)
+    """
+    penalizacion = 0.0
+    diagnosticos = {
+        'dias_con_huecos': 0,
+        'huecos_totales': 0,
+        'cambios_extremos': 0,
+        'carga_muy_dispersa': 0
+    }
+    
+    for dia, periodos in horarios_profesor.items():
+        if not periodos or dia not in orden_dias:
+            continue
+            
+        # Obtener índices ordenados de los períodos
+        indices = sorted([orden_dias[dia].get(p, 0) for p in periodos])
+        
+        if len(indices) < 2:
+            continue
+            
+        # 1. Calcular huecos entre clases
+        rango_total = indices[-1] - indices[0] + 1
+        huecos = rango_total - len(indices)
+        
+        if huecos > 0:
+            diagnosticos['dias_con_huecos'] += 1
+            diagnosticos['huecos_totales'] += huecos
+            penalizacion += huecos * 10  # Penalizar huecos
+        
+        # 2. Detectar cambios extremos (mañana a noche)
+        primer_periodo = min(indices)
+        ultimo_periodo = max(indices)
+        
+        # Definir umbrales (ajustar según la estructura de períodos)
+        UMBRAL_MATUTINO = 4   # Primeros 4 períodos del día (mañana)
+        UMBRAL_VESPERTINO = 8 # Después del período 8 (noche)
+        
+        if primer_periodo <= UMBRAL_MATUTINO and ultimo_periodo >= UMBRAL_VESPERTINO:
+            diagnosticos['cambios_extremos'] += 1
+            penalizacion += 50  # Penalización alta por horario "polo a polo"
+        
+        # 3. Verificar dispersión excesiva (más de 6 períodos de diferencia)
+        if (ultimo_periodo - primer_periodo) > 6 and len(indices) <= 3:
+            diagnosticos['carga_muy_dispersa'] += 1
+            penalizacion += 25  # Penalizar carga muy dispersa con pocas clases
+    
+    return penalizacion, diagnosticos
+
+def ajustar_parametros_convergencia_rapida():
+    """
+    Ajusta los parámetros del AG para convergencia en menos de 50 generaciones.
+    """
+    global POP_SIZE, GENERATIONS, TOURNAMENT_K, CROSSOVER_PROB, MUTATION_PROB
+    
+    # Configuración optimizada para convergencia rápida
+    POP_SIZE = 60           # Población más pequeña pero diversa
+    GENERATIONS = 50        # Máximo 50 generaciones
+    TOURNAMENT_K = 5        # Torneo más selectivo
+    CROSSOVER_PROB = 0.9    # Mayor probabilidad de cruzamiento
+    MUTATION_PROB = 0.15    # Mutación moderada para exploración
+    
+    print(f"🚀 Parámetros ajustados para convergencia rápida:", file=sys.stderr)
+    print(f"   Población: {POP_SIZE}, Generaciones: {GENERATIONS}", file=sys.stderr)
+    print(f"   Torneo: {TOURNAMENT_K}, Cruce: {CROSSOVER_PROB}, Mutación: {MUTATION_PROB}", file=sys.stderr)
+
+def validar_agrupacion_curso(asignaciones: List[Tuple[Period, AulaID, str]], 
+                           curso: Dict[str, Any], 
+                           data: Dict[str, Any]) -> Tuple[bool, List[str]]:
+    """
+    Valida si las asignaciones de un curso respetan las reglas de agrupación óptima.
+    
+    Args:
+        asignaciones: Lista de asignaciones del curso (período, aula, profesor)
+        curso: Información del curso
+        data: Datos del problema
+        
+    Returns:
+        Tuple[bool, List[str]]: (es_valido, lista_de_errores)
+    """
+    errores = []
+    
+    if not asignaciones:
+        errores.append("Curso sin asignaciones")
+        return False, errores
+    
+    # Obtener información del curso
+    total_horas = curso.get('_blocks_needed', 0)
+    tipo_curso = curso.get('_course_component', 'teoria')
+    
+    # Calcular agrupación esperada
+    agrupacion_esperada = calcular_agrupacion_optima_bloques(total_horas, tipo_curso)
+    
+    # Obtener períodos asignados
+    periodos = [periodo for periodo, _, _ in asignaciones]
+    
+    # Agrupar períodos consecutivos
+    bloques_actuales = obtener_periodos_consecutivos(periodos, data)
+    
+    # Validar número de bloques
+    if len(bloques_actuales) != len(agrupacion_esperada):
+        errores.append(f"Número de grupos incorrecto: esperado {len(agrupacion_esperada)}, actual {len(bloques_actuales)}")
+    
+    # Validar tamaños de bloques
+    bloques_actuales_tamanos = [len(bloque) for bloque in bloques_actuales]
+    bloques_actuales_tamanos.sort()
+    agrupacion_esperada_sorted = sorted(agrupacion_esperada)
+    
+    if bloques_actuales_tamanos != agrupacion_esperada_sorted:
+        errores.append(f"Tamaños de bloques incorrectos: esperado {agrupacion_esperada_sorted}, actual {bloques_actuales_tamanos}")
+    
+    # Validar bloques unitarios si no están permitidos
+    if not ALLOW_SINGLE_BLOCK and 1 in bloques_actuales_tamanos:
+        errores.append("Bloque unitario detectado cuando no está permitido")
+    
+    # Validar límites de bloques consecutivos
+    for tamano_bloque in bloques_actuales_tamanos:
+        if tamano_bloque > MAX_CONSECUTIVE_BLOCKS:
+            errores.append(f"Bloque de {tamano_bloque} períodos excede el máximo permitido ({MAX_CONSECUTIVE_BLOCKS})")
+        elif tamano_bloque < MIN_CONSECUTIVE_BLOCKS and tamano_bloque > 0:
+            if not (tamano_bloque == 1 and ALLOW_SINGLE_BLOCK):
+                errores.append(f"Bloque de {tamano_bloque} períodos es menor al mínimo permitido ({MIN_CONSECUTIVE_BLOCKS})")
+    
+    es_valido = len(errores) == 0
+    return es_valido, errores
 
 # ============================================================================
 # ALGORITMO TSSP (TIME-SLOT SELECTION PROBLEM)
@@ -727,30 +930,60 @@ def evaluar_solucion(individuo: Dict[str, List[Tuple[Period, AulaID, str]]],
                                 costo_duro += w_H['H9'] // 2
                                 diagnosticos['H9_separacion_insuficiente'] += 1
 
-    # H10: Bloques consecutivos (NUEVA RESTRICCIÓN)
-    # Los cursos deben tener bloques consecutivos de mínimo 2 y máximo 4 horas
+    # H10: Agrupación inteligente de bloques (NUEVA RESTRICCIÓN MEJORADA)
     for codigo_curso, asignaciones in individuo.items():
         if len(asignaciones) == 0:
             continue
             
-        periodos = [periodo for periodo, _, _ in asignaciones]
-        bloques_consecutivos = obtener_periodos_consecutivos(periodos, data)
+        curso = mapa_cursos.get(codigo_curso, {})
+        total_horas = curso.get('_blocks_needed', len(asignaciones))
+        tipo_curso = curso.get('_course_component', 'teoria')
         
-        # Verificar que todos los bloques estén en rangos válidos
-        for bloque in bloques_consecutivos:
-            tamaño_bloque = len(bloque)
+        # Calcular agrupación óptima esperada
+        agrupacion_esperada = calcular_agrupacion_optima_bloques(total_horas, tipo_curso)
+        
+        # Obtener bloques actuales
+        periodos = [periodo for periodo, _, _ in asignaciones]
+        bloques_actuales = obtener_periodos_consecutivos(periodos, data)
+        
+        # Validar agrupación según tipo de curso
+        es_valido, errores = validar_agrupacion_curso(asignaciones, curso, data)
+        
+        if not es_valido:
+            # Penalizar según el tipo de error
+            for error in errores:
+                if "bloque unitario" in error and not ALLOW_SINGLE_BLOCK:
+                    costo_duro += w_H['H10']
+                    diagnosticos['H10_bloque_unitario_no_permitido'] += 1
+                elif "número de grupos incorrecto" in error:
+                    costo_duro += w_H['H10'] // 2
+                    diagnosticos['H10_agrupacion_incorrecta'] += 1
+                elif "tamaño incorrecto" in error:
+                    costo_duro += w_H['H10'] // 4
+                    diagnosticos['H10_tamaño_bloque_incorrecto'] += 1
+        
+        # Validación específica: separar teoría y laboratorio del mismo curso
+        if '_T' in codigo_curso or '_LAB' in codigo_curso:
+            curso_base = curso.get('original_code', codigo_curso.split('_')[0])
+            tipo_actual = curso.get('_course_component', 'teoria')
             
-            if tamaño_bloque == 1:  # Bloques de 1 hora no permitidos
-                costo_duro += w_H['H10']
-                diagnosticos['H10_bloque_unitario'] += 1
-            elif tamaño_bloque < MIN_CONSECUTIVE_BLOCKS:
-                deficit = MIN_CONSECUTIVE_BLOCKS - tamaño_bloque
-                costo_duro += deficit * w_H['H10']
-                diagnosticos['H10_bloque_muy_pequeño'] += deficit
-            elif tamaño_bloque > MAX_CONSECUTIVE_BLOCKS:
-                exceso = tamaño_bloque - MAX_CONSECUTIVE_BLOCKS
-                costo_duro += exceso * w_H['H10']
-                diagnosticos['H10_bloque_muy_grande'] += exceso
+            # Buscar componente complementario
+            codigo_complementario = None
+            if tipo_actual == 'teoria':
+                codigo_complementario = f"{curso_base}_LAB"
+            elif tipo_actual == 'laboratorio':
+                codigo_complementario = f"{curso_base}_T"
+            
+            if codigo_complementario and codigo_complementario in individuo:
+                # Verificar separación temporal mínima entre teoría y laboratorio
+                periodos_complementarios = [p for p, _, _ in individuo[codigo_complementario]]
+                for p1 in periodos:
+                    for p2 in periodos_complementarios:
+                        if obtener_dia_periodo(p1) == obtener_dia_periodo(p2):
+                            diferencia = abs(calcular_diferencia_horas(p1, p2))
+                            if diferencia < MIN_SEPARATION_HOURS:
+                                costo_duro += w_H['H9'] // 3
+                                diagnosticos['H10_teoria_lab_muy_cerca'] += 1
 
     # ========================================================================
     # EVALUACIÓN DE RESTRICCIONES BLANDAS
@@ -776,8 +1009,18 @@ def evaluar_solucion(individuo: Dict[str, List[Tuple[Period, AulaID, str]]],
         periodos_ordenados = [x for x in data['periodos'] if obtener_dia_periodo(x) == dia]
         orden_dias[dia] = {periodo: indice for indice, periodo in enumerate(periodos_ordenados)}
     
-    # Calcular huecos por profesor
+    # Calcular huecos por profesor Y coherencia horaria mejorada
     for profesor, dias in horario_profesores.items():
+        # Calcular coherencia horaria usando la nueva función
+        penalizacion_coherencia, diag_coherencia = calcular_coherencia_horaria_profesor(dias, orden_dias)
+        costo_blando += penalizacion_coherencia
+        
+        # Agregar diagnósticos de coherencia
+        diagnosticos['S1_coherencia_profesor'] += penalizacion_coherencia
+        diagnosticos['S1_cambios_extremos'] += diag_coherencia['cambios_extremos']
+        diagnosticos['S1_carga_dispersa'] += diag_coherencia['carga_muy_dispersa']
+        
+        # Mantener cálculo original de huecos
         for dia, lista_periodos in dias.items():
             if not lista_periodos or dia not in orden_dias:
                 continue
@@ -1010,6 +1253,9 @@ def ejecutar_algoritmo_genetico(data: Dict[str, Any]) -> Tuple[Dict, Dict]:
     Returns:
         Tuple[Dict, Dict]: (mejor_solucion, diagnosticos)
     """
+    # 🚀 APLICAR PARÁMETROS OPTIMIZADOS PARA CONVERGENCIA RÁPIDA
+    ajustar_parametros_convergencia_rapida()
+    
     print("🚀 Iniciando Algoritmo Genético para Programación de Horarios", file=sys.stderr)
     print(f"📊 Parámetros: Pop={POP_SIZE}, Gen={GENERATIONS}, Torneo={TOURNAMENT_K}", file=sys.stderr)
     

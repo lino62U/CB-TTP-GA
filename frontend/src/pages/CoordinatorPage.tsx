@@ -5,6 +5,7 @@ import CurriculumUploader from '../components/coordinator/CurriculumUploader';
 import TeachersList from '../components/coordinator/TeachersList';
 import AlgorithmRunner from '../components/coordinator/AlgorithmRunner';
 import SchedulesDisplay from '../components/coordinator/SchedulesDisplay';
+import { CourseUploadComponent } from '../components/coordinator/CourseUploadComponent';
 import Button from '../components/common/Button';
 import type { AlgorithmParams, Infrastructure, Timetable, TeacherInfo, Room } from '../types';
 import {
@@ -14,9 +15,10 @@ import {
   saveSchedule
 } from '../services/coordinatorService';
 import { useNotifications } from '../hooks/useNotifications';
-import { Download, Save } from 'lucide-react';
+import { Download, Save, FileText, Users, Settings } from 'lucide-react';
 import { exportSchedulesToExcel } from '../services/coordinatorService';
 const CoordinatorPage: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<'schedule' | 'courses' | 'settings'>('schedule');
   const [infrastructure, setInfrastructure] = useState<Infrastructure>({
     classrooms: [
       { id: 'c1', name: 'Salón 101', capacity: 40 },
@@ -179,6 +181,12 @@ const CoordinatorPage: React.FC = () => {
   }, [schedules, params, infrastructure, addNotification]);
 
   // === Render ===
+  const tabs = [
+    { id: 'schedule', label: 'Horarios', icon: Settings },
+    { id: 'courses', label: 'Gestión de Cursos', icon: FileText },
+    { id: 'settings', label: 'Configuración', icon: Users }
+  ];
+
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
       <div className="w-[90%] mx-auto px-4 md:px-8 py-8">
@@ -191,59 +199,108 @@ const CoordinatorPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-1 space-y-8">
-            <ResourceManager
-              infrastructure={infrastructure}
-              onRoomChange={handleRoomChange}
-              onAddRoom={addRoom}
-              onRemoveRoom={removeRoom}
-            />
-            <CurriculumUploader />
-            <TeachersList teachers={teachers} error={teachersError} />
-          </div>
-
-          <div className="lg:col-span-2 space-y-8">
-            <AlgorithmRunner
-              params={params}
-              onParamsChange={handleParamsChange}
-              onRunAlgorithm={handleRunAlgorithm}
-              isLoading={isLoading}
-            />
-
-            {isLoadingSchedule ? (
-              <p className="text-gray-500 text-center">Cargando horario guardado...</p>
-            ) : schedules ? (
-              <SchedulesDisplay schedules={schedules} />
-            ) : (
-              <p className="text-center text-gray-500 italic">
-                No hay horarios generados o guardados.
-              </p>
-            )}
-            <div className="flex flex-wrap justify-end gap-3 mt-6 sticky bottom-0 bg-gray-50 py-4 z-10 border-t border-gray-200">
-              <Button
-                variant="primary"
-                size="md"
-                onClick={handleSaveSchedule}
-                className="flex items-center gap-2"
-              >
-                <Save className="h-4 w-4" />
-                Guardar Horario
-              </Button>
-
-              <Button
-                onClick={handleExport}
-                size="md"
-                variant="secondary"
-                className="flex items-center gap-2"
-              >
-                <Download className="h-4 w-4" />
-                Exportar a Excel
-              </Button>
-            </div>
-
+        {/* Navegación por pestañas */}
+        <div className="bg-white rounded-lg shadow-sm mb-8">
+          <div className="border-b border-gray-200">
+            <nav className="-mb-px flex space-x-8 px-6">
+              {tabs.map((tab) => {
+                const Icon = tab.icon;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id as any)}
+                    className={`py-4 px-1 border-b-2 font-medium text-sm flex items-center space-x-2 transition-colors ${
+                      activeTab === tab.id
+                        ? 'border-blue-500 text-blue-600'
+                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    }`}
+                  >
+                    <Icon className="h-5 w-5" />
+                    <span>{tab.label}</span>
+                  </button>
+                );
+              })}
+            </nav>
           </div>
         </div>
+
+        {/* Contenido de las pestañas */}
+        {activeTab === 'schedule' && (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-1 space-y-8">
+              <ResourceManager
+                infrastructure={infrastructure}
+                onRoomChange={handleRoomChange}
+                onAddRoom={addRoom}
+                onRemoveRoom={removeRoom}
+              />
+              <CurriculumUploader />
+              <TeachersList teachers={teachers} error={teachersError} />
+            </div>
+
+            <div className="lg:col-span-2 space-y-8">
+              <AlgorithmRunner
+                params={params}
+                onParamsChange={handleParamsChange}
+                onRunAlgorithm={handleRunAlgorithm}
+                isLoading={isLoading}
+              />
+
+              {isLoadingSchedule ? (
+                <p className="text-gray-500 text-center">Cargando horario guardado...</p>
+              ) : schedules ? (
+                <SchedulesDisplay schedules={schedules} />
+              ) : (
+                <p className="text-center text-gray-500 italic">
+                  No hay horarios generados o guardados.
+                </p>
+              )}
+              
+              <div className="flex flex-wrap justify-end gap-3 mt-6 sticky bottom-0 bg-gray-50 py-4 z-10 border-t border-gray-200">
+                <Button
+                  variant="primary"
+                  size="md"
+                  onClick={handleSaveSchedule}
+                  className="flex items-center gap-2"
+                >
+                  <Save className="h-4 w-4" />
+                  Guardar Horario
+                </Button>
+
+                <Button
+                  onClick={handleExport}
+                  size="md"
+                  variant="secondary"
+                  className="flex items-center gap-2"
+                >
+                  <Download className="h-4 w-4" />
+                  Exportar a Excel
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === 'courses' && (
+          <CourseUploadComponent />
+        )}
+
+        {activeTab === 'settings' && (
+          <div className="bg-white rounded-lg shadow-md p-8">
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Configuración del Sistema</h2>
+            <div className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <ResourceManager
+                  infrastructure={infrastructure}
+                  onRoomChange={handleRoomChange}
+                  onAddRoom={addRoom}
+                  onRemoveRoom={removeRoom}
+                />
+                <TeachersList teachers={teachers} error={teachersError} />
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

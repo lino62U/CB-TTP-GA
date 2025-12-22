@@ -1485,7 +1485,7 @@
   },
   "params": {
     "population": 100,
-    "generations": 1000,
+    "generations": 200,
     "tournament": 3,
     "crossover": 0.8,
     "mutationRate": 0.2,
@@ -1512,5 +1512,5 @@
       }
     ]
   },
-  "timestamp": "2025-11-03T06:05:48.003Z"
+  "timestamp": "2025-12-22T06:46:21.500Z"
 }
