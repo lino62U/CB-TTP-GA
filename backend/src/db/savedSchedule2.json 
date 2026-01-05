@@ -1,0 +1,1452 @@
+{
+  "schedules": {
+    "FirstYear": [
+      {
+        "day": "LUN",
+        "timeSlot": "07:50-08:40",
+        "course": "CIENCIA DE LA COMPUTACION I (Laboratorio)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "08:50-09:40",
+        "course": "CIENCIA DE LA COMPUTACION I (Laboratorio)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "09:40-10:30",
+        "course": "ESTRUCTURAS DISCRETAS II (Laboratorio)",
+        "teacher": "MG. FRANCI SUNI LOPEZ",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "10:40-11:30",
+        "course": "ESTRUCTURAS DISCRETAS II (Laboratorio)",
+        "teacher": "MG. FRANCI SUNI LOPEZ",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "14:50-15:40",
+        "course": "REALIDAD NACIONAL (Teoría)",
+        "teacher": "MG. CARLA TRAZO",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "15:50-16:40",
+        "course": "REALIDAD NACIONAL (Teoría)",
+        "teacher": "MG. CARLA TRAZO",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "17:40-18:30",
+        "course": "REALIDAD NACIONAL (Teoría)",
+        "teacher": "MG. CARLA TRAZO",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "09:40-10:30",
+        "course": "ESTRUCTURAS DISCRETAS II (Teoría)",
+        "teacher": "MG. FRANCI SUNI LOPEZ",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "09:40-10:30",
+        "course": "INGLES TECNICO PROFESIONAL II (Teoría)",
+        "teacher": "MG. YESICA KARIN GRANDA LAZARO",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "10:40-11:30",
+        "course": "ESTRUCTURAS DISCRETAS II (Teoría)",
+        "teacher": "MG. FRANCI SUNI LOPEZ",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "10:40-11:30",
+        "course": "INGLES TECNICO PROFESIONAL II (Teoría)",
+        "teacher": "MG. YESICA KARIN GRANDA LAZARO",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "15:50-16:40",
+        "course": "ESTRUCTURAS DISCRETAS II (Laboratorio)",
+        "teacher": "MG. FRANCI SUNI LOPEZ",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "16:40-17:30",
+        "course": "ESTRUCTURAS DISCRETAS II (Laboratorio)",
+        "teacher": "MG. FRANCI SUNI LOPEZ",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "16:40-17:30",
+        "course": "CALCULO EN UNA VARIABLE (Teoría)",
+        "teacher": "MG. ANNY FRESIA",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "17:40-18:30",
+        "course": "CALCULO EN UNA VARIABLE (Teoría)",
+        "teacher": "MG. ANNY FRESIA",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "17:40-18:30",
+        "course": "COMUNICACION INTEGRAL (Teoría)",
+        "teacher": "MG. CARLA TRAZO",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "18:30-19:20",
+        "course": "COMUNICACION INTEGRAL (Teoría)",
+        "teacher": "MG. CARLA TRAZO",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "07:50-08:40",
+        "course": "CIENCIA DE LA COMPUTACION I (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "08:50-09:40",
+        "course": "CIENCIA DE LA COMPUTACION I (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "09:40-10:30",
+        "course": "CIENCIA DE LA COMPUTACION I (Laboratorio)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "10:40-11:30",
+        "course": "CIENCIA DE LA COMPUTACION I (Laboratorio)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "18:30-19:20",
+        "course": "CALCULO EN UNA VARIABLE (Teoría)",
+        "teacher": "MG. ANNY FRESIA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "19:20-20:10",
+        "course": "CALCULO EN UNA VARIABLE (Teoría)",
+        "teacher": "MG. ANNY FRESIA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "10:40-11:30",
+        "course": "CIENCIA DE LA COMPUTACION I (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "11:30-12:20",
+        "course": "CIENCIA DE LA COMPUTACION I (Teoría)",
+        "teacher": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "16:40-17:30",
+        "course": "COMUNICACION INTEGRAL (Teoría)",
+        "teacher": "MG. CARLA TRAZO",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "17:40-18:30",
+        "course": "COMUNICACION INTEGRAL (Teoría)",
+        "teacher": "MG. CARLA TRAZO",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "07:50-08:40",
+        "course": "ESTRUCTURAS DISCRETAS II (Teoría)",
+        "teacher": "MG. FRANCI SUNI LOPEZ",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "07:50-08:40",
+        "course": "INGLES TECNICO PROFESIONAL II (Teoría)",
+        "teacher": "MG. YESICA KARIN GRANDA LAZARO",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "08:50-09:40",
+        "course": "ESTRUCTURAS DISCRETAS II (Teoría)",
+        "teacher": "MG. FRANCI SUNI LOPEZ",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "08:50-09:40",
+        "course": "INGLES TECNICO PROFESIONAL II (Teoría)",
+        "teacher": "MG. YESICA KARIN GRANDA LAZARO",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "14:50-15:40",
+        "course": "CALCULO EN UNA VARIABLE (Teoría)",
+        "teacher": "MG. ANNY FRESIA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "15:50-16:40",
+        "course": "CALCULO EN UNA VARIABLE (Teoría)",
+        "teacher": "MG. ANNY FRESIA",
+        "room": "T4",
+        "type": "THEORY"
+      }
+    ],
+    "SecondYear": [
+      {
+        "day": "LUN",
+        "timeSlot": "10:40-11:30",
+        "course": "TEORIA DE LA COMPUTACION (Teoría)",
+        "teacher": "MG. ROSA YULIANA PACCOTACYA YANQUE",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "11:30-12:20",
+        "course": "TEORIA DE LA COMPUTACION (Teoría)",
+        "teacher": "MG. ROSA YULIANA PACCOTACYA YANQUE",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "14:50-15:40",
+        "course": "ALGEBRA LINEAL NUMERICA (Teoría)",
+        "teacher": "BRAYAN ADOLFO MUJICA GUZMAN",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "15:50-16:40",
+        "course": "ALGEBRA LINEAL NUMERICA (Teoría)",
+        "teacher": "BRAYAN ADOLFO MUJICA GUZMAN",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "17:40-18:30",
+        "course": "ECOLOGIA Y CONSERVACION AMBIENTAL (Teoría)",
+        "teacher": "BENIGNO ERICK SANZ SANZ",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "18:30-19:20",
+        "course": "ALGEBRA LINEAL NUMERICA (Teoría)",
+        "teacher": "BRAYAN ADOLFO MUJICA GUZMAN",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "18:30-19:20",
+        "course": "ESTADISTICA Y PROBABILIDADES (Teoría)",
+        "teacher": "JHON FRANKY BERNEDO GONZALES",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "18:30-19:20",
+        "course": "ECOLOGIA Y CONSERVACION AMBIENTAL (Teoría)",
+        "teacher": "BENIGNO ERICK SANZ SANZ",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "19:20-20:10",
+        "course": "ALGEBRA LINEAL NUMERICA (Teoría)",
+        "teacher": "BRAYAN ADOLFO MUJICA GUZMAN",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "19:20-20:10",
+        "course": "ESTADISTICA Y PROBABILIDADES (Teoría)",
+        "teacher": "JHON FRANKY BERNEDO GONZALES",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "07:50-08:40",
+        "course": "TEORIA DE LA COMPUTACION (Laboratorio)",
+        "teacher": "MG. ROSA YULIANA PACCOTACYA YANQUE",
+        "room": "LAB2",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "07:50-08:40",
+        "course": "BASE DE DATOS I (Teoría)",
+        "teacher": "DR. EDWARD HINOJOSA CARDENAS",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "08:50-09:40",
+        "course": "TEORIA DE LA COMPUTACION (Laboratorio)",
+        "teacher": "MG. ROSA YULIANA PACCOTACYA YANQUE",
+        "room": "LAB1",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "08:50-09:40",
+        "course": "BASE DE DATOS I (Teoría)",
+        "teacher": "DR. EDWARD HINOJOSA CARDENAS",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "10:40-11:30",
+        "course": "ALGORITMOS Y ESTRUCTURAS DE DATOS (Laboratorio)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "11:30-12:20",
+        "course": "ALGORITMOS Y ESTRUCTURAS DE DATOS (Laboratorio)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "14:00-14:50",
+        "course": "ESTADISTICA Y PROBABILIDADES (Teoría)",
+        "teacher": "JHON FRANKY BERNEDO GONZALES",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "19:20-20:10",
+        "course": "ECOLOGIA Y CONSERVACION AMBIENTAL (Teoría)",
+        "teacher": "BENIGNO ERICK SANZ SANZ",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "17:40-18:30",
+        "course": "ESTADISTICA Y PROBABILIDADES (Teoría)",
+        "teacher": "JHON FRANKY BERNEDO GONZALES",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "18:30-19:20",
+        "course": "ESTADISTICA Y PROBABILIDADES (Teoría)",
+        "teacher": "JHON FRANKY BERNEDO GONZALES",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "07:50-08:40",
+        "course": "ALGORITMOS Y ESTRUCTURAS DE DATOS (Laboratorio)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "07:50-08:40",
+        "course": "TEORIA DE LA COMPUTACION (Teoría)",
+        "teacher": "MG. ROSA YULIANA PACCOTACYA YANQUE",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "08:50-09:40",
+        "course": "ALGORITMOS Y ESTRUCTURAS DE DATOS (Laboratorio)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "08:50-09:40",
+        "course": "TEORIA DE LA COMPUTACION (Teoría)",
+        "teacher": "MG. ROSA YULIANA PACCOTACYA YANQUE",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "07:50-08:40",
+        "course": "BASE DE DATOS I (Laboratorio)",
+        "teacher": "DR. EDWARD HINOJOSA CARDENAS",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "08:50-09:40",
+        "course": "BASE DE DATOS I (Laboratorio)",
+        "teacher": "DR. EDWARD HINOJOSA CARDENAS",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "10:40-11:30",
+        "course": "BASE DE DATOS I (Laboratorio)",
+        "teacher": "DR. EDWARD HINOJOSA CARDENAS",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "11:30-12:20",
+        "course": "BASE DE DATOS I (Laboratorio)",
+        "teacher": "DR. EDWARD HINOJOSA CARDENAS",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "14:50-15:40",
+        "course": "ALGORITMOS Y ESTRUCTURAS DE DATOS (Teoría)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "15:50-16:40",
+        "course": "ALGORITMOS Y ESTRUCTURAS DE DATOS (Teoría)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "15:50-16:40",
+        "course": "ALGEBRA LINEAL NUMERICA (Laboratorio)",
+        "teacher": "BRAYAN ADOLFO MUJICA GUZMAN",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "16:40-17:30",
+        "course": "ALGEBRA LINEAL NUMERICA (Laboratorio)",
+        "teacher": "BRAYAN ADOLFO MUJICA GUZMAN",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "17:40-18:30",
+        "course": "ALGORITMOS Y ESTRUCTURAS DE DATOS (Teoría)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "18:30-19:20",
+        "course": "ALGORITMOS Y ESTRUCTURAS DE DATOS (Teoría)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "T1",
+        "type": "THEORY"
+      }
+    ],
+    "ThirdYear": [
+      {
+        "day": "LUN",
+        "timeSlot": "07:50-08:40",
+        "course": "MATEMATICA APLICADA A LA COMPUTACION (Laboratorio)",
+        "teacher": "MG. ROLANDO",
+        "room": "LAB2",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "08:50-09:40",
+        "course": "SISTEMAS OPERATIVOS (Teoría)",
+        "teacher": "MG. PEDRO",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "08:50-09:40",
+        "course": "MATEMATICA APLICADA A LA COMPUTACION (Laboratorio)",
+        "teacher": "MG. ROLANDO",
+        "room": "LAB2",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "09:40-10:30",
+        "course": "SISTEMAS OPERATIVOS (Teoría)",
+        "teacher": "MG. PEDRO",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "10:40-11:30",
+        "course": "PROGRAMACION COMPETITIVA (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "11:30-12:20",
+        "course": "PROGRAMACION COMPETITIVA (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "16:40-17:30",
+        "course": "ESTRUCTURAS DE DATOS AVANZADOS (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "17:40-18:30",
+        "course": "ESTRUCTURAS DE DATOS AVANZADOS (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "07:50-08:40",
+        "course": "INGENIERIA DE SOFTWARE II (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "08:50-09:40",
+        "course": "INGENIERIA DE SOFTWARE II (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "08:50-09:40",
+        "course": "TRABAJO INTERDISCIPLINAR II (Teoría)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "09:40-10:30",
+        "course": "TRABAJO INTERDISCIPLINAR II (Teoría)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "14:50-15:40",
+        "course": "MATEMATICA APLICADA A LA COMPUTACION (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "15:50-16:40",
+        "course": "MATEMATICA APLICADA A LA COMPUTACION (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "18:30-19:20",
+        "course": "MATEMATICA APLICADA A LA COMPUTACION (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "19:20-20:10",
+        "course": "MATEMATICA APLICADA A LA COMPUTACION (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "07:50-08:40",
+        "course": "INGENIERIA DE SOFTWARE II (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "08:50-09:40",
+        "course": "INGENIERIA DE SOFTWARE II (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "10:40-11:30",
+        "course": "TRABAJO INTERDISCIPLINAR II (Teoría)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "11:30-12:20",
+        "course": "TRABAJO INTERDISCIPLINAR II (Teoría)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "14:50-15:40",
+        "course": "ESTRUCTURAS DE DATOS AVANZADOS (Laboratorio)",
+        "teacher": "MG. ROLANDO",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "15:50-16:40",
+        "course": "ESTRUCTURAS DE DATOS AVANZADOS (Laboratorio)",
+        "teacher": "MG. ROLANDO",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "16:40-17:30",
+        "course": "ESTRUCTURAS DE DATOS AVANZADOS (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "17:40-18:30",
+        "course": "ESTRUCTURAS DE DATOS AVANZADOS (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "08:50-09:40",
+        "course": "PROGRAMACION COMPETITIVA (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "09:40-10:30",
+        "course": "PROGRAMACION COMPETITIVA (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "18:30-19:20",
+        "course": "INGENIERIA DE SOFTWARE II (Laboratorio)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "LAB1",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "18:30-19:20",
+        "course": "SISTEMAS OPERATIVOS (Teoría)",
+        "teacher": "JESUS HERACLIO ZUÑIGA CUEVA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "19:20-20:10",
+        "course": "INGENIERIA DE SOFTWARE II (Laboratorio)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "19:20-20:10",
+        "course": "SISTEMAS OPERATIVOS (Teoría)",
+        "teacher": "JESUS HERACLIO ZUÑIGA CUEVA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "08:50-09:40",
+        "course": "PROGRAMACION COMPETITIVA (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "09:40-10:30",
+        "course": "PROGRAMACION COMPETITIVA (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "18:30-19:20",
+        "course": "SISTEMAS OPERATIVOS (Laboratorio)",
+        "teacher": "JESUS HERACLIO ZUÑIGA CUEVA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "19:20-20:10",
+        "course": "SISTEMAS OPERATIVOS (Laboratorio)",
+        "teacher": "JESUS HERACLIO ZUÑIGA CUEVA",
+        "room": "LAB3",
+        "type": "LAB"
+      }
+    ],
+    "FourthYear": [
+      {
+        "day": "LUN",
+        "timeSlot": "07:00-07:50",
+        "course": "INTERACCION HUMANO COMPUTADOR (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "08:50-09:40",
+        "course": "COMPUTACION PARALELA Y DISTRIBUIDA (Teoría)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "08:50-09:40",
+        "course": "TOPICOS EN INGENIERIA DE SOFTWARE (E) (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "09:40-10:30",
+        "course": "COMPUTACION PARALELA Y DISTRIBUIDA (Teoría)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "09:40-10:30",
+        "course": "TOPICOS EN INGENIERIA DE SOFTWARE (E) (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "10:40-11:30",
+        "course": "SEGURIDAD EN COMPUTACION (Teoría)",
+        "teacher": "LUCY ANGELA DELGADO BARRA",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "10:40-11:30",
+        "course": "FISICA COMPUTACIONAL (E) (Teoría)",
+        "teacher": "DANNY GIANCARLO APAZA VELIZ",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "11:30-12:20",
+        "course": "SEGURIDAD EN COMPUTACION (Teoría)",
+        "teacher": "LUCY ANGELA DELGADO BARRA",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "14:50-15:40",
+        "course": "FORMACION DE EMPRESAS DE BASE TECNOLOGICA I (Teoría)",
+        "teacher": "JESUS HERACLIO ZUÑIGA CUEVA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "15:50-16:40",
+        "course": "FORMACION DE EMPRESAS DE BASE TECNOLOGICA I (Teoría)",
+        "teacher": "JESUS HERACLIO ZUÑIGA CUEVA",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "16:40-17:30",
+        "course": "PROYECTO DE FINAL DE CARRERA I (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "16:40-17:30",
+        "course": "SEGURIDAD EN COMPUTACION (Teoría)",
+        "teacher": "LUCY ANGELA DELGADO BARRA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "17:40-18:30",
+        "course": "PROYECTO DE FINAL DE CARRERA I (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "18:30-19:20",
+        "course": "RELACIONES HUMANAS (Teoría)",
+        "teacher": "ERIKA PATRICIA LAZO ALARCON",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "19:20-20:10",
+        "course": "RELACIONES HUMANAS (Teoría)",
+        "teacher": "ERIKA PATRICIA LAZO ALARCON",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "07:50-08:40",
+        "course": "PROYECTO DE FINAL DE CARRERA I (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "08:50-09:40",
+        "course": "PROYECTO DE FINAL DE CARRERA I (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "15:50-16:40",
+        "course": "RELACIONES HUMANAS (Teoría)",
+        "teacher": "ERIKA PATRICIA LAZO ALARCON",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "18:30-19:20",
+        "course": "FISICA COMPUTACIONAL (E) (Laboratorio)",
+        "teacher": "DANNY GIANCARLO APAZA VELIZ",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "19:20-20:10",
+        "course": "FISICA COMPUTACIONAL (E) (Laboratorio)",
+        "teacher": "DANNY GIANCARLO APAZA VELIZ",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "08:50-09:40",
+        "course": "COMPUTACION PARALELA Y DISTRIBUIDA (Teoría)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "09:40-10:30",
+        "course": "INTERACCION HUMANO COMPUTADOR (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "09:40-10:30",
+        "course": "COMPUTACION PARALELA Y DISTRIBUIDA (Teoría)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "10:40-11:30",
+        "course": "INTERACCION HUMANO COMPUTADOR (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "16:40-17:30",
+        "course": "FISICA COMPUTACIONAL (E) (Teoría)",
+        "teacher": "DANNY GIANCARLO APAZA VELIZ",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "17:40-18:30",
+        "course": "FISICA COMPUTACIONAL (E) (Teoría)",
+        "teacher": "DANNY GIANCARLO APAZA VELIZ",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "09:40-10:30",
+        "course": "COMPUTACION PARALELA Y DISTRIBUIDA (Laboratorio)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "LAB2",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "10:40-11:30",
+        "course": "COMPUTACION PARALELA Y DISTRIBUIDA (Laboratorio)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "LAB2",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "10:40-11:30",
+        "course": "TOPICOS EN INGENIERIA DE SOFTWARE (E) (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "11:30-12:20",
+        "course": "TOPICOS EN INGENIERIA DE SOFTWARE (E) (Teoría)",
+        "teacher": "DR. EDGAR SARMIENTO CALISAYA",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "14:50-15:40",
+        "course": "SEGURIDAD EN COMPUTACION (Laboratorio)",
+        "teacher": "LUCY ANGELA DELGADO BARRA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "15:50-16:40",
+        "course": "SEGURIDAD EN COMPUTACION (Laboratorio)",
+        "teacher": "LUCY ANGELA DELGADO BARRA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "08:50-09:40",
+        "course": "INTERACCION HUMANO COMPUTADOR (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "09:40-10:30",
+        "course": "INTERACCION HUMANO COMPUTADOR (Teoría)",
+        "teacher": "MG. ANA MARIA CUADROS VALDIVIA",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "14:50-15:40",
+        "course": "FORMACION DE EMPRESAS DE BASE TECNOLOGICA I (Teoría)",
+        "teacher": "JESUS HERACLIO ZUÑIGA CUEVA",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "VIE",
+        "timeSlot": "15:50-16:40",
+        "course": "FORMACION DE EMPRESAS DE BASE TECNOLOGICA I (Teoría)",
+        "teacher": "JESUS HERACLIO ZUÑIGA CUEVA",
+        "room": "T3",
+        "type": "THEORY"
+      }
+    ],
+    "FifthYear": [
+      {
+        "day": "LUN",
+        "timeSlot": "07:00-07:50",
+        "course": "TRABAJO INTERDISCIPLINAR III (Teoría)",
+        "teacher": "DRA. YESSENIA DEYSI, YARI RAMOS",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "07:00-07:50",
+        "course": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "08:50-09:40",
+        "course": "PRACTICAS PRE PROFESIONALES (Teoría)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "08:50-09:40",
+        "course": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "09:40-10:30",
+        "course": "PRACTICAS PRE PROFESIONALES (Teoría)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "09:40-10:30",
+        "course": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T2",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "10:40-11:30",
+        "course": "CLOUD COMPUTING (Teoría)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "11:30-12:20",
+        "course": "CLOUD COMPUTING (Teoría)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "14:50-15:40",
+        "course": "TOPICOS EN CIBERSEGURIDAD (E) (Laboratorio)",
+        "teacher": "MG. ROLANDO",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "15:50-16:40",
+        "course": "TOPICOS EN CIBERSEGURIDAD (E) (Laboratorio)",
+        "teacher": "MG. ROLANDO",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "18:30-19:20",
+        "course": "TOPICOS EN CIBERSEGURIDAD (E) (Laboratorio)",
+        "teacher": "MG. ROLANDO",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "LUN",
+        "timeSlot": "19:20-20:10",
+        "course": "TOPICOS EN CIBERSEGURIDAD (E) (Laboratorio)",
+        "teacher": "MG. ROLANDO",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "07:50-08:40",
+        "course": "ROBOTICA (E) (Laboratorio)",
+        "teacher": "MG. PERCY",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "08:50-09:40",
+        "course": "TRABAJO INTERDISCIPLINAR III (Teoría)",
+        "teacher": "DRA. YESSENIA DEYSI, YARI RAMOS",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "08:50-09:40",
+        "course": "ROBOTICA (E) (Laboratorio)",
+        "teacher": "MG. PERCY",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "09:40-10:30",
+        "course": "TRABAJO INTERDISCIPLINAR III (Teoría)",
+        "teacher": "DRA. YESSENIA DEYSI, YARI RAMOS",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "09:40-10:30",
+        "course": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "10:40-11:30",
+        "course": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MAR",
+        "timeSlot": "11:30-12:20",
+        "course": "INTERNET DE LAS COSAS (Teoría)",
+        "teacher": "MG. PERCY",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "07:50-08:40",
+        "course": "ROBOTICA (E) (Laboratorio)",
+        "teacher": "MG. PERCY",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "07:50-08:40",
+        "course": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "08:50-09:40",
+        "course": "ROBOTICA (E) (Laboratorio)",
+        "teacher": "MG. PERCY",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "08:50-09:40",
+        "course": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "09:40-10:30",
+        "course": "INTERNET DE LAS COSAS (Teoría)",
+        "teacher": "MG. PERCY",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "10:40-11:30",
+        "course": "INTERNET DE LAS COSAS (Teoría)",
+        "teacher": "MG. PERCY",
+        "room": "T4",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "10:40-11:30",
+        "course": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "11:30-12:20",
+        "course": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+        "teacher": "DR. JUAN CARLOS GUTIERREZ CACERES",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "18:30-19:20",
+        "course": "TOPICOS EN CIBERSEGURIDAD (E) (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "MIE",
+        "timeSlot": "19:20-20:10",
+        "course": "TOPICOS EN CIBERSEGURIDAD (E) (Teoría)",
+        "teacher": "MG. ROLANDO",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "07:50-08:40",
+        "course": "ROBOTICA (E) (Teoría)",
+        "teacher": "MG. PERCY",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "08:50-09:40",
+        "course": "ROBOTICA (E) (Teoría)",
+        "teacher": "MG. PERCY",
+        "room": "T3",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "09:40-10:30",
+        "course": "CLOUD COMPUTING (Teoría)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "09:40-10:30",
+        "course": "INTERNET DE LAS COSAS (Laboratorio)",
+        "teacher": "MG. PERCY",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "09:40-10:30",
+        "course": "PRACTICAS PRE PROFESIONALES (Teoría)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "10:40-11:30",
+        "course": "CLOUD COMPUTING (Teoría)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "T5",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "10:40-11:30",
+        "course": "INTERNET DE LAS COSAS (Laboratorio)",
+        "teacher": "MG. PERCY",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "10:40-11:30",
+        "course": "PRACTICAS PRE PROFESIONALES (Teoría)",
+        "teacher": "MG. WILBER ROBERTO RAMOS LOVON",
+        "room": "T1",
+        "type": "THEORY"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "17:40-18:30",
+        "course": "CLOUD COMPUTING (Laboratorio)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "LAB3",
+        "type": "LAB"
+      },
+      {
+        "day": "JUE",
+        "timeSlot": "18:30-19:20",
+        "course": "CLOUD COMPUTING (Laboratorio)",
+        "teacher": "DR. ALVARO HENRY MAMANI ALIAGA",
+        "room": "LAB3",
+        "type": "LAB"
+      }
+    ]
+  },
+  "params": {
+    "population": 100,
+    "generations": 100000,
+    "tournament": 3,
+    "crossover": 0.8,
+    "mutationRate": 0.2,
+    "semester": "B"
+  },
+  "infrastructure": {
+    "classrooms": [
+      {
+        "id": "c1",
+        "name": "Salón 101",
+        "capacity": 40
+      },
+      {
+        "id": "c2",
+        "name": "Salón 102",
+        "capacity": 35
+      }
+    ],
+    "labs": [
+      {
+        "id": "l1",
+        "name": "Lab de Cómputo A",
+        "capacity": 25
+      }
+    ]
+  },
+  "timestamp": "2026-01-05T16:29:07.336Z"
+}
