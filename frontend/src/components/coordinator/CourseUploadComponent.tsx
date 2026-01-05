@@ -20,7 +20,7 @@ export const CourseUploadComponent: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
   const [result, setResult] = useState<UploadResult | null>(null);
-  const [previewMode, setPreviewMode] = useState(false);
+
   const [currentStatus, setCurrentStatus] = useState<any>(null);
 
   // Cargar estado actual al montar el componente

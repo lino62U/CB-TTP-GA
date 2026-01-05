@@ -19,7 +19,7 @@ async function main() {
   // 0️⃣ Leer JSON
   // -------------------------
   console.log("📂 Leyendo archivo de datos...");
-  const filePath = path.join(__dirname, "data__.json");
+  const filePath = path.join(__dirname, "data.json");
   const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
   
   console.log(`✅ Datos cargados: ${data.periodos.length} períodos, ${Object.keys(data.profesores).length} profesores`);
