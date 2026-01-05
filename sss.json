@@ -1,0 +1,3055 @@
+{
+    "metadata": {
+        "university_name": "Universidad Nacional de San Agustín de Arequipa",
+        "school_name": "Ciencia de la Computación",
+        "semester_code": "2025-I",
+        "curriculum_name": "B",
+        "block_duration_min": 50,
+        "day_start_time": "1970-01-01T07:00:00.000Z",
+        "day_end_time": "1970-01-01T21:10:00.000Z"
+    },
+    "schedules_by_year": {
+        "FirstYear": {
+            "curriculum_name": "FirstYear-SecondSemester",
+            "schedule": [
+                {
+                    "course_code": "1701209",
+                    "course_name": "CIENCIA DE LA COMPUTACION I (Teoría)",
+                    "year": 1,
+                    "day_of_week": "LUN",
+                    "start_time": "07:00",
+                    "end_time": "07:50",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 6,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 6,
+                        "name": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+                        "email": "eliana@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701208",
+                    "course_name": "ESTRUCTURAS DISCRETAS II (Teoría)",
+                    "year": 1,
+                    "day_of_week": "LUN",
+                    "start_time": "07:50",
+                    "end_time": "08:40",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 7,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 7,
+                        "name": "MG. FRANCI SUNI LOPEZ",
+                        "email": "franci@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701208",
+                    "course_name": "ESTRUCTURAS DISCRETAS II (Teoría)",
+                    "year": 1,
+                    "day_of_week": "LUN",
+                    "start_time": "08:50",
+                    "end_time": "09:40",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 7,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 7,
+                        "name": "MG. FRANCI SUNI LOPEZ",
+                        "email": "franci@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701209",
+                    "course_name": "CIENCIA DE LA COMPUTACION I (Laboratorio)",
+                    "year": 1,
+                    "day_of_week": "LUN",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "LAB2",
+                    "classroom_type": "LAB",
+                    "professor_id": 6,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 6,
+                        "name": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+                        "email": "eliana@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701212",
+                    "course_name": "INGLES TECNICO PROFESIONAL II (Teoría)",
+                    "year": 1,
+                    "day_of_week": "LUN",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 16,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 16,
+                        "name": "MG. YESICA KARIN GRANDA LAZARO",
+                        "email": "yesica@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701209",
+                    "course_name": "CIENCIA DE LA COMPUTACION I (Laboratorio)",
+                    "year": 1,
+                    "day_of_week": "LUN",
+                    "start_time": "19:20",
+                    "end_time": "20:10",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 6,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 6,
+                        "name": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+                        "email": "eliana@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701208",
+                    "course_name": "ESTRUCTURAS DISCRETAS II (Teoría)",
+                    "year": 1,
+                    "day_of_week": "MAR",
+                    "start_time": "07:50",
+                    "end_time": "08:40",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 7,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 7,
+                        "name": "MG. FRANCI SUNI LOPEZ",
+                        "email": "franci@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701212",
+                    "course_name": "INGLES TECNICO PROFESIONAL II (Teoría)",
+                    "year": 1,
+                    "day_of_week": "MAR",
+                    "start_time": "07:50",
+                    "end_time": "08:40",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 16,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 16,
+                        "name": "MG. YESICA KARIN GRANDA LAZARO",
+                        "email": "yesica@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701209",
+                    "course_name": "CIENCIA DE LA COMPUTACION I (Laboratorio)",
+                    "year": 1,
+                    "day_of_week": "MAR",
+                    "start_time": "08:50",
+                    "end_time": "09:40",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 6,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 6,
+                        "name": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+                        "email": "eliana@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701212",
+                    "course_name": "INGLES TECNICO PROFESIONAL II (Teoría)",
+                    "year": 1,
+                    "day_of_week": "MAR",
+                    "start_time": "09:40",
+                    "end_time": "10:30",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 16,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 16,
+                        "name": "MG. YESICA KARIN GRANDA LAZARO",
+                        "email": "yesica@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701212",
+                    "course_name": "INGLES TECNICO PROFESIONAL II (Teoría)",
+                    "year": 1,
+                    "day_of_week": "MAR",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 16,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 16,
+                        "name": "MG. YESICA KARIN GRANDA LAZARO",
+                        "email": "yesica@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701208",
+                    "course_name": "ESTRUCTURAS DISCRETAS II (Laboratorio)",
+                    "year": 1,
+                    "day_of_week": "MAR",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 7,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 7,
+                        "name": "MG. FRANCI SUNI LOPEZ",
+                        "email": "franci@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701208",
+                    "course_name": "ESTRUCTURAS DISCRETAS II (Laboratorio)",
+                    "year": 1,
+                    "day_of_week": "MAR",
+                    "start_time": "16:40",
+                    "end_time": "17:30",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 7,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 7,
+                        "name": "MG. FRANCI SUNI LOPEZ",
+                        "email": "franci@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701210",
+                    "course_name": "CALCULO EN UNA VARIABLE (Teoría)",
+                    "year": 1,
+                    "day_of_week": "MAR",
+                    "start_time": "17:40",
+                    "end_time": "18:30",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 26,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 26,
+                        "name": "MG. ANNY FRESIA",
+                        "email": "anny@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701210",
+                    "course_name": "CALCULO EN UNA VARIABLE (Teoría)",
+                    "year": 1,
+                    "day_of_week": "MAR",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 26,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 26,
+                        "name": "MG. ANNY FRESIA",
+                        "email": "anny@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701216",
+                    "course_name": "REALIDAD NACIONAL (Teoría)",
+                    "year": 1,
+                    "day_of_week": "MAR",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 25,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 25,
+                        "name": "MG. CARLA TRAZO",
+                        "email": "carla@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701210",
+                    "course_name": "CALCULO EN UNA VARIABLE (Teoría)",
+                    "year": 1,
+                    "day_of_week": "MIE",
+                    "start_time": "07:50",
+                    "end_time": "08:40",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 26,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 26,
+                        "name": "MG. ANNY FRESIA",
+                        "email": "anny@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701209",
+                    "course_name": "CIENCIA DE LA COMPUTACION I (Teoría)",
+                    "year": 1,
+                    "day_of_week": "MIE",
+                    "start_time": "09:40",
+                    "end_time": "10:30",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 6,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 6,
+                        "name": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+                        "email": "eliana@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701209",
+                    "course_name": "CIENCIA DE LA COMPUTACION I (Teoría)",
+                    "year": 1,
+                    "day_of_week": "MIE",
+                    "start_time": "09:40",
+                    "end_time": "10:30",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 6,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 6,
+                        "name": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+                        "email": "eliana@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701216",
+                    "course_name": "REALIDAD NACIONAL (Teoría)",
+                    "year": 1,
+                    "day_of_week": "MIE",
+                    "start_time": "14:00",
+                    "end_time": "14:50",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 25,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 25,
+                        "name": "MG. CARLA TRAZO",
+                        "email": "carla@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701208",
+                    "course_name": "ESTRUCTURAS DISCRETAS II (Teoría)",
+                    "year": 1,
+                    "day_of_week": "MIE",
+                    "start_time": "14:50",
+                    "end_time": "15:40",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 7,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 7,
+                        "name": "MG. FRANCI SUNI LOPEZ",
+                        "email": "franci@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701210",
+                    "course_name": "CALCULO EN UNA VARIABLE (Teoría)",
+                    "year": 1,
+                    "day_of_week": "MIE",
+                    "start_time": "16:40",
+                    "end_time": "17:30",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 26,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 26,
+                        "name": "MG. ANNY FRESIA",
+                        "email": "anny@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701210",
+                    "course_name": "CALCULO EN UNA VARIABLE (Teoría)",
+                    "year": 1,
+                    "day_of_week": "MIE",
+                    "start_time": "17:40",
+                    "end_time": "18:30",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 26,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 26,
+                        "name": "MG. ANNY FRESIA",
+                        "email": "anny@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701209",
+                    "course_name": "CIENCIA DE LA COMPUTACION I (Teoría)",
+                    "year": 1,
+                    "day_of_week": "MIE",
+                    "start_time": "19:20",
+                    "end_time": "20:10",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 6,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 6,
+                        "name": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+                        "email": "eliana@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701215",
+                    "course_name": "COMUNICACION INTEGRAL (Teoría)",
+                    "year": 1,
+                    "day_of_week": "JUE",
+                    "start_time": "14:00",
+                    "end_time": "14:50",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 25,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 25,
+                        "name": "MG. CARLA TRAZO",
+                        "email": "carla@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701215",
+                    "course_name": "COMUNICACION INTEGRAL (Teoría)",
+                    "year": 1,
+                    "day_of_week": "JUE",
+                    "start_time": "14:50",
+                    "end_time": "15:40",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 25,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 25,
+                        "name": "MG. CARLA TRAZO",
+                        "email": "carla@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701215",
+                    "course_name": "COMUNICACION INTEGRAL (Teoría)",
+                    "year": 1,
+                    "day_of_week": "JUE",
+                    "start_time": "16:40",
+                    "end_time": "17:30",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 25,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 25,
+                        "name": "MG. CARLA TRAZO",
+                        "email": "carla@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701215",
+                    "course_name": "COMUNICACION INTEGRAL (Teoría)",
+                    "year": 1,
+                    "day_of_week": "JUE",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 25,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 25,
+                        "name": "MG. CARLA TRAZO",
+                        "email": "carla@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701208",
+                    "course_name": "ESTRUCTURAS DISCRETAS II (Laboratorio)",
+                    "year": 1,
+                    "day_of_week": "JUE",
+                    "start_time": "19:20",
+                    "end_time": "20:10",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 7,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 7,
+                        "name": "MG. FRANCI SUNI LOPEZ",
+                        "email": "franci@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701216",
+                    "course_name": "REALIDAD NACIONAL (Teoría)",
+                    "year": 1,
+                    "day_of_week": "JUE",
+                    "start_time": "19:20",
+                    "end_time": "20:10",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 25,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 25,
+                        "name": "MG. CARLA TRAZO",
+                        "email": "carla@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701210",
+                    "course_name": "CALCULO EN UNA VARIABLE (Teoría)",
+                    "year": 1,
+                    "day_of_week": "VIE",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 26,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 26,
+                        "name": "MG. ANNY FRESIA",
+                        "email": "anny@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701208",
+                    "course_name": "ESTRUCTURAS DISCRETAS II (Laboratorio)",
+                    "year": 1,
+                    "day_of_week": "VIE",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 7,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 7,
+                        "name": "MG. FRANCI SUNI LOPEZ",
+                        "email": "franci@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1701209",
+                    "course_name": "CIENCIA DE LA COMPUTACION I (Laboratorio)",
+                    "year": 1,
+                    "day_of_week": "VIE",
+                    "start_time": "14:00",
+                    "end_time": "14:50",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 6,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 6,
+                        "name": "MG. ELIANA MARIA ADRIAZOLA HERRERA",
+                        "email": "eliana@unsa.edu.pe"
+                    }
+                }
+            ],
+            "statistics": {
+                "total_courses": 6,
+                "total_sessions": 33
+            }
+        },
+        "SecondYear": {
+            "curriculum_name": "SecondYear-SecondSemester",
+            "schedule": [
+                {
+                    "course_code": "1702224",
+                    "course_name": "ALGORITMOS Y ESTRUCTURAS DE DATOS (Teoría)",
+                    "year": 2,
+                    "day_of_week": "LUN",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702226",
+                    "course_name": "BASE DE DATOS I (Laboratorio)",
+                    "year": 2,
+                    "day_of_week": "LUN",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "LAB1",
+                    "classroom_type": "LAB",
+                    "professor_id": 5,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 5,
+                        "name": "DR. EDWARD HINOJOSA CARDENAS",
+                        "email": "edward@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702224",
+                    "course_name": "ALGORITMOS Y ESTRUCTURAS DE DATOS (Teoría)",
+                    "year": 2,
+                    "day_of_week": "LUN",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702228",
+                    "course_name": "ESTADISTICA Y PROBABILIDADES (Teoría)",
+                    "year": 2,
+                    "day_of_week": "LUN",
+                    "start_time": "14:00",
+                    "end_time": "14:50",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 23,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 23,
+                        "name": "JHON FRANKY BERNEDO GONZALES",
+                        "email": "franky@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702229",
+                    "course_name": "ECOLOGIA Y CONSERVACION AMBIENTAL (Teoría)",
+                    "year": 2,
+                    "day_of_week": "LUN",
+                    "start_time": "14:00",
+                    "end_time": "14:50",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 24,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 24,
+                        "name": "BENIGNO ERICK SANZ SANZ",
+                        "email": "erick@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702227",
+                    "course_name": "ALGEBRA LINEAL NUMERICA (Teoría)",
+                    "year": 2,
+                    "day_of_week": "LUN",
+                    "start_time": "15:50",
+                    "end_time": "16:40",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 22,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 22,
+                        "name": "BRAYAN ADOLFO MUJICA GUZMAN",
+                        "email": "adolfo@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702224",
+                    "course_name": "ALGORITMOS Y ESTRUCTURAS DE DATOS (Teoría)",
+                    "year": 2,
+                    "day_of_week": "MAR",
+                    "start_time": "07:50",
+                    "end_time": "08:40",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702226",
+                    "course_name": "BASE DE DATOS I (Laboratorio)",
+                    "year": 2,
+                    "day_of_week": "MAR",
+                    "start_time": "08:50",
+                    "end_time": "09:40",
+                    "classroom_code": "LAB1",
+                    "classroom_type": "LAB",
+                    "professor_id": 5,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 5,
+                        "name": "DR. EDWARD HINOJOSA CARDENAS",
+                        "email": "edward@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702226",
+                    "course_name": "BASE DE DATOS I (Laboratorio)",
+                    "year": 2,
+                    "day_of_week": "MAR",
+                    "start_time": "09:40",
+                    "end_time": "10:30",
+                    "classroom_code": "LAB1",
+                    "classroom_type": "LAB",
+                    "professor_id": 5,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 5,
+                        "name": "DR. EDWARD HINOJOSA CARDENAS",
+                        "email": "edward@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702225",
+                    "course_name": "TEORIA DE LA COMPUTACION (Teoría)",
+                    "year": 2,
+                    "day_of_week": "MAR",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 14,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 14,
+                        "name": "MG. ROSA YULIANA PACCOTACYA YANQUE",
+                        "email": "rosa@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702227",
+                    "course_name": "ALGEBRA LINEAL NUMERICA (Teoría)",
+                    "year": 2,
+                    "day_of_week": "MAR",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 22,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 22,
+                        "name": "BRAYAN ADOLFO MUJICA GUZMAN",
+                        "email": "adolfo@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702225",
+                    "course_name": "TEORIA DE LA COMPUTACION (Teoría)",
+                    "year": 2,
+                    "day_of_week": "MAR",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 14,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 14,
+                        "name": "MG. ROSA YULIANA PACCOTACYA YANQUE",
+                        "email": "rosa@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702228",
+                    "course_name": "ESTADISTICA Y PROBABILIDADES (Teoría)",
+                    "year": 2,
+                    "day_of_week": "MAR",
+                    "start_time": "14:50",
+                    "end_time": "15:40",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 23,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 23,
+                        "name": "JHON FRANKY BERNEDO GONZALES",
+                        "email": "franky@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702227",
+                    "course_name": "ALGEBRA LINEAL NUMERICA (Teoría)",
+                    "year": 2,
+                    "day_of_week": "MAR",
+                    "start_time": "17:40",
+                    "end_time": "18:30",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 22,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 22,
+                        "name": "BRAYAN ADOLFO MUJICA GUZMAN",
+                        "email": "adolfo@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702228",
+                    "course_name": "ESTADISTICA Y PROBABILIDADES (Teoría)",
+                    "year": 2,
+                    "day_of_week": "MAR",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 23,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 23,
+                        "name": "JHON FRANKY BERNEDO GONZALES",
+                        "email": "franky@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702228",
+                    "course_name": "ESTADISTICA Y PROBABILIDADES (Teoría)",
+                    "year": 2,
+                    "day_of_week": "MAR",
+                    "start_time": "19:20",
+                    "end_time": "20:10",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 23,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 23,
+                        "name": "JHON FRANKY BERNEDO GONZALES",
+                        "email": "franky@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702224",
+                    "course_name": "ALGORITMOS Y ESTRUCTURAS DE DATOS (Teoría)",
+                    "year": 2,
+                    "day_of_week": "MIE",
+                    "start_time": "07:50",
+                    "end_time": "08:40",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702225",
+                    "course_name": "TEORIA DE LA COMPUTACION (Teoría)",
+                    "year": 2,
+                    "day_of_week": "MIE",
+                    "start_time": "15:50",
+                    "end_time": "16:40",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 14,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 14,
+                        "name": "MG. ROSA YULIANA PACCOTACYA YANQUE",
+                        "email": "rosa@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702228",
+                    "course_name": "ESTADISTICA Y PROBABILIDADES (Teoría)",
+                    "year": 2,
+                    "day_of_week": "MIE",
+                    "start_time": "17:40",
+                    "end_time": "18:30",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 23,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 23,
+                        "name": "JHON FRANKY BERNEDO GONZALES",
+                        "email": "franky@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702224",
+                    "course_name": "ALGORITMOS Y ESTRUCTURAS DE DATOS (Laboratorio)",
+                    "year": 2,
+                    "day_of_week": "JUE",
+                    "start_time": "07:00",
+                    "end_time": "07:50",
+                    "classroom_code": "LAB1",
+                    "classroom_type": "LAB",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702225",
+                    "course_name": "TEORIA DE LA COMPUTACION (Laboratorio)",
+                    "year": 2,
+                    "day_of_week": "JUE",
+                    "start_time": "07:50",
+                    "end_time": "08:40",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 14,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 14,
+                        "name": "MG. ROSA YULIANA PACCOTACYA YANQUE",
+                        "email": "rosa@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702225",
+                    "course_name": "TEORIA DE LA COMPUTACION (Laboratorio)",
+                    "year": 2,
+                    "day_of_week": "JUE",
+                    "start_time": "08:50",
+                    "end_time": "09:40",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 14,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 14,
+                        "name": "MG. ROSA YULIANA PACCOTACYA YANQUE",
+                        "email": "rosa@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702227",
+                    "course_name": "ALGEBRA LINEAL NUMERICA (Laboratorio)",
+                    "year": 2,
+                    "day_of_week": "JUE",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "LAB2",
+                    "classroom_type": "LAB",
+                    "professor_id": 22,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 22,
+                        "name": "BRAYAN ADOLFO MUJICA GUZMAN",
+                        "email": "adolfo@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702226",
+                    "course_name": "BASE DE DATOS I (Teoría)",
+                    "year": 2,
+                    "day_of_week": "JUE",
+                    "start_time": "16:40",
+                    "end_time": "17:30",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 5,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 5,
+                        "name": "DR. EDWARD HINOJOSA CARDENAS",
+                        "email": "edward@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702226",
+                    "course_name": "BASE DE DATOS I (Teoría)",
+                    "year": 2,
+                    "day_of_week": "JUE",
+                    "start_time": "17:40",
+                    "end_time": "18:30",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 5,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 5,
+                        "name": "DR. EDWARD HINOJOSA CARDENAS",
+                        "email": "edward@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702229",
+                    "course_name": "ECOLOGIA Y CONSERVACION AMBIENTAL (Teoría)",
+                    "year": 2,
+                    "day_of_week": "JUE",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 24,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 24,
+                        "name": "BENIGNO ERICK SANZ SANZ",
+                        "email": "erick@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702224",
+                    "course_name": "ALGORITMOS Y ESTRUCTURAS DE DATOS (Laboratorio)",
+                    "year": 2,
+                    "day_of_week": "VIE",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "LAB1",
+                    "classroom_type": "LAB",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702224",
+                    "course_name": "ALGORITMOS Y ESTRUCTURAS DE DATOS (Laboratorio)",
+                    "year": 2,
+                    "day_of_week": "VIE",
+                    "start_time": "14:00",
+                    "end_time": "14:50",
+                    "classroom_code": "LAB1",
+                    "classroom_type": "LAB",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702229",
+                    "course_name": "ECOLOGIA Y CONSERVACION AMBIENTAL (Teoría)",
+                    "year": 2,
+                    "day_of_week": "VIE",
+                    "start_time": "15:50",
+                    "end_time": "16:40",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 24,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 24,
+                        "name": "BENIGNO ERICK SANZ SANZ",
+                        "email": "erick@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702226",
+                    "course_name": "BASE DE DATOS I (Laboratorio)",
+                    "year": 2,
+                    "day_of_week": "VIE",
+                    "start_time": "16:40",
+                    "end_time": "17:30",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 5,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 5,
+                        "name": "DR. EDWARD HINOJOSA CARDENAS",
+                        "email": "edward@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702227",
+                    "course_name": "ALGEBRA LINEAL NUMERICA (Teoría)",
+                    "year": 2,
+                    "day_of_week": "VIE",
+                    "start_time": "16:40",
+                    "end_time": "17:30",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 22,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 22,
+                        "name": "BRAYAN ADOLFO MUJICA GUZMAN",
+                        "email": "adolfo@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702224",
+                    "course_name": "ALGORITMOS Y ESTRUCTURAS DE DATOS (Laboratorio)",
+                    "year": 2,
+                    "day_of_week": "VIE",
+                    "start_time": "17:40",
+                    "end_time": "18:30",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702225",
+                    "course_name": "TEORIA DE LA COMPUTACION (Teoría)",
+                    "year": 2,
+                    "day_of_week": "VIE",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 14,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 14,
+                        "name": "MG. ROSA YULIANA PACCOTACYA YANQUE",
+                        "email": "rosa@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1702227",
+                    "course_name": "ALGEBRA LINEAL NUMERICA (Laboratorio)",
+                    "year": 2,
+                    "day_of_week": "VIE",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 22,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 22,
+                        "name": "BRAYAN ADOLFO MUJICA GUZMAN",
+                        "email": "adolfo@unsa.edu.pe"
+                    }
+                }
+            ],
+            "statistics": {
+                "total_courses": 6,
+                "total_sessions": 34
+            }
+        },
+        "ThirdYear": {
+            "curriculum_name": "ThirdYear-SecondSemester",
+            "schedule": [
+                {
+                    "course_code": "1703236",
+                    "course_name": "PROGRAMACION COMPETITIVA (Teoría)",
+                    "year": 3,
+                    "day_of_week": "LUN",
+                    "start_time": "09:40",
+                    "end_time": "10:30",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703240",
+                    "course_name": "TRABAJO INTERDISCIPLINAR II (Teoría)",
+                    "year": 3,
+                    "day_of_week": "LUN",
+                    "start_time": "09:40",
+                    "end_time": "10:30",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703237",
+                    "course_name": "INGENIERIA DE SOFTWARE II (Teoría)",
+                    "year": 3,
+                    "day_of_week": "LUN",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 12,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 12,
+                        "name": "DR. EDGAR SARMIENTO CALISAYA",
+                        "email": "edgar@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703236",
+                    "course_name": "PROGRAMACION COMPETITIVA (Teoría)",
+                    "year": 3,
+                    "day_of_week": "LUN",
+                    "start_time": "14:00",
+                    "end_time": "14:50",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703238",
+                    "course_name": "ESTRUCTURAS DE DATOS AVANZADOS (Laboratorio)",
+                    "year": 3,
+                    "day_of_week": "LUN",
+                    "start_time": "15:50",
+                    "end_time": "16:40",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703239",
+                    "course_name": "SISTEMAS OPERATIVOS (Teoría)",
+                    "year": 3,
+                    "day_of_week": "LUN",
+                    "start_time": "15:50",
+                    "end_time": "16:40",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 19,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 19,
+                        "name": "JESUS HERACLIO ZUÑIGA CUEVA",
+                        "email": "heraclio@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703237",
+                    "course_name": "INGENIERIA DE SOFTWARE II (Teoría)",
+                    "year": 3,
+                    "day_of_week": "LUN",
+                    "start_time": "19:20",
+                    "end_time": "20:10",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 12,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 12,
+                        "name": "DR. EDGAR SARMIENTO CALISAYA",
+                        "email": "edgar@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703241",
+                    "course_name": "MATEMATICA APLICADA A LA COMPUTACION (Laboratorio)",
+                    "year": 3,
+                    "day_of_week": "LUN",
+                    "start_time": "19:20",
+                    "end_time": "20:10",
+                    "classroom_code": "LAB1",
+                    "classroom_type": "LAB",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703237",
+                    "course_name": "INGENIERIA DE SOFTWARE II (Teoría)",
+                    "year": 3,
+                    "day_of_week": "MAR",
+                    "start_time": "07:00",
+                    "end_time": "07:50",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 12,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 12,
+                        "name": "DR. EDGAR SARMIENTO CALISAYA",
+                        "email": "edgar@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703240",
+                    "course_name": "TRABAJO INTERDISCIPLINAR II (Teoría)",
+                    "year": 3,
+                    "day_of_week": "MAR",
+                    "start_time": "08:50",
+                    "end_time": "09:40",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703241",
+                    "course_name": "MATEMATICA APLICADA A LA COMPUTACION (Teoría)",
+                    "year": 3,
+                    "day_of_week": "MAR",
+                    "start_time": "14:00",
+                    "end_time": "14:50",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703241",
+                    "course_name": "MATEMATICA APLICADA A LA COMPUTACION (Teoría)",
+                    "year": 3,
+                    "day_of_week": "MAR",
+                    "start_time": "15:50",
+                    "end_time": "16:40",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703240",
+                    "course_name": "TRABAJO INTERDISCIPLINAR II (Teoría)",
+                    "year": 3,
+                    "day_of_week": "MAR",
+                    "start_time": "16:40",
+                    "end_time": "17:30",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703239",
+                    "course_name": "SISTEMAS OPERATIVOS (Teoría)",
+                    "year": 3,
+                    "day_of_week": "MAR",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 19,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 19,
+                        "name": "JESUS HERACLIO ZUÑIGA CUEVA",
+                        "email": "heraclio@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703240",
+                    "course_name": "TRABAJO INTERDISCIPLINAR II (Teoría)",
+                    "year": 3,
+                    "day_of_week": "MIE",
+                    "start_time": "07:00",
+                    "end_time": "07:50",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703239",
+                    "course_name": "SISTEMAS OPERATIVOS (Laboratorio)",
+                    "year": 3,
+                    "day_of_week": "MIE",
+                    "start_time": "07:50",
+                    "end_time": "08:40",
+                    "classroom_code": "LAB2",
+                    "classroom_type": "LAB",
+                    "professor_id": 17,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 17,
+                        "name": "MG. PEDRO",
+                        "email": "pedro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703236",
+                    "course_name": "PROGRAMACION COMPETITIVA (Teoría)",
+                    "year": 3,
+                    "day_of_week": "MIE",
+                    "start_time": "08:50",
+                    "end_time": "09:40",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703236",
+                    "course_name": "PROGRAMACION COMPETITIVA (Teoría)",
+                    "year": 3,
+                    "day_of_week": "MIE",
+                    "start_time": "09:40",
+                    "end_time": "10:30",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703239",
+                    "course_name": "SISTEMAS OPERATIVOS (Teoría)",
+                    "year": 3,
+                    "day_of_week": "MIE",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 19,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 19,
+                        "name": "JESUS HERACLIO ZUÑIGA CUEVA",
+                        "email": "heraclio@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703238",
+                    "course_name": "ESTRUCTURAS DE DATOS AVANZADOS (Teoría)",
+                    "year": 3,
+                    "day_of_week": "MIE",
+                    "start_time": "15:50",
+                    "end_time": "16:40",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703238",
+                    "course_name": "ESTRUCTURAS DE DATOS AVANZADOS (Teoría)",
+                    "year": 3,
+                    "day_of_week": "MIE",
+                    "start_time": "16:40",
+                    "end_time": "17:30",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703238",
+                    "course_name": "ESTRUCTURAS DE DATOS AVANZADOS (Teoría)",
+                    "year": 3,
+                    "day_of_week": "MIE",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703241",
+                    "course_name": "MATEMATICA APLICADA A LA COMPUTACION (Teoría)",
+                    "year": 3,
+                    "day_of_week": "MIE",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703236",
+                    "course_name": "PROGRAMACION COMPETITIVA (Teoría)",
+                    "year": 3,
+                    "day_of_week": "MIE",
+                    "start_time": "19:20",
+                    "end_time": "20:10",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703238",
+                    "course_name": "ESTRUCTURAS DE DATOS AVANZADOS (Teoría)",
+                    "year": 3,
+                    "day_of_week": "MIE",
+                    "start_time": "19:20",
+                    "end_time": "20:10",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703238",
+                    "course_name": "ESTRUCTURAS DE DATOS AVANZADOS (Laboratorio)",
+                    "year": 3,
+                    "day_of_week": "JUE",
+                    "start_time": "09:40",
+                    "end_time": "10:30",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703237",
+                    "course_name": "INGENIERIA DE SOFTWARE II (Laboratorio)",
+                    "year": 3,
+                    "day_of_week": "JUE",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "LAB1",
+                    "classroom_type": "LAB",
+                    "professor_id": 12,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 12,
+                        "name": "DR. EDGAR SARMIENTO CALISAYA",
+                        "email": "edgar@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703237",
+                    "course_name": "INGENIERIA DE SOFTWARE II (Laboratorio)",
+                    "year": 3,
+                    "day_of_week": "JUE",
+                    "start_time": "15:50",
+                    "end_time": "16:40",
+                    "classroom_code": "LAB2",
+                    "classroom_type": "LAB",
+                    "professor_id": 12,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 12,
+                        "name": "DR. EDGAR SARMIENTO CALISAYA",
+                        "email": "edgar@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703241",
+                    "course_name": "MATEMATICA APLICADA A LA COMPUTACION (Teoría)",
+                    "year": 3,
+                    "day_of_week": "JUE",
+                    "start_time": "15:50",
+                    "end_time": "16:40",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703236",
+                    "course_name": "PROGRAMACION COMPETITIVA (Teoría)",
+                    "year": 3,
+                    "day_of_week": "JUE",
+                    "start_time": "19:20",
+                    "end_time": "20:10",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703241",
+                    "course_name": "MATEMATICA APLICADA A LA COMPUTACION (Laboratorio)",
+                    "year": 3,
+                    "day_of_week": "VIE",
+                    "start_time": "07:50",
+                    "end_time": "08:40",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703239",
+                    "course_name": "SISTEMAS OPERATIVOS (Laboratorio)",
+                    "year": 3,
+                    "day_of_week": "VIE",
+                    "start_time": "08:50",
+                    "end_time": "09:40",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 17,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 17,
+                        "name": "MG. PEDRO",
+                        "email": "pedro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703237",
+                    "course_name": "INGENIERIA DE SOFTWARE II (Teoría)",
+                    "year": 3,
+                    "day_of_week": "VIE",
+                    "start_time": "17:40",
+                    "end_time": "18:30",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 12,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 12,
+                        "name": "DR. EDGAR SARMIENTO CALISAYA",
+                        "email": "edgar@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1703239",
+                    "course_name": "SISTEMAS OPERATIVOS (Teoría)",
+                    "year": 3,
+                    "day_of_week": "VIE",
+                    "start_time": "19:20",
+                    "end_time": "20:10",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 19,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 19,
+                        "name": "JESUS HERACLIO ZUÑIGA CUEVA",
+                        "email": "heraclio@unsa.edu.pe"
+                    }
+                }
+            ],
+            "statistics": {
+                "total_courses": 6,
+                "total_sessions": 34
+            }
+        },
+        "FourthYear": {
+            "curriculum_name": "FourthYear-SecondSemester",
+            "schedule": [
+                {
+                    "course_code": "1704249",
+                    "course_name": "PROYECTO DE FINAL DE CARRERA I (Teoría)",
+                    "year": 4,
+                    "day_of_week": "LUN",
+                    "start_time": "08:50",
+                    "end_time": "09:40",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704254",
+                    "course_name": "FISICA COMPUTACIONAL (E) (Laboratorio)",
+                    "year": 4,
+                    "day_of_week": "LUN",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "LAB2",
+                    "classroom_type": "LAB",
+                    "professor_id": 21,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 21,
+                        "name": "DANNY GIANCARLO APAZA VELIZ",
+                        "email": "giancarlo@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704250",
+                    "course_name": "COMPUTACION PARALELA Y DISTRIBUIDA (Teoría)",
+                    "year": 4,
+                    "day_of_week": "LUN",
+                    "start_time": "14:00",
+                    "end_time": "14:50",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704251",
+                    "course_name": "SEGURIDAD EN COMPUTACION (Teoría)",
+                    "year": 4,
+                    "day_of_week": "LUN",
+                    "start_time": "14:00",
+                    "end_time": "14:50",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 18,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 18,
+                        "name": "LUCY ANGELA DELGADO BARRA",
+                        "email": "angela@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704249",
+                    "course_name": "PROYECTO DE FINAL DE CARRERA I (Teoría)",
+                    "year": 4,
+                    "day_of_week": "LUN",
+                    "start_time": "15:50",
+                    "end_time": "16:40",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704253",
+                    "course_name": "RELACIONES HUMANAS (Teoría)",
+                    "year": 4,
+                    "day_of_week": "LUN",
+                    "start_time": "15:50",
+                    "end_time": "16:40",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 20,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 20,
+                        "name": "ERIKA PATRICIA LAZO ALARCON",
+                        "email": "patricia@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704248",
+                    "course_name": "INTERACCION HUMANO COMPUTADOR (Teoría)",
+                    "year": 4,
+                    "day_of_week": "MAR",
+                    "start_time": "07:00",
+                    "end_time": "07:50",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 3,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 3,
+                        "name": "MG. ANA MARIA CUADROS VALDIVIA",
+                        "email": "ana@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704250",
+                    "course_name": "COMPUTACION PARALELA Y DISTRIBUIDA (Laboratorio)",
+                    "year": 4,
+                    "day_of_week": "MAR",
+                    "start_time": "07:00",
+                    "end_time": "07:50",
+                    "classroom_code": "LAB2",
+                    "classroom_type": "LAB",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704248",
+                    "course_name": "INTERACCION HUMANO COMPUTADOR (Teoría)",
+                    "year": 4,
+                    "day_of_week": "MAR",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 3,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 3,
+                        "name": "MG. ANA MARIA CUADROS VALDIVIA",
+                        "email": "ana@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704251",
+                    "course_name": "SEGURIDAD EN COMPUTACION (Laboratorio)",
+                    "year": 4,
+                    "day_of_week": "MAR",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 18,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 18,
+                        "name": "LUCY ANGELA DELGADO BARRA",
+                        "email": "angela@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704250",
+                    "course_name": "COMPUTACION PARALELA Y DISTRIBUIDA (Teoría)",
+                    "year": 4,
+                    "day_of_week": "MAR",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704251",
+                    "course_name": "SEGURIDAD EN COMPUTACION (Laboratorio)",
+                    "year": 4,
+                    "day_of_week": "MAR",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "LAB1",
+                    "classroom_type": "LAB",
+                    "professor_id": 18,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 18,
+                        "name": "LUCY ANGELA DELGADO BARRA",
+                        "email": "angela@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704253",
+                    "course_name": "RELACIONES HUMANAS (Teoría)",
+                    "year": 4,
+                    "day_of_week": "MAR",
+                    "start_time": "14:50",
+                    "end_time": "15:40",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 20,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 20,
+                        "name": "ERIKA PATRICIA LAZO ALARCON",
+                        "email": "patricia@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704254",
+                    "course_name": "FISICA COMPUTACIONAL (E) (Teoría)",
+                    "year": 4,
+                    "day_of_week": "MAR",
+                    "start_time": "14:50",
+                    "end_time": "15:40",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 21,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 21,
+                        "name": "DANNY GIANCARLO APAZA VELIZ",
+                        "email": "giancarlo@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704255",
+                    "course_name": "TOPICOS EN INGENIERIA DE SOFTWARE (E) (Teoría)",
+                    "year": 4,
+                    "day_of_week": "MAR",
+                    "start_time": "16:40",
+                    "end_time": "17:30",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 12,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 12,
+                        "name": "DR. EDGAR SARMIENTO CALISAYA",
+                        "email": "edgar@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704250",
+                    "course_name": "COMPUTACION PARALELA Y DISTRIBUIDA (Laboratorio)",
+                    "year": 4,
+                    "day_of_week": "MAR",
+                    "start_time": "19:20",
+                    "end_time": "20:10",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704248",
+                    "course_name": "INTERACCION HUMANO COMPUTADOR (Teoría)",
+                    "year": 4,
+                    "day_of_week": "MIE",
+                    "start_time": "07:00",
+                    "end_time": "07:50",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 3,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 3,
+                        "name": "MG. ANA MARIA CUADROS VALDIVIA",
+                        "email": "ana@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704249",
+                    "course_name": "PROYECTO DE FINAL DE CARRERA I (Teoría)",
+                    "year": 4,
+                    "day_of_week": "MIE",
+                    "start_time": "07:00",
+                    "end_time": "07:50",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704249",
+                    "course_name": "PROYECTO DE FINAL DE CARRERA I (Teoría)",
+                    "year": 4,
+                    "day_of_week": "MIE",
+                    "start_time": "07:50",
+                    "end_time": "08:40",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704250",
+                    "course_name": "COMPUTACION PARALELA Y DISTRIBUIDA (Teoría)",
+                    "year": 4,
+                    "day_of_week": "MIE",
+                    "start_time": "08:50",
+                    "end_time": "09:40",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704255",
+                    "course_name": "TOPICOS EN INGENIERIA DE SOFTWARE (E) (Teoría)",
+                    "year": 4,
+                    "day_of_week": "MIE",
+                    "start_time": "08:50",
+                    "end_time": "09:40",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 12,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 12,
+                        "name": "DR. EDGAR SARMIENTO CALISAYA",
+                        "email": "edgar@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704255",
+                    "course_name": "TOPICOS EN INGENIERIA DE SOFTWARE (E) (Teoría)",
+                    "year": 4,
+                    "day_of_week": "MIE",
+                    "start_time": "09:40",
+                    "end_time": "10:30",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 12,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 12,
+                        "name": "DR. EDGAR SARMIENTO CALISAYA",
+                        "email": "edgar@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704248",
+                    "course_name": "INTERACCION HUMANO COMPUTADOR (Teoría)",
+                    "year": 4,
+                    "day_of_week": "MIE",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 3,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 3,
+                        "name": "MG. ANA MARIA CUADROS VALDIVIA",
+                        "email": "ana@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704250",
+                    "course_name": "COMPUTACION PARALELA Y DISTRIBUIDA (Teoría)",
+                    "year": 4,
+                    "day_of_week": "MIE",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704254",
+                    "course_name": "FISICA COMPUTACIONAL (E) (Teoría)",
+                    "year": 4,
+                    "day_of_week": "MIE",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 21,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 21,
+                        "name": "DANNY GIANCARLO APAZA VELIZ",
+                        "email": "giancarlo@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704253",
+                    "course_name": "RELACIONES HUMANAS (Teoría)",
+                    "year": 4,
+                    "day_of_week": "MIE",
+                    "start_time": "14:00",
+                    "end_time": "14:50",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 20,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 20,
+                        "name": "ERIKA PATRICIA LAZO ALARCON",
+                        "email": "patricia@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704255",
+                    "course_name": "TOPICOS EN INGENIERIA DE SOFTWARE (E) (Teoría)",
+                    "year": 4,
+                    "day_of_week": "JUE",
+                    "start_time": "07:00",
+                    "end_time": "07:50",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 12,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 12,
+                        "name": "DR. EDGAR SARMIENTO CALISAYA",
+                        "email": "edgar@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704251",
+                    "course_name": "SEGURIDAD EN COMPUTACION (Teoría)",
+                    "year": 4,
+                    "day_of_week": "JUE",
+                    "start_time": "07:50",
+                    "end_time": "08:40",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 18,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 18,
+                        "name": "LUCY ANGELA DELGADO BARRA",
+                        "email": "angela@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704254",
+                    "course_name": "FISICA COMPUTACIONAL (E) (Teoría)",
+                    "year": 4,
+                    "day_of_week": "JUE",
+                    "start_time": "14:50",
+                    "end_time": "15:40",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 21,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 21,
+                        "name": "DANNY GIANCARLO APAZA VELIZ",
+                        "email": "giancarlo@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704251",
+                    "course_name": "SEGURIDAD EN COMPUTACION (Teoría)",
+                    "year": 4,
+                    "day_of_week": "JUE",
+                    "start_time": "17:40",
+                    "end_time": "18:30",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 18,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 18,
+                        "name": "LUCY ANGELA DELGADO BARRA",
+                        "email": "angela@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704252",
+                    "course_name": "FORMACION DE EMPRESAS DE BASE TECNOLOGICA I (Teoría)",
+                    "year": 4,
+                    "day_of_week": "JUE",
+                    "start_time": "17:40",
+                    "end_time": "18:30",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 19,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 19,
+                        "name": "JESUS HERACLIO ZUÑIGA CUEVA",
+                        "email": "heraclio@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704252",
+                    "course_name": "FORMACION DE EMPRESAS DE BASE TECNOLOGICA I (Teoría)",
+                    "year": 4,
+                    "day_of_week": "JUE",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 19,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 19,
+                        "name": "JESUS HERACLIO ZUÑIGA CUEVA",
+                        "email": "heraclio@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704254",
+                    "course_name": "FISICA COMPUTACIONAL (E) (Laboratorio)",
+                    "year": 4,
+                    "day_of_week": "VIE",
+                    "start_time": "07:00",
+                    "end_time": "07:50",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 21,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 21,
+                        "name": "DANNY GIANCARLO APAZA VELIZ",
+                        "email": "giancarlo@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704248",
+                    "course_name": "INTERACCION HUMANO COMPUTADOR (Teoría)",
+                    "year": 4,
+                    "day_of_week": "VIE",
+                    "start_time": "09:40",
+                    "end_time": "10:30",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 3,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 3,
+                        "name": "MG. ANA MARIA CUADROS VALDIVIA",
+                        "email": "ana@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704252",
+                    "course_name": "FORMACION DE EMPRESAS DE BASE TECNOLOGICA I (Teoría)",
+                    "year": 4,
+                    "day_of_week": "VIE",
+                    "start_time": "14:50",
+                    "end_time": "15:40",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 19,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 19,
+                        "name": "JESUS HERACLIO ZUÑIGA CUEVA",
+                        "email": "heraclio@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1704252",
+                    "course_name": "FORMACION DE EMPRESAS DE BASE TECNOLOGICA I (Teoría)",
+                    "year": 4,
+                    "day_of_week": "VIE",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 19,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 19,
+                        "name": "JESUS HERACLIO ZUÑIGA CUEVA",
+                        "email": "heraclio@unsa.edu.pe"
+                    }
+                }
+            ],
+            "statistics": {
+                "total_courses": 8,
+                "total_sessions": 36
+            }
+        },
+        "FifthYear": {
+            "curriculum_name": "FifthYear-SecondSemester",
+            "schedule": [
+                {
+                    "course_code": "1705265",
+                    "course_name": "CLOUD COMPUTING (Teoría)",
+                    "year": 5,
+                    "day_of_week": "LUN",
+                    "start_time": "07:50",
+                    "end_time": "08:40",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705272",
+                    "course_name": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+                    "year": 5,
+                    "day_of_week": "LUN",
+                    "start_time": "07:50",
+                    "end_time": "08:40",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705265",
+                    "course_name": "CLOUD COMPUTING (Laboratorio)",
+                    "year": 5,
+                    "day_of_week": "LUN",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705272",
+                    "course_name": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+                    "year": 5,
+                    "day_of_week": "LUN",
+                    "start_time": "14:00",
+                    "end_time": "14:50",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705272",
+                    "course_name": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+                    "year": 5,
+                    "day_of_week": "LUN",
+                    "start_time": "14:50",
+                    "end_time": "15:40",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705270",
+                    "course_name": "TOPICOS EN CIBERSEGURIDAD (E) (Laboratorio)",
+                    "year": 5,
+                    "day_of_week": "LUN",
+                    "start_time": "16:40",
+                    "end_time": "17:30",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705270",
+                    "course_name": "TOPICOS EN CIBERSEGURIDAD (E) (Laboratorio)",
+                    "year": 5,
+                    "day_of_week": "LUN",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705268",
+                    "course_name": "INTERNET DE LAS COSAS (Teoría)",
+                    "year": 5,
+                    "day_of_week": "MAR",
+                    "start_time": "07:50",
+                    "end_time": "08:40",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 15,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 15,
+                        "name": "MG. PERCY",
+                        "email": "percy@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705272",
+                    "course_name": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+                    "year": 5,
+                    "day_of_week": "MAR",
+                    "start_time": "08:50",
+                    "end_time": "09:40",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705269",
+                    "course_name": "ROBOTICA (E) (Teoría)",
+                    "year": 5,
+                    "day_of_week": "MAR",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 15,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 15,
+                        "name": "MG. PERCY",
+                        "email": "percy@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705270",
+                    "course_name": "TOPICOS EN CIBERSEGURIDAD (E) (Teoría)",
+                    "year": 5,
+                    "day_of_week": "MAR",
+                    "start_time": "19:20",
+                    "end_time": "20:10",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705269",
+                    "course_name": "ROBOTICA (E) (Laboratorio)",
+                    "year": 5,
+                    "day_of_week": "MIE",
+                    "start_time": "07:50",
+                    "end_time": "08:40",
+                    "classroom_code": "LAB1",
+                    "classroom_type": "LAB",
+                    "professor_id": 15,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 15,
+                        "name": "MG. PERCY",
+                        "email": "percy@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705268",
+                    "course_name": "INTERNET DE LAS COSAS (Teoría)",
+                    "year": 5,
+                    "day_of_week": "MIE",
+                    "start_time": "09:40",
+                    "end_time": "10:30",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 15,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 15,
+                        "name": "MG. PERCY",
+                        "email": "percy@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705271",
+                    "course_name": "PRACTICAS PRE PROFESIONALES (Teoría)",
+                    "year": 5,
+                    "day_of_week": "MIE",
+                    "start_time": "09:40",
+                    "end_time": "10:30",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 8,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 8,
+                        "name": "MG. WILBER ROBERTO RAMOS LOVON",
+                        "email": "wilber@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705265",
+                    "course_name": "CLOUD COMPUTING (Teoría)",
+                    "year": 5,
+                    "day_of_week": "MIE",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705269",
+                    "course_name": "ROBOTICA (E) (Laboratorio)",
+                    "year": 5,
+                    "day_of_week": "MIE",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "LAB2",
+                    "classroom_type": "LAB",
+                    "professor_id": 15,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 15,
+                        "name": "MG. PERCY",
+                        "email": "percy@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705271",
+                    "course_name": "PRACTICAS PRE PROFESIONALES (Teoría)",
+                    "year": 5,
+                    "day_of_week": "MIE",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 8,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 8,
+                        "name": "MG. WILBER ROBERTO RAMOS LOVON",
+                        "email": "wilber@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705272",
+                    "course_name": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+                    "year": 5,
+                    "day_of_week": "MIE",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705265",
+                    "course_name": "CLOUD COMPUTING (Teoría)",
+                    "year": 5,
+                    "day_of_week": "MIE",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705270",
+                    "course_name": "TOPICOS EN CIBERSEGURIDAD (E) (Teoría)",
+                    "year": 5,
+                    "day_of_week": "MIE",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705272",
+                    "course_name": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+                    "year": 5,
+                    "day_of_week": "MIE",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705270",
+                    "course_name": "TOPICOS EN CIBERSEGURIDAD (E) (Laboratorio)",
+                    "year": 5,
+                    "day_of_week": "MIE",
+                    "start_time": "14:50",
+                    "end_time": "15:40",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705268",
+                    "course_name": "INTERNET DE LAS COSAS (Teoría)",
+                    "year": 5,
+                    "day_of_week": "MIE",
+                    "start_time": "17:40",
+                    "end_time": "18:30",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 15,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 15,
+                        "name": "MG. PERCY",
+                        "email": "percy@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705265",
+                    "course_name": "CLOUD COMPUTING (Laboratorio)",
+                    "year": 5,
+                    "day_of_week": "MIE",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705269",
+                    "course_name": "ROBOTICA (E) (Laboratorio)",
+                    "year": 5,
+                    "day_of_week": "MIE",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "LAB2",
+                    "classroom_type": "LAB",
+                    "professor_id": 15,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 15,
+                        "name": "MG. PERCY",
+                        "email": "percy@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705267",
+                    "course_name": "TRABAJO INTERDISCIPLINAR III (Teoría)",
+                    "year": 5,
+                    "day_of_week": "JUE",
+                    "start_time": "07:00",
+                    "end_time": "07:50",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 13,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 13,
+                        "name": "DRA. YESSENIA DEYSI, YARI RAMOS",
+                        "email": "yessenia@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705267",
+                    "course_name": "TRABAJO INTERDISCIPLINAR III (Teoría)",
+                    "year": 5,
+                    "day_of_week": "JUE",
+                    "start_time": "08:50",
+                    "end_time": "09:40",
+                    "classroom_code": "T3",
+                    "classroom_type": "THEORY",
+                    "professor_id": 13,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 13,
+                        "name": "DRA. YESSENIA DEYSI, YARI RAMOS",
+                        "email": "yessenia@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705268",
+                    "course_name": "INTERNET DE LAS COSAS (Laboratorio)",
+                    "year": 5,
+                    "day_of_week": "JUE",
+                    "start_time": "08:50",
+                    "end_time": "09:40",
+                    "classroom_code": "LAB1",
+                    "classroom_type": "LAB",
+                    "professor_id": 15,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 15,
+                        "name": "MG. PERCY",
+                        "email": "percy@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705268",
+                    "course_name": "INTERNET DE LAS COSAS (Laboratorio)",
+                    "year": 5,
+                    "day_of_week": "JUE",
+                    "start_time": "09:40",
+                    "end_time": "10:30",
+                    "classroom_code": "LAB2",
+                    "classroom_type": "LAB",
+                    "professor_id": 15,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 15,
+                        "name": "MG. PERCY",
+                        "email": "percy@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705271",
+                    "course_name": "PRACTICAS PRE PROFESIONALES (Teoría)",
+                    "year": 5,
+                    "day_of_week": "JUE",
+                    "start_time": "09:40",
+                    "end_time": "10:30",
+                    "classroom_code": "T2",
+                    "classroom_type": "THEORY",
+                    "professor_id": 8,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 8,
+                        "name": "MG. WILBER ROBERTO RAMOS LOVON",
+                        "email": "wilber@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705272",
+                    "course_name": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+                    "year": 5,
+                    "day_of_week": "JUE",
+                    "start_time": "09:40",
+                    "end_time": "10:30",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705271",
+                    "course_name": "PRACTICAS PRE PROFESIONALES (Teoría)",
+                    "year": 5,
+                    "day_of_week": "JUE",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 8,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 8,
+                        "name": "MG. WILBER ROBERTO RAMOS LOVON",
+                        "email": "wilber@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705272",
+                    "course_name": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+                    "year": 5,
+                    "day_of_week": "JUE",
+                    "start_time": "10:40",
+                    "end_time": "11:30",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705265",
+                    "course_name": "CLOUD COMPUTING (Teoría)",
+                    "year": 5,
+                    "day_of_week": "JUE",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "T1",
+                    "classroom_type": "THEORY",
+                    "professor_id": 10,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 10,
+                        "name": "DR. ALVARO HENRY MAMANI ALIAGA",
+                        "email": "alvaro@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705267",
+                    "course_name": "TRABAJO INTERDISCIPLINAR III (Teoría)",
+                    "year": 5,
+                    "day_of_week": "JUE",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "T4",
+                    "classroom_type": "THEORY",
+                    "professor_id": 13,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 13,
+                        "name": "DRA. YESSENIA DEYSI, YARI RAMOS",
+                        "email": "yessenia@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705269",
+                    "course_name": "ROBOTICA (E) (Laboratorio)",
+                    "year": 5,
+                    "day_of_week": "JUE",
+                    "start_time": "11:30",
+                    "end_time": "12:20",
+                    "classroom_code": "LAB3",
+                    "classroom_type": "LAB",
+                    "professor_id": 15,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 15,
+                        "name": "MG. PERCY",
+                        "email": "percy@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705272",
+                    "course_name": "TRABAJO DE INVESTIGACIÓN (Teoría)",
+                    "year": 5,
+                    "day_of_week": "JUE",
+                    "start_time": "14:50",
+                    "end_time": "15:40",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 2,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 2,
+                        "name": "DR. JUAN CARLOS GUTIERREZ CACERES",
+                        "email": "juan@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705269",
+                    "course_name": "ROBOTICA (E) (Teoría)",
+                    "year": 5,
+                    "day_of_week": "JUE",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "T5",
+                    "classroom_type": "THEORY",
+                    "professor_id": 15,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 15,
+                        "name": "MG. PERCY",
+                        "email": "percy@unsa.edu.pe"
+                    }
+                },
+                {
+                    "course_code": "1705270",
+                    "course_name": "TOPICOS EN CIBERSEGURIDAD (E) (Laboratorio)",
+                    "year": 5,
+                    "day_of_week": "VIE",
+                    "start_time": "18:30",
+                    "end_time": "19:20",
+                    "classroom_code": "LAB1",
+                    "classroom_type": "LAB",
+                    "professor_id": 27,
+                    "student_count": 30,
+                    "professor": {
+                        "id": 27,
+                        "name": "MG. ROLANDO",
+                        "email": "rolando@unsa.edu.pe"
+                    }
+                }
+            ],
+            "statistics": {
+                "total_courses": 7,
+                "total_sessions": 39
+            }
+        }
+    },
+    "global_statistics": {
+        "total_courses": 33,
+        "total_sessions": 176
+    },
+    "message": "Template ready for population"
+}

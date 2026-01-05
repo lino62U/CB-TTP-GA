@@ -45,9 +45,9 @@ const SchedulesDisplay: React.FC<SchedulesDisplayProps> = ({ schedules }) => {
   if (!schedules) return null;
 
   return (
-    <div className="bg-white rounded-2xl shadow-md flex flex-col h-[700px] relative overflow-hidden">
+    <div className="bg-white rounded-2xl shadow-md flex flex-col h-[700px] relative overflow-hidden w-full">
       {/* Cabecera */}
-      <div className="flex justify-between items-center px-6 py-3 bg-[#7b1c1c] text-white border-b border-[#5e1212]">
+      <div className="flex justify-between items-center px-3 py-3 bg-[#7b1c1c] text-white border-b border-[#5e1212]">
         <h2 className="text-lg font-semibold tracking-wide">Horarios Generados</h2>
 
         <div className="flex gap-2 items-center">
@@ -92,7 +92,7 @@ const SchedulesDisplay: React.FC<SchedulesDisplayProps> = ({ schedules }) => {
         >
           <div className="flex flex-col items-center space-y-6">
             {Object.entries(schedules).map(([year, yearTimetable]) => (
-              <div key={year} className="w-full max-w-[1200px]">
+              <div key={year} className="w-full max-w-[1400px]">
                 <Card title={`Horario ${year}`} noPadding>
                   <TimetableDisplay schedule={yearTimetable} />
                 </Card>

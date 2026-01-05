@@ -47,7 +47,7 @@ MIN_BLOCKS_PER_COURSE = 2   # Mínimo 2 bloques por curso
 
 # Constantes para bloques consecutivos y agrupación inteligente
 MIN_CONSECUTIVE_BLOCKS = 2  # Mínimo bloques consecutivos
-MAX_CONSECUTIVE_BLOCKS = 4  # Máximo bloques consecutivos
+MAX_CONSECUTIVE_BLOCKS = 2  # Máximo bloques consecutivos
 
 # Configuración para agrupación de horas impares
 ALLOW_SINGLE_BLOCK = True   # Permitir un bloque suelto si las horas son impares
@@ -230,6 +230,154 @@ def convert_input_format(new_data: Dict[str, Any]) -> Dict[str, Any]:
     
     # 8. Preservar metadatos originales
     data['metadata'] = new_data['metadata']
+    
+    return data
+
+def convert_spanish_input_format(spanish_data: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Convierte el formato español (data.json) al formato interno del GA.
+    """
+    global global_aula_map
+    data = {}
+    
+    # 1. Periodos (ya vienen procesados como strings)
+    data['periodos'] = sorted(spanish_data['periodos'])
+    
+    # 2. Aulas
+    aulas_list = []
+    # Flattear las listas de teoricas, practicas, laboratorios
+    for categoria, lista_aulas in spanish_data['aulas'].items():
+        tipo_normalizado = "LAB" if categoria == "laboratorios" else "T"
+        for aula in lista_aulas:
+            aula_data = {
+                'id': aula['id'],
+                'nombre': aula.get('nombre', aula['id']),
+                'tipo': tipo_normalizado,
+                'capacidad': aula['capacidad']
+            }
+            aulas_list.append(aula_data)
+            global_aula_map[aula_data['id']] = aula_data
+            
+    data['_aulas_list'] = aulas_list
+    data['_aulas_map'] = global_aula_map
+    
+    # 3. Profesores
+    profs_map = {}
+    for nombre_prof, info_prof in spanish_data['profesores'].items():
+        # Info prof es un objeto con 'cursos', 'disponibilidad'
+        # Necesitamos normalizar disponibilidad a formato interno si es necesario o filtrar
+        # En data.json disponibilidad ya es lista de strings "DIA_HH:MM_HH:MM"
+        
+        prof_id = nombre_prof # Usar nombre como ID
+        disponibilidad = set(info_prof['disponibilidad'])
+        
+        profs_map[prof_id] = {
+            'id': prof_id,
+            'nombre': nombre_prof,
+            'disponibilidad': disponibilidad,
+            'preferencia': info_prof.get('preferencia', 'mañana')
+        }
+    data['_profs_map'] = profs_map
+    
+    # 4. Cursos (Estructura anidada)
+    courses_map = {}
+    
+    # Helper para procesar listas de cursos
+    def procesar_curso(curso_raw, año=1):
+        # Mapear campos del JSON español a lo que necesita el GA
+        theory_hours = curso_raw.get('horas_teoria', 0)
+        lab_hours = curso_raw.get('horas_lab', 0)
+        practica_hours = curso_raw.get('horas_practica', 0)
+        
+        # Nota: Data actual separa practica como si fuera teoría o lab?
+        # Asumiremos practica -> teoria si no es explicito, o podemos sumarlo
+        # En data.json hay horas_teoria, horas_practica, horas_lab
+        # El sistema actual solo soporta T y LAB.
+        # Sumaremos practica a teoria o lab dependiendo de la naturaleza?
+        # Lo más seguro es tratar practica como horas de 'aula normal' (T)
+        
+        theory_hours += practica_hours 
+        
+        # Buscar profesores para este curso
+        profesores_asignados = []
+        for pid, pdata in profs_map.items():
+            if curso_raw['codigo'] in spanish_data['profesores'][pid]['cursos']:
+                profesores_asignados.append(pid)
+        
+        # Prioridades
+        aulas_teoria_aptas = [a for a in aulas_list if a['tipo'] == 'T']
+        aulas_lab_aptas = [a for a in aulas_list if a['tipo'] == 'LAB']
+        W_R, W_B, W_Y = 3, 2, 1
+        num_profs = len(profesores_asignados) if profesores_asignados else 1
+        
+        # Componente Teoría (+ Práctica)
+        if theory_hours > 0:
+            course_code_theory = f"{curso_raw['codigo']}_T"
+            num_aulas = len(aulas_teoria_aptas) or 1
+            factor_rigidez = 1 / (num_profs * num_aulas)
+            score = (W_R * factor_rigidez) + (W_B * theory_hours) + (W_Y * año)
+            
+            courses_map[course_code_theory] = {
+                'codigo': course_code_theory,
+                'nombre': f"{curso_raw['nombre']} (Teoria)",
+                'creditos': curso_raw.get('creditos', 0),
+                'estudiantes': 30, # Default
+                'profesores': profesores_asignados,
+                'aula_tipo': 'T',
+                '_blocks_needed': int(max(theory_hours, 1)),
+                'original_code': curso_raw['codigo'],
+                'year': año,
+                '_tssp_priority_score': score,
+                '_course_component': 'teoria'
+            }
+            
+        # Componente Laboratorio
+        if lab_hours > 0:
+            course_code_lab = f"{curso_raw['codigo']}_LAB"
+            num_aulas = len(aulas_lab_aptas) or 1
+            factor_rigidez = 1 / (num_profs * num_aulas)
+            score = (W_R * factor_rigidez) + (W_B * lab_hours) + (W_Y * año)
+            
+            courses_map[course_code_lab] = {
+                'codigo': course_code_lab,
+                'nombre': f"{curso_raw['nombre']} (Laboratorio)",
+                'creditos': curso_raw.get('creditos', 0),
+                'estudiantes': 30,
+                'profesores': profesores_asignados,
+                'aula_tipo': 'LAB',
+                '_blocks_needed': int(max(lab_hours, 1)),
+                'original_code': curso_raw['codigo'],
+                'year': año,
+                '_tssp_priority_score': score,
+                '_course_component': 'laboratorio'
+            }
+
+    # Recorrer estructura anidada
+    # cursos es una lista de objetos que tienen claves como "primer_ano", "segundo_ano"...
+    # a veces es una lista directa? data.json muestra:
+    # "cursos": [ { "primer_ano": { ... } }, { "segundo_ano": { ... } } ]
+    
+    for item in spanish_data['cursos']:
+        for key_ano, content_ano in item.items():
+            # key_ano es "primer_ano", etc.
+            # Intento de parsear año
+            ano_num = 1
+            if "segundo" in key_ano: ano_num = 2
+            elif "tercer" in key_ano: ano_num = 3
+            elif "cuarto" in key_ano: ano_num = 4
+            elif "quinto" in key_ano: ano_num = 5
+            
+            # content_ano es dict con "primer_semestre": [...]
+            for key_sem, lista_cursos in content_ano.items():
+                for c in lista_cursos:
+                    procesar_curso(c, ano_num)
+                    
+    data['_courses_map'] = courses_map
+    
+    # 5. Configurar preferencias y pesos
+    data['preferencias'] = spanish_data.get('preferencias', {})
+    data['pesos'] = spanish_data.get('pesos', {})
+    data['metadata'] = spanish_data.get('metadata', {})
     
     return data
 
@@ -489,24 +637,33 @@ def validar_agrupacion_curso(asignaciones: List[Tuple[Period, AulaID, str]],
     # Agrupar períodos consecutivos
     bloques_actuales = obtener_periodos_consecutivos(periodos, data)
     
-    # Validar número de bloques
-    if len(bloques_actuales) != len(agrupacion_esperada):
-        errores.append(f"Número de grupos incorrecto: esperado {len(agrupacion_esperada)}, actual {len(bloques_actuales)}")
+    # Validar que los bloques cumplan con restricciones básicas
+    # En lugar de forzar una única "agrupación óptima", permitimos configuraciones válidas
+    # Ejemplo: para 4 horas, [4] es válido, [2, 2] es válido.
     
-    # Validar tamaños de bloques
     bloques_actuales_tamanos = [len(bloque) for bloque in bloques_actuales]
-    bloques_actuales_tamanos.sort()
-    agrupacion_esperada_sorted = sorted(agrupacion_esperada)
+    num_bloques_unitarios = bloques_actuales_tamanos.count(1)
+
+    # Validar si la suma total es correcta
+    if sum(bloques_actuales_tamanos) != total_horas:
+         errores.append(f"Suma de horas incorrecta: esperado {total_horas}, actual {sum(bloques_actuales_tamanos)}")
     
-    if bloques_actuales_tamanos != agrupacion_esperada_sorted:
-        errores.append(f"Tamaños de bloques incorrectos: esperado {agrupacion_esperada_sorted}, actual {bloques_actuales_tamanos}")
+    # Validar bloques unitarios según paridad
+    if total_horas % 2 == 0:
+        if num_bloques_unitarios > 0:
+            errores.append(f"Bloques unitarios no permitidos para curso con horas pares ({total_horas})")
+    else:
+        # Horas impares: permitir máximo un bloque unitario
+        if num_bloques_unitarios > 1:
+            errores.append(f"Máximo 1 bloque unitario permitido para curso con horas impares ({total_horas})")
     
-    # Validar bloques unitarios si no están permitidos
-    if not ALLOW_SINGLE_BLOCK and 1 in bloques_actuales_tamanos:
-        errores.append("Bloque unitario detectado cuando no está permitido")
-    
-    # Validar límites de bloques consecutivos
+    # Validar límites de bloques consecutivos (excluyendo el unitario permitido)
     for tamano_bloque in bloques_actuales_tamanos:
+        if tamano_bloque == 1:
+            if total_horas % 2 == 0:
+                pass # Ya reportado arriba
+            continue # Si es impar y hay 1, es válido. Si hay >1, ya reportado.
+            
         if tamano_bloque > MAX_CONSECUTIVE_BLOCKS:
             errores.append(f"Bloque de {tamano_bloque} períodos excede el máximo permitido ({MAX_CONSECUTIVE_BLOCKS})")
         elif tamano_bloque < MIN_CONSECUTIVE_BLOCKS and tamano_bloque > 0:
@@ -614,16 +771,8 @@ def calcular_costo_restricciones_blandas_slot(period: Period, aula: AulaID, prof
     if turno_preferido == 'morning' and not es_periodo_matutino(period):
         costo += pesos_blandas.get('turno_preferido_estudiante', 3)
     
-    # S4: Evitar sesiones consecutivas del mismo curso (NUEVA)
-    if asignaciones_actuales:
-        dia_actual = obtener_dia_periodo(period)
-        hora_actual = obtener_hora_inicio(period)
-        
-        for periodo_asignado, _, _ in asignaciones_actuales:
-            if obtener_dia_periodo(periodo_asignado) == dia_actual:
-                diferencia = calcular_diferencia_horas(period, periodo_asignado)
-                if diferencia <= 1:  # Muy cercanas en tiempo
-                    costo += pesos_blandas.get('evitar_sesiones_consecutivas', 3)
+    # S4: Evitar sesiones consecutivas (ELIMINADO)
+    pass
     
     # S6: Penalizar franjas extremas (primera y última del día)
     # Simplificado: penalizar horas muy tempranas o muy tardías
@@ -666,64 +815,193 @@ def asignar_curso_tssp(course: Dict[str, Any], data: Dict[str, Any]) -> List[Tup
         print(f"Advertencia: No hay aulas del tipo {tipo_aula} para curso {course['codigo']}", 
               file=sys.stderr)
 
-    # Asignar cada bloque secuencialmente
-    for bloque in range(bloques_necesarios):
+    # Obtener composición de bloques ideal
+    total_horas = course.get('_blocks_needed', 1)
+    tipo_curso = course.get('_course_component', 'teoria')
+    composicion_bloques = calcular_agrupacion_optima_bloques(total_horas, tipo_curso)
+    
+    # Asignar cada bloque de la composición
+    # Para evitar que bloques separados (ej: [2, 2]) se peguen y formen uno de 4,
+    # mantenemos un registro de lo asignado en este curso.
+    asignados_curso_actual = set()
+    
+    indices_periodos = list(range(len(data['periodos']))) # Define indices_periodos here
+    
+    for tamano_bloque in composicion_bloques:
         slots_validos = []
         
-        # Evaluar todas las combinaciones posibles
-        for periodo in data['periodos']:
-            for aula_id in aulas_filtradas:
-                for prof_id in profesores_disponibles:
-                    
-                    # Verificar restricciones duras
-                    if verificar_restricciones_duras_slot(periodo, aula_id, prof_id, course, data, asignaciones):
-                        
-                        # Calcular costo de restricciones blandas
-                        costo_blando = calcular_costo_restricciones_blandas_slot(
-                            periodo, aula_id, prof_id, course, data, asignaciones
-                        )
-                        
-                        slots_validos.append(((periodo, aula_id, prof_id), costo_blando))
+        # Evaluar todas las combinaciones posibles de inicio de bloque
+        random.shuffle(indices_periodos) # Randomizar búsqueda para variedad
         
-        # Seleccionar el mejor slot
+        for i_p in indices_periodos:
+            # Optimización: si ya fallamos muchas veces, break? No, TSSP debe encontrar si existe.
+            if len(slots_validos) > 50: break # Suficientes candidatos
+            
+            periodo = data['periodos'][i_p]
+            
+            # Verificar geometría del bloque
+            candidatos = []
+            bloque_valido = True
+            dia_ref = obtener_dia_periodo(periodo)
+            
+            for k in range(tamano_bloque):
+                if i_p + k >= len(data['periodos']):
+                    bloque_valido = False; break
+                p_cand = data['periodos'][i_p + k]
+                
+                # Mismo dia
+                if obtener_dia_periodo(p_cand) != dia_ref:
+                    bloque_valido = False; break
+                
+                # Consecutivos en tiempo
+                if k > 0:
+                    prev = data['periodos'][i_p + k - 1]
+                    if calcular_diferencia_horas(prev, p_cand) != 1:
+                        bloque_valido = False; break
+                
+                # H11 CHECK: No pegar con lo ya asignado a este curso
+                # Adyacencia inmediata anterior
+                idx_cand = i_p + k
+                if idx_cand > 0:
+                     prev_global = data['periodos'][idx_cand - 1]
+                     if prev_global in asignados_curso_actual and obtener_dia_periodo(prev_global) == dia_ref:
+                         bloque_valido = False; break
+                # Adyacencia inmediata posterior (difícil porque vamos en orden, pero por si acaso si el orden fuera aleatorio)
+                if idx_cand < len(data['periodos']) - 1:
+                     post_global = data['periodos'][idx_cand + 1]
+                     if post_global in asignados_curso_actual and obtener_dia_periodo(post_global) == dia_ref:
+                         bloque_valido = False; break
+                
+                candidatos.append(p_cand)
+            
+            if not bloque_valido: continue
+            
+            # Verificar restricciones duras para todo el bloque
+            bloque_propuesto = []
+            costo_blando_acumulado = 0
+            
+            # ... (selección de aula/profesor para el bloque)
+            # Simplificación: validar hard constraints para el primer slot y asumir consistencia o chequear todos
+            # Para TSSP estricto, debemos encontrar aula que sirva para TODO el bloque
+            
+            # Filtrar aulas válidas para TODOS los periodos del bloque
+            aulas_candidatas_bloque = list(aulas_filtradas)
+            # ... (lógica de filtrado iterativo)
+            
+            # Por simplicidad y performance, usaremos la lógica existente slot-a-slot pero aplicada al bloque
+            # Si encontramos un aula que funcione para todos, genial.
+            
+            # ... (código original de selección de candidato) ...
+            
+            # REIMPLEMENTACIÓN RÁPIDA DE SELECCIÓN DE AULA PARA BLOQUE
+            # Buscar intersección de aulas disponibles en todos los slots
+            
+            # Pre-calcular disponibilidad para este bloque
+            slots_con_opciones = []
+            for p_cand in candidatos:
+                opciones_p = []
+                for aula_id in aulas_filtradas:
+                     if global_aula_period_cnt[aula_id][p_cand] == 0:
+                         # chequear capacidad hard constraint
+                         # H5: Capacidad del aula
+                         estudiantes = course.get('estudiantes', 30)
+                         capacidad = global_aula_map.get(aula_id, {}).get('capacidad', 0)
+                         if estudiantes <= capacidad:
+                             # H6: Tipo de aula requerido (ya filtrado por aulas_filtradas)
+                             opciones_p.append(aula_id)
+                slots_con_opciones.append(set(opciones_p))
+            
+            if not slots_con_opciones: bloque_valido = False
+            
+            if bloque_valido:
+                # Intersección de aulas disponibles en todos los slots
+                aulas_comunes = set.intersection(*slots_con_opciones) if slots_con_opciones else set()
+                
+                if aulas_comunes:
+                    aula_elegida = random.choice(list(aulas_comunes))
+                    prof_elegido = random.choice(profesores_disponibles) if profesores_disponibles else ""
+                    
+                    # Verificar disponibilidad prof hard (H2, H3)
+                    prof_ok = True
+                    if prof_elegido:
+                         for p_cand in candidatos:
+                             if global_prof_period_cnt[prof_elegido][p_cand] > 0: # H2
+                                 prof_ok = False; break
+                             # Chequear disponibilidad horaria prof (H3)
+                             prof_disponibilidad = data['_profs_map'].get(prof_elegido, {}).get('disponibilidad', set())
+                             if prof_disponibilidad and p_cand not in prof_disponibilidad:
+                                 prof_ok = False; break
+                    
+                    if prof_ok:
+                        bloque_resuelto = []
+                        for p_cand in candidatos:
+                            bloque_resuelto.append((p_cand, aula_elegida, prof_elegido))
+                        
+                        # Score simple (no calculamos soft constraints aquí para simplificar la búsqueda inicial)
+                        slots_validos.append((bloque_resuelto, 0))
+
         if slots_validos:
-            # Ordenar por costo ascendente
-            slots_validos.sort(key=lambda x: x[1])
-            
-            # Introducir aleatoriedad entre las mejores opciones
-            mejor_costo = slots_validos[0][1]
-            mejores_opciones = [slot[0] for slot in slots_validos if slot[1] == mejor_costo]
-            
-            # Si hay muchas opciones igualmente buenas, tomar una muestra aleatoria
-            if len(mejores_opciones) > 5:
-                mejores_opciones = random.sample(mejores_opciones, 5)
-            
-            slot_elegido = random.choice(mejores_opciones)
-            asignaciones.append(slot_elegido)
-            
-            # Actualizar contadores globales
-            periodo, aula_id, prof_id = slot_elegido
-            if prof_id:
-                global_prof_period_cnt[prof_id][periodo] += 1
-            global_aula_period_cnt[aula_id][periodo] += 1
-            
+             # Elegir uno
+             # Originalmente se ordenaba por costo y se elegía aleatoriamente entre los mejores.
+             # Aquí, como el costo es 0 para todos los válidos, y los periodos ya fueron shuffled,
+             # simplemente tomamos el primero.
+             mejor_bloque, _ = slots_validos[0] 
+             for slot in mejor_bloque:
+                 asignaciones.append(slot)
+                 p, a, prof = slot
+                 asignados_curso_actual.add(p) # Track for H11
+                 global_aula_period_cnt[a][p] += 1
+                 if prof: global_prof_period_cnt[prof][p] += 1
+                
         else:
-            # No hay slots válidos: asignación de emergencia
-            print(f"Advertencia: No hay slots válidos para bloque {bloque+1} de {course['codigo']}", 
+            # Fallback de emergencia MEJORADO: Intentar asignar bloques en cualquier lugar disponible
+            print(f"⚠️ Advertencia: No se encontró bloque continuo óptimo de tamaño {tamano_bloque} para {course['codigo']}. Intentando ajuste aleatorio.", 
                   file=sys.stderr)
             
-            # Asignación aleatoria que será reparada por el GA
-            periodo = random.choice(data['periodos'])
-            aula_id = random.choice(aulas_filtradas)
-            prof_id = random.choice(profesores_disponibles) if profesores_disponibles else ""
+            asignado_fallback = False
+            # Intentar 20 veces encontrar un hueco válido para el bloque COMPLETO
+            for _ in range(20):
+                inicio_rand = random.randrange(len(data['periodos']) - tamano_bloque + 1)
+                
+                # Verificar geometría del bloque
+                candidatos = []
+                es_consecutivo = True
+                dia_ref = obtener_dia_periodo(data['periodos'][inicio_rand])
+                
+                for k in range(tamano_bloque):
+                    p = data['periodos'][inicio_rand + k]
+                    if obtener_dia_periodo(p) != dia_ref:
+                        es_consecutivo = False
+                        break
+                    if k > 0:
+                        prev = data['periodos'][inicio_rand + k - 1]
+                        if calcular_diferencia_horas(prev, p) != 1:
+                            es_consecutivo = False
+                            break
+                    candidatos.append(p)
+                
+                if es_consecutivo:
+                    # Encontró hueco geométrico, asignar (incluso si viola soft constraints)
+                    aula = random.choice(aulas_filtradas)
+                    prof = random.choice(profesores_disponibles) if profesores_disponibles else ""
+                    
+                    for p in candidatos:
+                        asignaciones.append((p, aula, prof))
+                        if prof:
+                            global_prof_period_cnt[prof][p] += 1
+                        global_aula_period_cnt[aula][p] += 1
+                    asignado_fallback = True
+                    break
             
-            asignaciones.append((periodo, aula_id, prof_id))
-            
-            # Actualizar contadores aunque sea una asignación problemática
-            if prof_id:
-                global_prof_period_cnt[prof_id][periodo] += 1
-            global_aula_period_cnt[aula_id][periodo] += 1
-            
+            if not asignado_fallback:
+                 # Si falla todo, asignar slot a slot (último recurso para no crashear)
+                 print(f"❌ ERROR CRÍTICO: Fallback total para {course['codigo']}", file=sys.stderr)
+                 for _ in range(tamano_bloque):
+                    periodo = random.choice(data['periodos'])
+                    aula = random.choice(aulas_filtradas)
+                    prof = random.choice(profesores_disponibles) if profesores_disponibles else ""
+                    asignaciones.append((periodo, aula, prof))
+
     return asignaciones
 
 def generar_individuo_tssp(data: Dict[str, Any]) -> Dict[CourseCode, List[Tuple[Period, AulaID, str]]]:
@@ -812,7 +1090,8 @@ def evaluar_solucion(individuo: Dict[str, List[Tuple[Period, AulaID, str]]],
         'H7': pesos_duras.get('carga_horaria', M),
         'H8': pesos_duras.get('minimo_bloques_curso', M),      # NUEVA
         'H9': pesos_duras.get('separacion_teoria_lab', M//2),  # NUEVA
-        'H10': pesos_duras.get('bloques_consecutivos', M)       # NUEVA
+        'H10': 10 * M,  # PRIORIDAD ABSOLUTA: Bloques inválidos prohibidos
+        'H11': 5 * M    # Separación interna muy importante
     }
     
     # Pesos de restricciones blandas (incluyendo nuevas)
@@ -961,6 +1240,10 @@ def evaluar_solucion(individuo: Dict[str, List[Tuple[Period, AulaID, str]]],
                 elif "tamaño incorrecto" in error:
                     costo_duro += w_H['H10'] // 4
                     diagnosticos['H10_tamaño_bloque_incorrecto'] += 1
+                else:
+                    # Penalizar cualquier otro error de agrupación (incluye "excede el máximo")
+                    costo_duro += w_H['H10']
+                    diagnosticos['H10_error_generico'] += 1
         
         # Validación específica: separar teoría y laboratorio del mismo curso
         if '_T' in codigo_curso or '_LAB' in codigo_curso:
@@ -1077,6 +1360,183 @@ def evaluar_solucion(individuo: Dict[str, List[Tuple[Period, AulaID, str]]],
 # ============================================================================
 # OPERADORES DE REPARACIÓN
 # ============================================================================
+
+def reparar_fragmentacion_tiempo(individuo: Dict[str, List[Tuple[Period, AulaID, str]]], 
+                               data: Dict[str, Any]) -> Dict[str, List[Tuple[Period, AulaID, str]]]:
+    """
+    Identifica cursos fragmentados y fuerza su reagrupación en bloques válidos.
+    """
+    nuevo_individuo = copy.deepcopy(individuo)
+    periodos_disponibles = data['periodos']
+    
+    for codigo_curso, asignaciones in nuevo_individuo.items():
+        if not asignaciones:
+            continue
+            
+        curso = data['_courses_map'][codigo_curso]
+        total_horas = curso.get('_blocks_needed', len(asignaciones))
+        
+        # Verificar si está fragmentado
+        periodos = [p for p, _, _ in asignaciones]
+        bloques = obtener_periodos_consecutivos(periodos, data)
+        bloques_tamanos = [len(b) for b in bloques]
+        bloques_tamanos.sort()
+        
+        tiene_fragmentacion = False
+        if total_horas % 2 == 0 and 1 in bloques_tamanos:
+            tiene_fragmentacion = True
+        elif total_horas % 2 != 0 and bloques_tamanos.count(1) > 1:
+            tiene_fragmentacion = True
+        
+        # NUEVA CONDICIÓN: Bloques demasiado grandes (>2)
+        if any(b > 2 for b in bloques_tamanos):
+            tiene_fragmentacion = True
+            
+        if tiene_fragmentacion:
+             # Reconstrucción forzada del curso
+             # 1. Borrar asignaciones actuales
+             # 2. Reasignar usando lógica de bloques
+             
+             if asignaciones:
+                 _, aula_base, prof_base = asignaciones[0] 
+             else:
+                 # Should not happen
+                 aula_base, prof_base = "", ""
+                 
+             nuevas_asignaciones = []
+             tipo_curso = curso.get('_course_component', 'teoria')
+             composicion_ideal = calcular_agrupacion_optima_bloques(total_horas, tipo_curso)
+             
+             curso_reparado = True
+             
+             
+             # Mantener registro de lo asignado en esta reparación
+             asignados_en_reparacion = set()
+             
+             # Pre-filtrar aulas por tipo para no buscar en todas
+             aulas_validas_tipo = []
+             aulas_disponibles = data['_aulas_list']
+             tipo_aula_req = curso.get('room_type', 'TEORIA') # O 'LAB'
+             estudiantes = curso.get('estudiantes', 30)
+             
+             for aula_obj in aulas_disponibles:
+                 a_id = aula_obj['id']
+                 # Chequear tipo y capacidad (Hard Constraints estáticas)
+                 # Mapa global de aulas está en data['_aulas_map']? No, necesitamos info.
+                 # data['_aulas_list'] es lista de IDs.
+                 # data.json tiene estructura completa.
+                 # Asumimos que data['_aulas_map'] existe o lo reconstruimos rapido
+                 # Pero 'run_ga' tiene 'global_aula_map' en scope global? Sí.
+                 aula_info = global_aula_map.get(a_id, {})
+                 if aula_info.get('tipo') == tipo_aula_req and aula_info.get('capacidad', 0) >= estudiantes:
+                     aulas_validas_tipo.append(a_id)
+             
+             if not aulas_validas_tipo:
+                  # Si no hay aulas del tipo, mantener la original como fallback
+                  if asignaciones: aulas_validas_tipo = [asignaciones[0][1]]
+                  else: aulas_validas_tipo = list(aulas_disponibles) # Panic
+             
+             for tamano in composicion_ideal:
+                 bloque_resuelto = None # (candidatos_p, aula_elegida)
+                 
+                 # BÚSQUEDA EXHAUSTIVA (Shuffled)
+                 indices_busqueda = list(range(len(periodos_disponibles) - tamano + 1))
+                 random.shuffle(indices_busqueda)
+                 
+                 # Intentar encontrar hueco
+                 for inicio in indices_busqueda:
+                     candidatos = []
+                     geo_ok = True
+                     dia_ref = obtener_dia_periodo(periodos_disponibles[inicio])
+                     
+                     for k in range(tamano):
+                         p = periodos_disponibles[inicio + k]
+                         if obtener_dia_periodo(p) != dia_ref:
+                             geo_ok = False; break
+                         if k > 0:
+                             prev = periodos_disponibles[inicio + k - 1]
+                             if calcular_diferencia_horas(prev, p) != 1:
+                                 geo_ok = False; break
+                         candidatos.append(p)
+                     
+                     if not geo_ok: continue
+                     
+                     # VALIDACIÓN H11: Separación
+                     separacion_ok = True
+                     for p_cand in candidatos:
+                         idx_cand = periodos_disponibles.index(p_cand)
+                         if idx_cand > 0:
+                             prev = periodos_disponibles[idx_cand - 1]
+                             if prev in asignados_en_reparacion and obtener_dia_periodo(prev) == dia_ref:
+                                 separacion_ok = False; break
+                         if idx_cand < len(periodos_disponibles) - 1:
+                             post = periodos_disponibles[idx_cand + 1]
+                             if post in asignados_en_reparacion and obtener_dia_periodo(post) == dia_ref:
+                                 separacion_ok = False; break
+                     
+                     if not separacion_ok: continue
+                     
+                     # VALIDACIÓN RECURSOS (Aula y Prof)
+                     # Buscar UN aula válida para este bloque
+                     aula_encontrada = None
+                     
+                     # Check Profesor availability first (optimization)
+                     prof_ok = True
+                     if prof_base:
+                          disp = data['_profs_map'][prof_base].get('disponibilidad', [])
+                          for p_test in candidatos:
+                              # Chequear disponibilidad y ocupación
+                              # Ocupación global se actualiza al final del individuo?
+                              # Aquí 'asignaciones' viejas ya las ignoramos.
+                              # Pero conflictos con OTROS cursos:
+                              # NO tenemos el estado global de ocupación de profs ACTUALIZADO instante a instante
+                              # porque 'run_ga' no pasa la "ocupación global actual del individuo" a las funcs de reparación de forma limpia.
+                              # 'individuo' tiene todo.
+                              # Calcular conflictos on-the-fly es caro.
+                              # Asumimos que si reparamos fragmentación, ignoramos momentaneamente conflictos externos H2/H4
+                              # O intentamos minimizarlos?
+                              # Si verificamos H2, es O(N).
+                              # POR AHORA: Ignorar conflictos con otros cursos (el GA lo arreglará luego)
+                              # Solo chequear disponibilidad estática (time constraints)
+                              if disp and p_test not in disp:
+                                  prof_ok = False; break
+                     
+                     if not prof_ok: continue
+                     
+                     # Buscar aula
+                     random.shuffle(aulas_validas_tipo)
+                     for a_test in aulas_validas_tipo:
+                         # Chequear ocupación interna?
+                         # (Ya garantizamos que 'candidatos' son nuevos periodos, no chocan con 'asignados_en_reparacion')
+                         # Ignorar conflictos externos H4.
+                         aula_encontrada = a_test
+                         break
+                     
+                     if aula_encontrada:
+                         bloque_resuelto = (candidatos, aula_encontrada)
+                         break
+                 
+                 if bloque_resuelto:
+                     candidatos, aula_sel = bloque_resuelto
+                     for p in candidatos:
+                         nuevas_asignaciones.append((p, aula_sel, prof_base))
+                         asignados_en_reparacion.add(p)
+                 else:
+                     # Fallback
+                     count_tries = 0
+                     aula_fallback = aulas_validas_tipo[0] if aulas_validas_tipo else "P1" # default
+                     while count_tries < 20:
+                         p_rand = random.choice(periodos_disponibles)
+                         if p_rand not in asignados_en_reparacion:
+                             nuevas_asignaciones.append((p_rand, aula_fallback, prof_base))
+                             asignados_en_reparacion.add(p_rand)
+                             break
+                         count_tries += 1
+
+            
+             nuevo_individuo[codigo_curso] = nuevas_asignaciones
+             
+    return nuevo_individuo
 
 def reparar_individuo(individuo: Dict[str, List[Tuple[Period, AulaID, str]]], 
                      data: Dict[str, Any]) -> Dict[str, List[Tuple[Period, AulaID, str]]]:
@@ -1208,18 +1668,91 @@ def mutacion_adaptativa(individuo: Dict, data: Dict[str, Any],
             if not asignaciones:
                 continue
             
-            # Seleccionar asignación aleatoria para mutar
-            indice_mutacion = random.randrange(len(asignaciones))
-            tipo_mutacion = random.choice([1, 2, 3])  # 1: Período, 2: Aula, 3: Profesor
+            tipo_mutacion = random.choice([1, 2, 3])  # 1: Período (Bloque), 2: Aula, 3: Profesor
             
-            periodo_actual, aula_actual, profesor_actual = asignaciones[indice_mutacion]
-            info_curso = data['_courses_map'][codigo_curso]
+            # Obtener bloques actuales para manipularlos como unidad
+            periodos_asignados = [p for p, _, _ in asignaciones]
+            bloques_periodos = obtener_periodos_consecutivos(periodos_asignados, data)
+            
+            # Mapear periodos a indices en la lista de asignaciones original
+            mapa_indices = {} # periodo -> indice en asignaciones
+            for i, (p, a, prof) in enumerate(asignaciones):
+                mapa_indices[p] = i
+            
+            if tipo_mutacion == 1:  # Mover BLOQUE de tiempo completo
+                if not bloques_periodos:
+                    continue
+                    
+                # Elegir un bloque al azar
+                bloque_a_mover = random.choice(bloques_periodos)
+                tamano_bloque = len(bloque_a_mover)
+                
+                # Buscar nuevo inicio válido para el bloque
+                # Intentos limitados para no bloquear
+                for _ in range(10): 
+                    inicio_idx = random.randrange(len(periodos_disponibles) - tamano_bloque + 1)
+                    
+                    # Verificar si los periodos candidatos son consecutivos y del mismo día
+                    candidatos = []
+                    es_valido = True
+                    dia_ref = obtener_dia_periodo(periodos_disponibles[inicio_idx])
+                    
+                    for k in range(tamano_bloque):
+                        p_cand = periodos_disponibles[inicio_idx + k]
+                        if obtener_dia_periodo(p_cand) != dia_ref:
+                            es_valido = False
+                            break
+                        # Verificar continuidad horaria (asumiendo lista ordenada)
+                        if k > 0:
+                            prev = periodos_disponibles[inicio_idx + k - 1]
+                            if calcular_diferencia_horas(prev, p_cand) != 1:
+                                es_valido = False
+                                break
+                        candidatos.append(p_cand)
+                    
+                    if es_valido:
+                        # VERIFICAR COLISION CON OTROS BLOQUES DEL MISMO CURSO (H11 - Hard Mutation Check)
+                        # Identificar periodos que NO se mueven
+                        otros_periodos = set(periodos_asignados) - set(bloque_a_mover)
+                        
+                        # Verificar si alguno de los candidatos es adyacente a 'otros_periodos'
+                        colision_interna = False
+                        # Solo chequear adyacencia si hay otros bloques
+                        if otros_periodos:
+                            dia_candidato = obtener_dia_periodo(candidatos[0])
+                            for p_cand in candidatos:
+                                # Check neighbors
+                                try:
+                                    idx_cand = periodos_disponibles.index(p_cand)
+                                except ValueError:
+                                    continue # Should not happen
+                                
+                                # Prev
+                                if idx_cand > 0:
+                                    prev = periodos_disponibles[idx_cand - 1]
+                                    if prev in otros_periodos and obtener_dia_periodo(prev) == dia_candidato:
+                                        colision_interna = True; break
+                                
+                                # Next
+                                if idx_cand < len(periodos_disponibles) - 1:
+                                    post = periodos_disponibles[idx_cand + 1]
+                                    if post in otros_periodos and obtener_dia_periodo(post) == dia_candidato:
+                                        colision_interna = True; break
+                        
+                        if colision_interna:
+                            es_valido = False
+                            continue
+                            
+                        # Aplicar cambio a todo el bloque
+                        for i_k, p_old in enumerate(bloque_a_mover):
+                            idx_original = mapa_indices.get(p_old)
+                            if idx_original is not None:
+                                _, aula_old, prof_old = nuevo_individuo[codigo_curso][idx_original]
+                                nuevo_individuo[codigo_curso][idx_original] = (candidatos[i_k], aula_old, prof_old)
+                        break
 
-            if tipo_mutacion == 1:  # Cambiar período
-                nuevo_periodo = random.choice(periodos_disponibles)
-                nuevo_individuo[codigo_curso][indice_mutacion] = (nuevo_periodo, aula_actual, profesor_actual)
-            
-            elif tipo_mutacion == 2:  # Cambiar aula
+            elif tipo_mutacion == 2:  # Cambiar aula (Consistente para el bloque si es posible)
+                info_curso = data['_courses_map'][codigo_curso]
                 tipo_aula_requerido = info_curso.get('aula_tipo', 'T')
                 aulas_compatibles = [
                     a['id'] for a in aulas_disponibles 
@@ -1228,13 +1761,25 @@ def mutacion_adaptativa(individuo: Dict, data: Dict[str, Any],
                 
                 if aulas_compatibles:
                     nueva_aula = random.choice(aulas_compatibles)
-                    nuevo_individuo[codigo_curso][indice_mutacion] = (periodo_actual, nueva_aula, profesor_actual)
+                    # Aplicar a TODAS las asignaciones del curso para mantener consistencia de aula (opcional pero deseable)
+                    # O aplicar a un bloque aleatorio
+                    if bloques_periodos:
+                        bloque_a_cambiar = random.choice(bloques_periodos)
+                        for p in bloque_a_cambiar:
+                             idx = mapa_indices.get(p)
+                             if idx is not None:
+                                 p_act, _, prof_act = nuevo_individuo[codigo_curso][idx]
+                                 nuevo_individuo[codigo_curso][idx] = (p_act, nueva_aula, prof_act)
             
             elif tipo_mutacion == 3:  # Cambiar profesor
-                profesores_disponibles = info_curso.get('profesores', [])
-                if profesores_disponibles:
-                    nuevo_profesor = random.choice(profesores_disponibles)
-                    nuevo_individuo[codigo_curso][indice_mutacion] = (periodo_actual, aula_actual, nuevo_profesor)
+                info_curso = data['_courses_map'][codigo_curso]
+                profesores_curso = info_curso.get('profesores', [])
+                if profesores_curso:
+                    nuevo_profesor = random.choice(profesores_curso)
+                    # Cambiar profesor para TODO el curso
+                    for i in range(len(asignaciones)):
+                        p, a, _ = nuevo_individuo[codigo_curso][i]
+                        nuevo_individuo[codigo_curso][i] = (p, a, nuevo_profesor)
     
     return nuevo_individuo
 
@@ -1304,6 +1849,11 @@ def ejecutar_algoritmo_genetico(data: Dict[str, Any]) -> Tuple[Dict, Dict]:
             # Reparación de conflictos críticos
             hijo1 = reparar_individuo(hijo1, data)
             hijo2 = reparar_individuo(hijo2, data)
+            
+            # Reparación de fragmentación (H10) -> ELEVADA PROBABILIDAD para asegurar consistencia
+            if random.random() < 0.8: # 80% chance
+                hijo1 = reparar_fragmentacion_tiempo(hijo1, data)
+                hijo2 = reparar_fragmentacion_tiempo(hijo2, data)
             
             # Agregar a la nueva población
             nueva_poblacion.append(hijo1)
@@ -1463,11 +2013,170 @@ def main():
         print(f"Error al leer JSON de entrada: {e}", file=sys.stderr)
         sys.exit(1)
 
-    # Convertir al formato interno
-    data = convert_input_format(input_data)
+    # Detectar formato
+    if 'periodos' in input_data and 'periodos' not in input_data.get('periods', []):
+        # Es formato español / interno
+        print("ℹ️  Detectado formato de entrada español", file=sys.stderr)
+        data = convert_spanish_input_format(input_data)
+    else:
+        # Convertir al formato interno (API)
+        data = convert_input_format(input_data)
 
     # Ejecutar GA
     best, diag = ejecutar_algoritmo_genetico(data)
+    
+    # ---------------------------------------------------------
+    # FASE FINAL: REPARACIÓN DETERMINISTA OBLIGATORIA (H10/H11)
+    # ---------------------------------------------------------
+    print(f"🧹 Ejecutando reparación final mandatoria...", file=sys.stderr)
+    mapa_aulas = {a['id']: a for a in data['_aulas_list']}
+    
+    # Iterar hasta que no haya cambios o límite
+    for iteration in range(10): # 10 pases
+        cambios = False
+        for codigo_curso, asignaciones in best.items():
+            if not asignaciones: continue
+            
+            # Detectar bloques
+            periodos = [p for p, _, _ in asignaciones]
+            bloques = obtener_periodos_consecutivos(periodos, data)
+            
+            
+            # Chequear cada bloque
+            violacion = False
+            bloque_malo = None
+            for b in bloques:
+                if len(b) > MAX_CONSECUTIVE_BLOCKS:
+                    violacion = True
+                    bloque_malo = b
+                    break 
+
+            
+            if violacion:
+                # Intentar partir el bloque malo
+                # Tomar los periodos excedentes (por encima de 2)
+                # O simplemente tomar el segundo sub-bloque de 2 y moverlo
+                # Estrategia: Tomar todo el bloque y reasignarlo en trozos separados
+                
+                # Identificar indices originales
+                indices_bloque = []
+                for p in bloque_malo:
+                    for i, (pi, _, _) in enumerate(asignaciones):
+                        if pi == p:
+                            indices_bloque.append(i)
+                            break
+                indices_bloque.sort()
+                
+                # Componentes
+                curso = data['_courses_map'].get(codigo_curso, {})
+                estudiantes = curso.get('estudiantes', 30)
+                tipo_aula_req = curso.get('room_type', 'TEORIA')
+                prof = asignaciones[indices_bloque[0]][2] # Mismo profe
+                
+                # Separar en chunks de max 2
+                chunks = []
+                temp = []
+                for p in bloque_malo:
+                    temp.append(p)
+                    if len(temp) == 2:
+                        chunks.append(temp)
+                        temp = []
+                if temp: chunks.append(temp)
+                
+                # El primer chunk se queda donde está (si es válido), los demás se mueven
+                # Para simplificar: Mover TODOS los chunks buscando espacio
+                # Borrar asignaciones viejas de este bloque
+                nuevas_asignaciones = [x for k, x in enumerate(asignaciones) if k not in indices_bloque]
+                
+                # Buscar espacio para cada chunk
+                asignados_temp = set(p for p,_,_ in nuevas_asignaciones)
+                
+                # Aulas candidatas
+                aulas_candidatas = [a['id'] for a in data['_aulas_list'] 
+                                    if a['tipo'] == tipo_aula_req and a['capacidad'] >= estudiantes]
+                if not aulas_candidatas: aulas_candidatas = list(mapa_aulas.keys())
+                
+                exito_total = True
+                asignaciones_reparadas = []
+                
+                for chunk in chunks:
+                    chunk_size = len(chunk)
+                    encontrado = False
+                    
+                    # Buscar en todos los periodos y aulas
+                    inds_p = list(range(len(data['periodos']) - chunk_size + 1))
+                    random.shuffle(inds_p)
+                    
+                    for start_idx in inds_p:
+                        # Verificar geometría
+                        p_cands = []
+                        valid_geo = True
+                        dia_ref = obtener_dia_periodo(data['periodos'][start_idx])
+                        for k in range(chunk_size):
+                            pct = data['periodos'][start_idx + k]
+                            if obtener_dia_periodo(pct) != dia_ref: valid_geo=False; break
+                            if k>0:
+                                prv = data['periodos'][start_idx + k -1]
+                                if calcular_diferencia_horas(prv, pct) != 1: valid_geo=False; break
+                            p_cands.append(pct)
+                        
+                        if not valid_geo: continue
+                        
+                        # Verificar Adyacencia con asignados_temp
+                        colision = False
+                        for pc in p_cands:
+                             idx_pc = data['periodos'].index(pc)
+                             # Prev
+                             if idx_pc > 0:
+                                 prv = data['periodos'][idx_pc - 1]
+                                 if prv in asignados_temp and obtener_dia_periodo(prv) == dia_ref:
+                                     colision=True; break
+                             # Post
+                             if idx_pc < len(data['periodos']) - 1:
+                                 nxt = data['periodos'][idx_pc + 1]
+                                 if nxt in asignados_temp and obtener_dia_periodo(nxt) == dia_ref:
+                                     colision=True; break
+                        
+                        if colision: continue
+                        
+                        # Verificar Recurso (Aula/Prof) -> Solo Hard Time Constraints para Prof
+                        prof_busy = False
+                        if prof:
+                             disp = data['_profs_map'][prof].get('disponibilidad', [])
+                             if disp:
+                                 for pc in p_cands:
+                                     if pc not in disp: prof_busy=True; break
+                        if prof_busy: continue
+                        
+                        # Find room
+                        aula_sel = None
+                        for aid in aulas_candidatas:
+                             aula_sel = aid
+                             break
+                        
+                        if aula_sel:
+                             encontrado = True
+                             for pc in p_cands:
+                                 asignaciones_reparadas.append((pc, aula_sel, prof))
+                                 asignados_temp.add(pc)
+                             break
+                    
+                    if not encontrado:
+                        # print(f"   -> ❌ No se encontró espacio para chunk de {chunk_size}", file=sys.stderr)
+                        exito_total = False
+                        break
+                
+                if exito_total:
+                    best[codigo_curso] = nuevas_asignaciones + asignaciones_reparadas
+                    cambios = True
+                    # print(f"   -> ✅ Curso {codigo_curso} REPARADO.", file=sys.stderr)
+
+        
+        if not cambios:
+            break
+            
+    # Re-evaluar para estadísticas
+
   
     # Convertir solución a JSON
     output_json = convertir_solucion_a_json(best, data)
